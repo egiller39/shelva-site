@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. https://webflow.com -->
+<!-- Last Published: Wed Sep 03 2025 03:13:00 GMT+0000 (Coordinated Universal Time) -->
+<html data-wf-domain="shelva.webflow.io"   data-wf-page="68a8e7cb6773a5df84834228" data-wf-site="68a8e7ca6773a5df8483416a" data-wf-status="1">
+    <head>
+          <style>
+
+/* make sure your nav sits on top */
+.nav { position: relative; z-index: 10000; }
+.nav_container.w-nav { position: relative; z-index: 10000; }
+.nav_mobile-menu-button,
+.w-nav-button { position: relative; z-index: 10001; pointer-events: auto; }
+.w-nav-menu { z-index: 10000; }
+
+.nav_mobile-menu-button svg,
+.w-nav-button svg {
+    
+  pointer-events: none;
+}
+
+.ix_marquee-vertical-down,
+.ix_marquee-vertical-up,
+.position_absolute,
+.overflow_hidden .image_cover {
+  pointer-events: none;
+}
+
+    @keyframes marqueeDown { 
+      from { transform: translateY(0); } 
+      to { transform: translateY(100%); } 
+    }
+    @keyframes marqueeUp { 
+      from { transform: translateY(0); } 
+      to { transform: translateY(-100%);} 
+    }
+
+    .ix_marquee-vertical-down { 
+      animation: marqueeDown 18s linear infinite; 
+      will-change: transform;
+    }
+    .ix_marquee-vertical-up { 
+      animation: marqueeUp 18s linear infinite; 
+      will-change: transform;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ix_marquee-vertical-down, .ix_marquee-vertical-up { animation: none; }
+    }
+
+    .is-top--100 { top: -100%; }
+
+  </style>
+        <meta charset="utf-8"/>
+        <title>Shelva: Digital Shelf Labels</title>
+        <meta content="Discover Shelva&#x27;s mission to modernize retail with our Shopify app for electronic shelf labels, designed to streamline pricing and inventory management." name="description"/>
+        <meta content="About Shelva - Innovative Retail Technology Solutions" property="og:title"/>
+        <meta content="Discover Shelva&#x27;s mission to modernize retail with our Shopify app for electronic shelf labels, designed to streamline pricing and inventory management." property="og:description"/>
+        <meta content="About Shelva - Innovative Retail Technology Solutions" property="twitter:title"/>
+        <meta content="Discover Shelva&#x27;s mission to modernize retail with our Shopify app for electronic shelf labels, designed to streamline pricing and inventory management." property="twitter:description"/>
+        <meta property="og:type" content="website"/>
+        <meta content="summary_large_image" name="twitter:card"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <meta content="Webflow" name="generator"/>
+        <link href="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/css/shelva.webflow.shared.40ff06190.css" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com" rel="preconnect"/>
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            WebFont.load({
+                google: {
+                    families: ["Figtree:regular", "Figtree:regular", "Figtree:regular"]
+                }
+            });
+        </script>
+        <script type="text/javascript">
+            !function(o, c) {
+                var n = c.documentElement
+                  , t = " w-mod-";
+                n.className += t + "js",
+                ("ontouchstart"in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
+            }(window, document);
+        </script>
+        <link href="/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+        <link href="https://cdn.prod.website-files.com/img/webclip.png" rel="apple-touch-icon"/>
+    </head>
+    <script>
+  (function () {
+    const kill = () => {
+      document.querySelectorAll('a.w-webflow-badge,[data-wf-badge]').forEach(el => el.remove());
+    };
+    // remove anything present now
+    kill();
+    // remove anything Webflow injects later
+    new MutationObserver(kill).observe(document.documentElement, { childList: true, subtree: true });
+  })();
+</script>
+    <body>
+        <div class="nav is-accent-primary">
+            <div data-duration="400" data-animation="default" data-easing2="ease" data-easing="ease" data-collapse="medium" role="banner" data-no-scroll="1" class="nav_container w-nav">
+                <img src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a935e1326d9198359766a5_Shelva%20logo%20-%20ethans%20pick-01-01.png" loading="lazy" width="Auto" height="Auto" alt="" srcset="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a935e1326d9198359766a5_Shelva%20logo%20-%20ethans%20pick-01-01-p-500.png 500w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a935e1326d9198359766a5_Shelva%20logo%20-%20ethans%20pick-01-01-p-800.png 800w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a935e1326d9198359766a5_Shelva%20logo%20-%20ethans%20pick-01-01-p-1080.png 1080w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a935e1326d9198359766a5_Shelva%20logo%20-%20ethans%20pick-01-01-p-1600.png 1600w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a935e1326d9198359766a5_Shelva%20logo%20-%20ethans%20pick-01-01-p-2000.png 2000w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a935e1326d9198359766a5_Shelva%20logo%20-%20ethans%20pick-01-01-p-2600.png 2600w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a935e1326d9198359766a5_Shelva%20logo%20-%20ethans%20pick-01-01-p-3200.png 3200w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a935e1326d9198359766a5_Shelva%20logo%20-%20ethans%20pick-01-01.png 5000w" sizes="(max-width: 5000px) 100vw, 5000px" class="image-2"/>
+                <div class="nav_right">
+                    <nav role="navigation" class="nav_menu w-nav-menu">
+                        <ul role="list" class="nav_menu-list w-list-unstyled">
+                            <li class="nav_menu-list-item">
+                                <div data-delay="22" data-hover="false" data-w-id="87579c07-f939-e092-7566-e74285831707" class="nav_dropdown-menu w-dropdown">
+                                    <nav class="mega-nav_dropdown-list w-dropdown-list">
+                                        <div class="mega-nav_dropdown-list-wrapper">
+                                            <ul role="list" class="grid_3-col tablet-1-col gap-medium margin-bottom_none w-list-unstyled">
+                                                <li id="w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2e6d-ad6d2e56" class="w-node-_87579c07-f939-e092-7566-e7428583170f-858316fa">
+                                                    <div class="w-layout-grid grid_3-col tablet-1-col gap-small">
+                                                        <div>
+                                                            <div class="eyebrow">Label Management</div>
+                                                            <ul role="list" class="mega-nav_list w-list-unstyled">
+                                                                <li class="margin-bottom_none">
+                                                                    <a href="#" class="mega-nav_link-item w-inline-block">
+                                                                        <div class="icon is-medium on-accent-primary">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 32 32" fill="currentColor">
+                                                                                <path d="m25.7 9.3l-7-7A.9.9 0 0 0 18 2H8a2.006 2.006 0 0 0-2 2v24a2.006 2.006 0 0 0 2 2h16a2.006 2.006 0 0 0 2-2V10a.9.9 0 0 0-.3-.7M18 4.4l5.6 5.6H18ZM24 28H8V4h8v6a2.006 2.006 0 0 0 2 2h6Z" stroke-linejoin="round"></path>
+                                                                            </svg>
+                                                                        </div>
+                                                                        <div id="w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2e78-ad6d2e56" class="w-node-_87579c07-f939-e092-7566-e7428583171a-858316fa">
+                                                                            <div>
+                                                                                <strong>ESL Designer</strong>
+                                                                            </div>
+                                                                            <div class="paragraph_small text-color_secondary">Design custom digital shelf labels.</div>
+                                                                        </div>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="margin-bottom_none">
+                                                                    <a href="#" class="mega-nav_link-item w-inline-block">
+                                                                        <div class="icon is-medium on-accent-primary">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 32 32" fill="currentColor">
+                                                                                <path d="m25.7 9.3l-7-7A.9.9 0 0 0 18 2H8a2.006 2.006 0 0 0-2 2v24a2.006 2.006 0 0 0 2 2h16a2.006 2.006 0 0 0 2-2V10a.9.9 0 0 0-.3-.7M18 4.4l5.6 5.6H18ZM24 28H8V4h8v6a2.006 2.006 0 0 0 2 2h6Z" stroke-linejoin="round"></path>
+                                                                            </svg>
+                                                                        </div>
+                                                                        <div id="w-node-f807f6d1-1643-a581-cf58-1ddfb132bd6d-ad6d2e56" class="w-node-_87579c07-f939-e092-7566-e74285831725-858316fa">
+                                                                            <div>
+                                                                                <strong>Product Sync</strong>
+                                                                            </div>
+                                                                            <div class="paragraph_small text-color_secondary">Sync prices and inventory instantly.</div>
+                                                                        </div>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="margin-bottom_none">
+                                                                    <a href="#" class="mega-nav_link-item w-inline-block">
+                                                                        <div class="icon is-medium on-accent-primary">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 32 32" fill="currentColor">
+                                                                                <path d="m25.7 9.3l-7-7A.9.9 0 0 0 18 2H8a2.006 2.006 0 0 0-2 2v24a2.006 2.006 0 0 0 2 2h16a2.006 2.006 0 0 0 2-2V10a.9.9 0 0 0-.3-.7M18 4.4l5.6 5.6H18ZM24 28H8V4h8v6a2.006 2.006 0 0 0 2 2h6Z" stroke-linejoin="round"></path>
+                                                                            </svg>
+                                                                        </div>
+                                                                        <div id="w-node-_81a98210-c6c4-fcf3-e0c3-108b18c0cc9b-ad6d2e56" class="w-node-_87579c07-f939-e092-7566-e74285831730-858316fa">
+                                                                            <div>
+                                                                                <strong>Bulk Updates</strong>
+                                                                            </div>
+                                                                            <div class="paragraph_small text-color_secondary">Update all labels in one click.</div>
+                                                                        </div>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div>
+                                                            <div class="eyebrow">Hardware</div>
+                                                            <ul role="list" class="mega-nav_list w-list-unstyled">
+                                                                <li class="margin-bottom_none">
+                                                                    <a href="#" class="mega-nav_link-item w-inline-block">
+                                                                        <div class="icon is-medium on-accent-primary">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 32 32" fill="currentColor">
+                                                                                <path d="m25.7 9.3l-7-7A.9.9 0 0 0 18 2H8a2.006 2.006 0 0 0-2 2v24a2.006 2.006 0 0 0 2 2h16a2.006 2.006 0 0 0 2-2V10a.9.9 0 0 0-.3-.7M18 4.4l5.6 5.6H18ZM24 28H8V4h8v6a2.006 2.006 0 0 0 2 2h6Z" stroke-linejoin="round"></path>
+                                                                            </svg>
+                                                                        </div>
+                                                                        <div id="w-node-_9f30640f-1f64-d0c6-60e9-e2b460cf1f47-ad6d2e56" class="w-node-_87579c07-f939-e092-7566-e7428583173f-858316fa">
+                                                                            <div>
+                                                                                <strong>ESL Tags</strong>
+                                                                            </div>
+                                                                            <div class="paragraph_small text-color_secondary">Multiple sizes and styles available.</div>
+                                                                        </div>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="margin-bottom_none">
+                                                                    <a href="#" class="mega-nav_link-item w-inline-block">
+                                                                        <div class="icon is-medium on-accent-primary">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 32 32" fill="currentColor">
+                                                                                <path d="m25.7 9.3l-7-7A.9.9 0 0 0 18 2H8a2.006 2.006 0 0 0-2 2v24a2.006 2.006 0 0 0 2 2h16a2.006 2.006 0 0 0 2-2V10a.9.9 0 0 0-.3-.7M18 4.4l5.6 5.6H18ZM24 28H8V4h8v6a2.006 2.006 0 0 0 2 2h6Z" stroke-linejoin="round"></path>
+                                                                            </svg>
+                                                                        </div>
+                                                                        <div id="w-node-_9f30640f-1f64-d0c6-60e9-e2b460cf1f52-ad6d2e56" class="w-node-_87579c07-f939-e092-7566-e7428583174a-858316fa">
+                                                                            <div>
+                                                                                <strong>Base Station</strong>
+                                                                            </div>
+                                                                            <div class="paragraph_small text-color_secondary">Manage all devices seamlessly.</div>
+                                                                        </div>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="margin-bottom_none">
+                                                                    <a href="#" class="mega-nav_link-item w-inline-block">
+                                                                        <div class="icon is-medium on-accent-primary">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 32 32" fill="currentColor">
+                                                                                <path d="m25.7 9.3l-7-7A.9.9 0 0 0 18 2H8a2.006 2.006 0 0 0-2 2v24a2.006 2.006 0 0 0 2 2h16a2.006 2.006 0 0 0 2-2V10a.9.9 0 0 0-.3-.7M18 4.4l5.6 5.6H18ZM24 28H8V4h8v6a2.006 2.006 0 0 0 2 2h6Z" stroke-linejoin="round"></path>
+                                                                            </svg>
+                                                                        </div>
+                                                                        <div id="w-node-_9f30640f-1f64-d0c6-60e9-e2b460cf1f5d-ad6d2e56" class="w-node-_87579c07-f939-e092-7566-e74285831755-858316fa">
+                                                                            <div>
+                                                                                <strong>Installation</strong>
+                                                                            </div>
+                                                                            <div class="paragraph_small text-color_secondary">Quick setup for any store.</div>
+                                                                        </div>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div>
+                                                            <div class="eyebrow">Resources</div>
+                                                            <ul role="list" class="mega-nav_list w-list-unstyled">
+                                                                <li class="margin-bottom_none">
+                                                                    <a href="#" class="mega-nav_link-item w-inline-block">
+                                                                        <div class="icon is-medium on-accent-primary">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 32 32" fill="currentColor">
+                                                                                <path d="m25.7 9.3l-7-7A.9.9 0 0 0 18 2H8a2.006 2.006 0 0 0-2 2v24a2.006 2.006 0 0 0 2 2h16a2.006 2.006 0 0 0 2-2V10a.9.9 0 0 0-.3-.7M18 4.4l5.6 5.6H18ZM24 28H8V4h8v6a2.006 2.006 0 0 0 2 2h6Z" stroke-linejoin="round"></path>
+                                                                            </svg>
+                                                                        </div>
+                                                                        <div id="w-node-_246168ec-5422-2d22-c1a6-e8b7eb4d77d8-ad6d2e56" class="w-node-_87579c07-f939-e092-7566-e74285831764-858316fa">
+                                                                            <div>
+                                                                                <strong>How It Works</strong>
+                                                                            </div>
+                                                                            <div class="paragraph_small text-color_secondary">Step-by-step setup instructions.</div>
+                                                                        </div>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="margin-bottom_none">
+                                                                    <a href="#" class="mega-nav_link-item w-inline-block">
+                                                                        <div class="icon is-medium on-accent-primary">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 32 32" fill="currentColor">
+                                                                                <path d="m25.7 9.3l-7-7A.9.9 0 0 0 18 2H8a2.006 2.006 0 0 0-2 2v24a2.006 2.006 0 0 0 2 2h16a2.006 2.006 0 0 0 2-2V10a.9.9 0 0 0-.3-.7M18 4.4l5.6 5.6H18ZM24 28H8V4h8v6a2.006 2.006 0 0 0 2 2h6Z" stroke-linejoin="round"></path>
+                                                                            </svg>
+                                                                        </div>
+                                                                        <div id="w-node-_246168ec-5422-2d22-c1a6-e8b7eb4d77e3-ad6d2e56" class="w-node-_87579c07-f939-e092-7566-e7428583176f-858316fa">
+                                                                            <div>
+                                                                                <strong>FAQ</strong>
+                                                                            </div>
+                                                                            <div class="paragraph_small text-color_secondary">Common questions answered.</div>
+                                                                        </div>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="margin-bottom_none">
+                                                                    <a href="#" class="mega-nav_link-item w-inline-block">
+                                                                        <div class="icon is-medium on-accent-primary">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 32 32" fill="currentColor">
+                                                                                <path d="m25.7 9.3l-7-7A.9.9 0 0 0 18 2H8a2.006 2.006 0 0 0-2 2v24a2.006 2.006 0 0 0 2 2h16a2.006 2.006 0 0 0 2-2V10a.9.9 0 0 0-.3-.7M18 4.4l5.6 5.6H18ZM24 28H8V4h8v6a2.006 2.006 0 0 0 2 2h6Z" stroke-linejoin="round"></path>
+                                                                            </svg>
+                                                                        </div>
+                                                                        <div id="w-node-_246168ec-5422-2d22-c1a6-e8b7eb4d77ee-ad6d2e56" class="w-node-_87579c07-f939-e092-7566-e7428583177a-858316fa">
+                                                                            <div>
+                                                                                <strong>Support</strong>
+                                                                            </div>
+                                                                            <div class="paragraph_small text-color_secondary">Get help from our team.</div>
+                                                                        </div>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li id="w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2ede-ad6d2e56" class="flex_horizontal w-node-_87579c07-f939-e092-7566-e74285831780-858316fa">
+                                                    <a href="#" class="card-link is-inverse flex-child_expand w-inline-block">
+                                                        <div class="card_body">
+                                                            <div class="heading_h3">Modern retail, simplified</div>
+                                                            <p class="paragraph_small text-color_inverse-secondary">Design, connect, and sync shelf labels from Shopify—no coding needed.</p>
+                                                            <div class="margin_top-auto">
+                                                                <div class="button-group">
+                                                                    <div class="text-button is-secondary on-accent-primary">
+                                                                        <div>Learn more</div>
+                                                                        <div class="button_icon">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16" fill="none">
+                                                                                <path d="M2 8H14.5M14.5 8L8.5 2M14.5 8L8.5 14" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+                                                                            </svg>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <a href="#" class="w-dropdown-link">Link</a>
+                                    </nav>
+                                </div>
+                            </li>
+                            <li class="nav_menu-list-item">
+                                <a href="/site/home.html" class="nav_link on-accent-primary w-inline-block w--current">
+                                    <div>Home</div>
+                                </a>
+                            </li>
+                            <li class="nav_menu-list-item">
+                                <a href="mailto:contact@shelva.app?subject=Shelva%20Request" class="nav_link on-accent-primary w-inline-block">
+                                    <div class="text-block-2">Contact</div>
+                                </a>
+                            </li>
+                            <li class="nav_menu-list-item">
+                                <div data-delay="0" data-hover="false" data-w-id="87579c07-f939-e092-7566-e7428583179a" class="nav_dropdown-menu w-dropdown">
+                                    <div class="nav_dropdown-list w-dropdown-list">
+                                        <div class="nav-menu_dropdown-list-wrapper">
+                                            <ul role="list" class="flex_vertical margin-bottom_none w-list-unstyled">
+                                                <li class="margin-bottom_none">
+                                                    <a href="#" class="nav_dropdown-link w-inline-block">
+                                                        <div class="button_label">Help Center</div>
+                                                    </a>
+                                                </li>
+                                                <li class="margin-bottom_none">
+                                                    <a href="mailto:contact@shelva.app?subject=Shelva%20Request" class="nav_dropdown-link w-inline-block">
+                                                        <div class="button_label">Contact</div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="button-group margin-top_none">
+                        <a href="https://apps.shopify.com/shelva-app" class="button on-accent-primary w-inline-block">
+                            <div class="button_label">Get started</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="nav_mobile-menu-button w-nav-button">
+                    <div class="icon on-accent-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <g class="nc-icon-wrapper" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" fill="none" stroke="currentColor" stroke-miterlimit="10">
+                                <line x1="1" y1="12" x2="23" y2="12" stroke="currentColor"></line>
+                                <line x1="1" y1="5" x2="23" y2="5"></line>
+                                <line x1="1" y1="19" x2="23" y2="19"></line>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <header class="section max-height_100vh_desktop overflow_hidden flex_horizontal is-y-center is-accent-primary">
+            <div class="container is-max">
+                <div class="w-layout-grid grid_2-col tablet-1-col gap-large">
+                    <div id="w-node-_2e836beb-de99-de1f-b8ab-218c497db8f4-497db8f1" class="header max-width_small w-node-b68cdffb-0f4a-2758-13e0-ecfc7feb1c52-84834228">
+                        <h1 class="heading_h1">Sync your shelves. Simplify retail.</h1>
+                        <p class="subheading">Connect your Shopify store to digital shelf labels. Update prices, inventory, and promotions instantly—no manual work required.</p>
+                        <div class="w-layout-hflex flex-block">
+                            <a href="https://apps.shopify.com/shelva-app" target="_blank" class="button on-accent-primary w-button">Install now</a>
+                            <img src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a9397fb13945731c2eb2ce_shopify_logo_white.png" loading="lazy" sizes="(max-width: 1000px) 100vw, 1000px" srcset="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a9397fb13945731c2eb2ce_shopify_logo_white-p-500.png 500w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a9397fb13945731c2eb2ce_shopify_logo_white.png 1000w" alt="" class="image-4"/>
+                        </div>
+                    </div>
+                    <div class="w-layout-grid grid_2-col gap-small">
+                        <div class="position_relative overflow_hidden">
+                            <div data-w-id="b68cdffb-0f4a-2758-13e0-ecfc7feb1c62" class="ix_marquee-vertical-down">
+                                <div class="w-layout-grid grid_1-col gap-small padding-top_small">
+                                    <div id="w-node-e1bb9713-d7c4-5c86-646f-4bfab84d21e8-497db8f1" class="image-ratio_3x2 w-node-b68cdffb-0f4a-2758-13e0-ecfc7feb1c54-84834228">
+                                        <img class="image_cover" src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c43406f6b8a43d00f1b_1.png" width="367" height="244" alt="[background image] retail setting (for a tech gadgets store)" sizes="(max-width: 479px) 100vw, 367px" data-aisg-image-id="0b4e5aac-3f98-4cdb-870e-419ccd830d7f" loading="lazy" srcset="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c43406f6b8a43d00f1b_1-p-500.png 500w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c43406f6b8a43d00f1b_1-p-800.png 800w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c43406f6b8a43d00f1b_1-p-1080.png 1080w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c43406f6b8a43d00f1b_1-p-1600.png 1600w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c43406f6b8a43d00f1b_1.png 1920w"/>
+                                    </div>
+                                    <div class="image-ratio_3x2">
+                                        <img class="image_cover" src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c44bede78afd28e3958_3.png" width="367" height="244" alt="image of hands on an appointment booking on a tablet" sizes="(max-width: 479px) 100vw, 367px" data-aisg-image-id="6c3346b7-5714-4acb-adc6-3a3ae698da38" loading="lazy" srcset="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c44bede78afd28e3958_3-p-500.png 500w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c44bede78afd28e3958_3-p-800.png 800w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c44bede78afd28e3958_3-p-1080.png 1080w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c44bede78afd28e3958_3-p-1600.png 1600w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c44bede78afd28e3958_3.png 1920w"/>
+                                    </div>
+                                    <div class="image-ratio_3x2">
+                                        <img class="image_cover" src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c435113c826aa536b89_2.png" width="367" height="244" alt="image of an open role on a film set" sizes="(max-width: 479px) 100vw, 367px" data-aisg-image-id="8d06e8b0-bb57-4067-8aef-a524a89317fd" loading="lazy" srcset="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c435113c826aa536b89_2-p-500.png 500w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c435113c826aa536b89_2-p-800.png 800w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c435113c826aa536b89_2-p-1080.png 1080w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c435113c826aa536b89_2-p-1600.png 1600w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c435113c826aa536b89_2.png 1920w"/>
+                                    </div>
+                                </div>
+                                <div class="position_absolute is-top--100">
+                                    <div class="w-layout-grid grid_1-col gap-small padding-top_small">
+                                        <div id="w-node-_91778d14-f351-1a6c-1fc3-f99bb8099166-497db8f1" class="image-ratio_3x2 w-node-b68cdffb-0f4a-2758-13e0-ecfc7feb1c5b-84834228">
+                                            <img class="image_cover" src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c43406f6b8a43d00f1b_1.png" width="367" height="244" alt="image of ticket options (for a amusement park)" sizes="(max-width: 479px) 100vw, 367px" data-aisg-image-id="edb3fe07-bf35-425a-926b-b11007ef7601" loading="lazy" srcset="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c43406f6b8a43d00f1b_1-p-500.png 500w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c43406f6b8a43d00f1b_1-p-800.png 800w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c43406f6b8a43d00f1b_1-p-1080.png 1080w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c43406f6b8a43d00f1b_1-p-1600.png 1600w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c43406f6b8a43d00f1b_1.png 1920w"/>
+                                        </div>
+                                        <div id="w-node-_9017927e-dae1-1851-b9c3-80a569c5c1f0-497db8f1" class="image-ratio_3x2 w-node-b68cdffb-0f4a-2758-13e0-ecfc7feb1c5d-84834228">
+                                            <img class="image_cover" src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c44bede78afd28e3958_3.png" width="367" height="244" alt="image of social media ad design (for a digital marketing &amp; advertising agency)" sizes="(max-width: 479px) 100vw, 367px" data-aisg-image-id="b1fc1f95-8bb6-4d33-9853-a6a5dd63256a" loading="lazy" srcset="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c44bede78afd28e3958_3-p-500.png 500w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c44bede78afd28e3958_3-p-800.png 800w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c44bede78afd28e3958_3-p-1080.png 1080w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c44bede78afd28e3958_3-p-1600.png 1600w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c44bede78afd28e3958_3.png 1920w"/>
+                                        </div>
+                                        <div id="w-node-d5b0713b-dcc8-5ae4-5c11-83732175ae40-497db8f1" class="image-ratio_3x2 w-node-b68cdffb-0f4a-2758-13e0-ecfc7feb1c5f-84834228">
+                                            <img class="image_cover" src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c435113c826aa536b89_2.png" width="367" height="244" alt="image of past commercial project (for a general contractor)" sizes="(max-width: 479px) 100vw, 367px" data-aisg-image-id="4c4b2e5e-78c3-4e90-be2c-81dd16443c20" loading="lazy" srcset="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c435113c826aa536b89_2-p-500.png 500w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c435113c826aa536b89_2-p-800.png 800w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c435113c826aa536b89_2-p-1080.png 1080w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c435113c826aa536b89_2-p-1600.png 1600w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c435113c826aa536b89_2.png 1920w"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="position_relative overflow_hidden">
+                            <div data-w-id="b68cdffb-0f4a-2758-13e0-ecfc7feb1c73" class="ix_marquee-vertical-up">
+                                <div class="w-layout-grid grid_1-col gap-small padding-top_small">
+                                    <div id="w-node-a2d58161-1000-1c2c-8500-456df620c1d5-497db8f1" class="image-ratio_3x2 w-node-b68cdffb-0f4a-2758-13e0-ecfc7feb1c65-84834228">
+                                        <img class="image_cover" src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae14723e54a2bde55ae017_6.png" width="367" height="244" alt="image of tech conference scene" sizes="(max-width: 479px) 100vw, 367px" data-aisg-image-id="4019f41c-3595-4319-bf49-4309b74ad8fc" loading="lazy" srcset="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae14723e54a2bde55ae017_6-p-500.png 500w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae14723e54a2bde55ae017_6-p-800.png 800w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae14723e54a2bde55ae017_6-p-1080.png 1080w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae14723e54a2bde55ae017_6.png 1200w"/>
+                                    </div>
+                                    <div class="image-ratio_3x2">
+                                        <img class="image_cover" src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae147359b9d1a5b0fd9d96_4.png" width="367" height="244" alt="image of safety hazard identification (for a home inspector)" sizes="(max-width: 479px) 100vw, 367px" data-aisg-image-id="bc43920c-6821-4906-8891-a3080a0f59a4" loading="lazy" srcset="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae147359b9d1a5b0fd9d96_4-p-500.png 500w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae147359b9d1a5b0fd9d96_4-p-800.png 800w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae147359b9d1a5b0fd9d96_4-p-1080.png 1080w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae147359b9d1a5b0fd9d96_4.png 1200w"/>
+                                    </div>
+                                    <div class="image-ratio_3x2">
+                                        <img class="image_cover" src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae1472a5fa090b3f0faa72_5.png" width="367" height="244" alt="[digital project]" sizes="(max-width: 479px) 100vw, 367px" data-aisg-image-id="996013dc-95ef-4075-9999-0e3501e1c454" loading="lazy" srcset="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae1472a5fa090b3f0faa72_5-p-500.png 500w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae1472a5fa090b3f0faa72_5-p-800.png 800w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae1472a5fa090b3f0faa72_5-p-1080.png 1080w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae1472a5fa090b3f0faa72_5.png 1200w"/>
+                                    </div>
+                                </div>
+                                <div class="position_absolute is-top-100">
+                                    <div class="w-layout-grid grid_1-col gap-small padding-top_small">
+                                        <div id="w-node-_707a916a-69f0-fa30-70d5-d605da2d108c-497db8f1" class="image-ratio_3x2 w-node-b68cdffb-0f4a-2758-13e0-ecfc7feb1c6c-84834228">
+                                            <img class="image_cover" src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae14723e54a2bde55ae017_6.png" width="367" height="244" alt="[background image] retail environment (for a toys &amp; game store)" sizes="(max-width: 479px) 100vw, 367px" data-aisg-image-id="ce16a029-037a-4c06-899a-94c26274ea0a" loading="lazy" srcset="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae14723e54a2bde55ae017_6-p-500.png 500w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae14723e54a2bde55ae017_6-p-800.png 800w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae14723e54a2bde55ae017_6-p-1080.png 1080w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae14723e54a2bde55ae017_6.png 1200w"/>
+                                        </div>
+                                        <div id="w-node-_707a916a-69f0-fa30-70d5-d605da2d108e-497db8f1" class="image-ratio_3x2 w-node-b68cdffb-0f4a-2758-13e0-ecfc7feb1c6e-84834228">
+                                            <img class="image_cover" src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae147359b9d1a5b0fd9d96_4.png" width="367" height="244" alt="image of hands on an appointment booking on a tablet" sizes="(max-width: 479px) 100vw, 367px" data-aisg-image-id="4f62415e-af8b-4c83-b410-abd57c24d58c" loading="lazy" srcset="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae147359b9d1a5b0fd9d96_4-p-500.png 500w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae147359b9d1a5b0fd9d96_4-p-800.png 800w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae147359b9d1a5b0fd9d96_4-p-1080.png 1080w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae147359b9d1a5b0fd9d96_4.png 1200w"/>
+                                        </div>
+                                        <div id="w-node-_707a916a-69f0-fa30-70d5-d605da2d1090-497db8f1" class="image-ratio_3x2 w-node-b68cdffb-0f4a-2758-13e0-ecfc7feb1c70-84834228">
+                                            <img class="image_cover" src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae1472a5fa090b3f0faa72_5.png" width="367" height="244" alt="image of finished goods inventory (for a manufacturing plant)" sizes="(max-width: 479px) 100vw, 367px" data-aisg-image-id="27400f98-7915-4e45-be16-2d6a55697053" loading="lazy" srcset="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae1472a5fa090b3f0faa72_5-p-500.png 500w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae1472a5fa090b3f0faa72_5-p-800.png 800w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae1472a5fa090b3f0faa72_5-p-1080.png 1080w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae1472a5fa090b3f0faa72_5.png 1200w"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="section">
+            <div class="container">
+                <div class="w-layout-grid grid_2-col tablet-1-col gap-xxlarge is-y-center">
+                    <div id="w-node-a1016e02-974a-bfc0-f239-2a3d96068e3e-96068e3b" class="header margin-bottom_none w-node-bde5a8ce-7519-13a8-5b13-9a9e26b3277f-84834228">
+                        <div class="icon is-large is-background margin-bottom_xsmall">
+                            <img src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a9398ebf990d9aa40576fc_shopify_glyph_black.png" loading="lazy" sizes="(max-width: 913px) 100vw, 913px" srcset="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a9398ebf990d9aa40576fc_shopify_glyph_black-p-500.png 500w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a9398ebf990d9aa40576fc_shopify_glyph_black.png 913w" alt="" class="image-5"/>
+                        </div>
+                        <h2>Sync shelves in seconds with Shelva</h2>
+                        <p class="paragraph_large margin-bottom_none">Effortlessly link your Shopify online pricing and in-store pricing. Product updates, promotions, and inventory changes are instantly reflected on every shelf label—no manual edits, no mismatches, just accurate, up-to-date information at all times.</p>
+                    </div>
+                    <div class="image-ratio_1x1">
+                        <img class="image-8" src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68b0c24efa6118799a52ee7b_Untitled%20design%20(39).png" width="576" height="576" alt="image of customer participating in instore event for a department store" sizes="(max-width: 767px) 100vw, 576px" data-aisg-image-id="dd838cdb-f119-4213-b71d-e7914cc0c383" loading="lazy" srcset="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68b0c24efa6118799a52ee7b_Untitled%20design%20(39)-p-500.png 500w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68b0c24efa6118799a52ee7b_Untitled%20design%20(39)-p-800.png 800w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68b0c24efa6118799a52ee7b_Untitled%20design%20(39)-p-1080.png 1080w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68b0c24efa6118799a52ee7b_Untitled%20design%20(39).png 1200w"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section is-secondary">
+            <div class="container">
+                <div class="header is-align-center" id="pricing">
+                    <h2 class="heading_h2">Simple pricing for every shop</h2>
+                </div>
+                <ul role="list" class="list-4 w-list-unstyled">
+                    <li class="card on-secondary">
+                        <div class="card_body">
+                            <div class="margin_bottom-auto">
+                                <h4 class="heading_h3">Starter</h4>
+                                <p class="paragraph-2">Connect up to 50 digital shelf labels. Perfect for small stores. Includes basic label design and instant updates.</p>
+                                <br/>
+                            </div>
+                            <div class="margin-top_large">
+                                <div class="w-layout-hflex flex_horizontal is-y-baseline">
+                                    <p class="heading_h2 margin-bottom_none">$89</p>
+                                    <p class="heading_h4 margin-bottom_none">/mo</p>
+                                </div>
+                                <p class="paragraph_large">First 50 labels</p>
+                                <div class="margin-top_xsmall">
+                                    <div class="button-group">
+                                        <a href="https://apps.shopify.com/shelva-app" target="_blank" class="button w-button">Start</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="card on-secondary">
+                        <div class="card_body">
+                            <div class="margin_bottom-auto">
+                                <h4 class="heading_h3">Growth</h4>
+                                <p class="paragraph-3">Up to 200 shelf labels for expanding stores. Access advanced design, and priority support.</p>
+                            </div>
+                            <div class="margin-top_large">
+                                <div class="w-layout-hflex flex_horizontal is-y-baseline">
+                                    <p class="heading_h2 margin-bottom_none">$149</p>
+                                    <p class="heading_h4 margin-bottom_none">/mo</p>
+                                </div>
+                                <p class="paragraph_large">Up to 200 labels</p>
+                                <div class="margin-top_xsmall">
+                                    <div class="button-group">
+                                        <a href="https://apps.shopify.com/shelva-app" target="_blank" class="button w-button">Grow</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="card on-secondary">
+                        <div class="card_body">
+                            <div class="margin_bottom-auto">
+                                <h4 class="heading_h3">Enterprise</h4>
+                                <p class="paragraph-4">Unlimited Shelva labels for expanding stores. personalized layout designs and priority support.</p>
+                            </div>
+                            <div class="margin-top_large">
+                                <div class="w-layout-hflex flex_horizontal is-y-baseline">
+                                    <p class="heading_h4 margin-bottom_none">Contact sales</p>
+                                </div>
+                                <div class="margin-top_xsmall">
+                                    <div class="button-group">
+                                        <a href="mailto:contact@shelva.app?subject=Shelva%20Request" class="button w-button">Contact</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="margin-top_large">
+                    <div class="divider margin-bottom_xsmall">
+                        <p class="heading_h4">Every plan includes</p>
+                    </div>
+                    <ul role="list" aria-label="Plan features" class="grid_3-col gap-xsmall tablet-1-col w-list-unstyled">
+                        <li>
+                            <p class="margin-bottom_none">Syncing with Shopify </p>
+                        </li>
+                        <li>
+                            <p class="margin-bottom_none">Label designer</p>
+                        </li>
+                        <li>
+                            <p class="margin-bottom_none">Automatic price updates</p>
+                        </li>
+                        <li>
+                            <p class="margin-bottom_none">Bulk management</p>
+                        </li>
+                        <li>
+                            <p class="margin-bottom_none">Seamless hardware setup</p>
+                        </li>
+                        <li>
+                            <p class="margin-bottom_none">Live support</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container">
+                <div id="w-node-_744bb273-0f08-8207-3974-85f409138e48-09138e44" class="header max-width_large w-node-b48daa31-fdd5-12e3-6cfb-ba979299f05a-84834228">
+                    <h2 class="heading-2">Retail, reimagined for today</h2>
+                    <p class="paragraph_large text-color_secondary">Bridge your online and in-store pricing. Update and manage electronic shelf labels directly from your Shopify admin—no extra tools or manual steps.</p>
+                </div>
+                <div class="w-layout-grid grid_3-col gap-xsmall">
+                    <div id="w-node-e103c29a-f04a-aec6-b4d4-ec4836c3c903-09138e44" class="card w-node-b48daa31-fdd5-12e3-6cfb-ba979299f066-84834228">
+                        <div class="card_body">
+                            <div class="icon margin-bottom_xsmall">
+                                <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none">
+                                    <path d="M9.24998 18.7103C6.60958 17.6271 4.75 15.0307 4.75 12C4.75 8.96938 6.60958 6.37304 9.24997 5.28979" stroke-width="1.5" stroke-linejoin="round" stroke="currentColor"></path>
+                                    <path d="M14.75 5.28979C17.3904 6.37303 19.25 8.96938 19.25 12.0001C19.25 15.0307 17.3904 17.6271 14.75 18.7103" stroke-width="1.5" stroke-linejoin="round" stroke="currentColor"></path>
+                                    <path d="M4 19.2501L8.99998 19.2501C9.13805 19.2501 9.24998 19.1381 9.24998 19.0001L9.24997 14" stroke-width="1.5" stroke-linejoin="round" stroke="currentColor"></path>
+                                    <path d="M20 4.75L15 4.75003C14.8619 4.75003 14.75 4.86196 14.75 5.00003L14.75 10.0001" stroke-width="1.5" stroke-linejoin="round" stroke="currentColor"></path>
+                                </svg>
+                            </div>
+                            <h3 id="w-node-e103c29a-f04a-aec6-b4d4-ec4836c3c906-09138e44" class="heading_h4 w-node-b48daa31-fdd5-12e3-6cfb-ba979299f062-84834228">Real-time price updates</h3>
+                            <p class="margin-bottom_none">Shelf labels update instantly with every Shopify change. Eliminate mismatches and manual edits for accurate, up-to-date pricing and product data.</p>
+                        </div>
+                    </div>
+                    <div id="w-node-_0b8f9155-23d0-e08b-8a36-848533dfce9c-09138e44" class="card w-node-b48daa31-fdd5-12e3-6cfb-ba979299f071-84834228">
+                        <div class="card_body">
+                            <div class="icon margin-bottom_xsmall">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.5 9C9.5 7.61929 10.6193 6.5 12 6.5C13.3807 6.5 14.5 7.61929 14.5 9C14.5 10.3807 13.3807 11.5 12 11.5C10.6193 11.5 9.5 10.3807 9.5 9ZM12 5C9.79086 5 8 6.79086 8 9C8 11.2091 9.79086 13 12 13C14.2091 13 16 11.2091 16 9C16 6.79086 14.2091 5 12 5ZM8.75 13.5C6.67893 13.5 5 15.1789 5 17.25V19H6.5V17.25C6.5 16.0074 7.50736 15 8.75 15H15.25C16.4926 15 17.5 16.0074 17.5 17.25V19H19V17.25C19 15.1789 17.3211 13.5 15.25 13.5H8.75Z" fill="currentColor"></path>
+                                </svg>
+                            </div>
+                            <h3 id="w-node-_0b8f9155-23d0-e08b-8a36-848533dfce9f-09138e44" class="heading_h4 w-node-b48daa31-fdd5-12e3-6cfb-ba979299f06b-84834228">Flexible label templates</h3>
+                            <p class="margin-bottom_none">Design shelf labels with your branding, colors, and QR codes using our intuitive in-app editor—no design experience required.</p>
+                        </div>
+                    </div>
+                    <div id="w-node-bb01564e-c68b-8d19-73ac-9ac033608390-09138e44" class="card w-node-b48daa31-fdd5-12e3-6cfb-ba979299f07a-84834228">
+                        <div class="card_body">
+                            <div class="icon margin-bottom_xsmall">
+                                <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none">
+                                    <path d="M4 12C8.41828 12 12 8.41828 12 4C12 8.41828 15.5817 12 20 12C15.5817 12 12 15.5817 12 20C12 15.5817 8.41828 12 4 12Z" stroke-width="1.5" stroke-linejoin="round" stroke="currentColor"></path>
+                                </svg>
+                            </div>
+                            <h3 id="w-node-bb01564e-c68b-8d19-73ac-9ac033608393-09138e44" class="heading_h4 w-node-b48daa31-fdd5-12e3-6cfb-ba979299f076-84834228">Centralized control</h3>
+                            <p class="margin-bottom_none">Manage all shelf labels from one dashboard in Shopify. Scale across locations and keep every shelf in sync.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section padding_none is-secondary">
+            <div class="w-layout-grid grid_1-col">
+                <div id="w-node-b439e523-4476-4b09-b6de-62483c0d4209-3c0d4207" class="position_relative w-node-_32dbcc56-f453-d0a7-0250-2dceec358f88-84834228">
+                    <img width="1626" height="643" alt="image of customer service area (for a department store)" src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a8eedc46f1b08789ae6f0c_f4e12736-90de-4bb3-893a-6392348467d4.avif" loading="lazy" data-aisg-image-id="7f0f836c-a99e-4109-8dda-b8f02518f96e" class="image_cover position_absolute"/>
+                </div>
+                <div id="w-node-b439e523-4476-4b09-b6de-62483c0d420c-3c0d4207" class="container position_relative padding_section w-node-_32dbcc56-f453-d0a7-0250-2dceec358fa9-84834228">
+                    <div class="card on-secondary">
+                        <div class="card_body">
+                            <div class="w-layout-grid grid_3-col tablet-1-col gap-medium">
+                                <div class="image-ratio_auto">
+                                    <img width="351" height="289" alt="image of displayed menu (for a coffee shop &amp; cafe)" src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae63bdf35e75189e050043_Untitled%20design.gif" loading="lazy" data-aisg-image-id="5eb41295-b04a-4faa-83ae-8cb6b9dc9276" class="image_cover"/>
+                                </div>
+                                <div id="w-node-b439e523-4476-4b09-b6de-62483c0d4211-3c0d4207" class="header margin-bottom_none w-node-_32dbcc56-f453-d0a7-0250-2dceec358fa5-84834228">
+                                    <h2 class="heading_h2">Upgrade retail. Sync shelves. Save time.</h2>
+                                    <div class="flex_vertical gap-xsmall">
+                                        <div class="flex_horizontal gap-xxsmall">
+                                            <div class="icon is-small">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16" fill="none">
+                                                    <path d="M2 8H14.5M14.5 8L8.5 2M14.5 8L8.5 14" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+                                                </svg>
+                                            </div>
+                                            <p class="paragraph_small margin-bottom_none">Instantly link digital shelf labels to your Shopify products.</p>
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="flex_horizontal gap-xxsmall">
+                                            <div class="icon is-small">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16" fill="none">
+                                                    <path d="M2 8H14.5M14.5 8L8.5 2M14.5 8L8.5 14" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+                                                </svg>
+                                            </div>
+                                            <p class="paragraph_small margin-bottom_none">Automate price, inventory, and many other data updates - no manual work.</p>
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="flex_horizontal gap-xxsmall">
+                                            <div class="icon is-small">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16" fill="none">
+                                                    <path d="M2 8H14.5M14.5 8L8.5 2M14.5 8L8.5 14" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+                                                </svg>
+                                            </div>
+                                            <p class="paragraph_small margin-bottom_none">Reduce errors and free up your team.</p>
+                                        </div>
+                                    </div>
+                                    <div class="button-group">
+                                        <a href="#" class="button w-button">Start now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section is-secondary">
+            <div class="container is-small">
+                <div id="w-node-_22c8f393-d39d-048c-ea8b-7b01c2725cf0-c2725ced" class="header is-align-center w-node-df9fc79a-94c6-4fb2-77da-7b0b280ea970-84834228">
+                    <div class="eyebrow">FAQ</div>
+                    <h2 class="heading">Retail tech, simplified answers</h2>
+                    <p class="subheading">Get clear answers on setup, customization, syncing, and pricing for digital shelf labels. Learn how to connect, design, and manage your in-store pricing with ease.</p>
+                </div>
+                <div id="w-node-_41d1ffcd-18e5-6de7-5afe-b5753d4bc0c2-c2725ced" class="flex_vertical gap-medium w-node-df9fc79a-94c6-4fb2-77da-7b0b280ea989-84834228">
+                    <div class="divider">
+                        <div id="w-node-_22c8f393-d39d-048c-ea8b-7b01c2725cf9-c2725ced" class="heading_h4 w-node-df9fc79a-94c6-4fb2-77da-7b0b280ea972-84834228">How do I install Shelva?</div>
+                        <div class="rich-text paragraph_large w-richtext">
+                            <p>To install Shelva, simply install the Shelva app from the Shopify App Store and follow the setup flow. Once installed, plug in your Shelva base station to your internet router, and your Shelva labels will be auto-detected by the Shelva app.</p>
+                        </div>
+                    </div>
+                    <div class="divider">
+                        <div id="w-node-_3bbdd118-2d16-1d06-1f67-cd66e70178cc-c2725ced" class="heading_h4 w-node-df9fc79a-94c6-4fb2-77da-7b0b280ea978-84834228">Can I design my own labels?</div>
+                        <div class="rich-text paragraph_large w-richtext">
+                            <p>
+                                Yes, you can customize label templates in the app. Add your logo, select fonts and colors, choose your data, and preview changes live before applying them in-store.<br/>‍
+                            </p>
+                            <p>
+                                Need a custom template? <strong>Reach out</strong>
+                                and we’ll help you create it.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="divider">
+                        <div id="w-node-_77e04b32-a9ec-fd16-d96d-fecfbfd5e8f0-c2725ced" class="heading_h4 w-node-df9fc79a-94c6-4fb2-77da-7b0b280ea97e-84834228">How does syncing with Shopify work?</div>
+                        <div class="rich-text paragraph_large w-richtext">
+                            <p>Product data syncs automatically from Shopify. Updates to price, stock, or descriptions appear on shelf labels at will, keeping your Shelva labels accurate and up-to-date.</p>
+                        </div>
+                    </div>
+                    <div class="divider">
+                        <div id="w-node-_9b8da06b-c5c2-29a8-5b6b-ad35dd8e7563-c2725ced" class="heading_h4 w-node-df9fc79a-94c6-4fb2-77da-7b0b280ea984-84834228">What are the pricing details?</div>
+                        <div class="rich-text paragraph_large w-richtext">
+                            <p>You pay for hardware and a monthly app subscription. Pricing adjusts based on the number of labels. No hidden fees or long-term commitments.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-group is-align-center">
+                    <a href="mailto:support@shelva.app?subject=I&#x27;d%20like%20support%20%3A)" class="text-button w-inline-block">
+                        <div class="text-block">Support</div>
+                        <div class="text-button_icon w-embed">
+                            <svg width="100%" height="100%" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 24H43M43 24L24.28 5M43 24L24.28 43" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="section is-secondary">
+            <div class="container text-align_center">
+                <div class="header is-align-center">
+                    <p class="eyebrow">Contact</p>
+                    <h2 class="heading-3">Get in touch with our team</h2>
+                    <p class="subheading">Questions about Shelva? We’re here to help.</p>
+                </div>
+                <ul role="list" class="grid_4-col gap-medium w-list-unstyled">
+                    <li class="flex_vertical is-x-center">
+                        <div class="icon is-large is-background margin-bottom_xsmall">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none">
+                                <path d="M5.25 6.75H18.75V17.25H5.25V6.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+                                <path d="M5.25 6.75L12 12L18.75 6.75" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+                            </svg>
+                        </div>
+                        <h4 class="heading_h5">Email support</h4>
+                        <p class="text-color_secondary">Assistance with setup or features.</p>
+                        <a href="#" class="text-link is-secondary">support@shelva.app</a>
+                    </li>
+                    <li class="flex_vertical is-x-center">
+                        <div class="icon is-large is-background margin-bottom_xsmall">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none">
+                                <path d="M12.5 18.25C16.2279 18.25 19.25 15.2279 19.25 11.5C19.25 7.77208 16.2279 4.75 12.5 4.75C8.77208 4.75 5.75 7.77208 5.75 11.5C5.75 12.6007 6.01345 13.6398 6.48072 14.5578L5 19L9.71819 17.6519C10.5664 18.0361 11.5082 18.25 12.5 18.25Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+                            </svg>
+                        </div>
+                        <h4 class="heading_h5">Live chat</h4>
+                        <p class="text-color_secondary">Weekdays, 8am–5pm EST</p>
+                        <p class="text-color_secondary">Shelva App</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <footer class="footer is-inverse">
+            <div class="container">
+                <div class="footer_bottom">
+                    <ul role="list" class="list w-list-unstyled">
+                        <li>
+                            <a href="/site/policy.html" class="footer_link on-inverse w-inline-block">
+                                <div>Privacy Policy</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:contact@shelva.app?subject=Shelva%20Request" class="footer_link on-inverse w-inline-block">
+                                <div>contact@shelva.app</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer_bottom">
+                    <div class="text-color_secondary">© 2025 Shelva. All rights reserved.</div>
+                    <a href="#" class="footer_link on-inverse w-inline-block"></a>
+                    <img src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a935e1326d9198359766a5_Shelva%20logo%20-%20ethans%20pick-01-01.png" loading="lazy" sizes="(max-width: 5000px) 100vw, 5000px" srcset="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a935e1326d9198359766a5_Shelva%20logo%20-%20ethans%20pick-01-01-p-500.png 500w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a935e1326d9198359766a5_Shelva%20logo%20-%20ethans%20pick-01-01-p-800.png 800w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a935e1326d9198359766a5_Shelva%20logo%20-%20ethans%20pick-01-01-p-1080.png 1080w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a935e1326d9198359766a5_Shelva%20logo%20-%20ethans%20pick-01-01-p-1600.png 1600w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a935e1326d9198359766a5_Shelva%20logo%20-%20ethans%20pick-01-01-p-2000.png 2000w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a935e1326d9198359766a5_Shelva%20logo%20-%20ethans%20pick-01-01-p-2600.png 2600w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a935e1326d9198359766a5_Shelva%20logo%20-%20ethans%20pick-01-01-p-3200.png 3200w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a935e1326d9198359766a5_Shelva%20logo%20-%20ethans%20pick-01-01.png 5000w" alt="" class="image-3"/>
+                </div>
+            </div>
+        </footer>
+        <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=68a8e7ca6773a5df8483416a" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <script src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/js/webflow.schunk.36b8fb49256177c8.js" type="text/javascript"></script>
+        <script src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/js/webflow.schunk.9559063f8782d83f.js" type="text/javascript"></script>
+        <script src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/js/webflow.3eb1fc22.012b87d75bb4f09b.js" type="text/javascript"></script>
+    </body>
+</html>

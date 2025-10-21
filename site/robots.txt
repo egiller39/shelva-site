@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://shelva.app/sitemap.xml
+
+# Disallow admin areas (if any)
+Disallow: /admin/
+Disallow: /private/
