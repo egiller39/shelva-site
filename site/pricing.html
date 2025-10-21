@@ -293,7 +293,7 @@
                                 </div>
                                 <div class="flex_child_expand">
                                     <h4 class="heading_h4">Slim - 2.9" Labels</h4>
-                                    <p class="paragraph_small">Perfect for most retail applications</p>
+                            <p class="paragraph_small">Perfect for most retail applications</p>
                                 </div>
                             </div>
                             <div class="w-layout-hflex flex_horizontal is-y-baseline">
@@ -312,7 +312,7 @@
                                 </div>
                                 <div class="flex_child_expand">
                                     <h4 class="heading_h4">Spotlight - 3.7" Labels</h4>
-                                    <p class="paragraph_small">Larger format for detailed product info</p>
+                            <p class="paragraph_small">Larger format for detailed product info</p>
                                 </div>
                             </div>
                             <div class="w-layout-hflex flex_horizontal is-y-baseline">
@@ -329,8 +329,8 @@
         <section class="section">
             <div class="container">
                 <div class="header is-align-center margin-bottom_large">
-                    <h2 class="heading_h2">Price Calculator</h2>
-                    <p class="paragraph_large">Calculate your total cost and refundable deposit</p>
+                    <h2 class="heading_h2">ROI Calculator</h2>
+                    <p class="paragraph_large">Calculate your investment, savings, and return on investment</p>
                 </div>
                 <div class="w-layout-grid grid_2-col gap-large" style="align-items: flex-start;">
                     <div class="card">
@@ -339,7 +339,7 @@
                             <div class="flex_vertical gap-medium">
                                 <div>
                                     <label class="paragraph_small margin-bottom_xsmall" style="display: block; font-weight: 600;">Number of Labels</label>
-                                    <input type="number" id="labelCount" min="1" max="1000" value="10" class="input" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+                                    <input type="number" id="labelCount" min="1" max="1000" value="100" class="input" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
                                 </div>
                                 <div>
                                     <label class="paragraph_small margin-bottom_xsmall" style="display: block; font-weight: 600;">Label Size</label>
@@ -356,6 +356,38 @@
                                         <label for="includeHub" class="paragraph_small">Include Shelva Hub ($299)</label>
                                     </div>
                                 </div>
+                                <!-- ROI Inputs Section - Commented Out
+                                <div style="border-top: 1px solid #eee; padding-top: 1rem; margin-top: 1rem;">
+                                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                                        <h4 class="heading_h4 margin-bottom_none">ROI Inputs</h4>
+                                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                            <input type="checkbox" id="showROI" style="transform: scale(1.2);">
+                                            <span class="paragraph_small">Show ROI Analysis</span>
+                                        </label>
+                                    </div>
+                                    <div id="roiInputs" style="display: none;">
+                                        <div>
+                                            <label class="paragraph_small margin-bottom_xsmall" style="display: block; font-weight: 600;">Store Size (sq ft)</label>
+                                            <input type="number" id="storeSize" min="100" max="50000" value="2000" class="input" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+                                        </div>
+                                        <div>
+                                            <label class="paragraph_small margin-bottom_xsmall" style="display: block; font-weight: 600;">Staff Hourly Rate ($)</label>
+                                            <input type="number" id="hourlyRate" min="10" max="100" value="20" step="0.50" class="input" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+                                        </div>
+                                        <div>
+                                            <label class="paragraph_small margin-bottom_xsmall" style="display: block; font-weight: 600;">Price Changes per Week</label>
+                                            <input type="number" id="priceUpdates" min="1" max="100" value="25" class="input" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+                                        </div>
+                                        <div>
+                                            <label class="paragraph_small margin-bottom_xsmall" style="display: block; font-weight: 600;">Subscription Plan</label>
+                                            <select id="subscriptionPlan" class="input" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+                                                <option value="89">Starter - $89/month</option>
+                                                <option value="149" selected>Growth - $149/month</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                -->
                             </div>
                         </div>
                     </div>
@@ -388,6 +420,39 @@
                                 <div class="margin-top_medium">
                                     <p class="paragraph_small text-color_secondary" style="font-style: italic;">Return hardware anytime for 80% refund</p>
                                 </div>
+                                
+                                <!-- ROI Results Section - Commented Out
+                                <div id="roiResults" style="border-top: 1px solid #eee; padding-top: 1rem; margin-top: 1rem; display: none;">
+                                    <h4 class="heading_h4 margin-bottom_medium">ROI Analysis</h4>
+                                    <div class="flex_vertical gap-small">
+                                        <div class="flex_horizontal is-y-baseline">
+                                            <p class="paragraph_small margin-bottom_none">Time Saved per Week:</p>
+                                            <p class="heading_h4 margin-bottom_none" id="timeSaved" style="margin-left: auto; color: #4CAF50;">8.0 hours</p>
+                                        </div>
+                                        <div class="flex_horizontal is-y-baseline">
+                                            <p class="paragraph_small margin-bottom_none">Weekly Labor Savings:</p>
+                                            <p class="heading_h4 margin-bottom_none" id="weeklySavings" style="margin-left: auto; color: #4CAF50;">$120.00</p>
+                                        </div>
+                                        <div class="flex_horizontal is-y-baseline">
+                                            <p class="paragraph_small margin-bottom_none">Annual Labor Savings:</p>
+                                            <p class="heading_h4 margin-bottom_none" id="annualSavings" style="margin-left: auto; color: #4CAF50;">$6,240.00</p>
+                                        </div>
+                                        <div class="flex_horizontal is-y-baseline">
+                                            <p class="paragraph_small margin-bottom_none">Total Annual Cost:</p>
+                                            <p class="heading_h4 margin-bottom_none" id="totalAnnualCost" style="margin-left: auto; color: #FF6B6B;">$1,859.80</p>
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="flex_horizontal is-y-baseline">
+                                            <p class="heading_h4 margin-bottom_none" style="color: #4CAF50;">ROI (1st Year):</p>
+                                            <p class="heading_h3 margin-bottom_none" id="roi" style="margin-left: auto; color: #4CAF50;">8,590%</p>
+                                        </div>
+                                        <div class="flex_horizontal is-y-baseline">
+                                            <p class="paragraph_small margin-bottom_none">Payback Period:</p>
+                                            <p class="heading_h4 margin-bottom_none" id="paybackPeriod" style="margin-left: auto; color: #4CAF50;">0.4 weeks</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                -->
                             </div>
                         </div>
                     </div>
@@ -471,11 +536,28 @@
             const labelCountInput = document.getElementById('labelCount');
             const labelSizeSelect = document.getElementById('labelSize');
             const includeHubCheckbox = document.getElementById('includeHub');
+            // ROI elements - commented out
+            // const storeSizeInput = document.getElementById('storeSize');
+            // const hourlyRateInput = document.getElementById('hourlyRate');
+            // const priceUpdatesInput = document.getElementById('priceUpdates');
+            // const subscriptionPlanSelect = document.getElementById('subscriptionPlan');
+            // const showROICheckbox = document.getElementById('showROI');
+            // const roiInputsDiv = document.getElementById('roiInputs');
+            // const roiResultsDiv = document.getElementById('roiResults');
+            
             const labelsTotalElement = document.getElementById('labelsTotal');
             const hubTotalElement = document.getElementById('hubTotal');
             const totalCostElement = document.getElementById('totalCost');
             const refundableDepositElement = document.getElementById('refundableDeposit');
             const trueCostElement = document.getElementById('trueCost');
+            
+            // ROI elements - commented out
+            // const timeSavedElement = document.getElementById('timeSaved');
+            // const weeklySavingsElement = document.getElementById('weeklySavings');
+            // const annualSavingsElement = document.getElementById('annualSavings');
+            // const totalAnnualCostElement = document.getElementById('totalAnnualCost');
+            // const roiElement = document.getElementById('roi');
+            // const paybackPeriodElement = document.getElementById('paybackPeriod');
 
             // Pricing data
             const pricing = {
@@ -491,6 +573,11 @@
                 const labelCount = parseInt(labelCountInput.value) || 0;
                 const labelSize = labelSizeSelect.value;
                 const includeHub = includeHubCheckbox.checked;
+                // ROI inputs - commented out
+                // const storeSize = parseInt(storeSizeInput.value) || 2000;
+                // const hourlyRate = parseFloat(hourlyRateInput.value) || 20;
+                // const priceUpdates = parseInt(priceUpdatesInput.value) || 25;
+                // const monthlySubscription = parseInt(subscriptionPlanSelect.value) || 149;
                 
                 const labelPrice = pricing[labelSize].price;
                 const labelDeposit = pricing[labelSize].deposit;
@@ -505,18 +592,61 @@
                 const totalDeposit = labelsDepositTotal + hubDepositTotal;
                 const trueCost = totalCost - totalDeposit;
                 
-                // Update display
+                // ROI calculations - commented out
+                // const annualSubscription = monthlySubscription * 12;
+                // const totalAnnualCost = trueCost + annualSubscription;
+                // 
+                // const timePerUpdate = 0.074; // 3 minutes per price update (manual)
+                // const storeSizeFactor = Math.min(storeSize / 1000, 5);
+                // const adjustedPriceUpdates = priceUpdates * storeSizeFactor;
+                // const timeSavedPerWeek = adjustedPriceUpdates * timePerUpdate;
+                // const weeklySavings = timeSavedPerWeek * hourlyRate;
+                // const annualSavings = weeklySavings * 52;
+                // const roi = ((annualSavings - totalAnnualCost) / totalAnnualCost) * 100;
+                // const paybackPeriod = totalAnnualCost / weeklySavings;
+                
+                // Update pricing display
                 labelsTotalElement.textContent = `$${labelsTotal.toFixed(0)}`;
                 hubTotalElement.textContent = includeHub ? `$${hubTotal.toFixed(0)}` : '$0';
                 totalCostElement.textContent = `$${totalCost.toFixed(0)}`;
                 refundableDepositElement.textContent = `$${totalDeposit.toFixed(2)}`;
                 trueCostElement.textContent = `$${trueCost.toFixed(2)}`;
+                
+                // ROI display updates - commented out
+                // timeSavedElement.textContent = `${timeSavedPerWeek.toFixed(1)} hours`;
+                // weeklySavingsElement.textContent = `$${weeklySavings.toFixed(2)}`;
+                // annualSavingsElement.textContent = `$${annualSavings.toFixed(2)}`;
+                // totalAnnualCostElement.textContent = `$${totalAnnualCost.toFixed(2)}`;
+                // roiElement.textContent = `${roi.toFixed(0)}%`;
+                // paybackPeriodElement.textContent = `${paybackPeriod.toFixed(1)} weeks`;
+                
+                // ROI display updates - commented out
+                // const priceUpdatesDisplay = document.getElementById('priceUpdates');
+                // if (priceUpdatesDisplay) {
+                //     priceUpdatesDisplay.title = `Adjusted to ${adjustedPriceUpdates.toFixed(0)} updates/week based on store size`;
+                // }
             }
+
+            // ROI toggle functionality - commented out
+            // showROICheckbox.addEventListener('change', function() {
+            //     if (this.checked) {
+            //         roiInputsDiv.style.display = 'block';
+            //         roiResultsDiv.style.display = 'block';
+            //     } else {
+            //         roiInputsDiv.style.display = 'none';
+            //         roiResultsDiv.style.display = 'none';
+            //     }
+            // });
 
             // Add event listeners
             labelCountInput.addEventListener('input', calculateTotal);
             labelSizeSelect.addEventListener('change', calculateTotal);
             includeHubCheckbox.addEventListener('change', calculateTotal);
+            // ROI event listeners - commented out
+            // storeSizeInput.addEventListener('input', calculateTotal);
+            // hourlyRateInput.addEventListener('input', calculateTotal);
+            // priceUpdatesInput.addEventListener('input', calculateTotal);
+            // subscriptionPlanSelect.addEventListener('change', calculateTotal);
 
             // Initial calculation
             calculateTotal();
