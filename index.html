@@ -49,6 +49,184 @@
 
     .is-top--100 { top: -100%; }
 
+    /* Mobile Responsiveness Improvements */
+    @media (max-width: 768px) {
+      /* Navigation improvements */
+      .nav_container {
+        padding: 1rem;
+      }
+      
+      .nav_menu-list {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+      }
+      
+      /* Mobile menu improvements */
+      .nav_mobile-menu-button {
+        display: block;
+        cursor: pointer;
+      }
+      
+      .nav_menu {
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: white !important;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+        padding: 1rem !important;
+        transform: translateY(-100%) !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transition: all 0.3s ease !important;
+        z-index: 1000 !important;
+        display: block !important;
+      }
+      
+      .nav_menu.w-nav-menu.w--open {
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+      
+      .nav_menu-list-item {
+        margin-bottom: 0.5rem;
+        width: 100%;
+        text-align: left;
+      }
+      
+      .nav_link {
+        display: block !important;
+        padding: 0.75rem 0 !important;
+        color: #333 !important;
+        text-decoration: none !important;
+        border-bottom: 1px solid #eee !important;
+        text-align: center !important;
+      }
+      
+      .nav_link:hover {
+        color: #007bff !important;
+      }
+      
+      /* Mobile menu button styling */
+      .nav_mobile-menu-button .icon {
+        width: 24px;
+        height: 24px;
+      }
+      
+      /* Hero section mobile optimization */
+      .grid_2-col.tablet-1-col {
+        gap: 2rem;
+      }
+      
+      .heading_h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+      }
+      
+      .subheading {
+        font-size: 1.1rem;
+        line-height: 1.4;
+      }
+      
+      /* Button improvements */
+      .button {
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+      }
+      
+      /* Card improvements */
+      .card {
+        margin-bottom: 1.5rem;
+      }
+      
+      .card_body {
+        padding: 1.5rem;
+      }
+      
+      /* Pricing section mobile */
+      .list-4 {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      
+      .list-4 li {
+        width: 100%;
+      }
+      
+      /* Feature grid mobile */
+      .grid_3-col {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      /* FAQ section mobile */
+      .flex_vertical.gap-medium {
+        gap: 1.5rem;
+      }
+      
+      /* Footer mobile */
+      .footer_bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+      
+      /* Image optimization */
+      .image_cover {
+        object-fit: cover;
+        width: 100%;
+        height: auto;
+      }
+      
+      /* Text sizing for mobile */
+      .paragraph_large {
+        font-size: 1.1rem;
+        line-height: 1.5;
+      }
+      
+      .heading_h2 {
+        font-size: 2rem;
+        line-height: 1.2;
+      }
+      
+      .heading_h3 {
+        font-size: 1.5rem;
+        line-height: 1.3;
+      }
+      }
+    
+    @media (max-width: 480px) {
+      /* Extra small mobile devices */
+      .container {
+        padding: 1rem;
+      }
+      
+      .heading_h1 {
+        font-size: 2rem;
+      }
+      
+      .heading_h2 {
+        font-size: 1.75rem;
+      }
+      
+      .button {
+        width: 100%;
+        text-align: center;
+      }
+      
+      .w-layout-hflex.flex-block {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .w-layout-hflex.flex-block img {
+        max-width: 150px;
+        margin: 0 auto;
+      }
+    }
+
   </style>
     <meta charset="utf-8"/>
         <title>Shelva: Digital Shelf Labels</title>
@@ -66,6 +244,117 @@
     <link href="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/css/shelva.webflow.shared.40ff06190.css" rel="stylesheet" type="text/css"/>
     <link href="https://fonts.googleapis.com" rel="preconnect"/>
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous"/>
+    
+    <!-- Custom Mobile Navigation - Independent of Webflow -->
+    <style>
+        :root {
+            /* Core brand colors */
+            --shelva-navy:  #064273;  /* Deep ocean navy */
+            --shelva-sand:  #F4E3C1;  /* Warm sandy shore */
+            --shelva-teal:  #5ddad5;  /* Tropical aqua */
+            --shelva-gray:  #5C6B73;  /* Weathered boardwalk gray */
+            --shelva-coral: #FF7F6A;  /* Vibrant coral */
+
+            --shelva-navy-light:  #D6E4EE;  /* Very pale ocean blue */
+            --shelva-sand-light:  #FBF3E4;  /* Pale sand/beige */
+            --shelva-teal-light:  #D3F2F1;  /* Soft pastel aqua */
+            --shelva-gray-light:  #E3E8EA;  /* Light gray */
+            --shelva-coral-light: #FFE4DE;  /* Soft peachy coral */
+
+            /* Tints (stronger for contrast on sand) */
+            --shelva-tealTint:  rgba(78, 197, 193, 0.20);  /* aqua wash */
+            --shelva-coralTint: rgba(255, 127, 106, 0.20); /* coral wash */
+            --shelva-navyTint:  rgba(6, 66, 115, 0.12);    /* navy wash */
+            --shelva-sandTint:  rgba(255, 255, 255, 0.70); /* white wash on sand */
+
+            /* Box / panel accents */
+            --shelva-box-outline: #4EC5C1;  /* aqua outline */
+            --shelva-box-bg:      #CFF3F2;  /* light aqua background */
+
+            /* Shadows */
+            --shelva-shadow-default: 0 3px 10px rgba(0, 0, 0, 0.04);
+            --shelva-shadow-hover:   0 6px 30px 0 rgba(6, 66, 115, 0.25);
+        }
+
+          /* Hide Webflow mobile menu completely */
+          @media (max-width: 768px) {
+            .nav_menu {
+                display: none !important;
+            }
+        }
+        
+        /* Custom mobile menu styles */
+        .custom-mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(6, 66, 115, 0.3); /* Navy tint backdrop */
+            z-index: 99999;
+        }
+        
+        .custom-mobile-menu-content {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            background: #FBF3E4 !important; /* Warm sandy background */
+            border-bottom: 3px solid #FF7F6A !important; /* Coral accent border */
+            box-shadow: 0 6px 30px 0 rgba(6, 66, 115, 0.25) !important;
+            padding: 2rem 1rem !important;
+            transform: translateY(-100%) !important;
+            transition: transform 0.3s ease !important;
+            z-index: 100000 !important;
+        }
+        
+        .custom-mobile-menu-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        
+        .custom-mobile-menu-item {
+            margin-bottom: 0.5rem;
+        }
+        
+        .custom-mobile-menu-link {
+            display: block !important;
+            padding: 1rem 1.5rem !important;
+            color: #ffffff !important; /* Navy text */
+            text-decoration: none !important;
+            border: 2px solid transparent !important;
+            border-radius: 8px !important;
+            text-align: center !important;
+            font-size: 1.1rem !important;
+            font-family: 'Figtree', sans-serif !important;
+            font-weight: 500 !important;
+            transition: all 0.2s ease !important;
+            background: #FF7F6A !important; /* Sand background */
+            position: relative !important;
+        }
+        
+        .custom-mobile-menu-link:hover {
+            color: #ffffff !important; /* Coral on hover */
+            background: #ffffff !important; /* Light coral background */
+            border-color: #ffffff !important; /* Coral border */
+            transform: translateY(-1px) !important;
+            box-shadow: 0 4px 12px rgba(255, 127, 106, 0.20) !important; /* Coral glow */
+        }
+        
+        .custom-mobile-menu-link:active {
+            background: #ffffff !important; /* Coral background on active */
+            color: white !important; /* White text on coral */
+        }
+        
+        .custom-mobile-menu.show .custom-mobile-menu-content {
+            transform: translateY(0) !important;
+        }
+    </style>
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
     <script type="text/javascript">
         WebFont.load({
@@ -738,5 +1027,96 @@
     <script src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/js/webflow.schunk.36b8fb49256177c8.js" type="text/javascript"></script>
     <script src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/js/webflow.schunk.9559063f8782d83f.js" type="text/javascript"></script>
     <script src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/js/webflow.3eb1fc22.012b87d75bb4f09b.js" type="text/javascript"></script>
+    
+        <!-- Custom Mobile Menu JavaScript -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const mobileMenuButton = document.querySelector('.nav_mobile-menu-button');
+                
+                if (mobileMenuButton) {
+                    // Create custom mobile menu
+                    const customMenu = document.createElement('div');
+                    customMenu.className = 'custom-mobile-menu';
+                    customMenu.innerHTML = `
+                        <div class="custom-mobile-menu-content">
+                            <ul class="custom-mobile-menu-list">
+                                <li class="custom-mobile-menu-item">
+                                    <a href="/" class="custom-mobile-menu-link">Home</a>
+                                </li>
+                                <li class="custom-mobile-menu-item">
+                                    <a href="/how-it-works" class="custom-mobile-menu-link">How It Works</a>
+                                </li>
+                                <li class="custom-mobile-menu-item">
+                                    <a href="/pricing" class="custom-mobile-menu-link">Pricing</a>
+                                </li>
+                                <li class="custom-mobile-menu-item">
+                                    <a href="/features" class="custom-mobile-menu-link">Features</a>
+                                </li>
+                                <li class="custom-mobile-menu-item">
+                                    <a href="/contact" class="custom-mobile-menu-link">Contact</a>
+                                </li>
+                                <li class="custom-mobile-menu-item">
+                                    <a href="/privacy-policy" class="custom-mobile-menu-link">Privacy Policy</a>
+                                </li>
+                            </ul>
+                        </div>
+                    `;
+                    
+                    document.body.appendChild(customMenu);
+                    
+                    // Toggle menu
+                    mobileMenuButton.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        if (customMenu.classList.contains('show')) {
+                            customMenu.classList.remove('show');
+                            customMenu.style.display = 'none';
+                            document.body.style.overflow = '';
+                        } else {
+                            customMenu.style.display = 'block';
+                            setTimeout(() => {
+                                customMenu.classList.add('show');
+                            }, 10);
+                            document.body.style.overflow = 'hidden';
+                        }
+                    });
+                    
+                    // Close menu when clicking outside
+                    customMenu.addEventListener('click', function(e) {
+                        if (e.target === customMenu) {
+                            customMenu.classList.remove('show');
+                            setTimeout(() => {
+                                customMenu.style.display = 'none';
+                            }, 300);
+                            document.body.style.overflow = '';
+                        }
+                    });
+                    
+                    // Close menu when clicking on a link
+                    const menuLinks = customMenu.querySelectorAll('.custom-mobile-menu-link');
+                    menuLinks.forEach(link => {
+                        link.addEventListener('click', function() {
+                            customMenu.classList.remove('show');
+                            setTimeout(() => {
+                                customMenu.style.display = 'none';
+                            }, 300);
+                            document.body.style.overflow = '';
+                        });
+                    });
+                    
+                    // Close menu on escape key
+                    document.addEventListener('keydown', function(e) {
+                        if (e.key === 'Escape' && customMenu.classList.contains('show')) {
+                            customMenu.classList.remove('show');
+                            setTimeout(() => {
+                                customMenu.style.display = 'none';
+                            }, 300);
+                            document.body.style.overflow = '';
+                        }
+                    });
+                }
+            });
+        </script>
 </body>
 </html>
