@@ -61,7 +61,34 @@
             --shelva-shadow-default: 0 3px 10px rgba(0, 0, 0, 0.04);
             --shelva-shadow-hover:   0 6px 30px 0 rgba(6, 66, 115, 0.25);
         }
-
+        
+        /* Hide mobile navigation on desktop */
+        .nav_mobile-menu-button {
+            display: none;
+        }
+        
+        /* Show mobile navigation only on mobile */
+        @media (max-width: 768px) {
+            .nav_mobile-menu-button {
+                display: block;
+            }
+        }
+        
+        /* Desktop Layout - Ensure 3 columns for pricing plans and label options */
+        .grid_3-col {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        /* Tablet layout - 2 columns */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .grid_3-col {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+        
         /* Hide Webflow mobile menu completely */
         @media (max-width: 768px) {
             .nav_menu {
@@ -69,8 +96,9 @@
             }
         }
         
-        /* Custom mobile menu styles */
-        .custom-mobile-menu {
+        /* Custom mobile menu styles - MOBILE ONLY */
+        @media (max-width: 768px) {
+            .custom-mobile-menu {
             display: none;
             position: fixed;
             top: 0;
@@ -137,98 +165,17 @@
             color: white !important; /* White text on coral */
         }
         
-        .custom-mobile-menu.show .custom-mobile-menu-content {
-            transform: translateY(0) !important;
-        }
-           
-           /* Mobile menu button styling */
-           .nav_mobile-menu-button .icon {
-               width: 24px;
-               height: 24px;
-           }
-           
-           /* Ensure mobile menu is visible on small screens */
-           @media (max-width: 768px) {
-               .nav_menu {
-                   display: block;
-               }
-               
-               .nav_menu-list {
-                   flex-direction: column;
-                   width: 100%;
-               }
-               
-               .nav_menu-list-item {
-                   width: 100%;
-                   text-align: left;
-               }
-           }
-            
-            /* Hero section mobile optimization */
-            .grid_2-col.tablet-1-col {
-                gap: 2rem;
+            .custom-mobile-menu.show .custom-mobile-menu-content {
+                transform: translateY(0) !important;
             }
-            
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            /* Typography */
             .heading_h1 {
                 font-size: 2.5rem;
                 line-height: 1.2;
-            }
-            
-            .subheading {
-                font-size: 1.1rem;
-                line-height: 1.4;
-            }
-            
-            /* Button improvements */
-            .button {
-                padding: 0.875rem 1.5rem;
-                font-size: 1rem;
-            }
-            
-            /* Card improvements */
-            .card {
-                margin-bottom: 1.5rem;
-            }
-            
-            .card_body {
-                padding: 1.5rem;
-            }
-            
-            /* Pricing cards mobile */
-            .grid_3-col {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            /* Calculator mobile */
-            .grid_2-col {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            /* Hardware pricing mobile */
-            .grid_1-col {
-                gap: 1.5rem;
-            }
-            
-            /* Footer mobile */
-            .footer_bottom {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-            
-            /* Image optimization */
-            .image_cover {
-                object-fit: cover;
-                width: 100%;
-                height: auto;
-            }
-            
-            /* Text sizing for mobile */
-            .paragraph_large {
-                font-size: 1.1rem;
-                line-height: 1.5;
             }
             
             .heading_h2 {
@@ -241,21 +188,27 @@
                 line-height: 1.3;
             }
             
-            /* Calculator form mobile */
-            .input {
-                width: 100%;
-                padding: 0.75rem;
-                font-size: 1rem;
+            .paragraph_large {
+                font-size: 1.1rem;
+                line-height: 1.5;
             }
             
-            /* Hardware cards mobile */
-            .flex_horizontal.is-y-center {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
+            /* Grid layouts */
+            .grid_3-col {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
             
-            /* Pricing cards mobile improvements */
+            .grid_2-col {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            /* Cards */
+            .card {
+                margin-bottom: 1.5rem;
+            }
+            
             .card .card_body {
                 padding: 1.25rem;
             }
@@ -270,18 +223,8 @@
                 line-height: 1.4;
             }
             
-            /* Calculator mobile improvements */
-            .w-layout-grid.grid_2-col {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .card .flex_vertical.gap-medium {
-                gap: 1rem;
-            }
-            
-            /* Input fields mobile */
-            input[type="number"], select {
+            /* Forms */
+            .input, input[type="number"], select {
                 width: 100%;
                 padding: 0.75rem;
                 font-size: 1rem;
@@ -290,13 +233,38 @@
                 box-sizing: border-box;
             }
             
-            /* Checkbox mobile */
             input[type="checkbox"] {
                 transform: scale(1.2);
                 margin-right: 0.5rem;
             }
             
-            /* Quote display mobile */
+            /* Buttons */
+            .button {
+                padding: 0.875rem 1.5rem;
+                font-size: 1rem;
+            }
+            
+            /* Layout */
+            .flex_horizontal.is-y-center {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .footer_bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            /* Images */
+            .image_cover {
+                object-fit: cover;
+                width: 100%;
+                height: auto;
+            }
+            
+            /* Quote display */
             .flex_horizontal.is-y-baseline {
                 justify-content: space-between;
                 align-items: baseline;
@@ -308,8 +276,8 @@
             }
         }
         
+        /* Extra small mobile devices */
         @media (max-width: 480px) {
-            /* Extra small mobile devices */
             .container {
                 padding: 1rem;
             }
@@ -327,25 +295,6 @@
                 text-align: center;
             }
             
-            /* Calculator mobile */
-            .w-layout-grid.grid_2-col {
-                grid-template-columns: 1fr;
-            }
-            
-            /* Hardware pricing mobile */
-            .flex_horizontal.is-y-center.gap-medium {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            
-            /* Input fields mobile */
-            input, select {
-                width: 100%;
-                box-sizing: border-box;
-            }
-            
-            /* Extra small mobile improvements */
             .card_body {
                 padding: 1rem;
             }
@@ -1012,9 +961,16 @@
         
         // Custom Mobile Menu JavaScript
         document.addEventListener('DOMContentLoaded', function() {
-                const mobileMenuButton = document.querySelector('.nav_mobile-menu-button');
-                
-                if (mobileMenuButton) {
+            const mobileMenuButton = document.querySelector('.nav_mobile-menu-button');
+            
+            // Function to check if we're on mobile
+            function isMobile() {
+                return window.innerWidth <= 768;
+            }
+            
+            // Function to create mobile menu
+            function createMobileMenu() {
+                if (mobileMenuButton && isMobile()) {
                     // Create custom mobile menu
                     const customMenu = document.createElement('div');
                     customMenu.className = 'custom-mobile-menu';
@@ -1097,7 +1053,25 @@
                         }
                     });
                 }
-        });
+                }
+                
+                // Create mobile menu on load if mobile
+                createMobileMenu();
+                
+                // Handle window resize
+                window.addEventListener('resize', function() {
+                    // Remove existing mobile menu if it exists
+                    const existingMenu = document.querySelector('.custom-mobile-menu');
+                    if (existingMenu) {
+                        existingMenu.remove();
+                    }
+                    
+                    // Create new mobile menu if on mobile
+                    if (isMobile()) {
+                        createMobileMenu();
+                    }
+                });
+            });
     </script>
 </body>
 </html>

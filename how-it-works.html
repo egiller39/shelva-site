@@ -61,7 +61,34 @@
             --shelva-shadow-default: 0 3px 10px rgba(0, 0, 0, 0.04);
             --shelva-shadow-hover:   0 6px 30px 0 rgba(6, 66, 115, 0.25);
         }
-
+        
+        /* Hide mobile navigation on desktop */
+        .nav_mobile-menu-button {
+            display: none;
+        }
+        
+        /* Show mobile navigation only on mobile */
+        @media (max-width: 768px) {
+            .nav_mobile-menu-button {
+                display: block;
+            }
+        }
+        
+        /* Desktop Layout - Ensure 3 columns for Getting Started */
+        .grid_3-col {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        /* Tablet layout - 2 columns */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .grid_3-col {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+        
         /* Hide Webflow mobile menu completely */
         @media (max-width: 768px) {
             .nav_menu {
@@ -69,8 +96,9 @@
             }
         }
         
-        /* Custom mobile menu styles */
-        .custom-mobile-menu {
+        /* Custom mobile menu styles - MOBILE ONLY */
+        @media (max-width: 768px) {
+            .custom-mobile-menu {
             display: none;
             position: fixed;
             top: 0;
@@ -137,10 +165,13 @@
             color: white !important; /* White text on coral */
         }
         
-        .custom-mobile-menu.show .custom-mobile-menu-content {
-            transform: translateY(0) !important;
+            .custom-mobile-menu.show .custom-mobile-menu-content {
+                transform: translateY(0) !important;
+            }
         }
-            
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
             /* Hero section mobile optimization */
             .heading_h1 {
                 font-size: 2.5rem;
@@ -473,7 +504,14 @@
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuButton = document.querySelector('.nav_mobile-menu-button');
             
-            if (mobileMenuButton) {
+            // Function to check if we're on mobile
+            function isMobile() {
+                return window.innerWidth <= 768;
+            }
+            
+            // Function to create mobile menu
+            function createMobileMenu() {
+                if (mobileMenuButton && isMobile()) {
                 // Create custom mobile menu
                 const customMenu = document.createElement('div');
                 customMenu.className = 'custom-mobile-menu';
@@ -554,9 +592,27 @@
                         }, 300);
                         document.body.style.overflow = '';
                     }
+                    });
+                }
+                }
+                
+                // Create mobile menu on load if mobile
+                createMobileMenu();
+                
+                // Handle window resize
+                window.addEventListener('resize', function() {
+                    // Remove existing mobile menu if it exists
+                    const existingMenu = document.querySelector('.custom-mobile-menu');
+                    if (existingMenu) {
+                        existingMenu.remove();
+                    }
+                    
+                    // Create new mobile menu if on mobile
+                    if (isMobile()) {
+                        createMobileMenu();
+                    }
                 });
-            }
-        });
+            });
     </script>
 </body>
 </html>
