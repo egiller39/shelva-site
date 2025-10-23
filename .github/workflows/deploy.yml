@@ -18,5 +18,6 @@ jobs:
         script: |
           cd ~/shelva-site
           git pull origin main
-          cp -r site/* /var/www/shelva-site/
+          cp -r *.html /var/www/shelva-site/
+          cp -r images/ /var/www/shelva-site/ 2>/dev/null || true
           sudo systemctl reload nginx
