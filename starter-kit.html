@@ -925,6 +925,30 @@
     <script src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/js/webflow.schunk.9559063f8782d83f.js" type="text/javascript"></script>
     <script src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/js/webflow.3eb1fc22.012b87d75bb4f09b.js" type="text/javascript"></script>
     
+    <!-- Google reCAPTCHA v2 -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        // Callback to verify reCAPTCHA loaded
+        function onRecaptchaLoaded() {
+            console.log('reCAPTCHA widget loaded successfully');
+        }
+        
+        // Check if reCAPTCHA loads
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                if (typeof grecaptcha === 'undefined') {
+                    console.error('reCAPTCHA failed to load. Check CSP settings and domain configuration.');
+                    const container = document.getElementById('recaptcha-container');
+                    if (container) {
+                        container.innerHTML = '<p style="color: red;">reCAPTCHA failed to load. Please check browser console.</p>';
+                    }
+                } else {
+                    console.log('reCAPTCHA API loaded');
+                }
+            }, 2000);
+        });
+    </script>
+    
     <!-- Custom Mobile Menu JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
