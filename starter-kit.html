@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>Contact Shelva - Get Support & Sales Information - Shelva: Digital Shelf Labels for Shopify</title>
-    <meta content="Get in touch with Shelva for sales inquiries, technical support, or general questions about our digital shelf label solutions." name="description"/>
-    <meta content="Contact Shelva - Get Support & Sales Information - Shelva" property="og:title"/>
-    <meta content="Get in touch with Shelva for sales inquiries, technical support, or general questions about our digital shelf label solutions." property="og:description"/>
-    <meta content="Contact Shelva - Get Support & Sales Information - Shelva" property="twitter:title"/>
-    <meta content="Get in touch with Shelva for sales inquiries, technical support, or general questions about our digital shelf label solutions." property="twitter:description"/>
+    <title>Starter Kit - Shelva Digital Shelf Labels - Shelva: Digital Shelf Labels for Shopify</title>
+    <meta content="Order the Shelva Starter Kit and see ESLs working with your Shopify products—live in your store. Everything you need to get started." name="description"/>
+    <meta content="Starter Kit - Shelva Digital Shelf Labels - Shelva" property="og:title"/>
+    <meta content="Order the Shelva Starter Kit and see ESLs working with your Shopify products—live in your store. Everything you need to get started." property="og:description"/>
+    <meta content="Starter Kit - Shelva Digital Shelf Labels - Shelva" property="twitter:title"/>
+    <meta content="Order the Shelva Starter Kit and see ESLs working with your Shopify products—live in your store. Everything you need to get started." property="twitter:description"/>
     <meta property="og:type" content="website"/>
     <meta content="summary_large_image" name="twitter:card"/>
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
@@ -86,6 +86,16 @@
             object-position: center !important;
             width: 100% !important;
             height: 100% !important;
+        }
+        
+        /* Button styling with white outline */
+        .button.is-primary {
+            border: 2px solid white !important;
+        }
+        
+        /* Global Font Settings */
+        body, html, * {
+            font-family: 'Figtree', sans-serif !important;
         }
         
         /* Desktop Layout - Ensure proper columns for contact page */
@@ -355,71 +365,65 @@
 
     <!-- Page Content -->
     
-        <header class="section is-accent-primary">
-            <div class="container is-small">
-                <div class="header is-align-center">
-                    <h1 class="heading_h1">Get in Touch</h1>
-                    <p class="subheading">We're here to help you succeed with digital shelf labels. Reach out for sales, support, or any questions.</p>
+        <section class="section is-accent-primary">
+            <div class="container">
+                <div class="grid_2-col tablet-1-col">
+                    <div>
+                        <h1 class="heading_h1">Order the Shelva Starter Kit</h1>
+                        <p class="subheading">Test Shelva in your store with our complete starter kit.</p>
+                        <div class="flex_horizontal gap-medium margin-top_large">
+                            <a href="https://apps.shopify.com/shelva-app" class="button is-primary w-button" target="_blank">Order the Starter Kit - $350</a>
+                            <a href="https://calendly.com/egiller-shelva/30min" class="button is-primary w-button" target="_blank">Book a meeting</a>
+                        </div>
+                    </div>
+                    <div style="background: white; border-radius: 50%; padding: 2rem; display: flex; align-items: center; justify-content: center; width: fit-content; margin: 0 auto; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);">
+                        <img src="/images/starter-kit-box.png" alt="Shelva Starter Kit" class="image_cover" style="width: 50% !important; height: auto !important;"/>
+                    </div>
                 </div>
             </div>
-        </header>
+        </section>
         
         <section class="section">
             <div class="container">
-                <div class="w-layout-grid grid_2-col tablet-1-col gap-xxlarge">
-                    <div class="header margin-bottom_none">
-                        <h2 class="heading_h2">Contact Information</h2>
-                        <p class="paragraph_large margin-bottom_none">Choose the best way to reach us based on your needs.</p>
+                <div class="header is-align-center margin-bottom_large">
+                    <h2 class="heading_h2">What's Included</h2>
+                    <p class="paragraph_large">Everything you need to experience and test Shelva in your store.</p>
+                </div>
+                <div class="w-layout-grid grid_3-col gap-large">
+                    <div class="card">
+                        <div class="card_body">
+                            <h3 class="heading_h3">Shelva Hub</h3>
+                            <p class="paragraph">Your store's central connection point - plugs into router and manages every Shelva label.</p>
+                        </div>
                     </div>
-                    <div class="w-layout-grid grid_2-col gap-medium">
-                        <div class="card">
-                            <div class="card_body">
-                                <div class="icon margin-bottom_xsmall">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none">
-                                        <path d="M5.25 6.75H18.75V17.25H5.25V6.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
-                                        <path d="M5.25 6.75L12 12L18.75 6.75" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
-                                    </svg>
-                                </div>
-                                <h4 class="heading_h4">Sales Inquiries</h4>
-                                <p class="paragraph_small">For pricing, demos, and enterprise solutions</p>
-                                <a href="mailto:sales@shelva.app" class="text-link">sales@shelva.app</a>
-                            </div>
+                    <div class="card">
+                        <div class="card_body">
+                            <h3 class="heading_h3">Three Label Sizes</h3>
+                            <p class="paragraph">Pocket (2.1″), Slim (2.9″), and Spotlight (3.7″) labels to fit different product displays.</p>
                         </div>
-                        <div class="card">
-                            <div class="card_body">
-                                <div class="icon margin-bottom_xsmall">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none">
-                                        <path d="M12.5 18.25C16.2279 18.25 19.25 15.2279 19.25 11.5C19.25 7.77208 16.2279 4.75 12.5 4.75C8.77208 4.75 5.75 7.77208 5.75 11.5C5.75 12.6007 6.01345 13.6398 6.48072 14.5578L5 19L9.71819 17.6519C10.5664 18.0361 11.5082 18.25 12.5 18.25Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
-                                    </svg>
-                                </div>
-                                <h4 class="heading_h4">Technical Support</h4>
-                                <p class="paragraph_small">Setup help and troubleshooting</p>
-                                <a href="mailto:support@shelva.app" class="text-link">support@shelva.app</a>
-                            </div>
+                    </div>
+                    <div class="card">
+                        <div class="card_body">
+                            <h3 class="heading_h3">Mounting Options</h3>
+                            <p class="paragraph">All brackets, clips, and mounts for quick and secure installation on any surface.</p>
                         </div>
-                        <div class="card">
-                            <div class="card_body">
-                                <div class="icon margin-bottom_xsmall">
-                                    <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none">
-                                        <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
-                                    </svg>
-                                </div>
-                                <h4 class="heading_h4">General Questions</h4>
-                                <p class="paragraph_small">Partnerships and general inquiries</p>
-                                <a href="mailto:contact@shelva.app" class="text-link">contact@shelva.app</a>
-                            </div>
+                    </div>
+                    <div class="card">
+                        <div class="card_body">
+                            <h3 class="heading_h3">Setup Guide</h3>
+                            <p class="paragraph">Step-by-step setup card that guides you through the process of getting your labels up and running.</p>
                         </div>
-                        <div class="card">
-                            <div class="card_body">
-                                <div class="icon margin-bottom_xsmall">
-                                    <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none">
-                                        <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
-                                    </svg>
-                                </div>
-                                <h4 class="heading_h4">Live Chat</h4>
-                                <p class="paragraph_small">Weekdays, 8am–5pm EST</p>
-                                <p class="paragraph_small">Available in the Shelva app</p>
-                            </div>
+                    </div>
+                    <div class="card">
+                        <div class="card_body">
+                            <h3 class="heading_h3">App Access</h3>
+                            <p class="paragraph">Full access to the Shelva Shopify app for pairing, customization, and live price syncing.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card_body">
+                            <h3 class="heading_h3">Personal Support</h3>
+                            <p class="paragraph">Email and onboarding assistance to help you get set up smoothly.</p>
                         </div>
                     </div>
                 </div>
@@ -428,35 +432,128 @@
         
         <section class="section is-secondary">
             <div class="container">
-                <div class="header is-align-center">
-                    <h2 class="heading_h2">Response Times</h2>
-                    <p class="paragraph_large">We're committed to getting back to you quickly</p>
+                <div class="header is-align-center margin-bottom_large">
+                    <h2 class="heading_h2">How It Works</h2>
+                    <p class="paragraph_large">Experience Shelva in three simple steps — right out of the box.</p>
                 </div>
-                <div class="w-layout-grid grid_3-col gap-medium" style="align-items: stretch;">
-                    <div class="card on-secondary" style="height: 100%; width: 100%;">
-                        <div class="card_body" style="height: 100%; width: 100%; display: flex; flex-direction: column; justify-content: center;">
-                            <h4 class="heading_h4">Sales Inquiries</h4>
-                            <p class="paragraph_small">Response within 2 business days</p>
+                <div class="w-layout-grid grid_3-col gap-large">
+                    <div class="card">
+                        <div class="card_body text-align_center">
+                            <div class="margin-bottom_medium">
+                                <div style="width: 60px; height: 60px; background: #FF7F6A; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; margin: 0 auto;">1</div>
+                            </div>
+                            <h3 class="heading_h3">Unbox</h3>
+                            <p class="paragraph">Open your Starter Kit and discover the Shelva Hub, sample labels, and mounting accessories. Everything you need to test Shelva in your store.</p>
                         </div>
                     </div>
-                    <div class="card on-secondary" style="height: 100%; width: 100%;">
-                        <div class="card_body" style="height: 100%; width: 100%; display: flex; flex-direction: column; justify-content: center;">
-                            <h4 class="heading_h4">Technical Support</h4>
-                            <p class="paragraph_small">Response within 4 hours, 24/7 for critical issues</p>
+                    <div class="card">
+                        <div class="card_body text-align_center">
+                            <div class="margin-bottom_medium">
+                                <div style="width: 60px; height: 60px; background: #FF7F6A; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; margin: 0 auto;">2</div>
+                            </div>
+                            <h3 class="heading_h3">Plug In the Hub</h3>
+                            <p class="paragraph">Connect the Shelva Hub to power and your router.</p>
                         </div>
                     </div>
-                    <div class="card on-secondary" style="height: 100%; width: 100%;">
-                        <div class="card_body" style="height: 100%; width: 100%; display: flex; flex-direction: column; justify-content: center;">
-                            <h4 class="heading_h4">General Questions</h4>
-                            <p class="paragraph_small">Response within 24 hours</p>
+                    <div class="card">
+                        <div class="card_body text-align_center">
+                            <div class="margin-bottom_medium">
+                                <div style="width: 60px; height: 60px; background: #FF7F6A; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; margin: 0 auto;">3</div>
+                            </div>
+                            <h3 class="heading_h3">Test Labels & Mounting</h3>
+                            <p class="paragraph">Pair your labels with real your products, mount them on your shelves, and watch prices update instantly in real time.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         
-
-    <!-- Footer -->
+        <section class="section">
+            <div class="container">
+                <div class="w-layout-grid grid_1-col gap-medium margin-bottom_large">
+                    <div class="card">
+                        <div class="card_body">
+                            <div class="flex_horizontal is-y-center gap-medium margin-bottom_medium">
+                                <div style="width: 120px; height: 120px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                                    <img style="max-width: 100%; max-height: 100%; object-fit: contain;" src="/images/starter-kit-box.png" alt="Shelva Starter Kit" loading="lazy"/>
+                                </div>
+                                <div class="flex_child_expand">
+                                    <h4 class="heading_h4" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem;">Shelva Starter Kit</h4>
+                                    <p class="paragraph_small" style="font-size: 1rem; line-height: 1.4; color: #666;">Everything you need to test Shelva in your store - includes Shelva Hub, labels, mounting options, quick-start guide, and full app access</p>
+                                    
+                                    <div class="grid_2-col" style="margin-top: 1rem;">
+                                        <div>
+                                            <h5 class="heading_h5" style="font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; color: #333;">Hardware Included:</h5>
+                                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                                <li style="margin-bottom: 0.25rem; font-size: 0.9rem; color: #666;">• 1x Shelva Hub</li>
+                                                <li style="margin-bottom: 0.25rem; font-size: 0.9rem; color: #666;">• 2 x 2.1" labels (black & white)</li>
+                                                <li style="margin-bottom: 0.25rem; font-size: 0.9rem; color: #666;">• 2 x 2.9" labels (black & white)</li>
+                                                <li style="margin-bottom: 0.25rem; font-size: 0.9rem; color: #666;">• 2 x 3.7" labels (black & white)</li>
+                                                <li style="margin-bottom: 0.25rem; font-size: 0.9rem; color: #666;">• Mounting and display accessories</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h5 class="heading_h5" style="font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; color: #333;">Accessories & Support:</h5>
+                                                <li style="margin-bottom: 0.25rem; font-size: 0.9rem; color: #666;">• Quick-start setup guide</li>
+                                                <li style="margin-bottom: 0.25rem; font-size: 0.9rem; color: #666;">• Full app access & support</li>
+                                                <li style="margin-bottom: 0.25rem; font-size: 0.9rem; color: #666;">• 30-day trial period</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex_horizontal is-y-baseline">
+                                <p class="heading_h3 margin-bottom_none" style="font-size: 2rem; font-weight: 700; color: #333;">$350</p>
+                                <p class="paragraph_small margin-bottom_none" style="font-size: 1rem; color: #666; margin-left: 0.25rem;">one-time</p>
+                            </div>
+                            <div class="margin-top_small">
+                                <p class="paragraph_small text-color_secondary" style="font-size: 0.9rem; color: #888; font-style: italic;">$280 refundable deposit - return anytime for 80% refund</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section is-secondary">
+            <div class="container is-small">
+                <div class="header is-align-center">
+                    <h2 class="heading_h2">Frequently Asked Questions</h2>
+                </div>
+                <div class="flex_vertical gap-medium">
+                    <div class="divider">
+                        <div class="heading_h4">How much coverage does one Hub provide?</div>
+                        <div class="rich-text paragraph_large w-richtext">
+                            <p>Each Hub covers roughly 23 meters (75 feet) in every direction, depending on your layout and label density.</p>
+                        </div>
+                    </div>
+                    <div class="divider">
+                        <div class="heading_h4">How long does setup take?</div>
+                        <div class="rich-text paragraph_large w-richtext">
+                            <p>Most stores complete installation in under 30 minutes using the included guide and app walkthrough.</p>
+                        </div>
+                    </div>
+                    <div class="divider">
+                        <div class="heading_h4">What's your return policy?</div>
+                        <div class="rich-text paragraph_large w-richtext">
+                            <p>Return any hardware in good condition within 30 days for an 80% refund — fast and hassle-free.</p>
+                        </div>
+                    </div>
+                    <div class="divider">
+                        <div class="heading_h4">Does Shelva work with Shopify POS?</div>
+                        <div class="rich-text paragraph_large w-richtext">
+                            <p>Yes. Shelva syncs seamlessly with both Shopify Online and Shopify POS, keeping prices consistent everywhere.</p>
+                        </div>
+                    </div>
+                    <div class="divider">
+                        <div class="heading_h4">What kind of support is included?</div>
+                        <div class="rich-text paragraph_large w-richtext">
+                            <p>Our team provides full onboarding, troubleshooting, and maintenance support by email / chat / call.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     <footer class="footer is-inverse">
         <div class="container">
             <div class="footer_bottom">
@@ -528,9 +625,9 @@
                             <li class="custom-mobile-menu-item">
                                 <a href="/contact" class="custom-mobile-menu-link">Contact</a>
                             </li>
-                                <li class="custom-mobile-menu-item">
-                                    <a href="/privacy-policy" class="custom-mobile-menu-link">Privacy Policy</a>
-                                </li>
+                            <li class="custom-mobile-menu-item">
+                                <a href="/privacy-policy" class="custom-mobile-menu-link">Privacy Policy</a>
+                            </li>
                         </ul>
                     </div>
                 `;
