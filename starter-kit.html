@@ -202,6 +202,16 @@
         
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
+            /* Prevent horizontal overflow */
+            body, html {
+                overflow-x: hidden !important;
+            }
+            
+            .container {
+                max-width: 100% !important;
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
             /* Hero section mobile optimization */
             .heading_h1 {
                 font-size: 2.5rem;
@@ -243,6 +253,74 @@
             .paragraph_large {
                 font-size: 1.1rem;
                 line-height: 1.5;
+            }
+            
+            /* Hero section mobile fixes */
+            .flex_horizontal {
+                flex-wrap: wrap !important;
+            }
+            
+            .flex_horizontal.gap-medium {
+                gap: 1rem !important;
+            }
+            
+            /* Hero section buttons mobile */
+            .section.is-accent-primary .flex_horizontal.gap-medium {
+                flex-direction: column !important;
+            }
+            
+            .section.is-accent-primary .flex_horizontal.gap-medium .button {
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+            
+            /* Hero section image container mobile */
+            .section.is-accent-primary .grid_2-col > div:last-child {
+                width: 100% !important;
+                margin-top: 2rem !important;
+            }
+            
+            .section.is-accent-primary .grid_2-col > div:last-child > div {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 1.5rem !important;
+            }
+            
+            .section.is-accent-primary .grid_2-col > div:last-child > div > img {
+                width: 100% !important;
+                max-width: 200px !important;
+                height: auto !important;
+            }
+            
+            /* Pricing section mobile fixes */
+            .flex_horizontal.is-y-center {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+            }
+            
+            .flex_horizontal.is-y-center > div:first-child {
+                width: 100% !important;
+                margin-bottom: 1rem !important;
+                display: flex !important;
+                justify-content: center !important;
+                flex-shrink: 0 !important;
+            }
+            
+            .flex_horizontal.is-y-center > div:first-child > img {
+                max-width: 150px !important;
+                max-height: 150px !important;
+            }
+            
+            .flex_horizontal.is-y-center .flex_child_expand {
+                width: 100% !important;
+                flex: none !important;
+            }
+            
+            /* Pricing section grid inside flex */
+            .flex_horizontal.is-y-center .grid_2-col {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+                width: 100% !important;
             }
             
             .heading_h2 {
@@ -294,6 +372,185 @@
             
             .paragraph {
                 font-size: 0.9rem;
+            }
+        }
+        
+        /* Order Form Modal Styles */
+        .order-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(6, 66, 115, 0.7);
+            z-index: 100000;
+            overflow-y: auto;
+            padding: 2rem 1rem;
+        }
+        
+        .order-modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .order-modal-content {
+            background: #FBF3E4;
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 600px;
+            width: 100%;
+            margin: auto;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .order-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #FF7F6A;
+        }
+        
+        .order-modal-header h3 {
+            margin: 0;
+            font-size: 1.75rem;
+            color: #042236;
+        }
+        
+        .order-modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #042236;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+        }
+        
+        .order-modal-close:hover {
+            background: #FF7F6A;
+            color: white;
+        }
+        
+        .order-form-group {
+            margin-bottom: 1.25rem;
+        }
+        
+        .order-form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #042236;
+            font-size: 0.95rem;
+        }
+        
+        .order-form-group input,
+        .order-form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #CFF3F2;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: 'Figtree', sans-serif;
+            transition: border-color 0.2s ease;
+            box-sizing: border-box;
+        }
+        
+        .order-form-group input:focus,
+        .order-form-group textarea:focus {
+            outline: none;
+            border-color: #FF7F6A;
+        }
+        
+        .order-form-group textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        
+        .order-form-group .required {
+            color: #FF7F6A;
+        }
+        
+        .order-form-submit {
+            width: 100%;
+            padding: 1rem;
+            background: #FF7F6A;
+            color: white;
+            border: 2px solid white;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Figtree', sans-serif;
+            margin-top: 1rem;
+        }
+        
+        .order-form-submit:hover {
+            background: white;
+            color: #FF7F6A;
+            border-color: #FF7F6A;
+        }
+        
+        .order-form-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .order-form-success {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            color: #042236;
+        }
+        
+        .order-form-success.show {
+            display: block;
+        }
+        
+        .order-form-success h4 {
+            color: #4CAF50;
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .order-modal-content {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+            
+            .order-modal-header h3 {
+                font-size: 1.5rem;
+            }
+            
+            .order-form-group[style*="grid"] {
+                display: block !important;
+            }
+            
+            .order-form-group[style*="grid"] > div {
+                margin-bottom: 1rem;
+            }
+            
+            /* reCAPTCHA mobile styling */
+            #recaptcha-container {
+                display: flex;
+                justify-content: center;
+                overflow-x: auto;
+            }
+            
+            .g-recaptcha {
+                transform: scale(0.85);
+                transform-origin: 0 0;
             }
         }
     </style>
@@ -372,7 +629,7 @@
                         <h1 class="heading_h1">Order the Shelva Starter Kit</h1>
                         <p class="subheading">Test Shelva in your store with our complete starter kit.</p>
                         <div class="flex_horizontal gap-medium margin-top_large">
-                            <a href="https://apps.shopify.com/shelva-app" class="button is-primary w-button" target="_blank">Order the Starter Kit - $350</a>
+                            <a href="#" class="button is-primary w-button" id="order-starter-kit-btn">Order the Starter Kit - $350</a>
                             <a href="https://calendly.com/egiller-shelva/30min" class="button is-primary w-button" target="_blank">Book a meeting</a>
                         </div>
                     </div>
@@ -494,6 +751,7 @@
                                         </div>
                                         <div>
                                             <h5 class="heading_h5" style="font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; color: #333;">Accessories & Support:</h5>
+                                            <ul style="list-style: none; padding: 0; margin: 0;">
                                                 <li style="margin-bottom: 0.25rem; font-size: 0.9rem; color: #666;">• Quick-start setup guide</li>
                                                 <li style="margin-bottom: 0.25rem; font-size: 0.9rem; color: #666;">• Full app access & support</li>
                                                 <li style="margin-bottom: 0.25rem; font-size: 0.9rem; color: #666;">• 30-day trial period</li>
@@ -581,6 +839,85 @@
             </div>
         </div>
     </footer>
+
+    <!-- Order Form Modal -->
+    <div class="order-modal" id="order-modal">
+        <div class="order-modal-content">
+            <div class="order-modal-header">
+                <h3>Order the Starter Kit</h3>
+                <button class="order-modal-close" id="order-modal-close">&times;</button>
+            </div>
+            
+            <form id="order-form" class="order-form">
+                <div class="order-form-group">
+                    <label for="full-name">Full Name <span class="required">*</span></label>
+                    <input type="text" id="full-name" name="fullName" required>
+                </div>
+                
+                <div class="order-form-group">
+                    <label for="email">Email Address <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="order-form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                
+                <div class="order-form-group">
+                    <label for="business-name">Business Name <span class="required">*</span></label>
+                    <input type="text" id="business-name" name="businessName" required>
+                </div>
+                
+                <div class="order-form-group">
+                    <label for="business-type">Business Type</label>
+                    <input type="text" id="business-type" name="businessType" placeholder="e.g., Retail Store, Grocery, etc.">
+                </div>
+                
+                <div class="order-form-group">
+                    <label for="shipping-address">Shipping Address <span class="required">*</span></label>
+                    <textarea id="shipping-address" name="shippingAddress" required rows="3"></textarea>
+                </div>
+                
+                <div class="order-form-group">
+                    <label for="shipping-city">City <span class="required">*</span></label>
+                    <input type="text" id="shipping-city" name="shippingCity" required>
+                </div>
+                
+                <div class="order-form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div>
+                        <label for="shipping-state">State/Province <span class="required">*</span></label>
+                        <input type="text" id="shipping-state" name="shippingState" required>
+                    </div>
+                    <div>
+                        <label for="shipping-zip">Postal Code <span class="required">*</span></label>
+                        <input type="text" id="shipping-zip" name="shippingZip" required>
+                    </div>
+                </div>
+                
+                <div class="order-form-group">
+                    <label for="shipping-country">Country <span class="required">*</span></label>
+                    <input type="text" id="shipping-country" name="shippingCountry" required>
+                </div>
+                
+                <div class="order-form-group">
+                    <label for="notes">Additional Notes</label>
+                    <textarea id="notes" name="notes" rows="3" placeholder="Any special instructions or questions?"></textarea>
+                </div>
+                
+                <div class="order-form-group" id="recaptcha-container" style="margin-top: 1.5rem; margin-bottom: 1rem;">
+                    <div class="g-recaptcha" data-sitekey="6LfaQvsrAAAAAJQDhRE97Qh-zwC7oAS4jVtK0-Iq"></div>
+                </div>
+                
+                <button type="submit" class="order-form-submit" id="order-form-submit">Submit Order Request</button>
+            </form>
+            
+            <div class="order-form-success" id="order-form-success">
+                <h4>✓ Order Request Submitted!</h4>
+                <p>Thank you for your interest! We'll review your information and contact you shortly to complete your order.</p>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
@@ -706,5 +1043,228 @@
                 });
             });
     </script>
+    
+    <!-- Order Form Modal JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const orderBtn = document.getElementById('order-starter-kit-btn');
+            const orderModal = document.getElementById('order-modal');
+            const orderModalClose = document.getElementById('order-modal-close');
+            const orderForm = document.getElementById('order-form');
+            const orderFormSuccess = document.getElementById('order-form-success');
+            
+            // Open modal when button is clicked
+            if (orderBtn) {
+                orderBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    orderModal.classList.add('show');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+            
+            // Close modal functions
+            function closeModal() {
+                orderModal.classList.remove('show');
+                document.body.style.overflow = '';
+                
+                // Reset form state when closing
+                orderForm.style.display = 'block';
+                orderFormSuccess.classList.remove('show');
+                orderForm.reset();
+                document.getElementById('order-form-submit').disabled = false;
+                document.getElementById('order-form-submit').textContent = 'Submit Order Request';
+                
+                // Reset reCAPTCHA v2
+                if (typeof grecaptcha !== 'undefined') {
+                    grecaptcha.reset();
+                }
+            }
+            
+            if (orderModalClose) {
+                orderModalClose.addEventListener('click', closeModal);
+            }
+            
+            // Close modal when clicking outside
+            orderModal.addEventListener('click', function(e) {
+                if (e.target === orderModal) {
+                    closeModal();
+                }
+            });
+            
+            // Close modal on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && orderModal.classList.contains('show')) {
+                    closeModal();
+                }
+            });
+            
+            // Form submission
+            if (orderForm) {
+                orderForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const submitBtn = document.getElementById('order-form-submit');
+                    const formData = new FormData(orderForm);
+                    
+                    // Disable submit button
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Submitting...';
+                    
+                    // Check if reCAPTCHA v2 is completed
+                    if (typeof grecaptcha === 'undefined') {
+                        alert('reCAPTCHA is still loading. Please wait a moment and try again.');
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Submit Order Request';
+                        return;
+                    }
+                    
+                    const recaptchaResponse = grecaptcha.getResponse();
+                    if (!recaptchaResponse || recaptchaResponse.length === 0) {
+                        alert('Please complete the reCAPTCHA verification before submitting.');
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Submit Order Request';
+                        return;
+                    }
+                    
+                    // Add CAPTCHA response to form data
+                    formData.append('g-recaptcha-response', recaptchaResponse);
+                    
+                    // Continue with form submission
+                    submitForm(formData, submitBtn);
+                });
+            }
+            
+            // Function to handle form submission after reCAPTCHA is verified
+            function submitForm(formData, submitBtn) {
+                    
+                    // OPTION 1: Using Formspree (recommended - free, easy setup)
+                    // Replace 'YOUR_FORMSPREE_ID' with your actual Formspree form ID
+                    // Sign up at https://formspree.io and get your form endpoint
+                    const formspreeUrl = 'https://formspree.io/f/mpworany';
+                    
+                    // OPTION 2: Using email (fallback)
+                    // Uncomment this and comment out Formspree option if preferred
+                    /*
+                    const emailBody = `
+New Starter Kit Order Request
+
+Full Name: ${formData.get('fullName')}
+Email: ${formData.get('email')}
+Phone: ${formData.get('phone')}
+Business Name: ${formData.get('businessName')}
+Business Type: ${formData.get('businessType') || 'N/A'}
+
+Shipping Address:
+${formData.get('shippingAddress')}
+${formData.get('shippingCity')}, ${formData.get('shippingState')} ${formData.get('shippingZip')}
+${formData.get('shippingCountry')}
+
+Notes: ${formData.get('notes') || 'N/A'}
+                    `;
+                    
+                    window.location.href = `mailto:contact@shelva.app?subject=New Starter Kit Order&body=${encodeURIComponent(emailBody)}`;
+                    */
+                    
+                    // OPTION 3: Custom endpoint (when you have a backend)
+                    // Uncomment and customize if you have your own API endpoint
+                    /*
+                    fetch('YOUR_API_ENDPOINT', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(Object.fromEntries(formData))
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        showSuccess();
+                    })
+                    .catch(error => {
+                        alert('There was an error submitting your order. Please try again or contact us directly.');
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Submit Order Request';
+                    });
+                    */
+                    
+                    // Using Formspree (Option 1)
+                    fetch(formspreeUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json'
+                        },
+                        body: formData
+                    })
+                    .then(async response => {
+                        const contentType = response.headers.get('content-type') || '';
+                        
+                        // Check if response is JSON
+                        if (contentType.includes('application/json')) {
+                            try {
+                                const data = await response.json();
+                                if (response.ok || data.success || data.error === null || data.next) {
+                                    // Success - Formspree accepted the submission
+                                    console.log('Formspree success:', data);
+                                    showSuccess();
+                                } else {
+                                    // Formspree returned an error message
+                                    console.error('Formspree error:', data);
+                                    throw new Error(data.error || 'Form submission failed');
+                                }
+                            } catch (parseError) {
+                                console.error('JSON parse error:', parseError);
+                                throw new Error('Failed to parse response');
+                            }
+                        } else {
+                            // HTML response or other format
+                            // If status is 200/302, likely success (Formspree might redirect or show HTML)
+                            if (response.ok || response.status === 200 || response.status === 302) {
+                                console.log('Formspree submitted (non-JSON response, status:', response.status, ')');
+                                showSuccess();
+                            } else {
+                                // Try to get error text from response
+                                const text = await response.text();
+                                console.error('Formspree error response:', text);
+                                throw new Error(`Form submission failed (status: ${response.status})`);
+                            }
+                        }
+                    })
+                    .catch(error => {
+                        // Better error handling - log the full error
+                        console.error('Form submission error:', error);
+                        console.log('Formspree URL:', formspreeUrl);
+                        console.log('reCAPTCHA response:', formData.get('g-recaptcha-response'));
+                        
+                        // Show error message to user
+                        alert('There was an error submitting your order. Please check the browser console for details or contact us directly.\n\nError: ' + error.message);
+                        
+                        // Re-enable submit button
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Submit Order Request';
+                        
+                        // Note: Email fallback removed - user should fix Formspree configuration
+                        // If Formspree keeps failing, verify your form at https://formspree.io/forms/mwpwberj/settings
+                        // Make sure reCAPTCHA is enabled in Formspree settings if using CAPTCHA
+                    });
+            }
+            
+            function showSuccess() {
+                orderForm.style.display = 'none';
+                orderFormSuccess.classList.add('show');
+                
+                // Reset form for next time (but keep modal open)
+                orderForm.reset();
+                document.getElementById('order-form-submit').disabled = false;
+                document.getElementById('order-form-submit').textContent = 'Submit Order Request';
+                
+                // Reset reCAPTCHA v2
+                if (typeof grecaptcha !== 'undefined') {
+                    grecaptcha.reset();
+                }
+            }
+        });
+    </script>
+    
+    <!-- Google reCAPTCHA v2 -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 </html>
