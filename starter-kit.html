@@ -936,14 +936,35 @@
         // Check if reCAPTCHA loads
         window.addEventListener('load', function() {
             setTimeout(function() {
+                // Check if script tag exists
+                const recaptchaScript = document.querySelector('script[src*="recaptcha/api.js"]');
+                if (!recaptchaScript) {
+                    console.error('reCAPTCHA script tag not found in DOM');
+                } else {
+                    console.log('reCAPTCHA script tag found:', recaptchaScript.src);
+                }
+                
+                // Check if API is loaded
                 if (typeof grecaptcha === 'undefined') {
                     console.error('reCAPTCHA failed to load. Check CSP settings and domain configuration.');
+                    console.error('Possible causes:');
+                    console.error('1. CSP blocking https://www.google.com/recaptcha/api.js');
+                    console.error('2. Domain not added in reCAPTCHA admin console (shelva.app, www.shelva.app)');
+                    console.error('3. Network error - check Network tab for failed requests');
+                    
                     const container = document.getElementById('recaptcha-container');
                     if (container) {
-                        container.innerHTML = '<p style="color: red;">reCAPTCHA failed to load. Please check browser console.</p>';
+                        container.innerHTML = '<p style="color: red; padding: 1rem; background: #fff3cd; border: 1px solid #ffc107; border-radius: 4px;">⚠️ reCAPTCHA failed to load. Check browser console (F12) for details. Common causes: CSP blocking or domain not configured.</p>';
                     }
                 } else {
-                    console.log('reCAPTCHA API loaded');
+                    console.log('✓ reCAPTCHA API loaded successfully');
+                    console.log('Checking widget container...');
+                    const widget = document.querySelector('.g-recaptcha');
+                    if (widget) {
+                        console.log('✓ reCAPTCHA widget container found');
+                    } else {
+                        console.warn('⚠ reCAPTCHA widget container not found');
+                    }
                 }
             }, 2000);
         });
