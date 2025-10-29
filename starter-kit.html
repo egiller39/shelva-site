@@ -323,6 +323,21 @@
                 width: 100% !important;
             }
             
+            /* Pricing section button layout - mobile */
+            .card_body > .flex_horizontal.is-y-center.margin-top_xsmall {
+                flex-direction: column !important;
+                align-items: stretch !important;
+            }
+            
+            .card_body > .flex_horizontal.is-y-center.margin-top_xsmall > div:last-child {
+                width: 100% !important;
+                margin-top: 1rem !important;
+            }
+            
+            .card_body > .flex_horizontal.is-y-center.margin-top_xsmall > div:last-child .button {
+                width: 100% !important;
+            }
+            
             .heading_h2 {
                 font-size: 2rem;
                 line-height: 1.2;
@@ -760,12 +775,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="flex_horizontal is-y-baseline">
-                                <p class="heading_h3 margin-bottom_none" style="font-size: 2rem; font-weight: 700; color: #333;">$350</p>
-                                <p class="paragraph_small margin-bottom_none" style="font-size: 1rem; color: #666; margin-left: 0.25rem;">one-time</p>
-                            </div>
-                            <div class="margin-top_small">
-                                <p class="paragraph_small text-color_secondary" style="font-size: 0.9rem; color: #888; font-style: italic;">$280 refundable deposit - return anytime for 80% refund</p>
+                            <div>
+                                <div class="flex_horizontal is-y-baseline">
+                                    <p class="heading_h3 margin-bottom_none" style="font-size: 2rem; font-weight: 700; color: #333;">$350</p>
+                                    <p class="paragraph_small margin-bottom_none" style="font-size: 1rem; color: #666; margin-left: 0.25rem;">one-time</p>
+                                </div>
+                                <div class="flex_horizontal is-y-center margin-top_xsmall" style="justify-content: space-between; align-items: center; gap: 1rem; margin-top: 0.25rem !important;">
+                                    <p class="paragraph_small text-color_secondary margin-bottom_none" style="font-size: 0.9rem; color: #888; font-style: italic;">$280 refundable deposit - return anytime for 80% refund</p>
+                                    <div style="flex-shrink: 0;">
+                                        <a href="#" class="button is-primary w-button" id="order-starter-kit-btn-pricing">Order the Starter Kit</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -927,48 +947,6 @@
     
     <!-- Google reCAPTCHA v2 -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script>
-        // Callback to verify reCAPTCHA loaded
-        function onRecaptchaLoaded() {
-            console.log('reCAPTCHA widget loaded successfully');
-        }
-        
-        // Check if reCAPTCHA loads
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                // Check if script tag exists
-                const recaptchaScript = document.querySelector('script[src*="recaptcha/api.js"]');
-                if (!recaptchaScript) {
-                    console.error('reCAPTCHA script tag not found in DOM');
-                } else {
-                    console.log('reCAPTCHA script tag found:', recaptchaScript.src);
-                }
-                
-                // Check if API is loaded
-                if (typeof grecaptcha === 'undefined') {
-                    console.error('reCAPTCHA failed to load. Check CSP settings and domain configuration.');
-                    console.error('Possible causes:');
-                    console.error('1. CSP blocking https://www.google.com/recaptcha/api.js');
-                    console.error('2. Domain not added in reCAPTCHA admin console (shelva.app, www.shelva.app)');
-                    console.error('3. Network error - check Network tab for failed requests');
-                    
-                    const container = document.getElementById('recaptcha-container');
-                    if (container) {
-                        container.innerHTML = '<p style="color: red; padding: 1rem; background: #fff3cd; border: 1px solid #ffc107; border-radius: 4px;">⚠️ reCAPTCHA failed to load. Check browser console (F12) for details. Common causes: CSP blocking or domain not configured.</p>';
-                    }
-                } else {
-                    console.log('✓ reCAPTCHA API loaded successfully');
-                    console.log('Checking widget container...');
-                    const widget = document.querySelector('.g-recaptcha');
-                    if (widget) {
-                        console.log('✓ reCAPTCHA widget container found');
-                    } else {
-                        console.warn('⚠ reCAPTCHA widget container not found');
-                    }
-                }
-            }, 2000);
-        });
-    </script>
     
     <!-- Custom Mobile Menu JavaScript -->
     <script>
@@ -1093,17 +1071,31 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const orderBtn = document.getElementById('order-starter-kit-btn');
+            const orderBtnPricing = document.getElementById('order-starter-kit-btn-pricing');
             const orderModal = document.getElementById('order-modal');
             const orderModalClose = document.getElementById('order-modal-close');
             const orderForm = document.getElementById('order-form');
             const orderFormSuccess = document.getElementById('order-form-success');
             
-            // Open modal when button is clicked
+            // Function to open modal
+            function openOrderModal() {
+                orderModal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            // Open modal when hero button is clicked
             if (orderBtn) {
                 orderBtn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    orderModal.classList.add('show');
-                    document.body.style.overflow = 'hidden';
+                    openOrderModal();
+                });
+            }
+            
+            // Open modal when pricing section button is clicked
+            if (orderBtnPricing) {
+                orderBtnPricing.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openOrderModal();
                 });
             }
             
@@ -1248,47 +1240,31 @@ Notes: ${formData.get('notes') || 'N/A'}
                                 const data = await response.json();
                                 if (response.ok || data.success || data.error === null || data.next) {
                                     // Success - Formspree accepted the submission
-                                    console.log('Formspree success:', data);
                                     showSuccess();
                                 } else {
                                     // Formspree returned an error message
-                                    console.error('Formspree error:', data);
                                     throw new Error(data.error || 'Form submission failed');
                                 }
                             } catch (parseError) {
-                                console.error('JSON parse error:', parseError);
                                 throw new Error('Failed to parse response');
                             }
                         } else {
                             // HTML response or other format
                             // If status is 200/302, likely success (Formspree might redirect or show HTML)
                             if (response.ok || response.status === 200 || response.status === 302) {
-                                console.log('Formspree submitted (non-JSON response, status:', response.status, ')');
                                 showSuccess();
                             } else {
-                                // Try to get error text from response
-                                const text = await response.text();
-                                console.error('Formspree error response:', text);
                                 throw new Error(`Form submission failed (status: ${response.status})`);
                             }
                         }
                     })
                     .catch(error => {
-                        // Better error handling - log the full error
-                        console.error('Form submission error:', error);
-                        console.log('Formspree URL:', formspreeUrl);
-                        console.log('reCAPTCHA response:', formData.get('g-recaptcha-response'));
-                        
                         // Show error message to user
-                        alert('There was an error submitting your order. Please check the browser console for details or contact us directly.\n\nError: ' + error.message);
+                        alert('There was an error submitting your order. Please try again or contact us directly.\n\nError: ' + error.message);
                         
                         // Re-enable submit button
                         submitBtn.disabled = false;
                         submitBtn.textContent = 'Submit Order Request';
-                        
-                        // Note: Email fallback removed - user should fix Formspree configuration
-                        // If Formspree keeps failing, verify your form at https://formspree.io/forms/mwpwberj/settings
-                        // Make sure reCAPTCHA is enabled in Formspree settings if using CAPTCHA
                     });
             }
             
