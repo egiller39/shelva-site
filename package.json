@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Shelva website",
   "scripts": {
-    "dev": "http-server -p 3000 -o",
-    "start": "http-server -p 3000"
+    "dev": "http-server -p 3001 -o",
+    "start": "http-server -p 3001"
   },
   "devDependencies": {
     "http-server": "^14.1.1"
