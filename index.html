@@ -49,6 +49,50 @@
 
     .is-top--100 { top: -100%; }
 
+    /* Desktop Layout - Ensure 4 columns for pricing plans in one row */
+    .w-layout-grid.grid_3-col.gap-large {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 2rem;
+        align-items: stretch;
+    }
+    
+    /* Ensure pricing cards have equal heights and aligned content */
+    .w-layout-grid.grid_3-col.gap-large .card {
+        display: flex !important;
+        flex-direction: column;
+        height: 100%;
+    }
+    
+    .w-layout-grid.grid_3-col.gap-large .card .card_body {
+        display: flex !important;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+    
+    .w-layout-grid.grid_3-col.gap-large .card .margin_bottom-auto {
+        flex-grow: 1;
+    }
+    
+    /* Ensure pricing sections align horizontally */
+    .w-layout-grid.grid_3-col.gap-large .card .margin-top_large {
+        margin-top: auto;
+    }
+    
+    /* Ensure Enterprise "Contact Sales" aligns with prices */
+    .w-layout-grid.grid_3-col.gap-large .card .margin-top_large .w-layout-hflex {
+        min-height: 3.5rem;
+        align-items: baseline;
+    }
+    
+    /* Tablet layout - 2 columns for pricing plans */
+    @media (max-width: 1024px) and (min-width: 769px) {
+        .w-layout-grid.grid_3-col.gap-large {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 1.5rem;
+        }
+    }
+
     /* Mobile Responsiveness Improvements */
     @media (max-width: 768px) {
       /* Navigation improvements */
@@ -117,8 +161,8 @@
       }
       
       /* Feature grid mobile */
-      .grid_3-col {
-        grid-template-columns: 1fr;
+      .w-layout-grid.grid_3-col.gap-large {
+        grid-template-columns: 1fr !important;
         gap: 1.5rem;
       }
       
@@ -708,67 +752,142 @@
                 <div class="header is-align-center" id="pricing">
                     <h2 class="heading_h2">Simple pricing for every shop</h2>
                 </div>
-                <ul role="list" class="list-4 w-list-unstyled">
-                    <li class="card on-secondary">
+                <div class="w-layout-grid grid_3-col gap-large">
+                    <div class="card">
                         <div class="card_body">
                             <div class="margin_bottom-auto">
-                                <h4 class="heading_h3">Starter</h4>
-                                <p class="paragraph-2">Connect up to 50 digital shelf labels. Perfect for small stores. Includes basic label design and instant updates.</p>
-                                <br/>
+                                <h4 class="heading_h3" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem; color: #333;">Launch</h4>
+                                <p class="paragraph" style="font-size: 1rem; line-height: 1.5; color: #666; margin-bottom: 1.5rem;">Perfect for small stores getting started with digital shelf labels.</p>
+                                <ul class="w-list-unstyled" style="list-style: none; padding: 0;">
+                                    <li style="font-size: 0.95rem; line-height: 1.4; color: #555; margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #4CAF50; font-weight: bold;">✓</span><strong>Up to 50 labels</strong>
+                                    </li>
+                                    <li style="font-size: 0.95rem; line-height: 1.4; color: #555; margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #4CAF50; font-weight: bold;">✓</span><strong>1 location</strong>
+                                    </li>
+                                    <li style="font-size: 0.95rem; line-height: 1.4; color: #555; margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #4CAF50; font-weight: bold;">✓</span>30-day free trial
+                                    </li>
+                                </ul>
                             </div>
-                            <div class="margin-top_large">
+                            <div class="margin-top_large" style="margin-top: 2rem;">
                                 <div class="w-layout-hflex flex_horizontal is-y-baseline">
-                                    <p class="heading_h2 margin-bottom_none">$89</p>
-                                    <p class="heading_h4 margin-bottom_none">/mo</p>
+                                    <p class="heading_h2 margin-bottom_none" style="font-size: 2.5rem; font-weight: 700; color: #333;">$90</p>
+                                    <p class="heading_h4 margin-bottom_none" style="font-size: 1.1rem; color: #666; margin-left: 0.25rem;">/ month</p>
                                 </div>
-                                <p class="paragraph_large">First 50 labels</p>
+                                <p class="paragraph_small text-color_secondary" style="font-size: 0.9rem; color: #888; margin-top: 0.5rem;">or $972/year and save 10%</p>
                                 <div class="margin-top_xsmall">
                                     <div class="button-group">
-                                        <a href="https://apps.shopify.com/shelva-app" target="_blank" class="button w-button">Start</a>
+                                        <a href="https://apps.shopify.com/shelva-app" target="_blank" class="button w-button">Get Started</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </li>
-                    <li class="card on-secondary">
+                    </div>
+                    
+                    <div class="card">
                         <div class="card_body">
                             <div class="margin_bottom-auto">
-                                <h4 class="heading_h3">Growth</h4>
-                                <p class="paragraph-3">Up to 200 shelf labels for expanding stores. Access advanced design, and priority support.</p>
+                                <h4 class="heading_h3" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem; color: #333;">Growth</h4>
+                                <p class="paragraph" style="font-size: 1rem; line-height: 1.5; color: #666; margin-bottom: 1.5rem;">Ideal for expanding stores that need more labels and advanced features.</p>
+                                <ul class="w-list-unstyled" style="list-style: none; padding: 0;">
+                                    <li style="font-size: 0.95rem; line-height: 1.4; color: #555; margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #4CAF50; font-weight: bold;">✓</span><strong>Up to 250 labels</strong>
+                                    </li>
+                                    <li style="font-size: 0.95rem; line-height: 1.4; color: #555; margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #4CAF50; font-weight: bold;">✓</span><strong>1 location</strong>
+                                    </li>
+                                    <li style="font-size: 0.95rem; line-height: 1.4; color: #555; margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #4CAF50; font-weight: bold;">✓</span>30-day free trial
+                                    </li>
+                                </ul>
                             </div>
-                            <div class="margin-top_large">
+                            <div class="margin-top_large" style="margin-top: 2rem;">
                                 <div class="w-layout-hflex flex_horizontal is-y-baseline">
-                                    <p class="heading_h2 margin-bottom_none">$149</p>
-                                    <p class="heading_h4 margin-bottom_none">/mo</p>
+                                    <p class="heading_h2 margin-bottom_none" style="font-size: 2.5rem; font-weight: 700; color: #333;">$150</p>
+                                    <p class="heading_h4 margin-bottom_none" style="font-size: 1.1rem; color: #666; margin-left: 0.25rem;">/ month</p>
                                 </div>
-                                <p class="paragraph_large">Up to 200 labels</p>
+                                <p class="paragraph_small text-color_secondary" style="font-size: 0.9rem; color: #888; margin-top: 0.5rem;">or $1,620/year and save 10%</p>
                                 <div class="margin-top_xsmall">
                                     <div class="button-group">
-                                        <a href="https://apps.shopify.com/shelva-app" target="_blank" class="button w-button">Grow</a>
+                                        <a href="https://apps.shopify.com/shelva-app" target="_blank" class="button w-button">Get Started</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </li>
-                    <li class="card on-secondary">
+                    </div>
+                    
+                    <div class="card">
                         <div class="card_body">
                             <div class="margin_bottom-auto">
-                                <h4 class="heading_h3">Enterprise</h4>
-                                <p class="paragraph-4">Unlimited Shelva labels for expanding stores. personalized layout designs and priority support.</p>
+                                <h4 class="heading_h3" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem; color: #333;">Scale</h4>
+                                <p class="paragraph" style="font-size: 1rem; line-height: 1.5; color: #666; margin-bottom: 1.5rem;">For growing stores that need more labels and multi-location support.</p>
+                                <ul class="w-list-unstyled" style="list-style: none; padding: 0;">
+                                    <li style="font-size: 0.95rem; line-height: 1.4; color: #555; margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #4CAF50; font-weight: bold;">✓</span><strong>Up to 1,000 labels</strong>
+                                    </li>
+                                    <li style="font-size: 0.95rem; line-height: 1.4; color: #555; margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #4CAF50; font-weight: bold;">✓</span><strong>Up to 3 locations</strong>
+                                    </li>
+                                    <li style="font-size: 0.95rem; line-height: 1.4; color: #555; margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #4CAF50; font-weight: bold;">✓</span>Custom templates
+                                    </li>
+                                    <li style="font-size: 0.95rem; line-height: 1.4; color: #555; margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #4CAF50; font-weight: bold;">✓</span>30-day free trial
+                                    </li>
+                                </ul>
                             </div>
-                            <div class="margin-top_large">
+                            <div class="margin-top_large" style="margin-top: 2rem;">
                                 <div class="w-layout-hflex flex_horizontal is-y-baseline">
-                                    <p class="heading_h4 margin-bottom_none">Contact sales</p>
+                                    <p class="heading_h2 margin-bottom_none" style="font-size: 2.5rem; font-weight: 700; color: #333;">$400</p>
+                                    <p class="heading_h4 margin-bottom_none" style="font-size: 1.1rem; color: #666; margin-left: 0.25rem;">/ month</p>
                                 </div>
+                                <p class="paragraph_small text-color_secondary" style="font-size: 0.9rem; color: #888; margin-top: 0.5rem;">or $4,320/year and save 10%</p>
                                 <div class="margin-top_xsmall">
                                     <div class="button-group">
-                                        <a href="mailto:contact@shelva.app?subject=Shelva%20Request" class="button w-button">Contact</a>
+                                        <a href="https://apps.shopify.com/shelva-app" target="_blank" class="button w-button">Get Started</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </li>
-                </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card_body">
+                            <div class="margin_bottom-auto">
+                                <h4 class="heading_h3" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem; color: #333;">Enterprise</h4>
+                                <p class="paragraph" style="font-size: 1rem; line-height: 1.5; color: #666; margin-bottom: 1.5rem;">For large retailers with complex needs and unlimited requirements.</p>
+                                <ul class="w-list-unstyled" style="list-style: none; padding: 0;">
+                                    <li style="font-size: 0.95rem; line-height: 1.4; color: #555; margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #4CAF50; font-weight: bold;">✓</span><strong>Unlimited digital shelf labels</strong>
+                                    </li>
+                                    <li style="font-size: 0.95rem; line-height: 1.4; color: #555; margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #4CAF50; font-weight: bold;">✓</span><strong>Unlimited locations</strong>
+                                    </li>
+                                    <li style="font-size: 0.95rem; line-height: 1.4; color: #555; margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #4CAF50; font-weight: bold;">✓</span>Custom templates
+                                    </li>
+                                    <li style="font-size: 0.95rem; line-height: 1.4; color: #555; margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #4CAF50; font-weight: bold;">✓</span>Dedicated onboarding & support
+                                    </li>
+                                    <li style="font-size: 0.95rem; line-height: 1.4; color: #555; margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative;">
+                                        <span style="position: absolute; left: 0; color: #4CAF50; font-weight: bold;">✓</span>White-label branding
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="margin-top_large" style="margin-top: 2rem;">
+                                <div class="w-layout-hflex flex_horizontal is-y-baseline">
+                                    <p class="heading_h4 margin-bottom_none" style="font-size: 1.5rem; font-weight: 600; color: #333;">Contact Sales</p>
+                                </div>
+                                <div class="margin-top_xsmall">
+                                    <div class="button-group">
+                                        <a href="mailto:sales@shelva.app?subject=Enterprise%20Inquiry" class="button w-button">Contact Sales</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="margin-top_large">
                     <div class="divider margin-bottom_xsmall">
                         <p class="heading_h4">Every plan includes</p>
