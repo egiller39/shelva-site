@@ -410,7 +410,7 @@ PAGES = {
             <div class="container">
                 <div class="header is-align-center">
                     <h2 class="heading_h2">Hardware Pricing</h2>
-                    <p class="paragraph_large">Refundable hardware deposits with 80% return value when you upgrade or cancel.</p>
+                    <p class="paragraph_large">Refundable hardware deposits with 50% return value when you upgrade or cancel.</p>
                 </div>
                 <div class="w-layout-grid grid_3-col gap-medium">
                     <div class="card on-secondary">
@@ -421,7 +421,7 @@ PAGES = {
                                 <p class="heading_h3 margin-bottom_none">$299</p>
                                 <p class="paragraph_small margin-bottom_none">one-time</p>
                             </div>
-                            <p class="paragraph_small text-color_secondary">$239 refundable deposit</p>
+                            <p class="paragraph_small text-color_secondary">$149.50 refundable deposit</p>
                         </div>
                     </div>
                     <div class="card on-secondary">
@@ -432,7 +432,7 @@ PAGES = {
                                 <p class="heading_h3 margin-bottom_none">$29</p>
                                 <p class="paragraph_small margin-bottom_none">each</p>
                             </div>
-                            <p class="paragraph_small text-color_secondary">$23 refundable deposit</p>
+                            <p class="paragraph_small text-color_secondary">$14.50 refundable deposit</p>
                         </div>
                     </div>
                     <div class="card on-secondary">
@@ -443,7 +443,7 @@ PAGES = {
                                 <p class="heading_h3 margin-bottom_none">$39</p>
                                 <p class="paragraph_small margin-bottom_none">each</p>
                             </div>
-                            <p class="paragraph_small text-color_secondary">$31 refundable deposit</p>
+                            <p class="paragraph_small text-color_secondary">$19.50 refundable deposit</p>
                         </div>
                     </div>
                 </div>
@@ -465,7 +465,7 @@ PAGES = {
                     <div class="divider">
                         <div class="heading_h4">What happens to my hardware if I cancel?</div>
                         <div class="rich-text paragraph_large w-richtext">
-                            <p>You can return your hardware for an 80% refund of the original purchase price, or keep it for future use if you decide to reactivate your account.</p>
+                            <p>You can return your hardware for a 50% refund of the original purchase price, or keep it for future use if you decide to reactivate your account.</p>
                         </div>
                     </div>
                     <div class="divider">
@@ -495,7 +495,7 @@ PAGES = {
             <div class="container is-small">
                 <div class="header is-align-center">
                     <h1 class="heading_h1">Order Your Shelva Kit</h1>
-                    <p class="subheading">Choose the perfect digital shelf labels for your store. All hardware comes with 80% refundable deposits.</p>
+                    <p class="subheading">Choose the perfect digital shelf labels for your store. All hardware comes with 50% refundable deposits.</p>
                 </div>
             </div>
         </header>
@@ -520,7 +520,7 @@ PAGES = {
                                 <p class="heading_h2 margin-bottom_none">$299</p>
                                 <p class="paragraph_small margin-bottom_none">one-time</p>
                             </div>
-                            <p class="paragraph_small text-color_secondary">$239 refundable deposit</p>
+                            <p class="paragraph_small text-color_secondary">$149.50 refundable deposit</p>
                             <div class="margin-top_xsmall">
                                 <div class="button-group">
                                     <a href="https://apps.shopify.com/shelva-app" class="button w-button">Order Now</a>
@@ -546,7 +546,7 @@ PAGES = {
                                 <p class="heading_h2 margin-bottom_none">$29</p>
                                 <p class="paragraph_small margin-bottom_none">each</p>
                             </div>
-                            <p class="paragraph_small text-color_secondary">$23 refundable deposit</p>
+                            <p class="paragraph_small text-color_secondary">$14.50 refundable deposit</p>
                             <div class="margin-top_xsmall">
                                 <div class="button-group">
                                     <a href="https://apps.shopify.com/shelva-app" class="button w-button">Order Now</a>
@@ -572,7 +572,7 @@ PAGES = {
                                 <p class="heading_h2 margin-bottom_none">$39</p>
                                 <p class="paragraph_small margin-bottom_none">each</p>
                             </div>
-                            <p class="paragraph_small text-color_secondary">$31 refundable deposit</p>
+                            <p class="paragraph_small text-color_secondary">$19.50 refundable deposit</p>
                             <div class="margin-top_xsmall">
                                 <div class="button-group">
                                     <a href="https://apps.shopify.com/shelva-app" class="button w-button">Order Now</a>

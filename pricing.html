@@ -639,7 +639,7 @@
             <div class="container">
                 <div class="header is-align-center">
                     <h2 class="heading_h2">Hardware Pricing</h2>
-                    <p class="paragraph_large">No forced hardware purchases! We only require a deposit that you can get back. Return your hardware anytime for an 80% refund of the original price.</p>
+                    <p class="paragraph_large">No forced hardware purchases! We only require a deposit that you can get back. Return your hardware anytime for a 50% refund of the original price.</p>
                 </div>
                 <!-- Shelva Hub - Standalone Section -->
                 <div class="w-layout-grid grid_1-col gap-medium margin-bottom_large">
@@ -659,7 +659,7 @@
                                 <p class="paragraph_small margin-bottom_none" style="font-size: 1rem; color: #666; margin-left: 0.25rem;">one-time</p>
                             </div>
                             <div class="margin-top_small">
-                                <p class="paragraph_small text-color_secondary" style="font-size: 0.9rem; color: #888; font-style: italic;">$200 refundable deposit - return anytime for 80% refund</p>
+                                <p class="paragraph_small text-color_secondary" style="font-size: 0.9rem; color: #888; font-style: italic;">$125 refundable deposit - return anytime for 50% refund</p>
                             </div>
                         </div>
                     </div>
@@ -685,10 +685,10 @@
                             </div>
                             <div style="margin-top: auto;">
                                 <div class="w-layout-hflex flex_horizontal is-y-baseline">
-                                    <p class="heading_h3 margin-bottom_none">$6</p>
+                                    <p class="heading_h3 margin-bottom_none">$7</p>
                                     <p class="paragraph_small margin-bottom_none" style="margin-left: 0.5rem;">each</p>
                                 </div>
-                                <p class="paragraph_small text-color_secondary">$4.80 refundable each</p>
+                                <p class="paragraph_small text-color_secondary">$3.50 refundable each</p>
                             </div>
                         </div>
                     </div>
@@ -709,7 +709,7 @@
                                     <p class="heading_h3 margin-bottom_none">$9</p>
                                     <p class="paragraph_small margin-bottom_none" style="margin-left: 0.5rem;">each</p>
                                 </div>
-                                <p class="paragraph_small text-color_secondary">$7.20 refundable each</p>
+                                <p class="paragraph_small text-color_secondary">$4.50 refundable each</p>
                             </div>
                         </div>
                     </div>
@@ -730,7 +730,7 @@
                                     <p class="heading_h3 margin-bottom_none">$14</p>
                                     <p class="paragraph_small margin-bottom_none" style="margin-left: 0.5rem;">each</p>
                                 </div>
-                                <p class="paragraph_small text-color_secondary">$11.20 refundable each</p>
+                                <p class="paragraph_small text-color_secondary">$7.00 refundable each</p>
                             </div>
                         </div>
                     </div>
@@ -756,7 +756,7 @@
                                 <div>
                                     <label class="paragraph_small margin-bottom_xsmall" style="display: block; font-weight: 600;">Label Size</label>
                                     <select id="labelSize" class="input" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
-                                        <option value="2.1">Pocket 2.1" Labels - $6 each</option>
+                                        <option value="2.1">Pocket 2.1" Labels - $7 each</option>
                                         <option value="2.9">Slim 2.9" Labels - $9 each</option>
                                         <option value="3.7">Spotlight 3.7" Labels - $14 each</option>
                                     </select>
@@ -830,7 +830,7 @@
                                     <p class="heading_h3 margin-bottom_none" id="trueCost" style="margin-left: auto; color: #FF6B6B;">$71.80</p>
                                 </div>
                                 <div class="margin-top_medium">
-                                    <p class="paragraph_small text-color_secondary" style="font-style: italic;">Return hardware anytime for 80% refund</p>
+                                    <p class="paragraph_small text-color_secondary" style="font-style: italic;">Return hardware anytime for 50% refund</p>
                                 </div>
                                 
                                 <!-- ROI Results Section - Commented Out
@@ -887,7 +887,7 @@
                     <div class="divider">
                         <div class="heading_h4">What happens to my hardware if I cancel?</div>
                         <div class="rich-text paragraph_large w-richtext">
-                            <p>You can return your hardware for an 80% refund of the original purchase price, or keep it for future use if you decide to reactivate your account.</p>
+                            <p>You can return your hardware for a 50% refund of the original purchase price, or keep it for future use if you decide to reactivate your account.</p>
                         </div>
                     </div>
                     <div class="divider">
@@ -973,13 +973,13 @@
 
             // Pricing data
             const pricing = {
-                '2.1': { price: 6, deposit: 4.80 },
-                '2.9': { price: 9, deposit: 7.20 },
-                '3.7': { price: 14, deposit: 11.20 }
+                '2.1': { price: 7, deposit: 3.50 },
+                '2.9': { price: 9, deposit: 4.50 },
+                '3.7': { price: 14, deposit: 7.00 }
             };
 
             const hubPrice = 250;
-            const hubDeposit = 200;
+            const hubDeposit = 125;
 
             function calculateTotal() {
                 const labelCount = parseInt(labelCountInput.value) || 0;
