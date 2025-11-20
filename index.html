@@ -276,6 +276,22 @@
 
       gtag('config', 'G-ZE7HRPXK8E');
     </script>
+    <!-- Event snippet for Outbound click conversion page
+    In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+    <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.open(url, '_blank');
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17622609452/Kt3-CN2_-MMbEKzcjtNB',
+          'event_callback': callback
+      });
+      return false;
+    }
+    </script>
         <meta content="Webflow" name="generator"/>
     <link href="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/css/shelva.webflow.shared.40ff06190.css" rel="stylesheet" type="text/css"/>
     <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -678,7 +694,7 @@
                         <h1 class="heading_h1">Sync your shelves. Simplify retail.</h1>
                         <p class="subheading">Connect your Shopify store to digital shelf labels. Update prices, inventory, and promotions instantly—no manual work required.</p>
                         <div class="w-layout-hflex flex-block">
-                            <a href="https://apps.shopify.com/shelva-app" target="_blank" class="button on-accent-primary w-button">Install now</a>
+                            <a href="https://apps.shopify.com/shelva-app" target="_blank" class="button on-accent-primary w-button" onclick="return gtag_report_conversion('https://apps.shopify.com/shelva-app');">Install now</a>
                             <img src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a9397fb13945731c2eb2ce_shopify_logo_white.png" loading="lazy" sizes="(max-width: 1000px) 100vw, 1000px" srcset="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a9397fb13945731c2eb2ce_shopify_logo_white-p-500.png 500w, https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a9397fb13945731c2eb2ce_shopify_logo_white.png 1000w" alt="" class="image-4"/>
                         </div>
                     </div>
