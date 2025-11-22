@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Release Notes - Shelva: Digital Shelf Labels for Shopify</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <meta content="Stay up to date with the latest Shelva features, improvements, and fixes. View all release notes and version history." name="description"/>
+    <meta content="Release Notes - Shelva" property="og:title"/>
+    <meta content="Stay up to date with the latest Shelva features, improvements, and fixes. View all release notes and version history." property="og:description"/>
+    <meta content="Release Notes - Shelva" property="twitter:title"/>
+    <meta content="Stay up to date with the latest Shelva features, improvements, and fixes. View all release notes and version history." property="twitter:description"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://shelva.app/images/shelva-logo-square.png"/>
+    <meta name="twitter:image" content="https://shelva.app/images/shelva-logo-square.png"/>
+    <meta content="summary_large_image" name="twitter:card"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17622609452"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-17622609452');
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZE7HRPXK8E"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-ZE7HRPXK8E');
+    </script>
+    <link href="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/css/shelva.webflow.shared.40ff06190.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        WebFont.load({
+            google: { families: ["Figtree:regular", "Figtree:regular", "Figtree:regular"] }
+        });
+    </script>
+    <script type="text/javascript">
+        !function(o, c) {
+            var n = c.documentElement, t = " w-mod-";
+            n.className += t + "js",
+            ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
+        }(window, document);
+    </script>
+    <link href="/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <link href="/images/shelva-logo-square.png" rel="apple-touch-icon"/>
+    <style>
+        body {
+            font-family: 'Figtree', sans-serif;
+        }
+        
+        :root {
+            --shelva-navy:  #064273;
+            --shelva-sand:  #F4E3C1;
+            --shelva-teal:  #5ddad5;
+            --shelva-gray:  #5C6B73;
+            --shelva-coral: #FF7F6A;
+            --shelva-navy-light:  #D6E4EE;
+            --shelva-sand-light:  #FBF3E4;
+            --shelva-teal-light:  #D3F2F1;
+            --shelva-gray-light:  #E3E8EA;
+            --shelva-coral-light: #FFE4DE;
+            --shelva-tealTint:  rgba(78, 197, 193, 0.20);
+            --shelva-coralTint: rgba(255, 127, 106, 0.20);
+            --shelva-navyTint:  rgba(6, 66, 115, 0.12);
+            --shelva-shadow-default: 0 3px 10px rgba(0, 0, 0, 0.04);
+            --shelva-shadow-hover:   0 6px 30px 0 rgba(6, 66, 115, 0.25);
+        }
+        
+        /* Hide mobile navigation on desktop */
+        .nav_mobile-menu-button {
+            display: none;
+        }
+        
+        /* Show mobile navigation only on mobile */
+        @media (max-width: 768px) {
+            .nav_mobile-menu-button {
+                display: block;
+            }
+        }
+        
+        /* Hide Webflow mobile menu completely */
+        @media (max-width: 768px) {
+            .nav_menu {
+                display: none !important;
+            }
+        }
+        
+        /* Custom mobile menu styles - MOBILE ONLY */
+        @media (max-width: 768px) {
+            .custom-mobile-menu {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(6, 66, 115, 0.3);
+                z-index: 99999;
+            }
+            
+            .custom-mobile-menu-content {
+                position: absolute !important;
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                background: #FBF3E4 !important;
+                border-bottom: 3px solid #FF7F6A !important;
+                box-shadow: 0 6px 30px 0 rgba(6, 66, 115, 0.25) !important;
+                padding: 2rem 1rem !important;
+                transform: translateY(-100%) !important;
+                transition: transform 0.3s ease !important;
+                z-index: 100000 !important;
+            }
+            
+            .custom-mobile-menu-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+            
+            .custom-mobile-menu-item {
+                margin-bottom: 0.5rem;
+            }
+            
+            .custom-mobile-menu-link {
+                display: block !important;
+                padding: 1rem 1.5rem !important;
+                color: #ffffff !important;
+                text-decoration: none !important;
+                border: 2px solid transparent !important;
+                border-radius: 8px !important;
+                text-align: center !important;
+                font-size: 1.1rem !important;
+                font-family: 'Figtree', sans-serif !important;
+                font-weight: 500 !important;
+                transition: all 0.2s ease !important;
+                background: #FF7F6A !important;
+                position: relative !important;
+            }
+            
+            .custom-mobile-menu-link:hover {
+                color: #ffffff !important;
+                background: #ffffff !important;
+                border-color: #ffffff !important;
+                transform: translateY(-1px) !important;
+                box-shadow: 0 4px 12px rgba(255, 127, 106, 0.20) !important;
+            }
+            
+            .custom-mobile-menu.show .custom-mobile-menu-content {
+                transform: translateY(0) !important;
+            }
+        }
+        
+        /* Release Notes Accordion Styles */
+        .release-notes-container {
+            max-width: 900px;
+            margin: 0 auto;
+            font-family: 'Figtree', sans-serif;
+        }
+        
+        .release-item {
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--shelva-gray-light);
+            border-radius: 8px;
+            background: white;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: var(--shelva-shadow-default);
+            font-family: 'Figtree', sans-serif;
+        }
+        
+        .release-item:hover {
+            box-shadow: var(--shelva-shadow-hover);
+            border-color: var(--shelva-coral);
+        }
+        
+        .release-item.expanded {
+            border-color: var(--shelva-teal);
+        }
+        
+        .release-header {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            transition: background-color 0.2s ease;
+        }
+        
+        .release-header:hover {
+            background: var(--shelva-coral-light);
+        }
+        
+        .release-header-content {
+            flex: 1;
+        }
+        
+        .release-version {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--shelva-navy);
+            margin-bottom: 0.25rem;
+            font-family: 'Figtree', sans-serif;
+        }
+        
+        .release-date {
+            font-size: 0.9rem;
+            color: var(--shelva-gray);
+            margin-bottom: 0.5rem;
+            font-family: 'Figtree', sans-serif;
+        }
+        
+        .release-preview {
+            font-size: 1rem;
+            color: var(--shelva-gray);
+            line-height: 1.5;
+            font-family: 'Figtree', sans-serif;
+        }
+        
+        .release-chevron {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+            margin-left: 1rem;
+            transition: transform 0.3s ease;
+            color: var(--shelva-navy);
+        }
+        
+        .release-item.expanded .release-chevron {
+            transform: rotate(180deg);
+        }
+        
+        .release-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 1.5rem;
+        }
+        
+        .release-item.expanded .release-content {
+            max-height: 5000px;
+            padding: 0 1.5rem 1.5rem 1.5rem;
+        }
+        
+        .release-content-inner {
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--shelva-gray-light);
+        }
+        
+        .release-section {
+            margin-bottom: 2rem;
+        }
+        
+        .release-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .release-section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--shelva-navy);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Figtree', sans-serif;
+        }
+        
+        .release-section-content {
+            color: var(--shelva-gray);
+            line-height: 1.7;
+            font-family: 'Figtree', sans-serif;
+        }
+        
+        .release-section-content p {
+            margin-bottom: 1rem;
+            font-family: 'Figtree', sans-serif;
+        }
+        
+        .release-section-content p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .release-section-content strong {
+            color: var(--shelva-navy);
+            font-weight: 600;
+            font-family: 'Figtree', sans-serif;
+        }
+        
+        .release-section-content ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+            font-family: 'Figtree', sans-serif;
+        }
+        
+        .release-section-content li {
+            margin-bottom: 0.5rem;
+            font-family: 'Figtree', sans-serif;
+        }
+        
+        /* Ensure all text uses Figtree */
+        .heading_h1,
+        .heading_h2,
+        .subheading,
+        .paragraph,
+        .paragraph_large,
+        .paragraph_small {
+            font-family: 'Figtree', sans-serif;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .heading_h1 {
+                font-size: 2.5rem;
+                line-height: 1.2;
+            }
+            
+            .subheading {
+                font-size: 1.1rem;
+                line-height: 1.4;
+            }
+            
+            .release-header {
+                padding: 1.25rem;
+            }
+            
+            .release-version {
+                font-size: 1.25rem;
+            }
+            
+            .release-content {
+                padding: 0 1.25rem;
+            }
+            
+            .release-item.expanded .release-content {
+                padding: 0 1.25rem 1.25rem 1.25rem;
+            }
+            
+            .release-section-title {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .heading_h1 {
+                font-size: 2rem;
+            }
+            
+            .heading_h2 {
+                font-size: 1.75rem;
+            }
+            
+            .release-header {
+                padding: 1rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .release-chevron {
+                margin-left: 0;
+                margin-top: 0.5rem;
+                align-self: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="nav is-accent-primary">
+        <div data-duration="400" data-animation="default" data-easing2="ease" data-easing="ease" data-collapse="medium" role="banner" data-no-scroll="1" class="nav_container w-nav">
+            <img src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a935e1326d9198359766a5_Shelva%20logo%20-%20ethans%20pick-01-01.png" loading="lazy" width="Auto" height="Auto" alt="" class="image-2"/>
+            <div class="nav_right">
+                <nav role="navigation" class="nav_menu w-nav-menu">
+                    <ul role="list" class="nav_menu-list w-list-unstyled">
+                        <li class="nav_menu-list-item">
+                            <a href="/" class="nav_link on-accent-primary w-inline-block ">
+                                <div>Home</div>
+                            </a>
+                        </li>
+                        <li class="nav_menu-list-item">
+                            <a href="/how-it-works" class="nav_link on-accent-primary w-inline-block ">
+                                <div>How It Works</div>
+                            </a>
+                        </li>
+                        <li class="nav_menu-list-item">
+                            <a href="/pricing" class="nav_link on-accent-primary w-inline-block ">
+                                <div>Pricing</div>
+                            </a>
+                        </li>
+                        <li class="nav_menu-list-item">
+                            <a href="/starter-kit" class="nav_link on-accent-primary w-inline-block ">
+                                <div>Starter Kit</div>
+                            </a>
+                        </li>
+                        <li class="nav_menu-list-item">
+                            <a href="/features" class="nav_link on-accent-primary w-inline-block ">
+                                <div>Features</div>
+                            </a>
+                        </li>
+                        <li class="nav_menu-list-item">
+                            <a href="/contact" class="nav_link on-accent-primary w-inline-block ">
+                                <div>Contact</div>
+                            </a>
+                        </li>
+                        <li class="nav_menu-list-item">
+                            <a href="/release-notes" class="nav_link on-accent-primary w-inline-block w--current">
+                                <div>Release Notes</div>
+                            </a>
+                        </li>
+                        <li class="nav_menu-list-item">
+                            <a href="/policy" class="nav_link on-accent-primary w-inline-block ">
+                                <div>Policy</div>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="button-group margin-top_none">
+                    <a href="https://apps.shopify.com/shelva-app" target="_blank" class="button on-accent-primary w-inline-block">
+                        <div class="button_label">Get started</div>
+                    </a>
+                </div>
+            </div>
+            <div class="nav_mobile-menu-button w-nav-button">
+                <div class="icon on-accent-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <g class="nc-icon-wrapper" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" fill="none" stroke="currentColor" stroke-miterlimit="10">
+                            <line x1="1" y1="12" x2="23" y2="12" stroke="currentColor"></line>
+                            <line x1="1" y1="5" x2="23" y2="5"></line>
+                            <line x1="1" y1="19" x2="23" y2="19"></line>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Content -->
+    <header class="section is-accent-primary">
+        <div class="container is-small">
+            <div class="header is-align-center">
+                <h1 class="heading_h1">Release Notes</h1>
+                <p class="subheading">Stay up to date with the latest Shelva features, improvements, and fixes.</p>
+            </div>
+        </div>
+    </header>
+    
+    <section class="section">
+        <div class="container">
+            <div class="release-notes-container">
+                <!-- Release 1.1 -->
+                <div class="release-item" data-release="1.1">
+                    <div class="release-header">
+                        <div class="release-header-content">
+                            <div class="release-version">Version 1.1</div>
+                            <div class="release-date">November 22, 2025</div>
+                            <div class="release-preview">Instant product syncing, improved location management, clearer tracking, and enhanced Shopify POS integration.</div>
+                        </div>
+                        <svg class="release-chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                    <div class="release-content">
+                        <div class="release-content-inner">
+                            <div class="release-section">
+                                <div class="release-section-title">
+                                    <span>✨ What's New in This Update</span>
+                                </div>
+                                <div class="release-section-content">
+                                    <p><strong>Instant Product Syncing</strong></p>
+                                    <p>You can now choose between scheduled syncing or our new instant sync option. When instant sync is enabled, any price or product change in Shopify updates your labels automatically in real time. This keeps your labels accurate without manual action.</p>
+                                    <p>For instant sync mode, we've also introduced a new tracking system that shows every product update Shelva receives from Shopify. This gives you a clear view of what changed, when it changed, and whether the update reached your labels.</p>
+                                    
+                                    <p><strong>Improved Location Management</strong></p>
+                                    <p>Locations are now archived instead of deleted. Archived locations stay out of your way in the app but remain available if you ever need them again. This helps keep your store list clean without losing any history.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="release-section">
+                                <div class="release-section-title">
+                                    <span>🎨 Better App Experience</span>
+                                </div>
+                                <div class="release-section-content">
+                                    <p><strong>Mobile Improvements</strong></p>
+                                    <p>We fixed several layout issues to make Shelva smoother on mobile:</p>
+                                    <ul>
+                                        <li>Cleaner layout for location banners</li>
+                                        <li>More spacing on key pages</li>
+                                    </ul>
+                                    
+                                    <p><strong>Hardware and Products Pages Refresh</strong></p>
+                                    <p>The hardware and products pages now update every few seconds, giving you near real-time information about your Hubs and labels while you work.</p>
+                                    
+                                    <p><strong>Webhook History Redesign</strong></p>
+                                    <p>Product update events are now grouped together in a single, easy-to-read card, making it simpler to understand what changed.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="release-section">
+                                <div class="release-section-title">
+                                    <span>🛍️ Shopify POS Enhancements</span>
+                                </div>
+                                <div class="release-section-content">
+                                    <p><strong>Simpler Label Control in POS</strong></p>
+                                    <ul>
+                                        <li>"Add" and "Pair Label" are now separate actions, so staff always know what step they're taking</li>
+                                        <li>Better inventory handling and variant support</li>
+                                    </ul>
+                                    
+                              
+                                    <p><strong>Clearer POS UI</strong></p>
+                                    <ul>
+                                        <li>Simulated labels are clearly marked</li>
+                                        <li>Actions are disabled for simulated devices</li>
+                                        <li>Product names now always match what appears in your Shopify store</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="release-section">
+                                <div class="release-section-title">
+                                    <span>💸 Orders & Refunds</span>
+                                </div>
+                                <div class="release-section-content">
+                                    <p><strong>Stripe Integration - Label Purchase Available</strong></p>
+                                    <p>You can now fully purchase and pay for orders for 100 labels or less directly through the app, making it easier to get started with smaller orders.</p>
+                                    
+                                    <p><strong>Updated Refund Policy</strong></p>
+                                    <p>To keep things simple and fair:</p>
+                                    <ul>
+                                        <li><strong>Starter Kits:</strong> 80 percent refundable when returned in good condition</li>
+                                        <li><strong>Labels & Hubs:</strong> 50 percent refundable</li>
+                                    </ul>
+                                    <p>All pricing, checkout calculations, and emails have been updated to reflect this.</p>
+                                    
+                                    <p><strong>Updated Shipping Estimates</strong></p>
+                                    <p>Delivery timelines have been adjusted to 3–8 weeks, reflecting current logistics.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="release-section">
+                                <div class="release-section-title">
+                                    <span>🔧 Behind-the-Scenes Improvements</span>
+                                </div>
+                                <div class="release-section-content">
+                                    <p>While you won't see these directly, they make Shelva faster and more reliable:</p>
+                                    <ul>
+                                        <li>Better handling of product updates from Shopify</li>
+                                        <li>Improved sync accuracy for both instant and scheduled modes</li>
+                                        <li>More resilient label-pairing and update flows</li>
+                                        <li>Stability improvements across the app</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="release-section">
+                                <div class="release-section-title">
+                                    <span>🐛 Fixes</span>
+                                </div>
+                                <div class="release-section-content">
+                                    <ul>
+                                        <li>Location syncing now handles deactivated Shopify locations correctly</li>
+                                        <li>Scrolling on the hardware page is smooth and stable</li>
+                                        <li>Layout fixes across mobile that were hiding important actions</li>
+                                        <li>POS publishing flow is now more reliable</li>
+                                        <li>Better support for products with a single variant</li>
+                                        <li>Improved handling of simulated labels</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer is-inverse">
+        <div class="container">
+            <div class="footer_bottom">
+                <ul role="list" class="list w-list-unstyled">
+                    <li>
+                        <a href="/policy" class="footer_link on-inverse w-inline-block">
+                            <div>Policy</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/terms-of-service" class="footer_link on-inverse w-inline-block">
+                            <div>Terms of Service</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:contact@shelva.app?subject=Shelva%20Request" class="footer_link on-inverse w-inline-block">
+                            <div>contact@shelva.app</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer_bottom">
+                <div class="text-color_secondary">© 2025 Shelva. All rights reserved.</div>
+                <img src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a935e1326d9198359766a5_Shelva%20logo%20-%20ethans%20pick-01-01.png" loading="lazy" alt="" class="image-3"/>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/js/webflow.schunk.36b8fb49256177c8.js" type="text/javascript"></script>
+    <script src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/js/webflow.schunk.9559063f8782d83f.js" type="text/javascript"></script>
+    <script src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/js/webflow.3eb1fc22.012b87d75bb4f09b.js" type="text/javascript"></script>
+    
+    <!-- Accordion Functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const releaseItems = document.querySelectorAll('.release-item');
+            
+            releaseItems.forEach(item => {
+                const header = item.querySelector('.release-header');
+                
+                header.addEventListener('click', function() {
+                    const isExpanded = item.classList.contains('expanded');
+                    
+                    // Close all other releases (optional - remove if you want multiple open)
+                    releaseItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('expanded');
+                        }
+                    });
+                    
+                    // Toggle current release
+                    if (isExpanded) {
+                        item.classList.remove('expanded');
+                    } else {
+                        item.classList.add('expanded');
+                    }
+                });
+            });
+        });
+    </script>
+    
+    <!-- Custom Mobile Menu JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('.nav_mobile-menu-button');
+            
+            function isMobile() {
+                return window.innerWidth <= 768;
+            }
+            
+            function createMobileMenu() {
+                if (mobileMenuButton && isMobile()) {
+                    const customMenu = document.createElement('div');
+                    customMenu.className = 'custom-mobile-menu';
+                    customMenu.innerHTML = `
+                        <div class="custom-mobile-menu-content">
+                            <ul class="custom-mobile-menu-list">
+                                <li class="custom-mobile-menu-item">
+                                    <a href="/" class="custom-mobile-menu-link">Home</a>
+                                </li>
+                                <li class="custom-mobile-menu-item">
+                                    <a href="/how-it-works" class="custom-mobile-menu-link">How It Works</a>
+                                </li>
+                                <li class="custom-mobile-menu-item">
+                                    <a href="/pricing" class="custom-mobile-menu-link">Pricing</a>
+                                </li>
+                                <li class="custom-mobile-menu-item">
+                                    <a href="/starter-kit" class="custom-mobile-menu-link">Starter Kit</a>
+                                </li>
+                                <li class="custom-mobile-menu-item">
+                                    <a href="/features" class="custom-mobile-menu-link">Features</a>
+                                </li>
+                                <li class="custom-mobile-menu-item">
+                                    <a href="/contact" class="custom-mobile-menu-link">Contact</a>
+                                </li>
+                                <li class="custom-mobile-menu-item">
+                                    <a href="/release-notes" class="custom-mobile-menu-link">Release Notes</a>
+                                </li>
+                                <li class="custom-mobile-menu-item">
+                                    <a href="/policy" class="custom-mobile-menu-link">Policy</a>
+                                </li>
+                            </ul>
+                        </div>
+                    `;
+                    
+                    document.body.appendChild(customMenu);
+                    
+                    mobileMenuButton.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        if (customMenu.classList.contains('show')) {
+                            customMenu.classList.remove('show');
+                            customMenu.style.display = 'none';
+                            document.body.style.overflow = '';
+                        } else {
+                            customMenu.style.display = 'block';
+                            setTimeout(() => {
+                                customMenu.classList.add('show');
+                            }, 10);
+                            document.body.style.overflow = 'hidden';
+                        }
+                    });
+                    
+                    customMenu.addEventListener('click', function(e) {
+                        if (e.target === customMenu) {
+                            customMenu.classList.remove('show');
+                            setTimeout(() => {
+                                customMenu.style.display = 'none';
+                            }, 300);
+                            document.body.style.overflow = '';
+                        }
+                    });
+                    
+                    const menuLinks = customMenu.querySelectorAll('.custom-mobile-menu-link');
+                    menuLinks.forEach(link => {
+                        link.addEventListener('click', function() {
+                            customMenu.classList.remove('show');
+                            setTimeout(() => {
+                                customMenu.style.display = 'none';
+                            }, 300);
+                            document.body.style.overflow = '';
+                        });
+                    });
+                    
+                    document.addEventListener('keydown', function(e) {
+                        if (e.key === 'Escape' && customMenu.classList.contains('show')) {
+                            customMenu.classList.remove('show');
+                            setTimeout(() => {
+                                customMenu.style.display = 'none';
+                            }, 300);
+                            document.body.style.overflow = '';
+                        }
+                    });
+                }
+            }
+            
+            createMobileMenu();
+            
+            window.addEventListener('resize', function() {
+                const existingMenu = document.querySelector('.custom-mobile-menu');
+                if (existingMenu) {
+                    existingMenu.remove();
+                }
+                
+                if (isMobile()) {
+                    createMobileMenu();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
