@@ -20,5 +20,5 @@ jobs:
           git pull origin main
           cp -r *.html /var/www/shelva-site/
           cp -r images/ /var/www/shelva-site/ 2>/dev/null || true
-          cp favicon.ico favicon.png /var/www/shelva-site/ 2>/dev/null || true
+          cp favicon.ico favicon.png icon.png /var/www/shelva-site/ 2>/dev/null || true
           sudo systemctl reload nginx
