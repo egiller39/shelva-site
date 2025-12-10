@@ -86,6 +86,16 @@
             --shelva-shadow-hover:   0 6px 30px 0 rgba(6, 66, 115, 0.25);
         }
         
+        /* Global Font Settings */
+        body, html, * {
+            font-family: 'Figtree', sans-serif !important;
+        }
+        
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        
         /* Hide mobile navigation on desktop */
         .nav_mobile-menu-button {
             display: none;
@@ -472,6 +482,54 @@
             </div>
         </section>
         
+        <section class="section is-secondary" id="mounting-accessories">
+            <div class="container">
+                <div class="header is-align-center margin-bottom_large">
+                    <h2 class="heading_h2">Mounting & Installation</h2>
+                    <p class="paragraph_large">We provide all mounting accessories and work with you to find the perfect setup for your store.</p>
+                </div>
+                <div class="w-layout-grid grid_1-col gap-large">
+                    <div class="card on-secondary">
+                        <div class="card_body">
+                            <div class="w-layout-grid grid_2-col gap-large" style="align-items: stretch;">
+                                <div class="image-ratio_1x1" style="display: flex; align-items: center; justify-content: center;">
+                                    <img class="image_cover" src="/images/mounts-v2.png" alt="Shelva mounting options" loading="lazy" style="object-fit: contain;"/>
+                                </div>
+                                <div style="display: flex; flex-direction: column;">
+                                    <h3 class="heading_h4 margin-bottom_small">Mounting Options Available</h3>
+                                    <p class="paragraph margin-bottom_medium">Choose from multiple mounting solutions to fit your store's unique requirements.</p>
+                                   <br/>
+                                    <div class="w-layout-grid grid_1-col gap-small">
+                                        <div class="flex_horizontal is-y-center gap-small" style="align-items: flex-start;">
+                                            <div style="width: 6px; height: 6px; background: #FF7F6A; border-radius: 50%; flex-shrink: 0; margin-top: 6px;"></div>
+                                            <span class="paragraph_small"><strong>Rail Systems:</strong> Flexible shelf and display mounting</span>
+                                        </div>
+                                        <div class="flex_horizontal is-y-center gap-small" style="align-items: flex-start;">
+                                            <div style="width: 6px; height: 6px; background: #FF7F6A; border-radius: 50%; flex-shrink: 0; margin-top: 6px;"></div>
+                                            <span class="paragraph_small"><strong>Clips:</strong> Easy installation and repositioning</span>
+                                        </div>
+                                        <div class="flex_horizontal is-y-center gap-small" style="align-items: flex-start;">
+                                            <div style="width: 6px; height: 6px; background: #FF7F6A; border-radius: 50%; flex-shrink: 0; margin-top: 6px;"></div>
+                                            <span class="paragraph_small"><strong>Magnetic Mounts:</strong> Flexible positioning options</span>
+                                        </div>
+                                        <div class="flex_horizontal is-y-center gap-small" style="align-items: flex-start;">
+                                            <div style="width: 6px; height: 6px; background: #FF7F6A; border-radius: 50%; flex-shrink: 0; margin-top: 6px;"></div>
+                                            <span class="paragraph_small"><strong>Standing Frames:</strong> Countertop and tabletop placement</span>
+                                        </div>
+                                        <div class="flex_horizontal is-y-center gap-small" style="align-items: flex-start;">
+                                            <div style="width: 6px; height: 6px; background: #FF7F6A; border-radius: 50%; flex-shrink: 0; margin-top: 6px;"></div>
+                                            <span class="paragraph_small"><strong>And more...</strong></span>
+                                        </div>
+                                    </div>
+                                    <p class="paragraph_small margin-top_medium" style="color: #666; font-weight: 600;">All mounting accessories included for your first 250 labels.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <section class="section is-secondary">
             <div class="container">
                 <div class="header is-align-center">
@@ -672,6 +730,23 @@
                     }
                 });
             });
+            
+            // Handle anchor link scrolling
+            if (window.location.hash) {
+                const hash = window.location.hash;
+                setTimeout(function() {
+                    const element = document.querySelector(hash);
+                    if (element) {
+                        const offset = 100; // Offset for fixed header
+                        const elementPosition = element.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - offset;
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 100);
+            }
     </script>
 </body>
 </html>
