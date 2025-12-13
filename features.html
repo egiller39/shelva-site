@@ -243,8 +243,13 @@
             }
             
             .grid_2-col {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr !important;
                 gap: 1.5rem;
+            }
+            
+            /* Shopify POS section - stack cards on mobile */
+            .w-layout-grid.grid_2-col.gap-large.margin-bottom_large {
+                grid-template-columns: 1fr !important;
             }
             
             /* Card improvements */
@@ -483,79 +488,77 @@
         <section class="section is-secondary">
             <div class="container">
                 <div class="header is-align-center margin-bottom_large">
-                    <h2 class="heading_h2">Smart Automation</h2>
-                    <p class="paragraph_large">Let technology work for you with intelligent automation features that save time and reduce errors.</p>
+                    <h2 class="heading_h2">Auto Syncing</h2>
+                    <p class="paragraph_large">Choose product data and price syncing options that work for you.</p>
                 </div>
-                <div class="w-layout-grid grid_2-col gap-large">
-                    <div class="card on-secondary" style="background: linear-gradient(135deg, #064273 0%, #FF7F6A 100%); color: white;">
-                        <div class="card_body">
+                <div class="flex_horizontal is-y-center" style="flex-wrap: wrap; justify-content: center; gap: 1rem; align-items: stretch;">
+                    <div class="card on-secondary" style="background: #FF7F6A; color: white; width: 500px; min-height: 100%; display: flex; flex-direction: column;">
+                        <div class="card_body" style="flex: 1; display: flex; flex-direction: column;">
                             <div class="flex_horizontal is-y-center gap-medium margin-bottom_medium">
                                 <div class="icon" style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
-                                        <path d="M21 3v5h-5"></path>
-                                        <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
-                                        <path d="M3 21v-5h5"></path>
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
                                     </svg>
                                 </div>
                                 <div class="flex_child_expand">
-                                    <h3 class="heading_h3" style="color: white; margin-bottom: 0.5rem;">Auto-Sync Scheduling</h3>
-                                    <p class="paragraph_small" style="color: rgba(255,255,255,0.9); margin-bottom: 0;">Automatically checks for changed data in Shopify like prices, titles, and product information, then syncs updates to your labels on your schedule.</p>
+                                    <h3 class="heading_h3" style="color: white; margin-bottom: 0.5rem;">Scheduled Sync</h3>
+                                    <p class="paragraph_small" style="color: rgba(255,255,255,0.9); margin-bottom: 0;">Automatically keep your labels up to date on your schedule.</p>
                                 </div>
                             </div>
                             <div class="w-layout-grid grid_2-col gap-small">
                                 <div class="flex_horizontal is-y-center gap-small" style="align-items: flex-start;">
                                     <div style="width: 6px; height: 6px; background: rgba(255,255,255,0.8); border-radius: 50%; flex-shrink: 0; margin-top: 6px;"></div>
-                                    <span class="paragraph_small" style="color: rgba(255,255,255,0.9);">Daily price updates</span>
+                                    <span class="paragraph_small" style="color: rgba(255,255,255,0.9);">Sync prices at set times</span>
                                 </div>
                                 <div class="flex_horizontal is-y-center gap-small" style="align-items: flex-start;">
                                     <div style="width: 6px; height: 6px; background: rgba(255,255,255,0.8); border-radius: 50%; flex-shrink: 0; margin-top: 6px;"></div>
-                                    <span class="paragraph_small" style="color: rgba(255,255,255,0.9);">Daily inventory sync</span>
+                                    <span class="paragraph_small" style="color: rgba(255,255,255,0.9);">Ideal for overnight updates</span>
                                 </div>
                                 <div class="flex_horizontal is-y-center gap-small" style="align-items: flex-start;">
                                     <div style="width: 6px; height: 6px; background: rgba(255,255,255,0.8); border-radius: 50%; flex-shrink: 0; margin-top: 6px;"></div>
-                                    <span class="paragraph_small" style="color: rgba(255,255,255,0.9);">Promotional campaigns</span>
+                                    <span class="paragraph_small" style="color: rgba(255,255,255,0.9);">Halts syncing during store hours</span>
                                 </div>
                                 <div class="flex_horizontal is-y-center gap-small" style="align-items: flex-start;">
                                     <div style="width: 6px; height: 6px; background: rgba(255,255,255,0.8); border-radius: 50%; flex-shrink: 0; margin-top: 6px;"></div>
-                                    <span class="paragraph_small" style="color: rgba(255,255,255,0.9);">Seasonal adjustments</span>
+                                    <span class="paragraph_small" style="color: rgba(255,255,255,0.9);">Choose daily or weekly</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card on-secondary" style="background: linear-gradient(135deg, #FF7F6A 0%, #064273 100%); color: white;">
-                        <div class="card_body">
+                    <div class="flex_vertical is-y-center" style="flex-shrink: 0; padding: 0 0.25rem;">
+                        <p class="heading_h3" style="color: #5C6B73; font-weight: 600; margin: 0;">or</p>
+                    </div>
+                    <div class="card on-secondary" style="background: #FF7F6A; color: white; width: 500px; min-height: 100%; display: flex; flex-direction: column;">
+                        <div class="card_body" style="flex: 1; display: flex; flex-direction: column;">
                             <div class="flex_horizontal is-y-center gap-medium margin-bottom_medium">
                                 <div class="icon" style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                                        <polyline points="9,22 9,12 15,12 15,22"></polyline>
-                                        <path d="M8 2v4"></path>
-                                        <path d="M16 2v4"></path>
-                                        <path d="M12 2v4"></path>
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                                        <polyline points="19 12 12 19 5 12"></polyline>
                                     </svg>
                                 </div>
                                 <div class="flex_child_expand">
-                                    <h3 class="heading_h3" style="color: white; margin-bottom: 0.5rem;">Multi-Store Support</h3>
-                                    <p class="paragraph_small" style="color: rgba(255,255,255,0.9); margin-bottom: 0;">Manage multiple store locations from a single dashboard. Perfect for retail chains and franchises.</p>
+                                    <h3 class="heading_h3" style="color: white; margin-bottom: 0.5rem;">Instant Sync</h3>
+                                    <p class="paragraph_small" style="color: rgba(255,255,255,0.9); margin-bottom: 0;">See label changes the moment you update Shopify.</p>
                                 </div>
                             </div>
                             <div class="w-layout-grid grid_2-col gap-small">
                                 <div class="flex_horizontal is-y-center gap-small" style="align-items: flex-start;">
                                     <div style="width: 6px; height: 6px; background: rgba(255,255,255,0.8); border-radius: 50%; flex-shrink: 0; margin-top: 6px;"></div>
-                                    <span class="paragraph_small" style="color: rgba(255,255,255,0.9);">Centralized control</span>
+                                    <span class="paragraph_small" style="color: rgba(255,255,255,0.9);">Updates triggered instantly</span>
                                 </div>
                                 <div class="flex_horizontal is-y-center gap-small" style="align-items: flex-start;">
                                     <div style="width: 6px; height: 6px; background: rgba(255,255,255,0.8); border-radius: 50%; flex-shrink: 0; margin-top: 6px;"></div>
-                                    <span class="paragraph_small" style="color: rgba(255,255,255,0.9);">Location-specific pricing</span>
+                                    <span class="paragraph_small" style="color: rgba(255,255,255,0.9);">Powered by Shopify webhooks</span>
                                 </div>
                                 <div class="flex_horizontal is-y-center gap-small" style="align-items: flex-start;">
                                     <div style="width: 6px; height: 6px; background: rgba(255,255,255,0.8); border-radius: 50%; flex-shrink: 0; margin-top: 6px;"></div>
-                                    <span class="paragraph_small" style="color: rgba(255,255,255,0.9);">Regional promotions</span>
+                                    <span class="paragraph_small" style="color: rgba(255,255,255,0.9);">No waiting or manual actions</span>
                                 </div>
                                 <div class="flex_horizontal is-y-center gap-small" style="align-items: flex-start;">
                                     <div style="width: 6px; height: 6px; background: rgba(255,255,255,0.8); border-radius: 50%; flex-shrink: 0; margin-top: 6px;"></div>
-                                    <span class="paragraph_small" style="color: rgba(255,255,255,0.9);">Unified reporting</span>
+                                    <span class="paragraph_small" style="color: rgba(255,255,255,0.9);">Ideal for frequent price changes</span>
                                 </div>
                             </div>
                         </div>
@@ -906,3 +909,4 @@
     </script>
 </body>
 </html>
+
