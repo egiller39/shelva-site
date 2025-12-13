@@ -323,6 +323,30 @@
                 font-size: 1.25rem;
                 line-height: 1.3;
             }
+
+            /* Fix image cutoff in mobile view */
+            .image-ratio_1x1 {
+                overflow: visible !important;
+                padding: 1rem 0 !important;
+                min-height: auto !important;
+                aspect-ratio: unset !important;
+                height: auto !important;
+            }
+
+            .image-ratio_1x1 .image-8 {
+                object-fit: contain !important;
+                max-width: 100% !important;
+                height: auto !important;
+                width: auto !important;
+                display: block !important;
+                margin: 0 auto !important;
+            }
+
+            /* Make pos-mobile-shots image smaller on mobile */
+            .image-ratio_1x1 img[src*="pos-mobile-shots"] {
+                max-width: 60% !important;
+                width: 60% !important;
+            }
         }
 
         @media (max-width: 480px) {
@@ -448,8 +472,8 @@
                     effectively.</p>
                 <div
                     style="margin: 0.5rem 0; max-width: 600px; width: 100%; aspect-ratio: 16/9; position: relative; margin-left: auto; margin-right: auto;">
-                    <img style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;"
-                        src="/images/floating app.png" alt="Shelva app interface" loading="lazy" />
+                    <img style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 90%; height: 90%; object-fit: contain;"
+                        src="/images/bright-shelva-app.png" alt="Shelva app interface" loading="lazy" />
                 </div>
             </div>
         </div>
@@ -488,7 +512,7 @@
 
                         <h2>One Place to Manage Every Label</h2>
                         <p class="paragraph_large margin-bottom_none">
-                            Manage, design, and sync all of your Shelva labels directly from Shopify Admin, with centralized control across all locations.
+                            Manage, design, and sync all of your Shelva labels directly the Shopify Admin, with centralized control across all locations.
                         </p>
                     <div class="image-ratio_1x1">
                         <img class="image-8" src="/images/mac-shelva-3.png" width="500" height="auto" margin-bottom="10px"

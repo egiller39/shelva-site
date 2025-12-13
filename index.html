@@ -241,6 +241,68 @@
       }
       
     }
+    
+    /* FAQ Accordion Styles */
+    .faq-item {
+        border-bottom: 1px solid #e0e0e0;
+    }
+    
+    /* Reduce spacing between FAQ items */
+    .flex_vertical.gap-medium:has(.faq-item) {
+        gap: 0.5rem !important;
+    }
+    
+    .flex_vertical.gap-medium .faq-item {
+        margin-bottom: 0;
+    }
+    
+    .faq-question {
+        cursor: pointer;
+        padding: 0.75rem 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: color 0.2s ease;
+    }
+    
+    .faq-question:hover {
+        color: var(--shelva-coral);
+    }
+    
+    .faq-question::after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 8px solid var(--shelva-coral);
+        transition: transform 0.3s ease;
+        flex-shrink: 0;
+        margin-left: 1rem;
+        display: inline-block;
+    }
+    
+    .faq-question.active::after {
+        border-top: none;
+        border-bottom: 8px solid var(--shelva-coral);
+        transform: rotate(0deg);
+    }
+    
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+        padding: 0;
+    }
+    
+    .faq-answer.active {
+        max-height: 500px;
+        padding: 0 0 1.25rem 0;
+    }
+    
+    .faq-answer .rich-text {
+        margin: 0;
+    }
 
   </style>
     <meta charset="utf-8"/>
@@ -1132,33 +1194,33 @@
                     <p class="subheading">Get clear answers on setup, customization, syncing, and pricing for digital shelf labels. Learn how to connect, design, and manage your in-store pricing with ease.</p>
                 </div>
                 <div id="w-node-_41d1ffcd-18e5-6de7-5afe-b5753d4bc0c2-c2725ced" class="flex_vertical gap-medium w-node-df9fc79a-94c6-4fb2-77da-7b0b280ea989-84834228">
-                    <div class="divider">
-                        <div id="w-node-_22c8f393-d39d-048c-ea8b-7b01c2725cf9-c2725ced" class="heading_h4 w-node-df9fc79a-94c6-4fb2-77da-7b0b280ea972-84834228">How do I install Shelva?</div>
-                        <div class="rich-text paragraph_large w-richtext">
-                            <p>To install Shelva, simply install the Shelva app from the Shopify App Store and follow the setup flow. Once installed, plug in your Shelva base station to your internet router, and your Shelva labels will be auto-detected by the Shelva app.</p>
+                    <div class="divider faq-item">
+                        <div id="w-node-_22c8f393-d39d-048c-ea8b-7b01c2725cf9-c2725ced" class="faq-question heading_h4 w-node-df9fc79a-94c6-4fb2-77da-7b0b280ea972-84834228">How do I install Shelva?</div>
+                        <div class="faq-answer rich-text paragraph_large w-richtext">
+                            <p>To install Shelva, simply install the Shelva app from the Shopify App Store. You can install and test Shelva without selecting a plan.</p>
                         </div>
                     </div>
-                    <div class="divider">
-                        <div id="w-node-_3bbdd118-2d16-1d06-1f67-cd66e70178cc-c2725ced" class="heading_h4 w-node-df9fc79a-94c6-4fb2-77da-7b0b280ea978-84834228">Can I design my own labels?</div>
-                        <div class="rich-text paragraph_large w-richtext">
+                    <div class="divider faq-item">
+                        <div id="w-node-_3bbdd118-2d16-1d06-1f67-cd66e70178cc-c2725ced" class="faq-question heading_h4 w-node-df9fc79a-94c6-4fb2-77da-7b0b280ea978-84834228">Can I design my own labels?</div>
+                        <div class="faq-answer rich-text paragraph_large w-richtext">
                             <p>
                                 Yes, you can customize label templates in the app. Add your logo, select fonts and colors, choose your data, and preview changes live before applying them in-store.<br/>‍
                             </p>
                             <p>
                                 Need a custom template? <strong>Reach out</strong>
-                                and we’ll help you create it.
+                                and we'll help you create it.
                             </p>
                         </div>
                     </div>
-                    <div class="divider">
-                        <div id="w-node-_77e04b32-a9ec-fd16-d96d-fecfbfd5e8f0-c2725ced" class="heading_h4 w-node-df9fc79a-94c6-4fb2-77da-7b0b280ea97e-84834228">How does syncing with Shopify work?</div>
-                        <div class="rich-text paragraph_large w-richtext">
+                    <div class="divider faq-item">
+                        <div id="w-node-_77e04b32-a9ec-fd16-d96d-fecfbfd5e8f0-c2725ced" class="faq-question heading_h4 w-node-df9fc79a-94c6-4fb2-77da-7b0b280ea97e-84834228">How does syncing with Shopify work?</div>
+                        <div class="faq-answer rich-text paragraph_large w-richtext">
                             <p>Product data syncs automatically from Shopify. Updates to price, stock, or descriptions appear on shelf labels at will, keeping your Shelva labels accurate and up-to-date.</p>
                         </div>
                     </div>
-                    <div class="divider">
-                        <div id="w-node-_9b8da06b-c5c2-29a8-5b6b-ad35dd8e7563-c2725ced" class="heading_h4 w-node-df9fc79a-94c6-4fb2-77da-7b0b280ea984-84834228">What are the pricing details?</div>
-                        <div class="rich-text paragraph_large w-richtext">
+                    <div class="divider faq-item">
+                        <div id="w-node-_9b8da06b-c5c2-29a8-5b6b-ad35dd8e7563-c2725ced" class="faq-question heading_h4 w-node-df9fc79a-94c6-4fb2-77da-7b0b280ea984-84834228">What are the pricing details?</div>
+                        <div class="faq-answer rich-text paragraph_large w-richtext">
                             <p>You pay for hardware and a monthly app subscription. Pricing adjusts based on the number of labels. No hidden fees or long-term commitments.</p>
                         </div>
                     </div>
@@ -1365,6 +1427,37 @@
                     }
                 });
             });
-        </script>
+    </script>
+    
+    <!-- FAQ Accordion Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isActive = this.classList.contains('active');
+                    
+                    // Close all other FAQs
+                    faqQuestions.forEach(q => {
+                        if (q !== this) {
+                            q.classList.remove('active');
+                            q.nextElementSibling.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current FAQ
+                    if (isActive) {
+                        this.classList.remove('active');
+                        answer.classList.remove('active');
+                    } else {
+                        this.classList.add('active');
+                        answer.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

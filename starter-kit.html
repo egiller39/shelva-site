@@ -412,6 +412,68 @@
             }
         }
         
+        /* FAQ Accordion Styles */
+        .faq-item {
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        /* Reduce spacing between FAQ items - only for FAQ section */
+        .section.is-secondary .container.is-small .flex_vertical.gap-medium {
+            gap: 0.5rem !important;
+        }
+        
+        .flex_vertical.gap-medium .faq-item {
+            margin-bottom: 0;
+        }
+        
+        .faq-question {
+            cursor: pointer;
+            padding: 0.75rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.2s ease;
+        }
+        
+        .faq-question:hover {
+            color: var(--shelva-coral);
+        }
+        
+        .faq-question::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 8px solid var(--shelva-coral);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 1rem;
+            display: inline-block;
+        }
+        
+        .faq-question.active::after {
+            border-top: none;
+            border-bottom: 8px solid var(--shelva-coral);
+            transform: rotate(0deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0;
+        }
+        
+        .faq-answer.active {
+            max-height: 500px;
+            padding: 0 0 1.25rem 0;
+        }
+        
+        .faq-answer .rich-text {
+            margin: 0;
+        }
+        
     </style>
 </head>
 <body>
@@ -597,7 +659,6 @@
             <div class="container">
                 <div class="header is-align-center margin-bottom_large">
                     <h2 class="heading_h2">How It Works</h2>
-                    <p class="paragraph_large">Experience Shelva in three simple steps — right out of the box.</p>
                 </div>
                 <div class="w-layout-grid grid_3-col gap-large">
                     <div class="card">
@@ -605,8 +666,8 @@
                             <div class="margin-bottom_medium">
                                 <div style="width: 60px; height: 60px; background: #FF7F6A; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; margin: 0 auto;">1</div>
                             </div>
-                            <h3 class="heading_h3">Unbox</h3>
-                            <p class="paragraph">Open your Starter Kit and discover the Shelva Hub, sample labels, and mounting accessories. Everything you need to test Shelva in your store.</p>
+                            <h3 class="heading_h3">Receive Your Starter Kit</h3>
+                            <p class="paragraph">Your kit arrives with Shelva labels, a Shelva Hub, and mounting accessories so you can test Shelva with real hardware in your store.</p>
                         </div>
                     </div>
                     <div class="card">
@@ -614,8 +675,8 @@
                             <div class="margin-bottom_medium">
                                 <div style="width: 60px; height: 60px; background: #FF7F6A; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; margin: 0 auto;">2</div>
                             </div>
-                            <h3 class="heading_h3">Plug In the Hub</h3>
-                            <p class="paragraph">Connect the Shelva Hub to power and your router.</p>
+                            <h3 class="heading_h3">Connect and Pair Labels</h3>
+                            <p class="paragraph">Plug in the Shelva Hub, open the Shelva app in Shopify, and pair labels to products in just a few minutes.</p>
                         </div>
                     </div>
                     <div class="card">
@@ -623,8 +684,8 @@
                             <div class="margin-bottom_medium">
                                 <div style="width: 60px; height: 60px; background: #FF7F6A; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; margin: 0 auto;">3</div>
                             </div>
-                            <h3 class="heading_h3">Test Labels & Mounting</h3>
-                            <p class="paragraph">Pair your labels with real your products, mount them on your shelves, and watch prices update instantly in real time.</p>
+                            <h3 class="heading_h3">See Live Updates on the Shelf</h3>
+                            <p class="paragraph">Change a price or product in Shopify and watch the label update instantly on your sales floor.</p>
                         </div>
                     </div>
                 </div>
@@ -739,34 +800,40 @@
                     <h2 class="heading_h2">Frequently Asked Questions</h2>
                 </div>
                 <div class="flex_vertical gap-medium">
-                    <div class="divider">
-                        <div class="heading_h4">How much coverage does one Hub provide?</div>
-                        <div class="rich-text paragraph_large w-richtext">
-                            <p>Each Hub covers roughly 23 meters (75 feet) in every direction, depending on your layout and label density.</p>
+                    <div class="divider faq-item">
+                        <div class="faq-question heading_h4">What's included in the Starter Kit?</div>
+                        <div class="faq-answer rich-text paragraph_large w-richtext">
+                            <p>The Starter Kit includes a Shelva Hub, sample labels, mounting accessories, and everything you need to test Shelva with real hardware in your store.</p>
                         </div>
                     </div>
-                    <div class="divider">
-                        <div class="heading_h4">How long does setup take?</div>
-                        <div class="rich-text paragraph_large w-richtext">
-                            <p>Most stores complete installation in under 10 minutes using the included guide and app walkthrough.</p>
+                    <div class="divider faq-item">
+                        <div class="faq-question heading_h4">How long does shipping take?</div>
+                        <div class="faq-answer rich-text paragraph_large w-richtext">
+                            <p>Shipping can take 1-6 weeks depending on your location and current stock availability. We'll provide tracking information once your order ships.</p>
                         </div>
                     </div>
-                    <div class="divider">
-                        <div class="heading_h4">What's your return policy?</div>
-                        <div class="rich-text paragraph_large w-richtext">
-                            <p>Return any hardware in good condition within 30 days for a 50% refund — fast and hassle-free.</p>
+                    <div class="divider faq-item">
+                        <div class="faq-question heading_h4">How long does starter kit setup take?</div>
+                        <div class="faq-answer rich-text paragraph_large w-richtext">
+                            <p>Most stores complete starter kit setup in under 10 minutes. Just plug in the Hub, open the Shelva app in Shopify, and pair your labels to products.</p>
                         </div>
                     </div>
-                    <div class="divider">
-                        <div class="heading_h4">Does Shelva work with Shopify POS?</div>
-                        <div class="rich-text paragraph_large w-richtext">
-                            <p>Yes. Shelva syncs seamlessly with both Shopify Online and Shopify POS, keeping prices consistent everywhere.</p>
+                    <div class="divider faq-item">
+                        <div class="faq-question heading_h4">What's your return policy for starter kits?</div>
+                        <div class="faq-answer rich-text paragraph_large w-richtext">
+                            <p>Starter kits are fully refundable on return. Return your starter kit in good condition within 30 days for a full refund — fast and hassle-free.</p>
                         </div>
                     </div>
-                    <div class="divider">
-                        <div class="heading_h4">What kind of support is included?</div>
-                        <div class="rich-text paragraph_large w-richtext">
-                            <p>Our team provides full onboarding, troubleshooting, and maintenance support by email / chat / call.</p>
+                    <div class="divider faq-item">
+                        <div class="faq-question heading_h4">Can I test the starter kit before committing to a full order?</div>
+                        <div class="faq-answer rich-text paragraph_large w-richtext">
+                            <p>Yes! The starter kit is designed specifically for hands-on testing. You can test Shelva with real hardware in your store, see live updates, and experience the full system before placing a larger order.</p>
+                        </div>
+                    </div>
+                    <div class="divider faq-item">
+                        <div class="faq-question heading_h4">What support is included with the starter kit?</div>
+                        <div class="faq-answer rich-text paragraph_large w-richtext">
+                            <p>Our team provides full onboarding and setup support for your starter kit. We'll help you get everything connected and working, and answer any questions you have during your testing period.</p>
                         </div>
                     </div>
                 </div>
@@ -927,6 +994,37 @@
                     }
                 });
             });
+    </script>
+    
+    <!-- FAQ Accordion Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isActive = this.classList.contains('active');
+                    
+                    // Close all other FAQs
+                    faqQuestions.forEach(q => {
+                        if (q !== this) {
+                            q.classList.remove('active');
+                            q.nextElementSibling.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current FAQ
+                    if (isActive) {
+                        this.classList.remove('active');
+                        answer.classList.remove('active');
+                    } else {
+                        this.classList.add('active');
+                        answer.classList.add('active');
+                    }
+                });
+            });
+        });
     </script>
     
 </body>
