@@ -74,14 +74,14 @@ PAGES = {
                         <div class="card_body">
                             <div class="margin_bottom-auto">
                                 <h4 class="heading_h3">Starter</h4>
-                                <p class="paragraph-2">Connect up to 50 digital shelf labels. Perfect for small stores. Includes basic label design and instant updates.</p>
+                                <p class="paragraph-2">Connect up to 100 digital shelf labels. Perfect for small stores. Includes basic label design and instant updates.</p>
                             </div>
                             <div class="margin-top_large">
                                 <div class="w-layout-hflex flex_horizontal is-y-baseline">
                                     <p class="heading_h2 margin-bottom_none">$89</p>
                                     <p class="heading_h4 margin-bottom_none">/mo</p>
                                 </div>
-                                <p class="paragraph_large">First 50 labels</p>
+                                <p class="paragraph_large">First 100 labels</p>
                                 <div class="margin-top_xsmall">
                                     <div class="button-group">
                                         <a href="https://apps.shopify.com/shelva-app" target="_blank" class="button w-button">Start</a>
