@@ -307,17 +307,18 @@
   </style>
     <meta charset="utf-8"/>
         <title>Shelva: Digital Shelf Labels (ESL) for Shopify</title>
-        <link rel="icon" href="/favicon.ico">
-        <link rel="icon" type="image/png" sizes="48x48" href="/shelva-48.png">
-        <link rel="apple-touch-icon" href="/icon.png">
+        <link rel="icon" type="image/x-icon" href="/favicon.ico">
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/shelva-logo-square.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/shelva-logo-square.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/shelva-logo-square.png">
         <meta content="Connect your Shopify store to digital shelf labels (ESL). Update prices, inventory, and promotions instantly. Sync shelves, simplify retail." name="description"/>
         <meta content="Shelva: Digital Shelf Labels (ESL) for Shopify" property="og:title"/>
         <meta content="Connect your Shopify store to digital shelf labels (ESL). Update prices, inventory, and promotions instantly. Sync shelves, simplify retail." property="og:description"/>
         <meta content="Shelva: Digital Shelf Labels (ESL) for Shopify" property="twitter:title"/>
         <meta content="Connect your Shopify store to digital shelf labels (ESL). Update prices, inventory, and promotions instantly. Sync shelves, simplify retail." property="twitter:description"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:image" content="https://shelva.app/icon.png"/>
-    <meta name="twitter:image" content="https://shelva.app/icon.png"/>
+    <meta property="og:image" content="https://shelva.app/images/shelva-logo-square.png"/>
+    <meta name="twitter:image" content="https://shelva.app/images/shelva-logo-square.png"/>
     <meta content="summary_large_image" name="twitter:card"/>
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
     
@@ -328,7 +329,7 @@
       "@type": "Organization",
       "name": "Shelva",
       "url": "https://shelva.app",
-      "logo": "https://shelva.app/icon.png",
+      "logo": "https://shelva.app/images/shelva-logo-square.png",
       "description": "Digital shelf labels (ESL) for Shopify stores. Update prices, inventory, and promotions instantly.",
       "sameAs": [
         "https://apps.shopify.com/shelva-app"
@@ -395,7 +396,6 @@
       return false;
     }
     </script>
-        <meta content="Webflow" name="generator"/>
     <link href="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/css/shelva.webflow.shared.40ff06190.css" rel="stylesheet" type="text/css"/>
     <link href="https://fonts.googleapis.com" rel="preconnect"/>
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous"/>
@@ -558,20 +558,29 @@
                 ("ontouchstart"in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
         }(window, document);
     </script>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="/icon.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/icon.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
 </head>
     <script>
   (function () {
-    const kill = () => {
+    // Remove Webflow badge
+    const killBadge = () => {
       document.querySelectorAll('a.w-webflow-badge,[data-wf-badge]').forEach(el => el.remove());
     };
-    // remove anything present now
-    kill();
-    // remove anything Webflow injects later
-    new MutationObserver(kill).observe(document.documentElement, { childList: true, subtree: true });
+    
+    // Prevent Webflow from injecting favicon links
+    const killFavicon = () => {
+      document.querySelectorAll('link[rel*="icon"][href*="webflow"], link[rel*="icon"][href*="website-files"]').forEach(el => el.remove());
+    };
+    
+    // Remove anything present now
+    killBadge();
+    killFavicon();
+    
+    // Remove anything Webflow injects later
+    const observer = new MutationObserver(() => {
+      killBadge();
+      killFavicon();
+    });
+    observer.observe(document.documentElement, { childList: true, subtree: true });
   })();
 </script>
 <body>
