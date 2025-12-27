@@ -110,6 +110,38 @@
             height: 100% !important;
         }
         
+        /* Center images in starter kit cards */
+        .card .flex_horizontal.is-y-center .icon {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+        
+        .card .flex_horizontal.is-y-center .icon img {
+            object-fit: contain !important;
+            object-position: center !important;
+        }
+        
+        /* Starter kit icon styles */
+        .starter-kit-icon {
+            width: 80px !important;
+            height: 80px !important;
+            flex-shrink: 0 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            margin: 0 !important;
+        }
+        
+        .starter-kit-icon-img {
+            max-width: 100% !important;
+            max-height: 100% !important;
+            width: auto !important;
+            height: auto !important;
+            object-fit: contain !important;
+            object-position: center !important;
+        }
+        
         /* Button styling with white outline */
         .button.is-primary {
             border: 2px solid white !important;
@@ -374,6 +406,31 @@
                 font-size: 1.25rem;
                 line-height: 1.3;
             }
+            
+            /* Center images in starter kit cards on mobile */
+            .card .flex_horizontal.is-y-center {
+                align-items: center !important;
+            }
+            
+            .starter-kit-icon {
+                align-self: center !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                width: 80px !important;
+                height: 80px !important;
+                margin: 0 !important;
+            }
+            
+            .starter-kit-icon-img {
+                max-width: 100% !important;
+                max-height: 100% !important;
+                width: auto !important;
+                height: auto !important;
+                object-fit: contain !important;
+                object-position: center !important;
+                margin: auto !important;
+            }
         }
         
         @media (max-width: 480px) {
@@ -409,6 +466,31 @@
             
             .paragraph {
                 font-size: 0.9rem;
+            }
+            
+            /* Center images in starter kit cards on mobile */
+            .card .flex_horizontal.is-y-center {
+                align-items: center !important;
+            }
+            
+            .starter-kit-icon {
+                align-self: center !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                width: 80px !important;
+                height: 80px !important;
+                margin: 0 !important;
+            }
+            
+            .starter-kit-icon-img {
+                max-width: 100% !important;
+                max-height: 100% !important;
+                width: auto !important;
+                height: auto !important;
+                object-fit: contain !important;
+                object-position: center !important;
+                margin: auto !important;
             }
         }
         
@@ -576,8 +658,8 @@
                     <div class="card">
                         <div class="card_body">
                             <div class="flex_horizontal is-y-center gap-medium">
-                                <div class="icon" style="width: 80px; height: 80px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin: -20px;">
-                                    <img src="/images/icons/icon-hub.png" alt="Shelva Hub" loading="lazy" style="width: 100%; height: 100%; object-fit: contain;"/>
+                                <div class="icon starter-kit-icon">
+                                    <img src="/images/icons/icon-hub.png" alt="Shelva Hub" loading="lazy" class="starter-kit-icon-img"/>
                                 </div>
                                 <div class="flex_child_expand">
                                     <h3 class="heading_h3">Shelva Hub</h3>
@@ -589,8 +671,8 @@
                     <div class="card">
                         <div class="card_body">
                             <div class="flex_horizontal is-y-center gap-medium">
-                                <div class="icon" style="width: 80px; height: 80px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin: -20px;">
-                                    <img src="/images/icons/icon-label.png" alt="Three Label Sizes" loading="lazy" style="width: 100%; height: 100%; object-fit: contain;"/>
+                                <div class="icon starter-kit-icon">
+                                    <img src="/images/icons/icon-label.png" alt="Three Label Sizes" loading="lazy" class="starter-kit-icon-img"/>
                                 </div>
                                 <div class="flex_child_expand">
                                     <h3 class="heading_h3">Three Label Sizes</h3>
@@ -602,8 +684,8 @@
                     <div class="card">
                         <div class="card_body">
                             <div class="flex_horizontal is-y-center gap-medium">
-                                <div class="icon" style="width: 80px; height: 80px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin: -20px;">
-                                    <img src="/images/icons/icon-mounts.png" alt="Mounting Options" loading="lazy" style="width: 100%; height: 100%; object-fit: contain;"/>
+                                <div class="icon starter-kit-icon">
+                                    <img src="/images/icons/icon-mounts.png" alt="Mounting Options" loading="lazy" class="starter-kit-icon-img"/>
                                 </div>
                                 <div class="flex_child_expand">
                                     <h3 class="heading_h3">Mounting Options</h3>
@@ -615,8 +697,8 @@
                     <div class="card">
                         <div class="card_body">
                             <div class="flex_horizontal is-y-center gap-medium">
-                                <div class="icon" style="width: 80px; height: 80px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin: -20px;">
-                                    <img src="/images/icons/icon-diagram.png" alt="Setup Guide" loading="lazy" style="width: 100%; height: 100%; object-fit: contain;"/>
+                                <div class="icon starter-kit-icon">
+                                    <img src="/images/icons/icon-diagram.png" alt="Setup Guide" loading="lazy" class="starter-kit-icon-img"/>
                                 </div>
                                 <div class="flex_child_expand">
                                     <h3 class="heading_h3">Setup Guide</h3>
@@ -628,8 +710,8 @@
                     <div class="card">
                         <div class="card_body">
                             <div class="flex_horizontal is-y-center gap-medium">
-                                <div class="icon" style="width: 80px; height: 80px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin: -20px;">
-                                    <img src="/images/icons/icon-app.png" alt="App Access" loading="lazy" style="width: 100%; height: 100%; object-fit: contain;"/>
+                                <div class="icon starter-kit-icon">
+                                    <img src="/images/icons/icon-app.png" alt="App Access" loading="lazy" class="starter-kit-icon-img"/>
                                 </div>
                                 <div class="flex_child_expand">
                                     <h3 class="heading_h3">App Access</h3>
@@ -641,8 +723,8 @@
                     <div class="card">
                         <div class="card_body">
                             <div class="flex_horizontal is-y-center gap-medium">
-                                <div class="icon" style="width: 80px; height: 80px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin: -20px;">
-                                    <img src="/images/icons/icon-help.png" alt="Personal Support" loading="lazy" style="width: 100%; height: 100%; object-fit: contain;"/>
+                                <div class="icon starter-kit-icon">
+                                    <img src="/images/icons/icon-help.png" alt="Personal Support" loading="lazy" class="starter-kit-icon-img"/>
                                 </div>
                                 <div class="flex_child_expand">
                                     <h3 class="heading_h3">Personal Support</h3>
