@@ -73,15 +73,15 @@ PAGES = {
                     <li class="card on-secondary">
                         <div class="card_body">
                             <div class="margin_bottom-auto">
-                                <h4 class="heading_h3">Starter</h4>
+                                <h4 class="heading_h3">Launch</h4>
                                 <p class="paragraph-2">Connect up to 100 digital shelf labels. Perfect for small stores. Includes basic label design and instant updates.</p>
                             </div>
                             <div class="margin-top_large">
                                 <div class="w-layout-hflex flex_horizontal is-y-baseline">
-                                    <p class="heading_h2 margin-bottom_none">$89</p>
+                                    <p class="heading_h2 margin-bottom_none">$90</p>
                                     <p class="heading_h4 margin-bottom_none">/mo</p>
                                 </div>
-                                <p class="paragraph_large">First 100 labels</p>
+                                <p class="paragraph_large">Up to 100 labels</p>
                                 <div class="margin-top_xsmall">
                                     <div class="button-group">
                                         <a href="https://apps.shopify.com/shelva-app" target="_blank" class="button w-button">Start</a>
@@ -94,14 +94,14 @@ PAGES = {
                         <div class="card_body">
                             <div class="margin_bottom-auto">
                                 <h4 class="heading_h3">Growth</h4>
-                                <p class="paragraph-3">Up to 200 shelf labels for expanding stores. Access advanced design, and priority support.</p>
+                                <p class="paragraph-3">Up to 500 shelf labels for expanding stores. Access advanced design, and priority support. 1 location.</p>
                             </div>
                             <div class="margin-top_large">
                                 <div class="w-layout-hflex flex_horizontal is-y-baseline">
-                                    <p class="heading_h2 margin-bottom_none">$149</p>
+                                    <p class="heading_h2 margin-bottom_none">$200</p>
                                     <p class="heading_h4 margin-bottom_none">/mo</p>
                                 </div>
-                                <p class="paragraph_large">Up to 200 labels</p>
+                                <p class="paragraph_large">Up to 500 labels</p>
                                 <div class="margin-top_xsmall">
                                     <div class="button-group">
                                         <a href="https://apps.shopify.com/shelva-app" target="_blank" class="button w-button">Grow</a>
@@ -319,10 +319,11 @@ PAGES = {
                     <div class="card">
                         <div class="card_body">
                             <div class="margin_bottom-auto">
-                                <h4 class="heading_h3">Starter</h4>
+                                <h4 class="heading_h3">Launch</h4>
                                 <p class="paragraph">Perfect for small stores getting started with digital shelf labels.</p>
                                 <ul class="w-list-unstyled">
-                                    <li>Up to 50 digital shelf labels</li>
+                                    <li>Up to 100 digital shelf labels</li>
+                                    <li>1 location</li>
                                     <li>Basic label design templates</li>
                                     <li>Real-time Shopify sync</li>
                                     <li>Email support</li>
@@ -331,7 +332,7 @@ PAGES = {
                             </div>
                             <div class="margin-top_large">
                                 <div class="w-layout-hflex flex_horizontal is-y-baseline">
-                                    <p class="heading_h2 margin-bottom_none">$89</p>
+                                    <p class="heading_h2 margin-bottom_none">$90</p>
                                     <p class="heading_h4 margin-bottom_none">/month</p>
                                 </div>
                                 <p class="paragraph_small text-color_secondary">Hardware sold separately</p>
@@ -350,17 +351,17 @@ PAGES = {
                                 <h4 class="heading_h3">Growth</h4>
                                 <p class="paragraph">Ideal for expanding stores that need more labels and advanced features.</p>
                                 <ul class="w-list-unstyled">
-                                    <li>Up to 200 digital shelf labels</li>
+                                    <li>Up to 500 digital shelf labels</li>
+                                    <li>1 location</li>
                                     <li>Advanced label customization</li>
                                     <li>Priority sync (every 15 minutes)</li>
                                     <li>Phone & email support</li>
                                     <li>Dedicated account manager</li>
-                                    <li>Multi-location support</li>
                                 </ul>
                             </div>
                             <div class="margin-top_large">
                                 <div class="w-layout-hflex flex_horizontal is-y-baseline">
-                                    <p class="heading_h2 margin-bottom_none">$149</p>
+                                    <p class="heading_h2 margin-bottom_none">$200</p>
                                     <p class="heading_h4 margin-bottom_none">/month</p>
                                 </div>
                                 <p class="paragraph_small text-color_secondary">Hardware sold separately</p>
