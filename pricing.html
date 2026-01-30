@@ -7,16 +7,17 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/images/shelva-logo-square.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/shelva-logo-square.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/shelva-logo-square.png">
-    <meta content="Simple pricing for every shop. Choose from Launch, Growth, Scale, or Enterprise plans. Start with 30-day free trial. No hidden fees or long-term commitments." name="description"/>
+    <meta content="Simple pricing for every shop. Choose from Launch, Growth, Scale, or Enterprise plans. Live customer support included. No hidden fees or long-term commitments." name="description"/>
     <meta content="Pricing - Shelva: Digital Shelf Labels for Shopify" property="og:title"/>
-    <meta content="Simple pricing for every shop. Choose from Launch, Growth, Scale, or Enterprise plans. Start with 30-day free trial. No hidden fees or long-term commitments." property="og:description"/>
+    <meta content="Simple pricing for every shop. Choose from Launch, Growth, Scale, or Enterprise plans. Live customer support included. No hidden fees or long-term commitments." property="og:description"/>
     <meta content="Pricing - Shelva: Digital Shelf Labels for Shopify" property="twitter:title"/>
-    <meta content="Simple pricing for every shop. Choose from Launch, Growth, Scale, or Enterprise plans. Start with 30-day free trial. No hidden fees or long-term commitments." property="twitter:description"/>
+    <meta content="Simple pricing for every shop. Choose from Launch, Growth, Scale, or Enterprise plans. Live customer support included. No hidden fees or long-term commitments." property="twitter:description"/>
     <meta property="og:type" content="website"/>
     <meta property="og:image" content="https://shelva.app/images/shelva-logo-square.png"/>
     <meta name="twitter:image" content="https://shelva.app/images/shelva-logo-square.png"/>
     <meta content="summary_large_image" name="twitter:card"/>
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17622609452"></script>
     <script>
@@ -116,6 +117,12 @@
             display: flex !important;
             flex-direction: column;
             height: 100%;
+            transition: border-color 0.3s ease;
+        }
+        
+        /* Coral border on hover for pricing plan cards */
+        .w-layout-grid.grid_3-col.gap-large .card:hover {
+            border-color: var(--shelva-coral) !important;
         }
         
         .w-layout-grid.grid_3-col.gap-large .card .card_body {
@@ -143,7 +150,7 @@
         .w-layout-grid.grid_3-col.gap-medium {
             display: grid !important;
             grid-template-columns: repeat(3, 1fr) !important;
-            gap: 1.5rem;
+            gap: 2.5rem;
         }
         
         /* Label pricing cards - ensure equal heights and vertical alignment */
@@ -151,6 +158,40 @@
             display: flex !important;
             flex-direction: column !important;
             height: 100% !important;
+            box-shadow: none !important;
+        }
+        
+        /* Remove all shadows from label cards */
+        .w-layout-grid.grid_3-col.gap-medium .card.label-card,
+        .w-layout-grid.grid_3-col.gap-medium .card.on-secondary {
+            box-shadow: none !important;
+            filter: none !important;
+            -webkit-box-shadow: none !important;
+            -moz-box-shadow: none !important;
+        }
+        
+        /* Inspect what Webflow is adding - remove all potential shadow sources */
+        .w-layout-grid.grid_3-col.gap-medium .card.on-secondary.label-card *,
+        .w-layout-grid.grid_3-col.gap-medium .card.on-secondary.label-card *::before,
+        .w-layout-grid.grid_3-col.gap-medium .card.on-secondary.label-card *::after {
+            box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            -moz-box-shadow: none !important;
+        }
+        
+        /* Check if card_body has shadow */
+        .w-layout-grid.grid_3-col.gap-medium .card.on-secondary.label-card .card_body {
+            box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            -moz-box-shadow: none !important;
+        }
+        
+        /* Override Webflow card styles completely */
+        .w-layout-grid.grid_3-col.gap-medium .card.on-secondary {
+            box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            -moz-box-shadow: none !important;
+            filter: none !important;
         }
         
         .w-layout-grid.grid_3-col.gap-medium .card .card_body {
@@ -172,7 +213,7 @@
             
             .w-layout-grid.grid_3-col.gap-medium {
                 grid-template-columns: repeat(2, 1fr) !important;
-                gap: 1.5rem;
+                gap: 2.5rem;
             }
         }
         
@@ -284,7 +325,7 @@
             .w-layout-grid.grid_3-col.gap-large,
             .w-layout-grid.grid_3-col.gap-medium {
                 grid-template-columns: 1fr !important;
-                gap: 1.5rem;
+                gap: 2.5rem;
             }
             
             .grid_2-col {
@@ -296,7 +337,256 @@
             .card {
                 margin-bottom: 1.5rem;
             }
-            
+        }
+
+        /* Custom Label Card Styles - Completely independent of Webflow */
+        .custom-label-card {
+            position: relative;
+            border: 1px solid #e0e0e0;
+            transition: border-color 0.3s ease;
+            box-shadow: none;
+            filter: none;
+            overflow: visible;
+            background: transparent;
+            background-color: transparent;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .custom-label-card-body {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding: 2rem;
+            position: relative;
+            background: transparent;
+            background-color: transparent;
+            box-shadow: none;
+            gap: 1rem;
+        }
+        
+        .custom-label-card-body > * {
+            margin-bottom: 0;
+        }
+        
+        .custom-label-card-body .label-image-container {
+            margin-bottom: 1.25rem !important;
+            padding-top: 2.5rem !important;
+        }
+        
+        .custom-label-card-body h4 {
+            margin-bottom: 0.5rem !important;
+        }
+        
+        .custom-label-card-body p {
+            margin-bottom: 1rem !important;
+        }
+        
+        .custom-label-card-body > div[style*="flex: 1"] {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .custom-label-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            border: 1px solid var(--shelva-coral);
+        }
+
+        .custom-label-card-pocket:hover,
+        .custom-label-card-slim:hover,
+        .custom-label-card-spotlight:hover {
+            border: 1px solid var(--shelva-coral);
+            box-shadow: 0 8px 24px rgba(255, 127, 106, 0.2);
+        }
+
+        /* Label Card Redesign Styles */
+        /* Label Card Redesign Styles */
+        .label-card {
+            position: relative;
+            border-top: 2px solid transparent !important;
+            border-right: 2px solid transparent !important;
+            border-bottom: 2px solid transparent !important;
+            border-left: 4px solid !important;
+            transition: border-color 0.3s ease;
+            box-shadow: none !important;
+            filter: none !important;
+            overflow: visible;
+            background: transparent !important;
+            background-color: transparent !important;
+        }
+        
+        /* Ensure left border is not overridden */
+        .card.on-secondary.label-card,
+        .w-layout-grid.grid_3-col.gap-medium .card.on-secondary.label-card {
+            border-left: 4px solid !important;
+        }
+        
+        /* Remove any background that might create shadow effect */
+        .card.on-secondary.label-card {
+            background: transparent !important;
+            background-color: transparent !important;
+            box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            -moz-box-shadow: none !important;
+        }
+        
+        .card.on-secondary.label-card .card_body {
+            background: transparent !important;
+            background-color: transparent !important;
+            box-shadow: none !important;
+        }
+        
+        /* Force remove any left-side specific shadows or borders from Webflow */
+        .card.on-secondary::before,
+        .card.on-secondary::after {
+            display: none !important;
+            box-shadow: none !important;
+        }
+        
+        /* Check if Webflow is using inset shadows or other techniques */
+        .card.on-secondary.label-card {
+            -webkit-box-shadow: none !important;
+            -moz-box-shadow: none !important;
+            box-shadow: none !important;
+            text-shadow: none !important;
+        }
+        
+        /* Override any Webflow card shadows - very specific selectors */
+        .card.label-card,
+        .card.on-secondary.label-card,
+        .w-layout-grid.grid_3-col.gap-medium .card.on-secondary.label-card,
+        .w-layout-grid.grid_3-col.gap-medium .card.label-card {
+            box-shadow: none !important;
+            filter: none !important;
+            -webkit-box-shadow: none !important;
+            -moz-box-shadow: none !important;
+        }
+        
+        /* Remove shadow from pseudo-elements */
+        .card.on-secondary.label-card::before,
+        .card.on-secondary.label-card::after {
+            display: none !important;
+            box-shadow: none !important;
+        }
+
+        .label-card-pocket {
+            border-left-color: #5ddad5 !important;
+        }
+
+        .label-card-slim {
+            border-left-color: #FF7F6A !important;
+        }
+
+        .label-card-spotlight {
+            border-left-color: #064273 !important;
+        }
+        
+        /* Override Webflow's semi-transparent border that creates shadow effect */
+        .card.on-secondary.label-card {
+            border-left-color: inherit !important;
+        }
+        
+        .card.on-secondary.label-card.label-card-pocket {
+            border-left-color: #5ddad5 !important;
+        }
+        
+        .card.on-secondary.label-card.label-card-slim {
+            border-left-color: #FF7F6A !important;
+        }
+        
+        .card.on-secondary.label-card.label-card-spotlight {
+            border-left-color: #064273 !important;
+        }
+
+        .label-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            border: 2px solid var(--shelva-coral) !important;
+        }
+
+        .label-card-pocket:hover {
+            border: 2px solid var(--shelva-coral) !important;
+            box-shadow: 0 8px 24px rgba(255, 127, 106, 0.2);
+        }
+
+        .label-card-slim:hover {
+            border: 2px solid var(--shelva-coral) !important;
+            box-shadow: 0 8px 24px rgba(255, 127, 106, 0.2);
+        }
+
+        .label-card-spotlight:hover {
+            border: 2px solid var(--shelva-coral) !important;
+            box-shadow: 0 8px 24px rgba(255, 127, 106, 0.2);
+        }
+
+        /* Hide all color display options by default */
+        .color-display-option-a,
+        .color-display-option-b,
+        .color-display-option-c,
+        .color-display-option-d,
+        .color-display-option-e {
+            display: none !important;
+        }
+
+        /* Option A: Split View */
+        .label-cards-container.option-a .color-display-option-a {
+            display: block !important;
+        }
+
+        /* Option B: Hover Toggle */
+        .label-cards-container.option-b .color-display-option-b {
+            display: block !important;
+        }
+
+        .label-cards-container.option-b .label-image-container:hover .label-img-default {
+            opacity: 0 !important;
+        }
+
+        .label-cards-container.option-b .label-image-container:hover .label-img-hover {
+            opacity: 1 !important;
+        }
+
+        /* Option C: Overlay Effect */
+        .label-cards-container.option-c .color-display-option-c {
+            display: block !important;
+        }
+
+        /* Option D: Color Swatches */
+        .label-cards-container.option-d .color-display-option-d {
+            display: flex !important;
+        }
+        
+        .color-swatch:hover {
+            transform: scale(1.1) !important;
+        }
+        
+        .color-swatch.active {
+            transform: scale(1.15) !important;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3) !important;
+        }
+
+        /* Option E: Rotating Display */
+        .label-cards-container.option-e .color-display-option-e {
+            display: block !important;
+        }
+
+        @keyframes fadeRotate {
+            0%, 45% {
+                opacity: 1;
+            }
+            47.5%, 52.5% {
+                opacity: 0;
+            }
+            55%, 100% {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
             .card .card_body {
                 padding: 1.25rem;
             }
@@ -371,6 +661,178 @@
             
             .flex_horizontal.is-y-baseline p {
                 margin: 0;
+            }
+        }
+
+        /* Label Card Redesign Styles */
+        .label-card {
+            position: relative;
+            border-top: 2px solid transparent !important;
+            border-right: 2px solid transparent !important;
+            border-bottom: 2px solid transparent !important;
+            border-left: 4px solid !important;
+            transition: border-color 0.3s ease;
+            box-shadow: none !important;
+            filter: none !important;
+            overflow: visible;
+            background: transparent !important;
+            background-color: transparent !important;
+        }
+        
+        /* Ensure left border is not overridden */
+        .card.on-secondary.label-card,
+        .w-layout-grid.grid_3-col.gap-medium .card.on-secondary.label-card {
+            border-left: 4px solid !important;
+        }
+        
+        /* Remove any background that might create shadow effect */
+        .card.on-secondary.label-card {
+            background: transparent !important;
+            background-color: transparent !important;
+            box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            -moz-box-shadow: none !important;
+        }
+        
+        .card.on-secondary.label-card .card_body {
+            background: transparent !important;
+            background-color: transparent !important;
+            box-shadow: none !important;
+        }
+        
+        /* Force remove any left-side specific shadows or borders from Webflow */
+        .card.on-secondary::before,
+        .card.on-secondary::after {
+            display: none !important;
+            box-shadow: none !important;
+        }
+        
+        /* Check if Webflow is using inset shadows or other techniques */
+        .card.on-secondary.label-card {
+            -webkit-box-shadow: none !important;
+            -moz-box-shadow: none !important;
+            box-shadow: none !important;
+            text-shadow: none !important;
+        }
+        
+        /* Override any Webflow card shadows - very specific selectors */
+        .card.label-card,
+        .card.on-secondary.label-card,
+        .w-layout-grid.grid_3-col.gap-medium .card.on-secondary.label-card,
+        .w-layout-grid.grid_3-col.gap-medium .card.label-card {
+            box-shadow: none !important;
+            filter: none !important;
+            -webkit-box-shadow: none !important;
+            -moz-box-shadow: none !important;
+        }
+        
+        /* Remove shadow from pseudo-elements */
+        .card.on-secondary.label-card::before,
+        .card.on-secondary.label-card::after {
+            display: none !important;
+            box-shadow: none !important;
+        }
+
+        .label-card-pocket {
+            border-left-color: #5ddad5 !important;
+        }
+
+        .label-card-slim {
+            border-left-color: #FF7F6A !important;
+        }
+
+        .label-card-spotlight {
+            border-left-color: #064273 !important;
+        }
+        
+        /* Override Webflow's semi-transparent border that creates shadow effect */
+        .card.on-secondary.label-card {
+            border-left-color: inherit !important;
+        }
+        
+        .card.on-secondary.label-card.label-card-pocket {
+            border-left-color: #5ddad5 !important;
+        }
+        
+        .card.on-secondary.label-card.label-card-slim {
+            border-left-color: #FF7F6A !important;
+        }
+        
+        .card.on-secondary.label-card.label-card-spotlight {
+            border-left-color: #064273 !important;
+        }
+
+        .label-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            border: 2px solid var(--shelva-coral) !important;
+        }
+
+        .label-card-pocket:hover {
+            border: 2px solid var(--shelva-coral) !important;
+            box-shadow: 0 8px 24px rgba(255, 127, 106, 0.2);
+        }
+
+        .label-card-slim:hover {
+            border: 2px solid var(--shelva-coral) !important;
+            box-shadow: 0 8px 24px rgba(255, 127, 106, 0.2);
+        }
+
+        .label-card-spotlight:hover {
+            border: 2px solid var(--shelva-coral) !important;
+            box-shadow: 0 8px 24px rgba(255, 127, 106, 0.2);
+        }
+
+        /* Hide all color display options by default */
+        .color-display-option-a,
+        .color-display-option-b,
+        .color-display-option-c,
+        .color-display-option-d,
+        .color-display-option-e {
+            display: none !important;
+        }
+
+        /* Option A: Split View */
+        .label-cards-container.option-a .color-display-option-a {
+            display: block !important;
+        }
+
+        /* Option B: Hover Toggle */
+        .label-cards-container.option-b .color-display-option-b {
+            display: block !important;
+        }
+
+        .label-cards-container.option-b .label-image-container:hover .label-img-default {
+            opacity: 0 !important;
+        }
+
+        .label-cards-container.option-b .label-image-container:hover .label-img-hover {
+            opacity: 1 !important;
+        }
+
+        /* Option C: Overlay Effect */
+        .label-cards-container.option-c .color-display-option-c {
+            display: block !important;
+        }
+
+        /* Option D: Color Swatches */
+        .label-cards-container.option-d .color-display-option-d {
+            display: flex !important;
+        }
+
+        /* Option E: Rotating Display */
+        .label-cards-container.option-e .color-display-option-e {
+            display: block !important;
+        }
+
+        @keyframes fadeRotate {
+            0%, 45% {
+                opacity: 1;
+            }
+            47.5%, 52.5% {
+                opacity: 0;
+            }
+            55%, 100% {
+                opacity: 1;
             }
         }
         
@@ -559,13 +1021,7 @@
             </div>
             <div class="nav_mobile-menu-button w-nav-button">
                 <div class="icon on-accent-primary">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <g class="nc-icon-wrapper" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" fill="none" stroke="currentColor" stroke-miterlimit="10">
-                            <line x1="1" y1="12" x2="23" y2="12" stroke="currentColor"></line>
-                            <line x1="1" y1="5" x2="23" y2="5"></line>
-                            <line x1="1" y1="19" x2="23" y2="19"></line>
-                        </g>
-                    </svg>
+                    <i data-lucide="menu" style="width: 24px; height: 24px;"></i>
                 </div>
             </div>
         </div>
@@ -604,7 +1060,7 @@
                                         <span style="position: absolute; left: 0; color: #4CAF50; font-weight: bold;">✓</span><strong>1 location</strong>
                                     </li>
                                     <li style="font-size: 0.95rem; line-height: 1.4; color: #555; margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative; font-family: 'Figtree', sans-serif;">
-                                        <span style="position: absolute; left: 0; color: #4CAF50; font-weight: bold;">✓</span>30-day free trial
+                                        <span style="position: absolute; left: 0; color: #4CAF50; font-weight: bold;">✓</span>Live customer support
                                     </li>
                                 </ul>
                             </div>
@@ -636,7 +1092,7 @@
                                         <span style="position: absolute; left: 0; color: #4CAF50; font-weight: bold;">✓</span><strong>1 location</strong>
                                     </li>
                                     <li style="font-size: 0.95rem; line-height: 1.4; color: #555; margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative; font-family: 'Figtree', sans-serif;">
-                                        <span style="position: absolute; left: 0; color: #4CAF50; font-weight: bold;">✓</span>30-day free trial
+                                        <span style="position: absolute; left: 0; color: #4CAF50; font-weight: bold;">✓</span>Live customer support
                                     </li>
                                 </ul>
                             </div>
@@ -671,7 +1127,7 @@
                                         <span style="position: absolute; left: 0; color: #4CAF50; font-weight: bold;">✓</span>Custom templates
                                     </li>
                                     <li style="font-size: 0.95rem; line-height: 1.4; color: #555; margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative; font-family: 'Figtree', sans-serif;">
-                                        <span style="position: absolute; left: 0; color: #4CAF50; font-weight: bold;">✓</span>30-day free trial
+                                        <span style="position: absolute; left: 0; color: #4CAF50; font-weight: bold;">✓</span>Live customer support
                                     </li>
                                 </ul>
                             </div>
@@ -731,7 +1187,7 @@
                 <div class="header is-align-center">
                     <h2 class="heading_h2">Hardware Pricing</h2>
                     <p class="paragraph_large">Return your hardware within 12 months for a 50% refund of the original price.</p>
-                    <p class="paragraph margin-top_small" style="font-weight: 600; color: #ffffff; background-color: #FF7F6A; font-family: 'Figtree', sans-serif; padding: 1rem 1.5rem; border-radius: 8px; display: inline-block;">All mounting and setup accessories are included for your first 500 labels at no additional cost. <a href="/how-it-works#mounting-accessories" style="color: #ffffff; text-decoration: underline;">Learn more about mounting options</a>.</p>
+                    <p class="paragraph margin-top_small" style="font-family: 'Figtree', sans-serif; color: #555; line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto;">All mounting and setup accessories are included for your first 500 labels at no additional cost. <a href="/how-it-works#mounting-accessories" style="color: #FF7F6A; text-decoration: underline; font-weight: 500;">Learn more about mounting options</a>.</p>
                 </div>
                 <!-- Shelva Hub - Standalone Section -->
                 <div class="w-layout-grid grid_1-col gap-medium margin-bottom_large">
@@ -761,68 +1217,210 @@
                 <div class="header is-align-center margin-bottom_medium">
                     <h3 class="heading_h3">Digital Shelf Labels</h3>
                     <p class="paragraph_large">Choose the size that fits your store's needs</p>
+                    <!-- Color Display Option Selector (for testing) -->
+                    <div style="margin-top: 1rem; padding: 1rem; background: #f5f5f5; border-radius: 8px; display: inline-block;">
+                        <label style="font-weight: 600; margin-right: 0.5rem; font-size: 0.9rem;">Color Display:</label>
+                        <select id="colorDisplayOption" style="padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px; font-size: 0.9rem; cursor: pointer;">
+                            <option value="option-a">Option A - Split View</option>
+                            <option value="option-b">Option B - Hover Toggle</option>
+                            <option value="option-c">Option C - Overlay Effect</option>
+                            <option value="option-d">Option D - Color Swatches</option>
+                            <option value="option-e">Option E - Rotating Display</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="w-layout-grid grid_3-col gap-medium">
-                    <div class="card on-secondary">
-                        <div class="card_body">
-                            <div class="flex_horizontal is-y-center gap-medium margin-bottom_medium">
-                                <div style="width: 80px; height: 120px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;">
-                                    <img style="max-width: 100%; max-height: 45%; object-fit: contain;" src="/images/2.9-black.png" alt="Pocket 2.1\" Labels - Black" loading="lazy"/>
-                                    <img style="max-width: 100%; max-height: 45%; object-fit: contain;" src="/images/2.9-white.png" alt="Pocket 2.1\" Labels - White" loading="lazy"/>
+                <div class="w-layout-grid grid_3-col gap-medium label-cards-container" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem;">
+                    <div class="custom-label-card custom-label-card-pocket" data-size="2.1" data-color-accent="#5ddad5">
+                        <div class="custom-label-card-body" style="display: flex; flex-direction: column; height: 100%; padding: 2rem; position: relative;">
+                            <!-- Size Badge -->
+                            <div class="label-size-badge" style="position: absolute; top: 1rem; right: 1rem; width: 48px; height: 48px; background: var(--shelva-coral); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.9rem; z-index: 2;">2.1"</div>
+                            
+                            <!-- Image Container - All Options -->
+                            <div class="label-image-container" style="width: 100%; height: 180px; margin-bottom: 2rem; padding-top: 2.5rem; position: relative; display: flex; align-items: center; justify-content: center;">
+                                <!-- Option A: Split View -->
+                                <div class="color-display-option-a" style="width: 100%; height: 100%; position: relative;">
+                                    <div style="display: flex; width: 100%; height: 100%; gap: 8px; align-items: center; justify-content: center;">
+                                        <div style="flex: 1; height: 100%; display: flex; align-items: center; justify-content: center; border-right: 2px solid #e0e0e0; padding-right: 8px;">
+                                            <img style="max-width: 100%; max-height: 100%; object-fit: contain;" src="/images/release-2.1.png" alt="Pocket 2.1\" Labels - Black" loading="lazy"/>
+                                        </div>
+                                        <div style="flex: 1; height: 100%; display: flex; align-items: center; justify-content: center; padding-left: 8px;">
+                                            <img style="max-width: 100%; max-height: 100%; object-fit: contain;" src="/images/release-2.1.png" alt="Pocket 2.1\" Labels - White" loading="lazy"/>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="flex_child_expand">
-                                    <h4 class="heading_h4">Pocket - 2.1" Labels</h4>
-                                    <p class="paragraph_small">Compact size for small products</p>
+                                
+                                <!-- Option B: Hover Toggle -->
+                                <div class="color-display-option-b" style="width: 100%; height: 100%; position: relative;">
+                                    <img class="label-img-default" style="max-width: 80%; max-height: 100%; object-fit: contain; transition: opacity 0.3s ease;" src="/images/release-2.1.png" alt="Pocket 2.1\" Labels - Black" loading="lazy"/>
+                                    <img class="label-img-hover" style="position: absolute; top: 0; left: 0; width: 80%; max-height: 100%; object-fit: contain; opacity: 0; transition: opacity 0.3s ease; margin: 0 auto; right: 0;" src="/images/release-2.1.png" alt="Pocket 2.1\" Labels - White" loading="lazy"/>
+                                </div>
+                                
+                                <!-- Option C: Overlay Effect -->
+                                <div class="color-display-option-c" style="width: 100%; height: 100%; position: relative;">
+                                    <img class="label-img-main" style="max-width: 80%; max-height: 100%; object-fit: contain; position: relative; z-index: 2;" src="/images/release-2.1.png" alt="Pocket 2.1\" Labels - Black" loading="lazy"/>
+                                    <img class="label-img-overlay" style="position: absolute; top: 8px; left: 8px; width: 80%; max-height: 100%; object-fit: contain; opacity: 0.3; filter: blur(2px); z-index: 1;" src="/images/release-2.1.png" alt="Pocket 2.1\" Labels - White" loading="lazy"/>
+                                </div>
+                                
+                                <!-- Option D: Color Swatches -->
+                                <div class="color-display-option-d" style="width: 100%; height: 100%; position: relative; flex-direction: column; align-items: center; justify-content: center;">
+                                    <img class="label-img-swatch" style="max-width: 70%; max-height: 70%; object-fit: contain; margin-bottom: 1rem; transition: opacity 0.3s ease;" src="/images/release-2.1.png" alt="Pocket 2.1\" Labels" loading="lazy"/>
+                                    <div style="display: flex; gap: 0.75rem; align-items: center;">
+                                        <div class="color-swatch" data-color="black" data-image-black="/images/release-2.1.png" data-image-white="/images/release-2.1.png" style="width: 24px; height: 24px; border-radius: 50%; background: #000; border: 2px solid #333; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.2); transition: transform 0.2s ease, box-shadow 0.2s ease;" title="Black"></div>
+                                        <div class="color-swatch" data-color="white" data-image-black="/images/release-2.1.png" data-image-white="/images/release-2.1.png" style="width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 2px solid #ddd; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: transform 0.2s ease, box-shadow 0.2s ease;" title="White"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Option E: Rotating Display -->
+                                <div class="color-display-option-e" style="width: 100%; height: 100%; position: relative;">
+                                    <img class="label-img-rotate" style="max-width: 80%; max-height: 100%; object-fit: contain; animation: colorRotate 4s ease-in-out infinite;" src="/images/release-2.1.png" alt="Pocket 2.1\" Labels" loading="lazy"/>
                                 </div>
                             </div>
-                            <div style="margin-top: auto;">
-                                <div class="w-layout-hflex flex_horizontal is-y-baseline">
-                                    <p class="heading_h3 margin-bottom_none">$7.25</p>
-                                    <p class="paragraph_small margin-bottom_none" style="margin-left: 0.5rem;">each</p>
+                            
+                            <!-- Content -->
+                            <div style="flex: 1; display: flex; flex-direction: column;">
+                                <h4 class="heading_h4" style="margin-bottom: 0.75rem; font-size: 1.25rem; font-weight: 600;">Pocket - 2.1" Labels</h4>
+                                <p class="paragraph_small" style="margin-bottom: 1rem; color: #666;">Compact size for tighter displays</p>
+                                
+                                <!-- Pricing -->
+                                <div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid #e0e0e0;">
+                                    <div class="w-layout-hflex flex_horizontal is-y-baseline" style="margin-bottom: 0.5rem;">
+                                        <p class="heading_h3 margin-bottom_none" style="font-size: 2rem; font-weight: 700; color: #333;">$7.25</p>
+                                        <p class="paragraph_small margin-bottom_none" style="margin-left: 0.5rem; color: #666;">each</p>
+                                    </div>
+                                    <div style="display: inline-block; padding: 0.25rem 0.75rem; background: #f0f0f0; border-radius: 12px; font-size: 0.85rem; color: #666;">
+                                        $3.63 refundable each
+                                    </div>
                                 </div>
-                                <p class="paragraph_small text-color_secondary">$3.63 refundable each</p>
                             </div>
                         </div>
                     </div>
-                    <div class="card on-secondary">
-                        <div class="card_body">
-                            <div class="flex_horizontal is-y-center gap-medium margin-bottom_medium">
-                                <div style="width: 80px; height: 120px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;">
-                                    <img style="max-width: 100%; max-height: 45%; object-fit: contain;" src="/images/2.9-black.png" alt="Slim 2.9\" Labels - Black" loading="lazy"/>
-                                    <img style="max-width: 100%; max-height: 45%; object-fit: contain;" src="/images/2.9-white.png" alt="Slim 2.9\" Labels - White" loading="lazy"/>
+                    <div class="custom-label-card custom-label-card-slim" data-size="2.9" data-color-accent="#FF7F6A">
+                        <div class="custom-label-card-body" style="display: flex; flex-direction: column; height: 100%; padding: 2rem; position: relative;">
+                            <!-- Most Popular Badge -->
+                            <div style="position: absolute; top: 1rem; left: 1rem; padding: 0.35rem 0.75rem; background: #FF7F6A; color: white; border-radius: 20px; font-size: 0.75rem; font-weight: 600; z-index: 2;">Most Popular</div>
+                            <!-- Size Badge -->
+                            <div class="label-size-badge" style="position: absolute; top: 1rem; right: 1rem; width: 48px; height: 48px; background: var(--shelva-coral); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.9rem; z-index: 2;">2.9"</div>
+                            
+                            <!-- Image Container - All Options -->
+                            <div class="label-image-container" style="width: 100%; height: 180px; margin-bottom: 2rem; padding-top: 2.5rem; position: relative; display: flex; align-items: center; justify-content: center;">
+                                <!-- Option A: Split View -->
+                                <div class="color-display-option-a" style="width: 100%; height: 100%; position: relative;">
+                                    <div style="display: flex; width: 100%; height: 100%; gap: 8px; align-items: center; justify-content: center;">
+                                        <div style="flex: 1; height: 100%; display: flex; align-items: center; justify-content: center; border-right: 2px solid #e0e0e0; padding-right: 8px;">
+                                            <img style="max-width: 100%; max-height: 100%; object-fit: contain;" src="/images/2.9-black.png" alt="Slim 2.9\" Labels - Black" loading="lazy"/>
+                                        </div>
+                                        <div style="flex: 1; height: 100%; display: flex; align-items: center; justify-content: center; padding-left: 8px;">
+                                            <img style="max-width: 100%; max-height: 100%; object-fit: contain;" src="/images/2.9-white.png" alt="Slim 2.9\" Labels - White" loading="lazy"/>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="flex_child_expand">
-                                    <h4 class="heading_h4">Slim - 2.9" Labels</h4>
-                            <p class="paragraph_small">Perfect for most retail applications</p>
+                                
+                                <!-- Option B: Hover Toggle -->
+                                <div class="color-display-option-b" style="width: 100%; height: 100%; position: relative;">
+                                    <img class="label-img-default" style="max-width: 80%; max-height: 100%; object-fit: contain; transition: opacity 0.3s ease;" src="/images/2.9-black.png" alt="Slim 2.9\" Labels - Black" loading="lazy"/>
+                                    <img class="label-img-hover" style="position: absolute; top: 0; left: 0; width: 80%; max-height: 100%; object-fit: contain; opacity: 0; transition: opacity 0.3s ease; margin: 0 auto; right: 0;" src="/images/2.9-white.png" alt="Slim 2.9\" Labels - White" loading="lazy"/>
+                                </div>
+                                
+                                <!-- Option C: Overlay Effect -->
+                                <div class="color-display-option-c" style="width: 100%; height: 100%; position: relative;">
+                                    <img class="label-img-main" style="max-width: 80%; max-height: 100%; object-fit: contain; position: relative; z-index: 2;" src="/images/2.9-black.png" alt="Slim 2.9\" Labels - Black" loading="lazy"/>
+                                    <img class="label-img-overlay" style="position: absolute; top: 8px; left: 8px; width: 80%; max-height: 100%; object-fit: contain; opacity: 0.3; filter: blur(2px); z-index: 1;" src="/images/2.9-white.png" alt="Slim 2.9\" Labels - White" loading="lazy"/>
+                                </div>
+                                
+                                <!-- Option D: Color Swatches -->
+                                <div class="color-display-option-d" style="width: 100%; height: 100%; position: relative; flex-direction: column; align-items: center; justify-content: center;">
+                                    <img class="label-img-swatch" style="max-width: 70%; max-height: 70%; object-fit: contain; margin-bottom: 1rem; transition: opacity 0.3s ease;" src="/images/2.9-black.png" alt="Slim 2.9\" Labels" loading="lazy"/>
+                                    <div style="display: flex; gap: 0.75rem; align-items: center;">
+                                        <div class="color-swatch" data-color="black" data-image-black="/images/2.9-black.png" data-image-white="/images/2.9-white.png" style="width: 24px; height: 24px; border-radius: 50%; background: #000; border: 2px solid #333; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.2); transition: transform 0.2s ease, box-shadow 0.2s ease;" title="Black"></div>
+                                        <div class="color-swatch" data-color="white" data-image-black="/images/2.9-black.png" data-image-white="/images/2.9-white.png" style="width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 2px solid #ddd; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: transform 0.2s ease, box-shadow 0.2s ease;" title="White"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Option E: Rotating Display -->
+                                <div class="color-display-option-e" style="width: 100%; height: 100%; position: relative;">
+                                    <img class="label-img-rotate" style="max-width: 80%; max-height: 100%; object-fit: contain; animation: colorRotate 4s ease-in-out infinite;" src="/images/2.9-black.png" alt="Slim 2.9\" Labels" loading="lazy"/>
                                 </div>
                             </div>
-                            <div style="margin-top: auto;">
-                                <div class="w-layout-hflex flex_horizontal is-y-baseline">
-                                    <p class="heading_h3 margin-bottom_none">$9.25</p>
-                                    <p class="paragraph_small margin-bottom_none" style="margin-left: 0.5rem;">each</p>
+                            
+                            <!-- Content -->
+                            <div style="flex: 1; display: flex; flex-direction: column;">
+                                <h4 class="heading_h4" style="margin-bottom: 0.75rem; font-size: 1.25rem; font-weight: 600;">Slim - 2.9" Labels</h4>
+                                <p class="paragraph_small" style="margin-bottom: 1rem; color: #666;">Perfect for most retail applications</p>
+                                
+                                <!-- Pricing -->
+                                <div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid #e0e0e0;">
+                                    <div class="w-layout-hflex flex_horizontal is-y-baseline" style="margin-bottom: 0.5rem;">
+                                        <p class="heading_h3 margin-bottom_none" style="font-size: 2rem; font-weight: 700; color: #333;">$9.25</p>
+                                        <p class="paragraph_small margin-bottom_none" style="margin-left: 0.5rem; color: #666;">each</p>
+                                    </div>
+                                    <div style="display: inline-block; padding: 0.25rem 0.75rem; background: #f0f0f0; border-radius: 12px; font-size: 0.85rem; color: #666;">
+                                        $4.63 refundable each
+                                    </div>
                                 </div>
-                                <p class="paragraph_small text-color_secondary">$4.63 refundable each</p>
                             </div>
                         </div>
                     </div>
-                    <div class="card on-secondary">
-                        <div class="card_body">
-                            <div class="flex_horizontal is-y-center gap-medium margin-bottom_medium">
-                                <div style="width: 80px; height: 120px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;">
-                                    <img style="max-width: 100%; max-height: 45%; object-fit: contain;" src="/images/3.7-black.png" alt="Spotlight 3.7\" Labels - Black" loading="lazy"/>
-                                    <img style="max-width: 100%; max-height: 45%; object-fit: contain;" src="/images/3.7-white.png" alt="Spotlight 3.7\" Labels - White" loading="lazy"/>
+                    <div class="custom-label-card custom-label-card-spotlight" data-size="3.7" data-color-accent="#064273">
+                        <div class="custom-label-card-body" style="display: flex; flex-direction: column; height: 100%; padding: 2rem; position: relative;">
+                            <!-- Size Badge -->
+                            <div class="label-size-badge" style="position: absolute; top: 1rem; right: 1rem; width: 48px; height: 48px; background: var(--shelva-coral); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.9rem; z-index: 2;">3.7"</div>
+                            
+                            <!-- Image Container - All Options -->
+                            <div class="label-image-container" style="width: 100%; height: 180px; margin-bottom: 2rem; padding-top: 2.5rem; position: relative; display: flex; align-items: center; justify-content: center;">
+                                <!-- Option A: Split View -->
+                                <div class="color-display-option-a" style="width: 100%; height: 100%; position: relative;">
+                                    <div style="display: flex; width: 100%; height: 100%; gap: 8px; align-items: center; justify-content: center;">
+                                        <div style="flex: 1; height: 100%; display: flex; align-items: center; justify-content: center; border-right: 2px solid #e0e0e0; padding-right: 8px;">
+                                            <img style="max-width: 100%; max-height: 100%; object-fit: contain;" src="/images/3.7-black.png" alt="Spotlight 3.7\" Labels - Black" loading="lazy"/>
+                                        </div>
+                                        <div style="flex: 1; height: 100%; display: flex; align-items: center; justify-content: center; padding-left: 8px;">
+                                            <img style="max-width: 100%; max-height: 100%; object-fit: contain;" src="/images/3.7-white.png" alt="Spotlight 3.7\" Labels - White" loading="lazy"/>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="flex_child_expand">
-                                    <h4 class="heading_h4">Spotlight - 3.7" Labels</h4>
-                            <p class="paragraph_small">Larger format for detailed product info</p>
+                                
+                                <!-- Option B: Hover Toggle -->
+                                <div class="color-display-option-b" style="width: 100%; height: 100%; position: relative;">
+                                    <img class="label-img-default" style="max-width: 80%; max-height: 100%; object-fit: contain; transition: opacity 0.3s ease;" src="/images/3.7-black.png" alt="Spotlight 3.7\" Labels - Black" loading="lazy"/>
+                                    <img class="label-img-hover" style="position: absolute; top: 0; left: 0; width: 80%; max-height: 100%; object-fit: contain; opacity: 0; transition: opacity 0.3s ease; margin: 0 auto; right: 0;" src="/images/3.7-white.png" alt="Spotlight 3.7\" Labels - White" loading="lazy"/>
+                                </div>
+                                
+                                <!-- Option C: Overlay Effect -->
+                                <div class="color-display-option-c" style="width: 100%; height: 100%; position: relative;">
+                                    <img class="label-img-main" style="max-width: 80%; max-height: 100%; object-fit: contain; position: relative; z-index: 2;" src="/images/3.7-black.png" alt="Spotlight 3.7\" Labels - Black" loading="lazy"/>
+                                    <img class="label-img-overlay" style="position: absolute; top: 8px; left: 8px; width: 80%; max-height: 100%; object-fit: contain; opacity: 0.3; filter: blur(2px); z-index: 1;" src="/images/3.7-white.png" alt="Spotlight 3.7\" Labels - White" loading="lazy"/>
+                                </div>
+                                
+                                <!-- Option D: Color Swatches -->
+                                <div class="color-display-option-d" style="width: 100%; height: 100%; position: relative; flex-direction: column; align-items: center; justify-content: center;">
+                                    <img class="label-img-swatch" style="max-width: 70%; max-height: 70%; object-fit: contain; margin-bottom: 1rem; transition: opacity 0.3s ease;" src="/images/3.7-black.png" alt="Spotlight 3.7\" Labels" loading="lazy"/>
+                                    <div style="display: flex; gap: 0.75rem; align-items: center;">
+                                        <div class="color-swatch" data-color="black" data-image-black="/images/3.7-black.png" data-image-white="/images/3.7-white.png" style="width: 24px; height: 24px; border-radius: 50%; background: #000; border: 2px solid #333; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.2); transition: transform 0.2s ease, box-shadow 0.2s ease;" title="Black"></div>
+                                        <div class="color-swatch" data-color="white" data-image-black="/images/3.7-black.png" data-image-white="/images/3.7-white.png" style="width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 2px solid #ddd; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: transform 0.2s ease, box-shadow 0.2s ease;" title="White"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Option E: Rotating Display -->
+                                <div class="color-display-option-e" style="width: 100%; height: 100%; position: relative;">
+                                    <img class="label-img-rotate" style="max-width: 80%; max-height: 100%; object-fit: contain; animation: colorRotate 4s ease-in-out infinite;" src="/images/3.7-black.png" alt="Spotlight 3.7\" Labels" loading="lazy"/>
                                 </div>
                             </div>
-                            <div style="margin-top: auto;">
-                                <div class="w-layout-hflex flex_horizontal is-y-baseline">
-                                    <p class="heading_h3 margin-bottom_none">$14.50</p>
-                                    <p class="paragraph_small margin-bottom_none" style="margin-left: 0.5rem;">each</p>
+                            
+                            <!-- Content -->
+                            <div style="flex: 1; display: flex; flex-direction: column;">
+                                <h4 class="heading_h4" style="margin-bottom: 0.75rem; font-size: 1.25rem; font-weight: 600;">Spotlight - 3.7" Labels</h4>
+                                <p class="paragraph_small" style="margin-bottom: 1rem; color: #666;">Larger format for detailed product info</p>
+                                
+                                <!-- Pricing -->
+                                <div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid #e0e0e0;">
+                                    <div class="w-layout-hflex flex_horizontal is-y-baseline" style="margin-bottom: 0.5rem;">
+                                        <p class="heading_h3 margin-bottom_none" style="font-size: 2rem; font-weight: 700; color: #333;">$14.50</p>
+                                        <p class="paragraph_small margin-bottom_none" style="margin-left: 0.5rem; color: #666;">each</p>
+                                    </div>
+                                    <div style="display: inline-block; padding: 0.25rem 0.75rem; background: #f0f0f0; border-radius: 12px; font-size: 0.85rem; color: #666;">
+                                        $7.25 refundable each
+                                    </div>
                                 </div>
-                                <p class="paragraph_small text-color_secondary">$7.25 refundable each</p>
                             </div>
                         </div>
                     </div>
@@ -1305,6 +1903,223 @@
                     }
                 });
             });
+        });
+    </script>
+    <script>
+        // Initialize Lucide icons
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+
+        // Enhanced DEBUGGING: Check all possible shadow sources
+        function debugShadowsEnhanced() {
+            const labelCards = document.querySelectorAll('.custom-label-card');
+            console.log('=== ENHANCED SHADOW DEBUGGING ===');
+            labelCards.forEach((card, index) => {
+                const computedStyle = window.getComputedStyle(card);
+                const cardBody = card.querySelector('.card_body');
+                const parent = card.parentElement;
+                
+                console.log(`\nCard ${index + 1} (${card.className}):`);
+                console.log('  Card box-shadow:', computedStyle.boxShadow);
+                console.log('  Card filter:', computedStyle.filter);
+                console.log('  Card background:', computedStyle.background);
+                console.log('  Card background-color:', computedStyle.backgroundColor);
+                console.log('  Card background-image:', computedStyle.backgroundImage);
+                console.log('  Card border:', computedStyle.border);
+                console.log('  Card border-left:', computedStyle.borderLeft);
+                console.log('  Card border-image:', computedStyle.borderImage);
+                console.log('  Card text-shadow:', computedStyle.textShadow);
+                
+                if (cardBody) {
+                    const cardBodyStyle = window.getComputedStyle(cardBody);
+                    console.log('  Card Body background:', cardBodyStyle.background);
+                    console.log('  Card Body background-color:', cardBodyStyle.backgroundColor);
+                    console.log('  Card Body box-shadow:', cardBodyStyle.boxShadow);
+                }
+                
+                if (parent) {
+                    const parentStyle = window.getComputedStyle(parent);
+                    console.log('  Parent background:', parentStyle.background);
+                    console.log('  Parent box-shadow:', parentStyle.boxShadow);
+                }
+            });
+            console.log('=== END ENHANCED DEBUGGING ===');
+        }
+
+        // Force override Webflow CSS with JavaScript
+        function forceRemoveShadows() {
+            const labelCards = document.querySelectorAll('.card.on-secondary.label-card');
+            labelCards.forEach(card => {
+                // Directly set styles to override Webflow CSS
+                card.style.setProperty('box-shadow', 'none', 'important');
+                card.style.setProperty('-webkit-box-shadow', 'none', 'important');
+                card.style.setProperty('-moz-box-shadow', 'none', 'important');
+                card.style.setProperty('filter', 'none', 'important');
+                card.style.setProperty('background', 'transparent', 'important');
+                card.style.setProperty('background-color', 'transparent', 'important');
+                
+                // Ensure borders are set correctly
+                const cardType = card.classList.contains('label-card-pocket') ? '#5ddad5' :
+                                card.classList.contains('label-card-slim') ? '#FF7F6A' :
+                                card.classList.contains('label-card-spotlight') ? '#064273' : '#5ddad5';
+                
+                card.style.setProperty('border-top', '2px solid transparent', 'important');
+                card.style.setProperty('border-right', '2px solid transparent', 'important');
+                card.style.setProperty('border-bottom', '2px solid transparent', 'important');
+                card.style.setProperty('border-left', `4px solid ${cardType}`, 'important');
+                
+                // Also check card_body
+                const cardBody = card.querySelector('.card_body');
+                if (cardBody) {
+                    cardBody.style.setProperty('box-shadow', 'none', 'important');
+                    cardBody.style.setProperty('background', 'transparent', 'important');
+                    cardBody.style.setProperty('background-color', 'transparent', 'important');
+                }
+            });
+        }
+
+        // Color Display Option Switcher
+        document.addEventListener('DOMContentLoaded', function() {
+            // Run enhanced debugging
+            setTimeout(debugShadowsEnhanced, 500);
+            
+            // Force remove shadows after a delay to ensure Webflow CSS has loaded
+            setTimeout(forceRemoveShadows, 100);
+            setTimeout(forceRemoveShadows, 500);
+            setTimeout(forceRemoveShadows, 1000);
+            
+            const selector = document.getElementById('colorDisplayOption');
+            const container = document.querySelector('.label-cards-container');
+            
+            if (selector && container) {
+                // Set initial option (Option D - Color Swatches)
+                container.className = container.className.replace(/option-[a-e]/g, '') + ' option-d';
+                selector.value = 'option-d';
+                
+                selector.addEventListener('change', function() {
+                    const option = this.value;
+                    // Remove all option classes
+                    container.className = container.className.replace(/option-[a-e]/g, '');
+                    // Add selected option class
+                    container.classList.add(option);
+                    
+                    // For Option E (Rotating), set up image rotation
+                    if (option === 'option-e') {
+                        // Clear any existing intervals
+                        if (window.labelRotateIntervals) {
+                            window.labelRotateIntervals.forEach(clearInterval);
+                        }
+                        window.labelRotateIntervals = [];
+                        
+                        const rotateContainers = document.querySelectorAll('.color-display-option-e');
+                        rotateContainers.forEach(function(container) {
+                            const img = container.querySelector('.label-img-rotate');
+                            if (img) {
+                                const card = img.closest('.custom-label-card');
+                                let blackSrc, whiteSrc;
+                                
+                                if (card.classList.contains('custom-label-card-pocket')) {
+                                    // Use same image for both since we only have one 2.1" image
+                                    blackSrc = '/images/release-2.1.png';
+                                    whiteSrc = '/images/release-2.1.png';
+                                } else if (card.classList.contains('custom-label-card-slim')) {
+                                    blackSrc = '/images/2.9-black.png';
+                                    whiteSrc = '/images/2.9-white.png';
+                                } else if (card.classList.contains('custom-label-card-spotlight')) {
+                                    blackSrc = '/images/3.7-black.png';
+                                    whiteSrc = '/images/3.7-white.png';
+                                }
+                                
+                                let isBlack = true;
+                                img.src = blackSrc;
+                                
+                                const rotateInterval = setInterval(function() {
+                                    const isVisible = container.offsetParent !== null && container.style.display !== 'none';
+                                    if (isVisible) {
+                                        isBlack = !isBlack;
+                                        img.src = isBlack ? blackSrc : whiteSrc;
+                                    }
+                                }, 2000);
+                                
+                                window.labelRotateIntervals.push(rotateInterval);
+                            }
+                        });
+                    } else {
+                        // Clear intervals when switching away from option E
+                        if (window.labelRotateIntervals) {
+                            window.labelRotateIntervals.forEach(clearInterval);
+                            window.labelRotateIntervals = [];
+                        }
+                    }
+                });
+
+                // Color Swatch Click Handler (Option D)
+                function setupColorSwatches() {
+                    const swatches = document.querySelectorAll('.color-swatch');
+                    swatches.forEach(function(swatch) {
+                        // Remove existing listeners by cloning
+                        const newSwatch = swatch.cloneNode(true);
+                        swatch.parentNode.replaceChild(newSwatch, swatch);
+                        
+                        newSwatch.addEventListener('click', function() {
+                            const color = this.getAttribute('data-color');
+                            const imageBlack = this.getAttribute('data-image-black');
+                            const imageWhite = this.getAttribute('data-image-white');
+                            const imageSrc = color === 'black' ? imageBlack : imageWhite;
+                            
+                            // Find the image in the same card
+                            const card = this.closest('.custom-label-card');
+                            const image = card.querySelector('.label-img-swatch');
+                            
+                            if (image) {
+                                // Fade out, change image, fade in
+                                image.style.opacity = '0';
+                                setTimeout(function() {
+                                    image.src = imageSrc;
+                                    image.style.opacity = '1';
+                                }, 150);
+                            }
+                            
+                            // Update active state on swatches in this card
+                            const allSwatches = card.querySelectorAll('.color-swatch');
+                            allSwatches.forEach(function(s) {
+                                s.classList.remove('active');
+                                s.style.transform = 'scale(1)';
+                                s.style.boxShadow = s.getAttribute('data-color') === 'black' ? 
+                                    '0 2px 4px rgba(0,0,0,0.2)' : '0 2px 4px rgba(0,0,0,0.1)';
+                            });
+                            
+                            // Set active state on clicked swatch
+                            this.classList.add('active');
+                            this.style.transform = 'scale(1.15)';
+                            this.style.boxShadow = color === 'black' ? 
+                                '0 4px 8px rgba(0,0,0,0.3)' : '0 4px 8px rgba(0,0,0,0.2)';
+                        });
+                    });
+                    
+                    // Set initial active state (black swatch)
+                    const allCards = document.querySelectorAll('.custom-label-card');
+                    allCards.forEach(function(card) {
+                        const blackSwatch = card.querySelector('.color-swatch[data-color="black"]');
+                        if (blackSwatch) {
+                            blackSwatch.classList.add('active');
+                            blackSwatch.style.transform = 'scale(1.15)';
+                            blackSwatch.style.boxShadow = '0 4px 8px rgba(0,0,0,0.3)';
+                        }
+                    });
+                }
+                
+                // Setup swatches on page load
+                setupColorSwatches();
+                
+                // Re-setup swatches when option changes to D
+                selector.addEventListener('change', function() {
+                    if (this.value === 'option-d') {
+                        setTimeout(setupColorSwatches, 100);
+                    }
+                });
+            }
         });
     </script>
 </body>

@@ -17,6 +17,7 @@
     <meta name="twitter:image" content="https://shelva.app/images/shelva-logo-square.png"/>
     <meta content="summary_large_image" name="twitter:card"/>
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17622609452"></script>
     <script>
@@ -81,10 +82,53 @@
             --shelva-box-outline: #4EC5C1;  /* aqua outline */
             --shelva-box-bg:      #CFF3F2;  /* light aqua background */
 
-            /* Shadows */
-            --shelva-shadow-default: 0 3px 10px rgba(0, 0, 0, 0.04);
-            --shelva-shadow-hover:   0 6px 30px 0 rgba(6, 66, 115, 0.25);
-        }
+        /* Shadows */
+        --shelva-shadow-default: 0 3px 10px rgba(0, 0, 0, 0.04);
+        --shelva-shadow-hover:   0 6px 30px 0 rgba(6, 66, 115, 0.25);
+    }
+
+    /* Icon animation keyframes */
+    @keyframes zapFlash {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.1); }
+    }
+
+    @keyframes sparkle {
+      0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+      25% { opacity: 0.8; transform: scale(1.1) rotate(5deg); }
+      50% { opacity: 1; transform: scale(1) rotate(0deg); }
+      75% { opacity: 0.8; transform: scale(1.1) rotate(-5deg); }
+    }
+
+    @keyframes checkPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    /* Icon animations */
+    .icon i[data-lucide="zap"] { animation: zapFlash 1.5s ease-in-out infinite; }
+    .icon i[data-lucide="sparkles"] { animation: sparkle 3s ease-in-out infinite; }
+    .icon i[data-lucide="check-circle-2"] { animation: checkPulse 2s ease-in-out infinite; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .icon i { animation: none !important; }
+    }
+
+    /* Getting Started section - coral circle numbers */
+    .card .card_body .heading-4 {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background-color: #FF7F6A;
+      color: white;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
         
         /* Global Font Settings */
         body, html, * {
@@ -391,13 +435,7 @@
             </div>
             <div class="nav_mobile-menu-button w-nav-button">
                 <div class="icon on-accent-primary">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <g class="nc-icon-wrapper" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" fill="none" stroke="currentColor" stroke-miterlimit="10">
-                            <line x1="1" y1="12" x2="23" y2="12" stroke="currentColor"></line>
-                            <line x1="1" y1="5" x2="23" y2="5"></line>
-                            <line x1="1" y1="19" x2="23" y2="19"></line>
-                        </g>
-                    </svg>
+                    <i data-lucide="menu" style="width: 24px; height: 24px;"></i>
                 </div>
             </div>
         </div>
@@ -426,7 +464,7 @@
                 <div class="w-layout-grid grid_3-col gap-medium margin-bottom_large">
                     <div class="card">
                         <div class="card_body">
-                            <h1 class="heading-4">1.</h1>
+                            <h1 class="heading-4">1</h1>
                             <h3 class="heading_h4"><strong>Install the Shelva App</strong></h3>
                             <p class="paragraph_small margin-bottom_small">Install Shelva from the Shopify App Store. Take a moment to explore Shelva's easy-to-use features.</p>
                             <div class="image-ratio_16x9">
@@ -436,17 +474,17 @@
                     </div>
                     <div class="card">
                         <div class="card_body">
-                            <h1 class="heading-4">2.</h1>
+                            <h1 class="heading-4">2</h1>
                             <h3 class="heading_h4">Order Your Shelva Kit</h3>
                             <p class="paragraph_small margin-bottom_small">Choose and order the number of Shelva labels you need directly in the Shelva app. Labels currently available in Pocket 2.1", Slim 2.9", or Spotlight 3.7" sizes.</p>
                             <div class="image-ratio_16x9">
-                                <img class="image_cover" src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68ae0c44bede78afd28e3958_3.png" width="1216" height="832" alt="Ordering process" loading="lazy"/>
+                                <img class="image_cover" src="/images/starter-kit-box.png" alt="Shelva Starter Kit" loading="lazy"/>
                             </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card_body">
-                            <h1 class="heading-4">3.</h1>
+                            <h1 class="heading-4">3</h1>
                             <h3 class="heading_h4"><strong>Connect Shelva Hub</strong></h3>
                             <p class="paragraph_small margin-bottom_small">Once received, plug in the Shelva Hub with the included power and Ethernet cables, and it will automatically connect to your Shelva labels in minutes.</p>
                             <div class="image-ratio_16x9">
@@ -460,7 +498,7 @@
                 <div class="w-layout-grid grid_2-col gap-medium">
                     <div class="card">
                         <div class="card_body">
-                            <h1 class="heading-4">4.</h1>
+                            <h1 class="heading-4">4</h1>
                             <h3 class="heading_h4"><strong>Customize Label Design</strong></h3>
                             <p class="paragraph_small margin-bottom_small">Use the built-in designer to add your logo, pick fonts and colors, and preview your digital shelf labels instantly.</p>
                             <div class="image-ratio_16x9">
@@ -470,7 +508,7 @@
                     </div>
                     <div class="card">
                         <div class="card_body">
-                            <h1 class="heading-4">5.</h1>
+                            <h1 class="heading-4">5</h1>
                             <h3 class="heading_h4">Publish to Shelves</h3>
                             <p class="paragraph_small margin-bottom_small">One click publishes your design, sending product names, prices, and more product info to every paired label.</p>
                             <div class="image-ratio_16x9">
@@ -540,9 +578,7 @@
                     <div class="card on-secondary">
                         <div class="card_body">
                             <div class="icon margin-bottom_xsmall">
-                                <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none">
-                                    <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
-                                </svg>
+                                <i data-lucide="sparkles" style="width: 100%; height: 100%;"></i>
                             </div>
                             <h3 class="heading_h4">Native Shopify Integration</h3>
                             <p class="margin-bottom_none">No CSV exports or separate portals. Everything works directly within your Shopify admin.</p>
@@ -551,9 +587,7 @@
                     <div class="card on-secondary">
                         <div class="card_body">
                             <div class="icon margin-bottom_xsmall">
-                                <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none">
-                                    <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
-                                </svg>
+                                <i data-lucide="zap" style="width: 100%; height: 100%;"></i>
                             </div>
                             <h3 class="heading_h4">Real-time Sync</h3>
                             <p class="margin-bottom_none">Product changes, price updates, and inventory adjustments sync instantly to all your shelf labels.</p>
@@ -562,9 +596,7 @@
                     <div class="card on-secondary">
                         <div class="card_body">
                             <div class="icon margin-bottom_xsmall">
-                                <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none">
-                                    <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
-                                </svg>
+                                <i data-lucide="check-circle-2" style="width: 100%; height: 100%;"></i>
                             </div>
                             <h3 class="heading_h4">Reliable & Secure</h3>
                             <p class="margin-bottom_none">Enterprise-grade security with 99.9% uptime and encrypted data transmission.</p>
@@ -752,6 +784,12 @@
                     }
                 }, 100);
             }
+    </script>
+    <script>
+        // Initialize Lucide icons
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
     </script>
 </body>
 </html>

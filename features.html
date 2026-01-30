@@ -24,6 +24,7 @@
     <meta name="twitter:image" content="https://shelva.app/images/shelva-logo-square.png" />
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17622609452"></script>
     <script>
@@ -105,10 +106,126 @@
             --shelva-box-bg: #CFF3F2;
             /* light aqua background */
 
-            /* Shadows */
-            --shelva-shadow-default: 0 3px 10px rgba(0, 0, 0, 0.04);
-            --shelva-shadow-hover: 0 6px 30px 0 rgba(6, 66, 115, 0.25);
-        }
+        /* Shadows */
+        --shelva-shadow-default: 0 3px 10px rgba(0, 0, 0, 0.04);
+        --shelva-shadow-hover: 0 6px 30px 0 rgba(6, 66, 115, 0.25);
+    }
+
+    /* Icon animation keyframes */
+    @keyframes rotateSync {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(-360deg); }
+    }
+
+    @keyframes zapFlash {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.1); }
+    }
+
+    @keyframes clockTick {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(2deg); }
+      75% { transform: rotate(-2deg); }
+    }
+
+    @keyframes batteryPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+
+    @keyframes flashlightGlow {
+      0%, 100% { opacity: 1; filter: drop-shadow(0 0 3px currentColor); }
+      50% { opacity: 0.8; filter: drop-shadow(0 0 8px currentColor); }
+    }
+
+    @keyframes arrowBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(5px); }
+    }
+
+    @keyframes sparkle {
+      0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+      25% { opacity: 0.8; transform: scale(1.1) rotate(5deg); }
+      50% { opacity: 1; transform: scale(1) rotate(0deg); }
+      75% { opacity: 0.8; transform: scale(1.1) rotate(-5deg); }
+    }
+
+    @keyframes checkPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @keyframes layersStack {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+    }
+
+    @keyframes expandPulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.9; }
+    }
+
+    /* Icon animations */
+    .icon i[data-lucide="zap"] { animation: zapFlash 1.5s ease-in-out infinite; }
+    .icon i[data-lucide="clock"] { animation: clockTick 2s ease-in-out infinite; }
+    .icon i[data-lucide="battery"] { animation: batteryPulse 2s ease-in-out infinite; }
+    .icon i[data-lucide="flashlight"] { animation: flashlightGlow 2s ease-in-out infinite; }
+    .icon i[data-lucide="arrow-down"] { animation: arrowBounce 2s ease-in-out infinite; }
+    .icon i[data-lucide="sparkles"] { animation: sparkle 3s ease-in-out infinite; }
+    .icon i[data-lucide="check-circle-2"] { animation: checkPulse 2s ease-in-out infinite; }
+    .icon i[data-lucide="layers"] { animation: layersStack 2.5s ease-in-out infinite; }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Shopify sections - transparent until hover (desktop only) */
+    .shopify-section-hover {
+      margin-bottom: 4rem;
+    }
+
+    @media (min-width: 769px) {
+      .shopify-section-hover {
+        opacity: 0.4;
+        transition: opacity 0.5s ease-out;
+      }
+
+      .shopify-section-hover:hover {
+        opacity: 1;
+      }
+    }
+
+    /* Split sections apart */
+    .w-layout-grid.grid_2-col.gap-xlarge.is-y-center {
+      gap: 4rem !important;
+    }
+
+    @media (max-width: 768px) {
+      .shopify-section-hover {
+        margin-bottom: 3rem;
+        opacity: 1 !important;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .icon i { animation: none !important; }
+      img[src*="Shopify-POS.png"],
+      img[src*="shopify_logo_black.png"] {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+      .label-preview-gif:hover {
+        transform: none !important;
+      }
+    }
 
         /* Hide mobile navigation on desktop */
         .nav_mobile-menu-button {
@@ -129,6 +246,11 @@
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
+        }
+
+        /* Label preview GIF hover effect */
+        .label-preview-gif:hover {
+            transform: scale(1.1);
         }
 
         .image_cover {
@@ -449,14 +571,7 @@
             </div>
             <div class="nav_mobile-menu-button w-nav-button">
                 <div class="icon on-accent-primary">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <g class="nc-icon-wrapper" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5"
-                            fill="none" stroke="currentColor" stroke-miterlimit="10">
-                            <line x1="1" y1="12" x2="23" y2="12" stroke="currentColor"></line>
-                            <line x1="1" y1="5" x2="23" y2="5"></line>
-                            <line x1="1" y1="19" x2="23" y2="19"></line>
-                        </g>
-                    </svg>
+                    <i data-lucide="menu" style="width: 24px; height: 24px;"></i>
                 </div>
             </div>
         </div>
@@ -473,7 +588,7 @@
                 <div
                     style="margin: 0.5rem 0; max-width: 600px; width: 100%; aspect-ratio: 16/9; position: relative; margin-left: auto; margin-right: auto;">
                     <img style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 90%; height: 90%; object-fit: contain;"
-                        src="/images/bright-shelva-app.png" alt="Shelva app interface" loading="lazy" />
+                        src="/images/features-image.png" alt="Shelva app interface" loading="lazy" />
                 </div>
             </div>
         </div>
@@ -485,7 +600,7 @@
             
             <div class="w-layout-grid grid_2-col tablet-1-col gap-xlarge is-y-center"
             style="column-gap: 6rem;">
-                <div class="header margin-bottom_none">
+                <div class="header margin-bottom_none shopify-section-hover">
                     <div id="w-node-a1016e02-974a-bfc0-f239-2a3d96068e3e-96068e3b"
                         class="header margin-bottom_none w-node-bde5a8ce-7519-13a8-5b13-9a9e26b3277f-84834228">
                         <div style=" max-width: 200px; width: 100%; aspect-ratio: 16/9; position: relative;">
@@ -502,7 +617,7 @@
                             alt="Shelva app interface" loading="lazy" />
                     </div>
                 </div>
-                <div class="header margin-bottom_none">
+                <div class="header margin-bottom_none shopify-section-hover">
                     <div id="w-node-a1016e02-974a-bfc0-f239-2a3d96068e3e-96068e3b"
                         class="header margin-bottom_none w-node-bde5a8ce-7519-13a8-5b13-9a9e26b3277f-84834228">
                         <div style=" max-width: 200px; width: 100%; aspect-ratio: 16/9; position: relative;">
@@ -533,26 +648,26 @@
                         pushing them to your shelves. Preview your designs in real-time within the Shelva app.</p>
                     <div class="w-layout-grid grid_2-col gap-small margin-top_medium">
                         <div class="flex_horizontal is-y-center gap-small" style="align-items: flex-start;">
-                            <div
-                                style="width: 6px; height: 6px; background: #FF6B6B; border-radius: 50%; flex-shrink: 0; margin-top: 6px;">
+                            <div style="flex-shrink: 0; margin-top: 2px; color: #FF6B6B;">
+                                <i data-lucide="eye" style="width: 18px; height: 18px;"></i>
                             </div>
                             <span class="paragraph_small">Real-time design preview</span>
                         </div>
                         <div class="flex_horizontal is-y-center gap-small" style="align-items: flex-start;">
-                            <div
-                                style="width: 6px; height: 6px; background: #FF6B6B; border-radius: 50%; flex-shrink: 0; margin-top: 6px;">
+                            <div style="flex-shrink: 0; margin-top: 2px; color: #FF6B6B;">
+                                <i data-lucide="layout" style="width: 18px; height: 18px;"></i>
                             </div>
                             <span class="paragraph_small">See labels before deployment</span>
                         </div>
                         <div class="flex_horizontal is-y-center gap-small" style="align-items: flex-start;">
-                            <div
-                                style="width: 6px; height: 6px; background: #FF6B6B; border-radius: 50%; flex-shrink: 0; margin-top: 6px;">
+                            <div style="flex-shrink: 0; margin-top: 2px; color: #FF6B6B;">
+                                <i data-lucide="check-circle-2" style="width: 18px; height: 18px;"></i>
                             </div>
                             <span class="paragraph_small">Validate layouts and branding</span>
                         </div>
                         <div class="flex_horizontal is-y-center gap-small" style="align-items: flex-start;">
-                            <div
-                                style="width: 6px; height: 6px; background: #FF6B6B; border-radius: 50%; flex-shrink: 0; margin-top: 6px;">
+                            <div style="flex-shrink: 0; margin-top: 2px; color: #FF6B6B;">
+                                <i data-lucide="send" style="width: 18px; height: 18px;"></i>
                             </div>
                             <span class="paragraph_small">Instant push to physical labels</span>
                         </div>
@@ -560,7 +675,7 @@
                 </div>
                 <div
                     style="max-width: 300px; width: 100%; aspect-ratio: 1/1; position: relative; margin-left: auto; margin-right: auto;">
-                    <img style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;"
+                    <img class="label-preview-gif" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15)); transition: transform 0.3s ease;"
                         src="/images/label-preview.gif" alt="Live preview technology" loading="lazy" />
                 </div>
             </div>
@@ -583,11 +698,7 @@
                         <div class="flex_horizontal is-y-center gap-medium margin-bottom_medium">
                             <div class="icon"
                                 style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <polyline points="12 6 12 12 16 14"></polyline>
-                                </svg>
+                                <i data-lucide="clock" style="width: 32px; height: 32px; color: white;"></i>
                             </div>
                             <div class="flex_child_expand">
                                 <h3 class="heading_h3" style="color: white; margin-bottom: 0.5rem;">Scheduled Sync</h3>
@@ -636,11 +747,7 @@
                         <div class="flex_horizontal is-y-center gap-medium margin-bottom_medium">
                             <div class="icon"
                                 style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="12" y1="5" x2="12" y2="19"></line>
-                                    <polyline points="19 12 12 19 5 12"></polyline>
-                                </svg>
+                                <i data-lucide="arrow-down" style="width: 32px; height: 32px; color: white;"></i>
                             </div>
                             <div class="flex_child_expand">
                                 <h3 class="heading_h3" style="color: white; margin-bottom: 0.5rem;">Instant Sync</h3>
@@ -700,11 +807,7 @@
                     <div class="card on-secondary" style="display: flex; flex-direction: column; height: 100%;">
                         <div class="card_body" style="display: flex; flex-direction: column; flex: 1;">
                             <div class="icon margin-bottom_xsmall">
-                                <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                                    <line x1="8" y1="21" x2="16" y2="21"></line>
-                                    <line x1="12" y1="17" x2="12" y2="21"></line>
-                                </svg>
+                                <i data-lucide="monitor" style="width: 100%; height: 100%;"></i>
                             </div>
                             <h3 class="heading_h4">Real-time label status inside POS</h3>
                             <p class="margin-bottom_medium">The Shelva POS extension attaches to each product's page in POS and displays everything staff need to know about each label, turning POS into a live "label dashboard" for each product.</p>
@@ -738,11 +841,7 @@
                     <div class="card on-secondary" style="display: flex; flex-direction: column; height: 100%;">
                         <div class="card_body" style="display: flex; flex-direction: column; flex: 1;">
                             <div class="icon margin-bottom_xsmall">
-                                <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 2L2 7L12 12L22 7L12 2Z"></path>
-                                    <path d="M2 17L12 22L22 17"></path>
-                                    <path d="M2 12L12 17L22 12"></path>
-                                </svg>
+                                <i data-lucide="layers" style="width: 100%; height: 100%;"></i>
                             </div>
                             <h3 class="heading_h4">Empowers Staff to Take Action Instantly</h3>
                             <p class="margin-bottom_medium">A modal opens with all the main label management tasks. Everything works seamlessly without leaving the POS interface.</p>
@@ -772,10 +871,7 @@
                     <div class="card on-secondary">
                         <div class="card_body">
                             <div class="icon margin-bottom_xsmall">
-                                <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M9 11l3 3L22 4"></path>
-                                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-                                </svg>
+                                <i data-lucide="check-square" style="width: 100%; height: 100%;"></i>
                             </div>
                             <h3 class="heading_h4">Runs Fully Inside Shopify's Native Workflows</h3>
                             <p class="margin-bottom_none">No logging in. No switching apps. Staff tap a product in POS and manage its label like any other product setting.</p>
@@ -785,9 +881,7 @@
                     <div class="card on-secondary">
                         <div class="card_body">
                             <div class="icon margin-bottom_xsmall">
-                                <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
-                                </svg>
+                                <i data-lucide="zap" style="width: 100%; height: 100%;"></i>
                             </div>
                             <h3 class="heading_h4">Immediate Feedback</h3>
                             <p class="margin-bottom_none">Staff see label status in real time without leaving POS. Perfect for quick checks while working on the floor.</p>
@@ -797,10 +891,7 @@
                     <div class="card on-secondary">
                         <div class="card_body">
                             <div class="icon margin-bottom_xsmall">
-                                <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <polyline points="12 6 12 12 16 14"></polyline>
-                                </svg>
+                                <i data-lucide="clock" style="width: 100%; height: 100%;"></i>
                             </div>
                             <h3 class="heading_h4">Speed in Store</h3>
                             <p class="margin-bottom_none">Flash, swap, or pair labels while walking the floor. No need to go back to a computer or open another app.</p>
@@ -865,11 +956,7 @@
                 <div class="card on-secondary">
                     <div class="card_body">
                         <div class="icon margin-bottom_xsmall">
-                            <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none">
-                                <path
-                                    d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
-                                    stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
-                            </svg>
+                            <i data-lucide="check-circle-2" style="width: 100%; height: 100%;"></i>
                         </div>
                         <h3 class="heading_h4">Bulk Operations</h3>
                         <p class="margin-bottom_none">Update hundreds of labels at once with bulk operations. Change
@@ -879,10 +966,7 @@
                 <div class="card on-secondary">
                     <div class="card_body">
                         <div class="icon margin-bottom_xsmall">
-                            <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none">
-                                <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z"
-                                    stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
-                            </svg>
+                            <i data-lucide="battery" style="width: 100%; height: 100%;"></i>
                         </div>
                         <h3 class="heading_h4">Low Battery Alerts</h3>
                         <p class="margin-bottom_none">Get notified when labels are running low on battery. Plan
@@ -892,11 +976,7 @@
                 <div class="card on-secondary">
                     <div class="card_body">
                         <div class="icon margin-bottom_xsmall">
-                            <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none">
-                                <path
-                                    d="M4 12C8.41828 12 12 8.41828 12 4C12 8.41828 15.5817 12 20 12C15.5817 12 12 15.5817 12 20C12 15.5817 8.41828 12 4 12Z"
-                                    stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
-                            </svg>
+                            <i data-lucide="flashlight" style="width: 100%; height: 100%;"></i>
                         </div>
                         <h3 class="heading_h4">Flash LED Locator</h3>
                         <p class="margin-bottom_none">Find specific products instantly with the flash LED feature. Perfect
@@ -1083,6 +1163,35 @@
                     createMobileMenu();
                 }
             });
+        });
+    </script>
+    <script>
+        // Initialize Lucide icons
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+
+        // Scroll-triggered animations for Shopify images
+        document.addEventListener('DOMContentLoaded', function() {
+            const imagesToAnimate = document.querySelectorAll('img[src*="Shopify-POS.png"], img[src*="shopify_logo_black.png"]');
+            
+            if (imagesToAnimate.length > 0) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate-in');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                });
+
+                imagesToAnimate.forEach(img => {
+                    observer.observe(img);
+                });
+            }
         });
     </script>
 </body>

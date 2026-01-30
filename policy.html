@@ -376,6 +376,7 @@
     <meta name="twitter:image" content="https://shelva.app/images/shelva-logo-square.png"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZE7HRPXK8E"></script>
     <script>
@@ -872,5 +873,11 @@
                 });
             });
         </script>
+    <script>
+        // Initialize Lucide icons
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    </script>
   </body>
 </html>
