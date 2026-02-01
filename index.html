@@ -73,6 +73,15 @@
         opacity: 0.9;
       }
     }
+    
+    @keyframes growShrink {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.15);
+      }
+    }
 
     @keyframes slideIn {
       from {
@@ -281,9 +290,15 @@
       animation: rotateSync 1s linear infinite !important;
     }
 
-    /* Centralized control/command icon - expand pulse */
-    .card .icon i[data-lucide="command"] {
-      animation: expandPulse 3s ease-in-out infinite;
+    /* Centralized control/command icon - grow and shrink on hover (similar to paintbrush pattern) */
+    .command-icon svg,
+    .card .command-icon svg {
+      animation: none !important;
+      transform-origin: center center !important;
+    }
+    
+    .card:hover .command-icon svg {
+      animation: growShrink 1.5s ease-in-out infinite !important;
     }
 
     /* Navigation menu icons - slide in on hover */
@@ -325,10 +340,6 @@
       transform: none !important;
     }
     
-    /* Command/centralized icon - expand pulse */
-    .icon i[data-lucide="command"] {
-      animation: expandPulse 3s ease-in-out infinite;
-    }
     
     /* Paint brush icon - color change animation */
     .icon i[data-lucide="paintbrush"],
@@ -1516,7 +1527,7 @@
                     </div>
                     <div id="w-node-bb01564e-c68b-8d19-73ac-9ac033608390-09138e44" class="card w-node-b48daa31-fdd5-12e3-6cfb-ba979299f07a-84834228">
                         <div class="card_body">
-                            <div class="icon margin-bottom_xsmall">
+                            <div class="icon margin-bottom_xsmall command-icon">
                                 <i data-lucide="command" style="width: 100%; height: 100%;"></i>
                             </div>
                             <h3 id="w-node-bb01564e-c68b-8d19-73ac-9ac033608393-09138e44" class="heading_h4 w-node-b48daa31-fdd5-12e3-6cfb-ba979299f076-84834228">Centralized control</h3>
