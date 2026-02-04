@@ -491,16 +491,25 @@
         
         /* Make icon and all its children white on accent-primary background */
         .nav_mobile-menu-button .icon.on-accent-primary,
-        .nav_mobile-menu-button .icon.on-accent-primary *,
-        .nav_mobile-menu-button .icon.on-accent-primary i[data-lucide],
-        .nav_mobile-menu-button .icon.on-accent-primary i[data-lucide] svg,
+        .nav_mobile-menu-button .icon.on-accent-primary * {
+          color: white !important;
+        }
+        
         .nav_mobile-menu-button .icon.on-accent-primary svg,
-        .nav_mobile-menu-button .icon.on-accent-primary svg path,
-        .nav_mobile-menu-button .icon.on-accent-primary svg line,
-        .nav_mobile-menu-button .icon.on-accent-primary svg polyline {
+        .nav_mobile-menu-button .icon.on-accent-primary svg * {
           color: white !important;
           stroke: white !important;
           fill: none !important;
+          stroke-width: 1.5 !important;
+        }
+        
+        .nav_mobile-menu-button .icon.on-accent-primary svg path,
+        .nav_mobile-menu-button .icon.on-accent-primary svg line,
+        .nav_mobile-menu-button .icon.on-accent-primary svg polyline {
+          stroke: white !important;
+          fill: none !important;
+          stroke-width: 1.5 !important;
+          opacity: 1 !important;
         }
         
         /* Ensure icon container is visible */
@@ -510,6 +519,13 @@
           justify-content: center !important;
           width: 24px !important;
           height: 24px !important;
+          opacity: 1 !important;
+          visibility: visible !important;
+        }
+        
+        .nav_mobile-menu-button .icon.on-accent-primary {
+          opacity: 1 !important;
+          visibility: visible !important;
         }
       }
       
@@ -2093,6 +2109,10 @@
                 const lucideIcon = mobileBtn.querySelector('i[data-lucide="menu"]');
                 const svg = mobileBtn.querySelector('svg');
                 
+                const svgComputed = svg ? window.getComputedStyle(svg) : null;
+                const svgPath = svg ? svg.querySelector('path') : null;
+                const svgPathComputed = svgPath ? window.getComputedStyle(svgPath) : null;
+                
                 debugLog('A', 'Mobile button element check', {
                     exists: true,
                     viewportWidth,
@@ -2102,15 +2122,33 @@
                     opacity: computedStyle.opacity,
                     zIndex: computedStyle.zIndex,
                     position: computedStyle.position,
+                    width: computedStyle.width,
+                    height: computedStyle.height,
                     hasIcon: !!icon,
                     iconDisplay: iconComputed?.display,
+                    iconVisibility: iconComputed?.visibility,
+                    iconOpacity: iconComputed?.opacity,
+                    iconColor: iconComputed?.color,
                     hasLucideIcon: !!lucideIcon,
                     hasSvg: !!svg,
-                    svgColor: svg ? window.getComputedStyle(svg).color : null,
-                    svgStroke: svg ? window.getComputedStyle(svg).stroke : null,
+                    svgDisplay: svgComputed?.display,
+                    svgVisibility: svgComputed?.visibility,
+                    svgOpacity: svgComputed?.opacity,
+                    svgColor: svgComputed?.color,
+                    svgStroke: svgComputed?.stroke,
+                    svgFill: svgComputed?.fill,
+                    svgWidth: svgComputed?.width,
+                    svgHeight: svgComputed?.height,
+                    svgPathStroke: svgPathComputed?.stroke,
+                    svgPathFill: svgPathComputed?.fill,
+                    svgPathOpacity: svgPathComputed?.opacity,
                     inlineStyle: mobileBtn.getAttribute('style'),
+                    iconInlineStyle: icon?.getAttribute('style'),
+                    svgInlineStyle: svg?.getAttribute('style'),
                     classes: mobileBtn.className,
-                    parentDisplay: mobileBtn.parentElement ? window.getComputedStyle(mobileBtn.parentElement).display : null
+                    iconClasses: icon?.className,
+                    parentDisplay: mobileBtn.parentElement ? window.getComputedStyle(mobileBtn.parentElement).display : null,
+                    buttonHTML: mobileBtn.innerHTML.substring(0, 200)
                 });
                 
                 // Check for Webflow interference
@@ -2163,11 +2201,12 @@
         if (typeof lucide !== 'undefined') {
             lucide.createIcons();
             
-            // #region agent log - Check Lucide initialization
+            // #region agent log - Check Lucide initialization and force SVG visibility
             setTimeout(() => {
                 const mobileBtn = document.querySelector('.nav_mobile-menu-button');
                 const lucideIcon = mobileBtn?.querySelector('i[data-lucide="menu"]');
                 const svg = mobileBtn?.querySelector('svg');
+                const icon = mobileBtn?.querySelector('.icon');
                 
                 console.log('[DEBUG C] Lucide initialization check', {
                     lucideAvailable: typeof lucide !== 'undefined',
@@ -2177,6 +2216,31 @@
                     svgComputedColor: svg ? window.getComputedStyle(svg).color : null,
                     svgComputedStroke: svg ? window.getComputedStyle(svg).stroke : null
                 });
+                
+                // Force SVG visibility if it exists
+                if (svg && icon) {
+                    const paths = svg.querySelectorAll('path, line, polyline');
+                    paths.forEach(path => {
+                        path.setAttribute('stroke', 'white');
+                        path.setAttribute('fill', 'none');
+                        path.setAttribute('stroke-width', '1.5');
+                        path.style.stroke = 'white';
+                        path.style.fill = 'none';
+                        path.style.strokeWidth = '1.5';
+                        path.style.opacity = '1';
+                    });
+                    
+                    svg.style.color = 'white';
+                    svg.style.stroke = 'white';
+                    icon.style.opacity = '1';
+                    icon.style.visibility = 'visible';
+                    
+                    console.log('[DEBUG C] Forced SVG visibility', {
+                        pathsCount: paths.length,
+                        iconOpacity: window.getComputedStyle(icon).opacity,
+                        svgColor: window.getComputedStyle(svg).color
+                    });
+                }
             }, 500);
             // #endregion
             
