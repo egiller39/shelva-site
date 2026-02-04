@@ -2676,42 +2676,6 @@
         // Also try after a very short delay to catch late-loading elements
         setTimeout(ensureMobileMenuIcon, 50);
 
-        // Enhanced DEBUGGING: Check all possible shadow sources
-        function debugShadowsEnhanced() {
-            const labelCards = document.querySelectorAll('.custom-label-card');
-            console.log('=== ENHANCED SHADOW DEBUGGING ===');
-            labelCards.forEach((card, index) => {
-                const computedStyle = window.getComputedStyle(card);
-                const cardBody = card.querySelector('.card_body');
-                const parent = card.parentElement;
-                
-                console.log(`\nCard ${index + 1} (${card.className}):`);
-                console.log('  Card box-shadow:', computedStyle.boxShadow);
-                console.log('  Card filter:', computedStyle.filter);
-                console.log('  Card background:', computedStyle.background);
-                console.log('  Card background-color:', computedStyle.backgroundColor);
-                console.log('  Card background-image:', computedStyle.backgroundImage);
-                console.log('  Card border:', computedStyle.border);
-                console.log('  Card border-left:', computedStyle.borderLeft);
-                console.log('  Card border-image:', computedStyle.borderImage);
-                console.log('  Card text-shadow:', computedStyle.textShadow);
-                
-                if (cardBody) {
-                    const cardBodyStyle = window.getComputedStyle(cardBody);
-                    console.log('  Card Body background:', cardBodyStyle.background);
-                    console.log('  Card Body background-color:', cardBodyStyle.backgroundColor);
-                    console.log('  Card Body box-shadow:', cardBodyStyle.boxShadow);
-                }
-                
-                if (parent) {
-                    const parentStyle = window.getComputedStyle(parent);
-                    console.log('  Parent background:', parentStyle.background);
-                    console.log('  Parent box-shadow:', parentStyle.boxShadow);
-                }
-            });
-            console.log('=== END ENHANCED DEBUGGING ===');
-        }
-
         // Force override Webflow CSS with JavaScript
         function forceRemoveShadows() {
             const labelCards = document.querySelectorAll('.card.on-secondary.label-card');
@@ -2746,9 +2710,6 @@
 
         // Color Display Option Switcher
         document.addEventListener('DOMContentLoaded', function() {
-            // Run enhanced debugging
-            setTimeout(debugShadowsEnhanced, 500);
-            
             // Force remove shadows after a delay to ensure Webflow CSS has loaded
             setTimeout(forceRemoveShadows, 100);
             setTimeout(forceRemoveShadows, 500);
