@@ -52,6 +52,21 @@
             ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
         }(window, document);
     </script>
+    <script>
+        // Suppress Webflow console log messages
+        (function() {
+            const originalLog = console.log;
+            console.log = function(...args) {
+                const message = args.join(' ');
+                // Filter out Webflow initialization messages
+                if (message.includes('Document already DOMContentLoaded') || 
+                    message.includes('initializing app immediately')) {
+                    return;
+                }
+                originalLog.apply(console, args);
+            };
+        })();
+    </script>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/shelva-logo-square.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/shelva-logo-square.png">
