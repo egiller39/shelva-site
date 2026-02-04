@@ -2683,13 +2683,13 @@
                 console.log('[DEBUG C] Lucide NOT available (blocked by CSP)');
             }
             
-            // Wait a bit then check/create SVG
-            setTimeout(() => {
-                console.log('[DEBUG C] Timeout callback executing');
+            // Check/create SVG immediately, then also check after a short delay
+            function checkAndCreateSVG() {
+                console.log('[DEBUG C] Checking for SVG');
                 svg = icon.querySelector('svg');
                 const lucideIconAfter = icon.querySelector('i[data-lucide="menu"]');
                 
-                console.log('[DEBUG C] After timeout:', {
+                console.log('[DEBUG C] Current state:', {
                     hasSvg: !!svg,
                     hasLucideIcon: !!lucideIconAfter,
                     iconHTML: icon.innerHTML.substring(0, 200)
@@ -2824,7 +2824,13 @@
                         iconHTML: icon ? icon.innerHTML.substring(0, 200) : 'no icon'
                     });
                 }
-            }, 1000);
+            }
+            
+            // Check immediately
+            checkAndCreateSVG();
+            
+            // Also check after a short delay in case DOM isn't ready
+            setTimeout(checkAndCreateSVG, 100);
         }
         
         // Call immediately and also on DOMContentLoaded
@@ -2834,8 +2840,8 @@
             ensureMobileMenuIcon();
         }
         
-        // Also try after a delay to catch late-loading elements
-        setTimeout(ensureMobileMenuIcon, 2000);
+        // Also try after a very short delay to catch late-loading elements
+        setTimeout(ensureMobileMenuIcon, 50);
 
         // Enhanced DEBUGGING: Check all possible shadow sources
         function debugShadowsEnhanced() {
