@@ -869,7 +869,7 @@
     <script src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/js/webflow.3eb1fc22.012b87d75bb4f09b.js" type="text/javascript"></script>
     
     <!-- Custom Mobile Menu JavaScript -->
-    <script>
+    <script type="text/javascript">
 // Shared Mobile Menu JavaScript
 (function() {
     'use strict';
@@ -976,23 +976,23 @@
     });
 })();
     </script>
-            
-            // Handle anchor link scrolling
-            if (window.location.hash) {
-                const hash = window.location.hash;
-                setTimeout(function() {
-                    const element = document.querySelector(hash);
-                    if (element) {
-                        const offset = 100; // Offset for fixed header
-                        const elementPosition = element.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - offset;
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
-                }, 100);
-            }
+    <script>
+        // Handle anchor link scrolling
+        if (window.location.hash) {
+            const hash = window.location.hash;
+            setTimeout(function() {
+                const element = document.querySelector(hash);
+                if (element) {
+                    const offset = 100; // Offset for fixed header
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 100);
+        }
     </script>
     <script>
         // Initialize Lucide icons or create fallback SVG
