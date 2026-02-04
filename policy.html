@@ -69,14 +69,20 @@
         }
         
         /* Hide mobile navigation on desktop */
-        .nav_mobile-menu-button {
-            display: none;
+        .nav_mobile-menu-button,
+        .nav_mobile-menu-button.w-nav-button {
+            display: none !important;
         }
         
         /* Show mobile navigation only on mobile */
         @media (max-width: 768px) {
-            .nav_mobile-menu-button {
-                display: block;
+            .nav_mobile-menu-button,
+            .nav_mobile-menu-button.w-nav-button {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                position: relative !important;
+                z-index: 10002 !important;
             }
         }
         

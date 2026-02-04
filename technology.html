@@ -51,6 +51,24 @@
         .w-nav-menu { z-index: 10000; }
         .nav_mobile-menu-button svg, .w-nav-button svg { pointer-events: none; }
         
+        /* Hide mobile navigation on desktop */
+        .nav_mobile-menu-button,
+        .nav_mobile-menu-button.w-nav-button {
+            display: none !important;
+        }
+        
+        /* Show mobile navigation only on mobile */
+        @media (max-width: 768px) {
+            .nav_mobile-menu-button,
+            .nav_mobile-menu-button.w-nav-button {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                position: relative !important;
+                z-index: 10002 !important;
+            }
+        }
+        
         /* Make icon white on accent-primary background */
         .nav_mobile-menu-button .icon.on-accent-primary,
         .nav_mobile-menu-button .icon.on-accent-primary i[data-lucide],
