@@ -147,6 +147,24 @@
                 opacity: 1 !important;
                 visibility: visible !important;
             }
+            
+            /* Make sure the i element is visible if SVG hasn't been created yet */
+            .nav_mobile-menu-button .icon i[data-lucide="menu"] {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                width: 24px !important;
+                height: 24px !important;
+            }
+            
+            /* Ensure SVG is visible when created */
+            .nav_mobile-menu-button .icon svg {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                width: 24px !important;
+                height: 24px !important;
+            }
         }
         
         /* Desktop Layout - Ensure 4 columns for pricing plans in one row */
