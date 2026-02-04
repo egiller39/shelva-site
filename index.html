@@ -2056,9 +2056,32 @@
                 location: 'index.html:2050'
             };
             
+            // Debug function that logs to both console and server
+            function debugLog(hypothesisId, message, data) {
+                const logEntry = {
+                    ...logData,
+                    hypothesisId,
+                    message,
+                    data,
+                    timestamp: Date.now()
+                };
+                
+                // Log to console for production debugging
+                console.log(`[DEBUG ${hypothesisId}] ${message}`, data);
+                
+                // Also try to send to local server (will fail silently in prod, that's OK)
+                fetch('http://127.0.0.1:7243/ingest/e2cc27f9-beb0-44e9-af9f-74cd1f8f6001', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(logEntry)
+                }).catch(() => {});
+            }
+            
             // Check viewport width
             const viewportWidth = window.innerWidth;
             const isMobile = viewportWidth <= 768;
+            
+            debugLog('A', 'Viewport check', { viewportWidth, isMobile });
             
             // Find mobile menu button
             const mobileBtn = document.querySelector('.nav_mobile-menu-button');
@@ -2070,79 +2093,43 @@
                 const lucideIcon = mobileBtn.querySelector('i[data-lucide="menu"]');
                 const svg = mobileBtn.querySelector('svg');
                 
-                fetch('http://127.0.0.1:7243/ingest/e2cc27f9-beb0-44e9-af9f-74cd1f8f6001', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({
-                        ...logData,
-                        hypothesisId: 'A',
-                        message: 'Mobile button element check',
-                        data: {
-                            exists: true,
-                            viewportWidth,
-                            isMobile,
-                            display: computedStyle.display,
-                            visibility: computedStyle.visibility,
-                            opacity: computedStyle.opacity,
-                            zIndex: computedStyle.zIndex,
-                            position: computedStyle.position,
-                            hasIcon: !!icon,
-                            iconDisplay: iconComputed?.display,
-                            hasLucideIcon: !!lucideIcon,
-                            hasSvg: !!svg,
-                            svgColor: svg ? window.getComputedStyle(svg).color : null,
-                            svgStroke: svg ? window.getComputedStyle(svg).stroke : null,
-                            inlineStyle: mobileBtn.getAttribute('style'),
-                            classes: mobileBtn.className,
-                            parentDisplay: mobileBtn.parentElement ? window.getComputedStyle(mobileBtn.parentElement).display : null
-                        }
-                    })
-                }).catch(() => {});
+                debugLog('A', 'Mobile button element check', {
+                    exists: true,
+                    viewportWidth,
+                    isMobile,
+                    display: computedStyle.display,
+                    visibility: computedStyle.visibility,
+                    opacity: computedStyle.opacity,
+                    zIndex: computedStyle.zIndex,
+                    position: computedStyle.position,
+                    hasIcon: !!icon,
+                    iconDisplay: iconComputed?.display,
+                    hasLucideIcon: !!lucideIcon,
+                    hasSvg: !!svg,
+                    svgColor: svg ? window.getComputedStyle(svg).color : null,
+                    svgStroke: svg ? window.getComputedStyle(svg).stroke : null,
+                    inlineStyle: mobileBtn.getAttribute('style'),
+                    classes: mobileBtn.className,
+                    parentDisplay: mobileBtn.parentElement ? window.getComputedStyle(mobileBtn.parentElement).display : null
+                });
                 
                 // Check for Webflow interference
-                fetch('http://127.0.0.1:7243/ingest/e2cc27f9-beb0-44e9-af9f-74cd1f8f6001', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({
-                        ...logData,
-                        hypothesisId: 'E',
-                        message: 'Webflow interference check',
-                        data: {
-                            hasWNavButton: mobileBtn.classList.contains('w-nav-button'),
-                            ariaExpanded: mobileBtn.getAttribute('aria-expanded'),
-                            ariaLabel: mobileBtn.getAttribute('aria-label')
-                        }
-                    })
-                }).catch(() => {});
+                debugLog('E', 'Webflow interference check', {
+                    hasWNavButton: mobileBtn.classList.contains('w-nav-button'),
+                    ariaExpanded: mobileBtn.getAttribute('aria-expanded'),
+                    ariaLabel: mobileBtn.getAttribute('aria-label')
+                });
             } else {
-                fetch('http://127.0.0.1:7243/ingest/e2cc27f9-beb0-44e9-af9f-74cd1f8f6001', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({
-                        ...logData,
-                        hypothesisId: 'A',
-                        message: 'Mobile button NOT FOUND',
-                        data: {exists: false, viewportWidth, isMobile}
-                    })
-                }).catch(() => {});
+                debugLog('A', 'Mobile button NOT FOUND', {exists: false, viewportWidth, isMobile});
             }
             
             // Check if media query matches
             const mediaQuery = window.matchMedia('(max-width: 768px)');
-            fetch('http://127.0.0.1:7243/ingest/e2cc27f9-beb0-44e9-af9f-74cd1f8f6001', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({
-                    ...logData,
-                    hypothesisId: 'A',
-                    message: 'Media query check',
-                    data: {
-                        viewportWidth,
-                        mediaQueryMatches: mediaQuery.matches,
-                        isMobile
-                    }
-                })
-            }).catch(() => {});
+            debugLog('A', 'Media query check', {
+                viewportWidth,
+                mediaQueryMatches: mediaQuery.matches,
+                isMobile
+            });
             
             // Listen for resize to check media query changes
             window.addEventListener('resize', () => {
@@ -2151,44 +2138,23 @@
                 const mobileBtn = document.querySelector('.nav_mobile-menu-button');
                 const computedStyle = mobileBtn ? window.getComputedStyle(mobileBtn) : null;
                 
-                fetch('http://127.0.0.1:7243/ingest/e2cc27f9-beb0-44e9-af9f-74cd1f8f6001', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({
-                        sessionId: 'debug-session',
-                        runId: 'resize',
-                        hypothesisId: 'A',
-                        timestamp: Date.now(),
-                        location: 'index.html:resize',
-                        message: 'Resize event',
-                        data: {
-                            newWidth,
-                            mediaQueryMatches: newMatches,
-                            buttonDisplay: computedStyle?.display,
-                            buttonVisibility: computedStyle?.visibility
-                        }
-                    })
-                }).catch(() => {});
+                debugLog('A', 'Resize event', {
+                    newWidth,
+                    mediaQueryMatches: newMatches,
+                    buttonDisplay: computedStyle?.display,
+                    buttonVisibility: computedStyle?.visibility
+                });
             });
             
             // Check parent container
             const navContainer = document.querySelector('.nav_container');
             if (navContainer) {
                 const navComputed = window.getComputedStyle(navContainer);
-                fetch('http://127.0.0.1:7243/ingest/e2cc27f9-beb0-44e9-af9f-74cd1f8f6001', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({
-                        ...logData,
-                        hypothesisId: 'D',
-                        message: 'Parent container styles',
-                        data: {
-                            display: navComputed.display,
-                            visibility: navComputed.visibility,
-                            overflow: navComputed.overflow
-                        }
-                    })
-                }).catch(() => {});
+                debugLog('D', 'Parent container styles', {
+                    display: navComputed.display,
+                    visibility: navComputed.visibility,
+                    overflow: navComputed.overflow
+                });
             }
         })();
         // #endregion
@@ -2203,24 +2169,14 @@
                 const lucideIcon = mobileBtn?.querySelector('i[data-lucide="menu"]');
                 const svg = mobileBtn?.querySelector('svg');
                 
-                fetch('http://127.0.0.1:7243/ingest/e2cc27f9-beb0-44e9-af9f-74cd1f8f6001', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({
-                        sessionId: 'debug-session',
-                        runId: 'initial',
-                        hypothesisId: 'C',
-                        timestamp: Date.now(),
-                        location: 'index.html:2052',
-                        message: 'Lucide initialization check',
-                        data: {
-                            lucideAvailable: typeof lucide !== 'undefined',
-                            hasLucideIcon: !!lucideIcon,
-                            hasSvg: !!svg,
-                            svgInnerHTML: svg?.innerHTML?.substring(0, 100) || null
-                        }
-                    })
-                }).catch(() => {});
+                console.log('[DEBUG C] Lucide initialization check', {
+                    lucideAvailable: typeof lucide !== 'undefined',
+                    hasLucideIcon: !!lucideIcon,
+                    hasSvg: !!svg,
+                    svgInnerHTML: svg?.innerHTML?.substring(0, 100) || null,
+                    svgComputedColor: svg ? window.getComputedStyle(svg).color : null,
+                    svgComputedStroke: svg ? window.getComputedStyle(svg).stroke : null
+                });
             }, 500);
             // #endregion
             
