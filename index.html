@@ -2084,161 +2084,17 @@
         });
     </script>
     <script>
-        // #region agent log - Debug mobile menu button
-        (function() {
-            const logData = {
-                sessionId: 'debug-session',
-                runId: 'initial',
-                timestamp: Date.now(),
-                location: 'index.html:2050'
-            };
-            
-            // Debug function that logs to both console and server
-            function debugLog(hypothesisId, message, data) {
-                const logEntry = {
-                    ...logData,
-                    hypothesisId,
-                    message,
-                    data,
-                    timestamp: Date.now()
-                };
-                
-                // Log to console for production debugging
-                console.log(`[DEBUG ${hypothesisId}] ${message}`, data);
-                
-                // Also try to send to local server (will fail silently in prod, that's OK)
-                fetch('http://127.0.0.1:7243/ingest/e2cc27f9-beb0-44e9-af9f-74cd1f8f6001', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify(logEntry)
-                }).catch(() => {});
-            }
-            
-            // Check viewport width
-            const viewportWidth = window.innerWidth;
-            const isMobile = viewportWidth <= 768;
-            
-            debugLog('A', 'Viewport check', { viewportWidth, isMobile });
-            
-            // Find mobile menu button
-            const mobileBtn = document.querySelector('.nav_mobile-menu-button');
-            
-            if (mobileBtn) {
-                const computedStyle = window.getComputedStyle(mobileBtn);
-                const icon = mobileBtn.querySelector('.icon');
-                const iconComputed = icon ? window.getComputedStyle(icon) : null;
-                const lucideIcon = mobileBtn.querySelector('i[data-lucide="menu"]');
-                const svg = mobileBtn.querySelector('svg');
-                
-                const svgComputed = svg ? window.getComputedStyle(svg) : null;
-                const svgPath = svg ? svg.querySelector('path') : null;
-                const svgPathComputed = svgPath ? window.getComputedStyle(svgPath) : null;
-                
-                debugLog('A', 'Mobile button element check', {
-                    exists: true,
-                    viewportWidth,
-                    isMobile,
-                    display: computedStyle.display,
-                    visibility: computedStyle.visibility,
-                    opacity: computedStyle.opacity,
-                    zIndex: computedStyle.zIndex,
-                    position: computedStyle.position,
-                    width: computedStyle.width,
-                    height: computedStyle.height,
-                    hasIcon: !!icon,
-                    iconDisplay: iconComputed?.display,
-                    iconVisibility: iconComputed?.visibility,
-                    iconOpacity: iconComputed?.opacity,
-                    iconColor: iconComputed?.color,
-                    hasLucideIcon: !!lucideIcon,
-                    hasSvg: !!svg,
-                    svgDisplay: svgComputed?.display,
-                    svgVisibility: svgComputed?.visibility,
-                    svgOpacity: svgComputed?.opacity,
-                    svgColor: svgComputed?.color,
-                    svgStroke: svgComputed?.stroke,
-                    svgFill: svgComputed?.fill,
-                    svgWidth: svgComputed?.width,
-                    svgHeight: svgComputed?.height,
-                    svgPathStroke: svgPathComputed?.stroke,
-                    svgPathFill: svgPathComputed?.fill,
-                    svgPathOpacity: svgPathComputed?.opacity,
-                    inlineStyle: mobileBtn.getAttribute('style'),
-                    iconInlineStyle: icon?.getAttribute('style'),
-                    svgInlineStyle: svg?.getAttribute('style'),
-                    classes: mobileBtn.className,
-                    iconClasses: icon?.className,
-                    parentDisplay: mobileBtn.parentElement ? window.getComputedStyle(mobileBtn.parentElement).display : null,
-                    buttonHTML: mobileBtn.innerHTML.substring(0, 200)
-                });
-                
-                // Check for Webflow interference
-                debugLog('E', 'Webflow interference check', {
-                    hasWNavButton: mobileBtn.classList.contains('w-nav-button'),
-                    ariaExpanded: mobileBtn.getAttribute('aria-expanded'),
-                    ariaLabel: mobileBtn.getAttribute('aria-label')
-                });
-            } else {
-                debugLog('A', 'Mobile button NOT FOUND', {exists: false, viewportWidth, isMobile});
-            }
-            
-            // Check if media query matches
-            const mediaQuery = window.matchMedia('(max-width: 768px)');
-            debugLog('A', 'Media query check', {
-                viewportWidth,
-                mediaQueryMatches: mediaQuery.matches,
-                isMobile
-            });
-            
-            // Listen for resize to check media query changes
-            window.addEventListener('resize', () => {
-                const newWidth = window.innerWidth;
-                const newMatches = window.matchMedia('(max-width: 768px)').matches;
-                const mobileBtn = document.querySelector('.nav_mobile-menu-button');
-                const computedStyle = mobileBtn ? window.getComputedStyle(mobileBtn) : null;
-                
-                debugLog('A', 'Resize event', {
-                    newWidth,
-                    mediaQueryMatches: newMatches,
-                    buttonDisplay: computedStyle?.display,
-                    buttonVisibility: computedStyle?.visibility
-                });
-            });
-            
-            // Check parent container
-            const navContainer = document.querySelector('.nav_container');
-            if (navContainer) {
-                const navComputed = window.getComputedStyle(navContainer);
-                debugLog('D', 'Parent container styles', {
-                    display: navComputed.display,
-                    visibility: navComputed.visibility,
-                    overflow: navComputed.overflow
-                });
-            }
-        })();
-        // #endregion
         
         // Initialize Lucide icons
         if (typeof lucide !== 'undefined') {
             lucide.createIcons();
             
-            // #region agent log - Check Lucide initialization and force SVG visibility
+            // Force SVG visibility if it exists
             setTimeout(() => {
                 const mobileBtn = document.querySelector('.nav_mobile-menu-button');
-                const lucideIcon = mobileBtn?.querySelector('i[data-lucide="menu"]');
                 const svg = mobileBtn?.querySelector('svg');
                 const icon = mobileBtn?.querySelector('.icon');
                 
-                console.log('[DEBUG C] Lucide initialization check', {
-                    lucideAvailable: typeof lucide !== 'undefined',
-                    hasLucideIcon: !!lucideIcon,
-                    hasSvg: !!svg,
-                    svgInnerHTML: svg?.innerHTML?.substring(0, 100) || null,
-                    svgComputedColor: svg ? window.getComputedStyle(svg).color : null,
-                    svgComputedStroke: svg ? window.getComputedStyle(svg).stroke : null
-                });
-                
-                // Force SVG visibility if it exists
                 if (svg && icon) {
                     const paths = svg.querySelectorAll('path, line, polyline');
                     paths.forEach(path => {
@@ -2255,15 +2111,8 @@
                     svg.style.stroke = 'white';
                     icon.style.opacity = '1';
                     icon.style.visibility = 'visible';
-                    
-                    console.log('[DEBUG C] Forced SVG visibility', {
-                        pathsCount: paths.length,
-                        iconOpacity: window.getComputedStyle(icon).opacity,
-                        svgColor: window.getComputedStyle(svg).color
-                    });
                 }
             }, 500);
-            // #endregion
             
             // Handle refresh-cw icons - card icons rotate on hover, others rotate continuously
             function setupRefreshIcons() {
