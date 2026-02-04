@@ -761,7 +761,113 @@
     <script src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/js/webflow.3eb1fc22.012b87d75bb4f09b.js" type="text/javascript"></script>
     
     <!-- Custom Mobile Menu JavaScript -->
-    <script src="/mobile-menu.js"></script>
+    <script>
+// Shared Mobile Menu JavaScript
+(function() {
+    'use strict';
+    function isMobile() {
+        const width = window.innerWidth;
+        return width <= 1200;
+    }
+    function createMobileMenu() {
+        const mobileMenuButton = document.querySelector('.nav_mobile-menu-button');
+        if (!mobileMenuButton) return;
+        let customMenu = document.querySelector('.custom-mobile-menu');
+        if (customMenu) return;
+        customMenu = document.createElement('div');
+        customMenu.className = 'custom-mobile-menu';
+        customMenu.innerHTML = '<div class="custom-mobile-menu-content"><ul class="custom-mobile-menu-list"><li class="custom-mobile-menu-item"><a href="/" class="custom-mobile-menu-link">Home</a></li><li class="custom-mobile-menu-item"><a href="/how-it-works" class="custom-mobile-menu-link">How It Works</a></li><li class="custom-mobile-menu-item"><a href="/pricing" class="custom-mobile-menu-link">Pricing</a></li><li class="custom-mobile-menu-item"><a href="/starter-kit" class="custom-mobile-menu-link">Starter Kit</a></li><li class="custom-mobile-menu-item"><a href="/features" class="custom-mobile-menu-link">Features</a></li><li class="custom-mobile-menu-item"><a href="/contact" class="custom-mobile-menu-link">Contact</a></li><li class="custom-mobile-menu-item"><a href="/release-notes" class="custom-mobile-menu-link">Release Notes</a></li><li class="custom-mobile-menu-item"><a href="/policy" class="custom-mobile-menu-link">Policy</a></li></ul></div>';
+        document.body.appendChild(customMenu);
+        const oldButton = mobileMenuButton;
+        const newButton = oldButton.cloneNode(true);
+        oldButton.parentNode.replaceChild(newButton, oldButton);
+        const mobileMenuButtonClean = newButton;
+        mobileMenuButtonClean.style.cursor = 'pointer';
+        mobileMenuButtonClean.style.pointerEvents = 'auto';
+        function toggleMenu(e) {
+            if (e) { e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation(); }
+            if (customMenu.classList.contains('show')) {
+                customMenu.classList.remove('show');
+                customMenu.style.display = 'none';
+                document.body.style.overflow = '';
+            } else {
+                customMenu.style.display = 'block';
+                setTimeout(() => { customMenu.classList.add('show'); }, 10);
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        mobileMenuButtonClean.classList.remove('w--open');
+        if (mobileMenuButtonClean.hasAttribute('data-w-id')) {
+            mobileMenuButtonClean.removeAttribute('data-w-id');
+        }
+        mobileMenuButtonClean.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            toggleMenu(e);
+            return false;
+        }, true);
+        mobileMenuButtonClean.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            return false;
+        }, false);
+        mobileMenuButtonClean.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            toggleMenu(e);
+        }, false);
+        customMenu.addEventListener('click', function(e) {
+            if (e.target === customMenu) {
+                customMenu.classList.remove('show');
+                setTimeout(() => { customMenu.style.display = 'none'; }, 300);
+                document.body.style.overflow = '';
+            }
+        });
+        const currentPath = window.location.pathname;
+        const menuLinks = customMenu.querySelectorAll('.custom-mobile-menu-link');
+        menuLinks.forEach(link => {
+            const linkPath = link.getAttribute('href');
+            if (linkPath === currentPath || (currentPath === '/' && linkPath === '/') || (currentPath !== '/' && currentPath.startsWith(linkPath) && linkPath !== '/')) {
+                link.classList.add('active');
+            }
+            link.addEventListener('click', function() {
+                customMenu.classList.remove('show');
+                setTimeout(() => { customMenu.style.display = 'none'; }, 300);
+                document.body.style.overflow = '';
+            });
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && customMenu.classList.contains('show')) {
+                customMenu.classList.remove('show');
+                setTimeout(() => { customMenu.style.display = 'none'; }, 300);
+                document.body.style.overflow = '';
+            }
+        });
+    }
+    function initMobileMenu() {
+        setTimeout(function() { createMobileMenu(); }, 100);
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() { initMobileMenu(); });
+    } else {
+        initMobileMenu();
+    }
+    setTimeout(function() { createMobileMenu(); }, 500);
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        if (resizeTimeout) { clearTimeout(resizeTimeout); }
+        resizeTimeout = setTimeout(function() {
+            const existingMenu = document.querySelector('.custom-mobile-menu');
+            if (existingMenu) { existingMenu.remove(); }
+            const button = document.querySelector('.nav_mobile-menu-button');
+            if (button) {
+                setTimeout(function() { createMobileMenu(); }, 150);
+            }
+        }, 250);
+    });
+})();
+    </script>
     <script>
         // Initialize Lucide icons or create fallback SVG
         function ensureMobileMenuIcon() {
