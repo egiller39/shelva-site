@@ -557,6 +557,142 @@
             margin: 0;
         }
         
+    /* Universal Coral Card Styling */
+    .card {
+        background: linear-gradient(135deg, var(--shelva-coral), #ff9a8b) !important;
+        background-color: var(--shelva-coral) !important;
+        border: 2px solid rgba(255, 255, 255, 0.3) !important;
+        border-radius: 12px !important;
+        box-shadow: 0 4px 16px rgba(255, 127, 106, 0.3) !important;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+    
+    .card:hover {
+        border-color: rgba(255, 255, 255, 0.6) !important;
+        box-shadow: 0 12px 40px rgba(255, 127, 106, 0.4) !important;
+        transform: translateY(-4px) !important;
+        background: linear-gradient(135deg, #ff9a8b, var(--shelva-coral)) !important;
+    }
+    
+    .card_body {
+        background: linear-gradient(135deg, var(--shelva-coral), #ff9a8b) !important;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+    
+    .card:hover .card_body {
+        background: linear-gradient(135deg, #ff9a8b, var(--shelva-coral)) !important;
+    }
+    
+    /* Text Colors */
+    .card .heading_h1,
+    .card .heading_h2,
+    .card .heading_h3,
+    .card .heading_h4,
+    .card h1,
+    .card h2,
+    .card h3,
+    .card h4 {
+        color: white !important;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    .card .paragraph,
+    .card .paragraph_large,
+    .card .paragraph_small,
+    .card p {
+        color: rgba(255, 255, 255, 0.95) !important;
+    }
+    
+    .card .text-color_secondary {
+        color: rgba(255, 255, 255, 0.85) !important;
+    }
+    
+    .card ul li {
+        color: rgba(255, 255, 255, 0.95) !important;
+    }
+    
+    .card ul li strong {
+        color: white !important;
+    }
+    
+    .card ul li span {
+        color: rgba(255, 255, 255, 0.9) !important;
+    }
+    
+    /* Icon styling within cards - make all icons white outline only */
+    .card .icon svg,
+    .card .icon i svg,
+    .card svg,
+    .card i[data-lucide] svg,
+    .card .icon {
+        color: white !important;
+    }
+    
+    .card .icon svg path,
+    .card .icon i svg path,
+    .card svg path,
+    .card i[data-lucide] svg path {
+        stroke: white !important;
+        fill: none !important;
+    }
+    
+    .card .icon img {
+        filter: brightness(0) invert(1) !important;
+    }
+    
+    /* App access icon should keep original colors */
+    .card .icon img.starter-kit-icon-img[src*="icon-app"] {
+        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 16px rgba(255, 255, 255, 0.6)) !important;
+    }
+    
+    /* Personal support icon should be white filled */
+    .card .card_body .icon.starter-kit-icon img.starter-kit-icon-img[src*="icon-help"],
+    .card .icon img[src*="icon-help"] {
+        filter: brightness(0) invert(1) !important;
+    }
+    
+    /* Button styling within cards - match "Book a meeting" button format */
+    .card .button {
+        background: transparent !important;
+        color: white !important;
+        border: 2px solid white !important;
+        box-shadow: none !important;
+    }
+    
+    .card .button:hover {
+        background: rgba(255, 255, 255, 0.1) !important;
+        color: white !important;
+        border: 2px solid white !important;
+        box-shadow: none !important;
+        transform: translateY(-1px) !important;
+    }
+    
+    /* Reduce padding for "What's Included" section cards */
+    .section .grid_2-col.gap-large .card .card_body {
+        padding: 1rem !important;
+    }
+    
+    /* Move icons to the right in "What's Included" section */
+    .section .grid_2-col.gap-large .card .icon.starter-kit-icon {
+        margin-left: 0.5rem !important;
+    }
+    
+    /* Button styling for "on-accent-primary" buttons - match "Book a meeting" button format */
+    .button.on-accent-primary {
+        background: transparent !important;
+        color: white !important;
+        border: 2px solid white !important;
+        box-shadow: none !important;
+    }
+    
+    .button.on-accent-primary:hover {
+        background: rgba(255, 255, 255, 0.1) !important;
+        color: white !important;
+        border: 2px solid white !important;
+        box-shadow: none !important;
+        transform: translateY(-1px) !important;
+    }
+    
     </style>
 </head>
 <body>
@@ -638,7 +774,7 @@
                         <h1 class="heading_h1">Order the Shelva Starter Kit</h1>
                         <p class="subheading">Test Shelva in your store with our complete starter kit.</p>
                         <div class="flex_horizontal gap-medium margin-top_large">
-                            <a href="https://buy.stripe.com/00w5kwegJ2pE1dCacc6EU03" target="_blank" class="button is-primary w-button" id="order-starter-kit-btn">Order the Starter Kit - $350</a>
+                            <a href="https://buy.stripe.com/28E28k8Wp7JY8G41FG6EU06" target="_blank" class="button is-primary w-button" id="order-starter-kit-btn">Order the Starter Kit - $350</a>
                             <a href="https://calendly.com/egiller-shelva/30min" class="button is-primary w-button" target="_blank">Book a meeting</a>
                         </div>
                     </div>
@@ -655,7 +791,7 @@
                     <h2 class="heading_h2">What's Included</h2>
                     <p class="paragraph_large">Everything you need to experience and test Shelva in your store.</p>
                 </div>
-                <div class="w-layout-grid grid_3-col gap-large">
+                <div class="w-layout-grid grid_2-col gap-large">
                     <div class="card">
                         <div class="card_body">
                             <div class="flex_horizontal is-y-center gap-medium">
@@ -747,7 +883,7 @@
                     <div class="card">
                         <div class="card_body text-align_center">
                             <div class="margin-bottom_medium">
-                                <div style="width: 60px; height: 60px; background: #FF7F6A; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; margin: 0 auto;">1</div>
+                                <div style="width: 60px; height: 60px; background: #FF7F6A; color: white; border: 2px solid white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; margin: 0 auto;">1</div>
                             </div>
                             <h3 class="heading_h3">Receive Your Starter Kit</h3>
                             <p class="paragraph">Your kit arrives with Shelva labels, a Shelva Hub, and mounting accessories so you can test Shelva with real hardware in your store.</p>
@@ -756,7 +892,7 @@
                     <div class="card">
                         <div class="card_body text-align_center">
                             <div class="margin-bottom_medium">
-                                <div style="width: 60px; height: 60px; background: #FF7F6A; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; margin: 0 auto;">2</div>
+                                <div style="width: 60px; height: 60px; background: #FF7F6A; color: white; border: 2px solid white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; margin: 0 auto;">2</div>
                             </div>
                             <h3 class="heading_h3">Connect and Pair Labels</h3>
                             <p class="paragraph">Plug in the Shelva Hub, open the Shelva app in Shopify, and pair labels to products in just a few minutes.</p>
@@ -765,7 +901,7 @@
                     <div class="card">
                         <div class="card_body text-align_center">
                             <div class="margin-bottom_medium">
-                                <div style="width: 60px; height: 60px; background: #FF7F6A; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; margin: 0 auto;">3</div>
+                                <div style="width: 60px; height: 60px; background: #FF7F6A; color: white; border: 2px solid white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; margin: 0 auto;">3</div>
                             </div>
                             <h3 class="heading_h3">See Live Updates on the Shelf</h3>
                             <p class="paragraph">Change a price or product in Shopify and watch the label update instantly on your sales floor.</p>
@@ -839,7 +975,7 @@
                                     
                                     <div class="grid_2-col" style="margin-top: 1rem;">
                                         <div>
-                                            <h5 class="heading_h5" style="font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; color: #333;">Hardware Included:</h5>
+                                            <h5 class="heading_h5" style="font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; color: white;">Hardware Included:</h5>
                                             <ul style="list-style: none; padding: 0; margin: 0;">
                                                 <li style="margin-bottom: 0.25rem; font-size: 0.9rem; color: #666;">• 1x Shelva Hub</li>
                                                 <li style="margin-bottom: 0.25rem; font-size: 0.9rem; color: #666;">• 2 x 2.1" labels (black & white)</li>
@@ -849,7 +985,7 @@
                                             </ul>
                                         </div>
                                         <div>
-                                            <h5 class="heading_h5" style="font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; color: #333;">Accessories & Support:</h5>
+                                            <h5 class="heading_h5" style="font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; color: white;">Accessories & Support:</h5>
                                             <ul style="list-style: none; padding: 0; margin: 0;">
                                                 <li style="margin-bottom: 0.25rem; font-size: 0.9rem; color: #666;">• Quick-start setup guide</li>
                                                 <li style="margin-bottom: 0.25rem; font-size: 0.9rem; color: #666;">• Full app access & support</li>
@@ -867,7 +1003,7 @@
                                 <div class="flex_horizontal is-y-center margin-top_xsmall" style="justify-content: space-between; align-items: center; gap: 1rem; margin-top: 0.25rem !important;">
                                     <p class="paragraph_small text-color_secondary margin-bottom_none" style="font-size: 0.9rem; color: #888; font-style: italic;">Refundable deposit - return within 12 months for 100% refund. (We do not cover shipping costs for returns.)</p>
                                     <div style="flex-shrink: 0;">
-                                        <a href="https://buy.stripe.com/00w5kwegJ2pE1dCacc6EU03" target="_blank" class="button is-primary w-button" id="order-starter-kit-btn-pricing">Order the Starter Kit</a>
+                                        <a href="https://buy.stripe.com/28E28k8Wp7JY8G41FG6EU06" target="_blank" class="button is-primary w-button" id="order-starter-kit-btn-pricing">Order the Starter Kit</a>
                                     </div>
                                 </div>
                             </div>
@@ -932,7 +1068,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/terms-of-service" class="footer_link on-inverse w-inline-block">
+                        <a href="/policy" class="footer_link on-inverse w-inline-block">
                             <div>Terms of Service</div>
                         </a>
                     </li>

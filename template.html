@@ -49,6 +49,22 @@
         .nav_mobile-menu-button, .w-nav-button { position: relative; z-index: 10001; pointer-events: auto; }
         .w-nav-menu { z-index: 10000; }
         .nav_mobile-menu-button svg, .w-nav-button svg { pointer-events: none; }
+        
+        /* Button styling for "on-accent-primary" buttons - match "Book a meeting" button format */
+        .button.on-accent-primary {
+            background: transparent !important;
+            color: white !important;
+            border: 2px solid white !important;
+            box-shadow: none !important;
+        }
+        
+        .button.on-accent-primary:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+            color: white !important;
+            border: 2px solid white !important;
+            box-shadow: none !important;
+            transform: translateY(-1px) !important;
+        }
     </style>
 </head>
 <body>
@@ -125,7 +141,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/terms-of-service" class="footer_link on-inverse w-inline-block">
+                        <a href="/policy" class="footer_link on-inverse w-inline-block">
                             <div>Terms of Service</div>
                         </a>
                     </li>

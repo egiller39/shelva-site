@@ -644,6 +644,16 @@
             color: white !important;
         }
         
+        /* Remove extra spacing in hub price badge */
+        .hub-price-badge .flex_horizontal {
+            margin: 0 !important;
+        }
+        
+        .hub-price-badge .heading_h3 {
+            margin: 0 !important;
+            line-height: 1 !important;
+        }
+        
         /* Override text color in label price badges - coral background with white text */
         .card-style-4 .label-price-badge .heading_h3,
         .card-style-4 .label-price-badge .paragraph_small,
@@ -681,6 +691,25 @@
             display: flex !important;
             flex-direction: column !important;
             justify-content: center !important;
+        }
+        
+        /* Hub card mobile layout - vertical */
+        @media (max-width: 768px) {
+            .hub-card-body-style-4 {
+                flex-direction: column !important;
+            }
+            
+            .hub-image-container {
+                width: 100% !important;
+                height: auto !important;
+                min-height: 200px !important;
+                border-radius: 12px 12px 0 0 !important;
+                padding: 1.5rem !important;
+            }
+            
+            .hub-content-container {
+                padding: 1.5rem !important;
+            }
         }
         
         /* Plans Section - Style 4 */
@@ -735,6 +764,38 @@
         
         .plans-container-style-4 .plan-card-style-4 ul li span {
             color: rgba(255, 255, 255, 0.9) !important;
+        }
+        
+        /* Button styling within plan cards - match "Book a meeting" button format */
+        .plans-container-style-4 .plan-card-style-4 .button {
+            background: transparent !important;
+            color: white !important;
+            border: 2px solid white !important;
+            box-shadow: none !important;
+        }
+        
+        .plans-container-style-4 .plan-card-style-4 .button:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+            color: white !important;
+            border: 2px solid white !important;
+            box-shadow: none !important;
+            transform: translateY(-1px) !important;
+        }
+        
+        /* Button styling for "on-accent-primary" buttons - match "Book a meeting" button format */
+        .button.on-accent-primary {
+            background: transparent !important;
+            color: white !important;
+            border: 2px solid white !important;
+            box-shadow: none !important;
+        }
+        
+        .button.on-accent-primary:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+            color: white !important;
+            border: 2px solid white !important;
+            box-shadow: none !important;
+            transform: translateY(-1px) !important;
         }
         
         /* Style 4: Label image containers */
@@ -1296,6 +1357,158 @@
             margin: 0;
         }
         
+        /* ROI Calculator Collapsible Styles - Clean Accordion */
+        .roi-calculator-toggle {
+            cursor: pointer;
+            user-select: none;
+            padding: 1.5rem 0;
+            border: none;
+            border-bottom: 2px solid #e0e0e0;
+            background: transparent;
+            transition: all 0.3s ease;
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+        
+        .roi-calculator-toggle:hover {
+            border-bottom-color: var(--shelva-coral);
+        }
+        
+        .roi-calculator-toggle.active {
+            border-bottom-color: var(--shelva-coral);
+            border-bottom-width: 3px;
+        }
+        
+        .roi-calculator-toggle .heading_h2 {
+            margin: 0 !important;
+            color: #333;
+            transition: color 0.2s ease;
+            font-size: 1.75rem;
+            font-weight: 600;
+        }
+        
+        .roi-calculator-toggle:hover .heading_h2,
+        .roi-calculator-toggle.active .heading_h2 {
+            color: var(--shelva-coral);
+        }
+        
+        .roi-calculator-toggle .paragraph_small {
+            margin: 0 !important;
+            margin-top: 0.5rem !important;
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .roi-toggle-arrow {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--shelva-coral);
+            transition: transform 0.3s ease, color 0.2s ease;
+            flex-shrink: 0;
+            margin-left: auto;
+        }
+        
+        .roi-toggle-arrow::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 8px solid var(--shelva-coral);
+            transition: transform 0.3s ease;
+        }
+        
+        .roi-toggle-arrow.active::before {
+            transform: rotate(180deg);
+        }
+        
+        .roi-calculator-toggle:hover .roi-toggle-arrow,
+        .roi-calculator-toggle.active .roi-toggle-arrow {
+            color: var(--shelva-coral);
+        }
+        
+        .roi-calculator-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease, margin 0.4s ease;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .roi-calculator-content.active {
+            max-height: 5000px !important;
+            padding-top: 2rem;
+            margin-top: 0;
+        }
+        
+        /* Remove spacing between ROI Calculator and FAQ */
+        .roi-calculator-section {
+            margin-top: -1rem !important;
+            margin-bottom: 0 !important;
+            padding-top: 2rem !important;
+            padding-bottom: 1rem !important;
+        }
+        
+        .roi-calculator-section + .faq-section {
+            margin-top: -2rem !important;
+            padding-top: 1rem !important;
+        }
+        
+        /* Add more spacing when ROI calculator is open */
+        .roi-calculator-section.roi-open {
+            padding-bottom: 0 !important;
+            position: relative;
+        }
+        
+        .roi-calculator-section.roi-open .roi-calculator-content.active {
+            padding-bottom: 3rem !important;
+        }
+        
+        .roi-calculator-section.roi-open + .faq-section {
+            margin-top: 2rem !important;
+            padding-top: 3rem !important;
+            position: relative;
+        }
+        
+        /* Fill spacing area with section background */
+        .roi-calculator-section.roi-open + .faq-section {
+            background: var(--shelva-sand-light, #FBF3E4);
+        }
+        
+        .roi-calculator-section.roi-open + .faq-section .container {
+            background: var(--shelva-sand-light, #FBF3E4);
+        }
+        
+        @media (max-width: 768px) {
+            .roi-calculator-toggle {
+                padding: 1.25rem 0;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+            
+            .roi-calculator-toggle .heading_h2 {
+                font-size: 1.5rem;
+            }
+            
+            .roi-toggle-arrow {
+                position: absolute;
+                top: 1.5rem;
+                right: 0;
+            }
+            
+            .roi-calculator-toggle > div:first-child {
+                width: 100%;
+                padding-right: 2.5rem;
+            }
+        }
+        
     </style>
 </head>
 <body>
@@ -1621,7 +1834,7 @@
                     <div class="custom-label-card custom-label-card-slim" data-size="2.9" data-color-accent="#FF7F6A">
                         <div class="custom-label-card-body" style="display: flex; flex-direction: column; height: 100%; padding: 2rem; position: relative;">
                             <!-- Most Popular Badge -->
-                            <div class="most-popular-badge" style="position: absolute; top: 1rem; left: 1rem; padding: 0.5rem 1rem; background: #FF7F6A; color: white; border-radius: 20px; font-size: 0.85rem; font-weight: 600; z-index: 2;">Most Popular</div>
+                            <div class="most-popular-badge" style="position: absolute; top: 1rem; left: 1rem; padding: 0.5rem 1rem; background: #5ddad5; color: white; border-radius: 20px; font-size: 0.85rem; font-weight: 600; z-index: 2;">Most Popular</div>
                             <!-- Size Badge -->
                             <div class="label-size-badge" style="position: absolute; top: 1rem; right: 1rem; width: 48px; height: 48px; background: var(--shelva-coral); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.9rem; z-index: 2; box-shadow: 0 2px 8px rgba(255, 127, 106, 0.3);">2.9"</div>
                             
@@ -1754,13 +1967,19 @@
             </div>
         </section>
         
-        <section class="section">
+        <section class="section roi-calculator-section">
             <div class="container">
-                <div class="header is-align-center margin-bottom_large">
-                    <h2 class="heading_h2">ROI Calculator</h2>
-                    <p class="paragraph_large">Calculate your investment, savings, and return on investment</p>
+                <div class="header margin-bottom_large">
+                    <div class="roi-calculator-toggle" style="position: relative;">
+                        <div style="flex: 1;">
+                            <h2 class="heading_h2 margin-bottom_none">ROI Calculator</h2>
+                            <p class="paragraph_small margin-top_xsmall">Calculate your investment, savings, and return on investment</p>
+                        </div>
+                        <div class="roi-toggle-arrow"></div>
+                    </div>
                 </div>
-                <div class="w-layout-grid grid_2-col gap-large" style="align-items: flex-start;">
+                <div class="roi-calculator-content">
+                    <div class="w-layout-grid grid_2-col gap-large" style="align-items: flex-start;">
                     <div class="card">
                         <div class="card_body">
                             <h3 class="heading_h3 margin-bottom_medium">Calculate Your Order</h3>
@@ -1884,11 +2103,12 @@
                             </div>
                         </div>
                     </div>
+                    </div>
                 </div>
             </div>
         </section>
         
-        <section class="section">
+        <section class="section faq-section">
             <div class="container is-small">
                 <div class="header is-align-center">
                     <h2 class="heading_h2">Frequently Asked Questions</h2>
@@ -1934,7 +2154,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/terms-of-service" class="footer_link on-inverse w-inline-block">
+                        <a href="/policy" class="footer_link on-inverse w-inline-block">
                             <div>Terms of Service</div>
                         </a>
                     </li>
@@ -2078,6 +2298,25 @@
 
             // Initial calculation
             calculateTotal();
+        });
+        
+        // ROI Calculator Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const roiToggle = document.querySelector('.roi-calculator-toggle');
+            const roiContent = document.querySelector('.roi-calculator-content');
+            const roiArrow = document.querySelector('.roi-toggle-arrow');
+            const roiSection = document.querySelector('.roi-calculator-section');
+            
+            if (roiToggle && roiContent && roiArrow) {
+                roiToggle.addEventListener('click', function() {
+                    const isActive = roiContent.classList.toggle('active');
+                    roiArrow.classList.toggle('active');
+                    roiToggle.classList.toggle('active', isActive);
+                    if (roiSection) {
+                        roiSection.classList.toggle('roi-open', isActive);
+                    }
+                });
+            }
         });
         
         // Custom Mobile Menu JavaScript

@@ -190,7 +190,7 @@
         }
         
         .release-item.expanded {
-            border-color: var(--shelva-teal);
+            border-color: var(--shelva-coral);
         }
         
         .release-header {
@@ -225,7 +225,7 @@
         .release-version {
             font-size: 1.5rem;
             font-weight: 600;
-            color: var(--shelva-navy);
+            color: var(--shelva-coral);
             margin-bottom: 0.25rem;
             font-family: 'Figtree', sans-serif;
         }
@@ -250,7 +250,7 @@
             flex-shrink: 0;
             margin-left: 1rem;
             transition: transform 0.3s ease;
-            color: var(--shelva-navy);
+            color: var(--shelva-coral);
         }
         
         .release-item.expanded .release-chevron {
@@ -285,7 +285,7 @@
         .release-section-title {
             font-size: 1.25rem;
             font-weight: 600;
-            color: var(--shelva-navy);
+            color: var(--shelva-coral);
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
@@ -309,7 +309,7 @@
         }
         
         .release-section-content strong {
-            color: var(--shelva-navy);
+            color: var(--shelva-coral);
             font-weight: 600;
             font-family: 'Figtree', sans-serif;
         }
@@ -412,6 +412,22 @@
                 margin-top: 0.5rem;
                 align-self: flex-end;
             }
+        }
+        
+        /* Button styling for "on-accent-primary" buttons - match "Book a meeting" button format */
+        .button.on-accent-primary {
+            background: transparent !important;
+            color: white !important;
+            border: 2px solid white !important;
+            box-shadow: none !important;
+        }
+        
+        .button.on-accent-primary:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+            color: white !important;
+            border: 2px solid white !important;
+            box-shadow: none !important;
+            transform: translateY(-1px) !important;
         }
     </style>
 </head>
@@ -989,7 +1005,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/terms-of-service" class="footer_link on-inverse w-inline-block">
+                        <a href="/policy" class="footer_link on-inverse w-inline-block">
                             <div>Terms of Service</div>
                         </a>
                     </li>
