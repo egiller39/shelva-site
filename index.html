@@ -73,7 +73,7 @@
         opacity: 0.9;
       }
     }
-    
+
     @keyframes growShrink {
       0%, 100% {
         transform: scale(1);
@@ -520,6 +520,30 @@
       .button {
         padding: 0.875rem 1.5rem;
         font-size: 1rem;
+      }
+      
+      /* Make first Shopify logo smaller on mobile and prevent wrapping */
+      .w-layout-hflex.flex-block {
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        gap: 0.75rem !important;
+        align-items: center !important;
+      }
+      
+      .w-layout-hflex.flex-block img.image-4 {
+        max-width: 100px !important;
+        width: 100px !important;
+        height: auto !important;
+        flex-shrink: 0 !important;
+        margin: 0 !important;
+      }
+      
+      .w-layout-hflex.flex-block .button {
+        flex-shrink: 1 !important;
+        white-space: nowrap !important;
+        min-width: 0 !important;
+        padding: 0.75rem 1.25rem !important;
+        font-size: 0.9rem !important;
       }
       
       /* Card improvements */
@@ -1877,7 +1901,7 @@
                         return;
                     }
                     
-                    svg.style.transformOrigin = 'center center';
+                        svg.style.transformOrigin = 'center center';
                     
                     if (card) {
                         // Card icons: let CSS handle the animation (refresh-icon and paint-brush-icon)

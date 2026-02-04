@@ -151,6 +151,12 @@
             display: grid !important;
             grid-template-columns: repeat(3, 1fr) !important;
             gap: 2.5rem;
+            overflow: visible !important;
+        }
+        
+        /* Ensure label cards container allows badge overflow */
+        .label-cards-container {
+            overflow: visible !important;
         }
         
         /* Label pricing cards - ensure equal heights and vertical alignment */
@@ -342,13 +348,13 @@
         /* Custom Label Card Styles - Completely independent of Webflow */
         .custom-label-card {
             position: relative;
-            border: 1px solid #e0e0e0;
-            transition: border-color 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: none;
             filter: none;
-            overflow: visible;
-            background: transparent;
-            background-color: transparent;
+            overflow: hidden;
+            background: var(--shelva-sand-light);
+            background-color: var(--shelva-sand-light);
             border-radius: 8px;
             display: flex;
             flex-direction: column;
@@ -363,10 +369,22 @@
             height: 100%;
             padding: 2rem;
             position: relative;
-            background: transparent;
-            background-color: transparent;
+            background: var(--shelva-sand-light);
+            background-color: var(--shelva-sand-light);
             box-shadow: none;
             gap: 1rem;
+            border-radius: 8px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .label-size-badge {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+        
+        .custom-label-card-body h4,
+        .custom-label-card-body p,
+        .custom-label-card-body .heading_h3 {
+            transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
         }
         
         .custom-label-card-body > * {
@@ -374,8 +392,8 @@
         }
         
         .custom-label-card-body .label-image-container {
-            margin-bottom: 1.25rem !important;
-            padding-top: 2.5rem !important;
+            margin-bottom: 0.5rem !important;
+            padding: 0.5rem !important;
         }
         
         .custom-label-card-body h4 {
@@ -402,6 +420,379 @@
         .custom-label-card-spotlight:hover {
             border: 1px solid var(--shelva-coral);
             box-shadow: 0 8px 24px rgba(255, 127, 106, 0.2);
+        }
+
+        /* Alternate Card Style Themes */
+        /* Style 1: Sand/Light (Default) - Warm & Cozy */
+        .card-style-1 .custom-label-card,
+        .card-style-1 .custom-label-card-body {
+            background: var(--shelva-sand-light);
+            background-color: var(--shelva-sand-light);
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+        }
+        .card-style-1 .custom-label-card:hover {
+            border-color: var(--shelva-coral);
+            box-shadow: 0 8px 24px rgba(255, 127, 106, 0.2);
+            transform: translateY(-2px);
+        }
+        .card-style-1 .label-size-badge {
+            background: var(--shelva-coral) !important;
+            color: white !important;
+            box-shadow: 0 2px 8px rgba(255, 127, 106, 0.3);
+        }
+        .card-style-1 .custom-label-card-body h4 {
+            color: #333 !important;
+        }
+        .card-style-1 .custom-label-card-body p {
+            color: #666 !important;
+        }
+        .card-style-1 .custom-label-card-body div[style*="border-top"] {
+            border-top-color: #e0e0e0 !important;
+        }
+        .card-style-1 .custom-label-card-body .heading_h3 {
+            color: #333 !important;
+        }
+        .card-style-1 div[style*="background: #FF7F6A"] {
+            background: var(--shelva-coral) !important;
+        }
+
+        /* Style 2: White/Light Gray - Clean & Modern */
+        .card-style-2 .custom-label-card,
+        .card-style-2 .custom-label-card-body {
+            background: #ffffff !important;
+            background-color: #ffffff !important;
+            border: 2px solid #e8e8e8 !important;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        .card-style-2 .custom-label-card:hover {
+            border-color: var(--shelva-coral) !important;
+            box-shadow: 0 12px 32px rgba(255, 127, 106, 0.2) !important;
+            transform: translateY(-4px);
+        }
+        .card-style-2 .label-size-badge {
+            background: linear-gradient(135deg, var(--shelva-coral), #ff9a8b) !important;
+            color: white !important;
+            box-shadow: 0 4px 12px rgba(255, 127, 106, 0.4);
+            border: 2px solid white;
+        }
+        .card-style-2 .custom-label-card-body h4 {
+            color: #1a1a1a !important;
+            font-weight: 700 !important;
+        }
+        .card-style-2 .custom-label-card-body p {
+            color: #555 !important;
+        }
+        .card-style-2 .custom-label-card-body div[style*="border-top"] {
+            border-top-color: #f0f0f0 !important;
+            border-top-width: 2px !important;
+        }
+        .card-style-2 .custom-label-card-body .heading_h3 {
+            color: var(--shelva-coral) !important;
+            font-weight: 800 !important;
+        }
+        .card-style-2 div[style*="background: #FF7F6A"] {
+            background: linear-gradient(135deg, var(--shelva-coral), #ff9a8b) !important;
+            box-shadow: 0 2px 8px rgba(255, 127, 106, 0.3);
+        }
+
+        /* Style 3: Soft Blue/Navy - Professional & Elegant */
+        .card-style-3 .custom-label-card,
+        .card-style-3 .custom-label-card-body {
+            background: linear-gradient(135deg, #f0f4f8, #e8f0f5) !important;
+            background-color: #f0f4f8 !important;
+            border: 2px solid rgba(6, 66, 115, 0.15) !important;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(6, 66, 115, 0.08);
+        }
+        .card-style-3 .custom-label-card:hover {
+            border-color: #064273 !important;
+            box-shadow: 0 12px 36px rgba(6, 66, 115, 0.25) !important;
+            transform: translateY(-4px);
+            background: linear-gradient(135deg, #ffffff, #f0f4f8) !important;
+        }
+        .card-style-3 .label-size-badge {
+            background: linear-gradient(135deg, #064273, #0a5a9e) !important;
+            color: white !important;
+            box-shadow: 0 4px 12px rgba(6, 66, 115, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        .card-style-3 .custom-label-card-body h4 {
+            color: #064273 !important;
+            font-weight: 700 !important;
+        }
+        .card-style-3 .custom-label-card-body p {
+            color: #4a5568 !important;
+        }
+        .card-style-3 .custom-label-card-body div[style*="border-top"] {
+            border-top-color: rgba(6, 66, 115, 0.2) !important;
+            border-top-width: 2px !important;
+        }
+        .card-style-3 .custom-label-card-body .heading_h3 {
+            color: #064273 !important;
+            font-weight: 800 !important;
+        }
+        .card-style-3 div[style*="background: #FF7F6A"] {
+            background: linear-gradient(135deg, #064273, #0a5a9e) !important;
+            box-shadow: 0 2px 8px rgba(6, 66, 115, 0.3);
+        }
+        .card-style-3 .custom-label-card-body {
+            background: linear-gradient(135deg, #f0f4f8, #e8f0f5) !important;
+        }
+        .card-style-3 .custom-label-card:hover .custom-label-card-body {
+            background: linear-gradient(135deg, #ffffff, #f0f4f8) !important;
+        }
+
+        /* Style 4: Coral - Vibrant & Bold */
+        .card-style-4 .custom-label-card,
+        .card-style-4 .custom-label-card-body {
+            background: linear-gradient(135deg, var(--shelva-coral), #ff9a8b) !important;
+            background-color: var(--shelva-coral) !important;
+            border: 2px solid rgba(255, 255, 255, 0.3) !important;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(255, 127, 106, 0.3);
+        }
+        .card-style-4 .custom-label-card:hover {
+            border-color: rgba(255, 255, 255, 0.6) !important;
+            box-shadow: 0 12px 40px rgba(255, 127, 106, 0.4) !important;
+            transform: translateY(-4px);
+            background: linear-gradient(135deg, #ff9a8b, var(--shelva-coral)) !important;
+        }
+        .card-style-4 .label-size-badge {
+            background: var(--shelva-coral) !important;
+            color: white !important;
+            box-shadow: 0 2px 8px rgba(255, 127, 106, 0.3) !important;
+            border: 2px solid rgba(255, 255, 255, 0.8) !important;
+            font-weight: 700 !important;
+        }
+        .card-style-4 .custom-label-card-body h4 {
+            color: white !important;
+            font-weight: 700 !important;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .card-style-4 .custom-label-card-body p {
+            color: rgba(255, 255, 255, 0.95) !important;
+        }
+        .card-style-4 .custom-label-card-body div[style*="border-top"] {
+            border-top-color: rgba(255, 255, 255, 0.3) !important;
+            border-top-width: 2px !important;
+        }
+        .card-style-4 .custom-label-card-body .heading_h3 {
+            color: white !important;
+            font-weight: 800 !important;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .card-style-4 div[style*="background: #FF7F6A"] {
+            background: rgba(255, 255, 255, 0.95) !important;
+            color: var(--shelva-coral) !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        .card-style-4 .custom-label-card-body {
+            background: linear-gradient(135deg, var(--shelva-coral), #ff9a8b) !important;
+        }
+        .card-style-4 .custom-label-card:hover .custom-label-card-body {
+            background: linear-gradient(135deg, #ff9a8b, var(--shelva-coral)) !important;
+        }
+        .card-style-4 .paragraph_small {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+        
+        /* Shelva Hub Card - Style 4 */
+        .hub-card-style-4 {
+            background: linear-gradient(135deg, var(--shelva-coral), #ff9a8b) !important;
+            background-color: var(--shelva-coral) !important;
+            border: 2px solid rgba(255, 255, 255, 0.3) !important;
+            border-radius: 12px !important;
+            box-shadow: 0 4px 16px rgba(255, 127, 106, 0.3) !important;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+        
+        .hub-card-style-4:hover {
+            border-color: rgba(255, 255, 255, 0.6) !important;
+            box-shadow: 0 12px 40px rgba(255, 127, 106, 0.4) !important;
+            transform: translateY(-4px);
+            background: linear-gradient(135deg, #ff9a8b, var(--shelva-coral)) !important;
+        }
+        
+        .hub-card-body-style-4 {
+            background: linear-gradient(135deg, var(--shelva-coral), #ff9a8b) !important;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+        
+        .hub-card-style-4:hover .hub-card-body-style-4 {
+            background: linear-gradient(135deg, #ff9a8b, var(--shelva-coral)) !important;
+        }
+        
+        .hub-card-style-4 .heading_h4,
+        .hub-card-style-4 .heading_h3 {
+            color: white !important;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+        }
+        
+        .hub-card-style-4 .paragraph_small {
+            color: rgba(255, 255, 255, 0.95) !important;
+        }
+        
+        .hub-card-style-4 .text-color_secondary {
+            color: rgba(255, 255, 255, 0.85) !important;
+        }
+        
+        /* Override text color in price badge - coral background with white text */
+        .hub-price-badge .heading_h3,
+        .hub-price-badge .paragraph_small {
+            color: white !important;
+        }
+        
+        /* Override text color in label price badges - coral background with white text */
+        .card-style-4 .label-price-badge .heading_h3,
+        .card-style-4 .label-price-badge .paragraph_small,
+        .label-price-badge .heading_h3,
+        .label-price-badge .paragraph_small {
+            color: white !important;
+        }
+        
+        /* Remove extra spacing in label price badges */
+        .label-price-badge .flex_horizontal {
+            margin-bottom: 0 !important;
+            line-height: 1 !important;
+        }
+        
+        .label-price-badge .heading_h3,
+        .label-price-badge .paragraph_small {
+            margin-bottom: 0 !important;
+            line-height: 1 !important;
+        }
+        
+        /* Hub card layout - full height image on left, content on right */
+        .hub-card-body-style-4 {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: stretch !important;
+            padding: 0 !important;
+        }
+        
+        .hub-image-container {
+            height: 100% !important;
+            min-height: 200px !important;
+        }
+        
+        .hub-content-container {
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+        }
+        
+        /* Plans Section - Style 4 */
+        .plans-container-style-4 .plan-card-style-4 {
+            background: linear-gradient(135deg, var(--shelva-coral), #ff9a8b) !important;
+            background-color: var(--shelva-coral) !important;
+            border: 2px solid rgba(255, 255, 255, 0.3) !important;
+            border-radius: 12px !important;
+            box-shadow: 0 4px 16px rgba(255, 127, 106, 0.3) !important;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+        
+        .plans-container-style-4 .plan-card-style-4:hover {
+            border-color: rgba(255, 255, 255, 0.6) !important;
+            box-shadow: 0 12px 40px rgba(255, 127, 106, 0.4) !important;
+            transform: translateY(-4px);
+            background: linear-gradient(135deg, #ff9a8b, var(--shelva-coral)) !important;
+        }
+        
+        .plan-card-body-style-4 {
+            background: linear-gradient(135deg, var(--shelva-coral), #ff9a8b) !important;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+        
+        .plans-container-style-4 .plan-card-style-4:hover .plan-card-body-style-4 {
+            background: linear-gradient(135deg, #ff9a8b, var(--shelva-coral)) !important;
+        }
+        
+        .plans-container-style-4 .plan-card-style-4 .heading_h3,
+        .plans-container-style-4 .plan-card-style-4 .heading_h2,
+        .plans-container-style-4 .plan-card-style-4 .heading_h4 {
+            color: white !important;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+        }
+        
+        .plans-container-style-4 .plan-card-style-4 .paragraph,
+        .plans-container-style-4 .plan-card-style-4 .paragraph_small {
+            color: rgba(255, 255, 255, 0.95) !important;
+        }
+        
+        .plans-container-style-4 .plan-card-style-4 .text-color_secondary {
+            color: rgba(255, 255, 255, 0.85) !important;
+        }
+        
+        .plans-container-style-4 .plan-card-style-4 ul li {
+            color: rgba(255, 255, 255, 0.95) !important;
+        }
+        
+        .plans-container-style-4 .plan-card-style-4 ul li strong {
+            color: white !important;
+        }
+        
+        .plans-container-style-4 .plan-card-style-4 ul li span {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+        
+        /* Style 4: Label image containers */
+        .card-style-4 .label-image-container {
+            background: transparent !important;
+            background-color: transparent !important;
+        }
+        
+        .card-style-4 .color-swatch {
+            border-color: rgba(255, 255, 255, 0.5) !important;
+        }
+        
+        .card-style-4 .color-swatch.active[data-color="white"] {
+            border-color: white !important;
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.4) !important;
+        }
+        
+        .card-style-4 .color-swatch.active[data-color="black"] {
+            border-color: #000 !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+        }
+
+        /* Most Popular Badge - Inside card positioning for all styles */
+        .most-popular-badge {
+            position: absolute !important;
+            top: 1rem !important;
+            left: 1rem !important;
+            z-index: 2 !important;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+        
+        /* Style-specific badge colors */
+        .card-style-1 .most-popular-badge {
+            background: var(--shelva-coral) !important;
+            color: white !important;
+            box-shadow: 0 2px 8px rgba(255, 127, 106, 0.3) !important;
+        }
+        
+        .card-style-2 .most-popular-badge {
+            background: linear-gradient(135deg, var(--shelva-coral), #ff9a8b) !important;
+            color: white !important;
+            box-shadow: 0 2px 10px rgba(255, 127, 106, 0.4) !important;
+            border: 2px solid white;
+        }
+        
+        .card-style-3 .most-popular-badge {
+            background: linear-gradient(135deg, #064273, #0a5a9e) !important;
+            color: white !important;
+            box-shadow: 0 2px 10px rgba(6, 66, 115, 0.3) !important;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .card-style-4 .most-popular-badge {
+            background: rgba(255, 255, 255, 0.95) !important;
+            color: var(--shelva-coral) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2) !important;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            font-weight: 700 !important;
         }
 
         /* Label Card Redesign Styles */
@@ -523,40 +914,25 @@
             box-shadow: 0 8px 24px rgba(255, 127, 106, 0.2);
         }
 
-        /* Hide all color display options by default */
+        /* Hide all color display options except Color Swatches (Option D) */
         .color-display-option-a,
         .color-display-option-b,
         .color-display-option-c,
-        .color-display-option-d,
         .color-display-option-e {
             display: none !important;
         }
 
-        /* Option A: Split View */
-        .label-cards-container.option-a .color-display-option-a {
-            display: block !important;
+        /* Option D: Color Swatches - Always visible */
+        .color-display-option-d {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 100% !important;
+            height: 100% !important;
         }
-
-        /* Option B: Hover Toggle */
-        .label-cards-container.option-b .color-display-option-b {
-            display: block !important;
-        }
-
-        .label-cards-container.option-b .label-image-container:hover .label-img-default {
-            opacity: 0 !important;
-        }
-
-        .label-cards-container.option-b .label-image-container:hover .label-img-hover {
-            opacity: 1 !important;
-        }
-
-        /* Option C: Overlay Effect */
-        .label-cards-container.option-c .color-display-option-c {
-            display: block !important;
-        }
-
-        /* Option D: Color Swatches */
-        .label-cards-container.option-d .color-display-option-d {
+        
+        .label-image-container .color-display-option-d {
             display: flex !important;
         }
         
@@ -782,47 +1158,6 @@
             box-shadow: 0 8px 24px rgba(255, 127, 106, 0.2);
         }
 
-        /* Hide all color display options by default */
-        .color-display-option-a,
-        .color-display-option-b,
-        .color-display-option-c,
-        .color-display-option-d,
-        .color-display-option-e {
-            display: none !important;
-        }
-
-        /* Option A: Split View */
-        .label-cards-container.option-a .color-display-option-a {
-            display: block !important;
-        }
-
-        /* Option B: Hover Toggle */
-        .label-cards-container.option-b .color-display-option-b {
-            display: block !important;
-        }
-
-        .label-cards-container.option-b .label-image-container:hover .label-img-default {
-            opacity: 0 !important;
-        }
-
-        .label-cards-container.option-b .label-image-container:hover .label-img-hover {
-            opacity: 1 !important;
-        }
-
-        /* Option C: Overlay Effect */
-        .label-cards-container.option-c .color-display-option-c {
-            display: block !important;
-        }
-
-        /* Option D: Color Swatches */
-        .label-cards-container.option-d .color-display-option-d {
-            display: flex !important;
-        }
-
-        /* Option E: Rotating Display */
-        .label-cards-container.option-e .color-display-option-e {
-            display: block !important;
-        }
 
         @keyframes fadeRotate {
             0%, 45% {
@@ -1046,9 +1381,9 @@
                 <div class="header is-align-center">
                     <h2 class="heading_h2">Plans</h2>
                 </div>
-                <div class="w-layout-grid grid_3-col gap-large">
-                    <div class="card">
-                        <div class="card_body">
+                <div class="w-layout-grid grid_3-col gap-large plans-container-style-4">
+                    <div class="card plan-card-style-4">
+                        <div class="card_body plan-card-body-style-4">
                             <div class="margin_bottom-auto">
                                 <h4 class="heading_h3" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem; color: #333; font-family: 'Figtree', sans-serif;">Launch</h4>
                                 <p class="paragraph" style="font-size: 1rem; line-height: 1.5; color: #666; margin-bottom: 1.5rem; font-family: 'Figtree', sans-serif;">Perfect for small stores getting started with digital shelf labels.</p>
@@ -1079,8 +1414,8 @@
                         </div>
                     </div>
                     
-                    <div class="card">
-                        <div class="card_body">
+                    <div class="card plan-card-style-4">
+                        <div class="card_body plan-card-body-style-4">
                             <div class="margin_bottom-auto">
                                 <h4 class="heading_h3" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem; color: #333; font-family: 'Figtree', sans-serif;">Growth</h4>
                                 <p class="paragraph" style="font-size: 1rem; line-height: 1.5; color: #666; margin-bottom: 1.5rem; font-family: 'Figtree', sans-serif;">Ideal for expanding stores that need more labels and advanced features.</p>
@@ -1111,8 +1446,8 @@
                         </div>
                     </div>
                     
-                    <div class="card">
-                        <div class="card_body">
+                    <div class="card plan-card-style-4">
+                        <div class="card_body plan-card-body-style-4">
                             <div class="margin_bottom-auto">
                                 <h4 class="heading_h3" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem; color: #333; font-family: 'Figtree', sans-serif;">Scale</h4>
                                 <p class="paragraph" style="font-size: 1rem; line-height: 1.5; color: #666; margin-bottom: 1.5rem; font-family: 'Figtree', sans-serif;">For growing stores that need more labels and multi-location support.</p>
@@ -1146,8 +1481,8 @@
                         </div>
                     </div>
                     
-                    <div class="card">
-                        <div class="card_body">
+                    <div class="card plan-card-style-4">
+                        <div class="card_body plan-card-body-style-4">
                             <div class="margin_bottom-auto">
                                 <h4 class="heading_h3" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem; color: #333; font-family: 'Figtree', sans-serif;">Enterprise</h4>
                                 <p class="paragraph" style="font-size: 1rem; line-height: 1.5; color: #666; margin-bottom: 1.5rem; font-family: 'Figtree', sans-serif;">For large retailers with complex needs and unlimited requirements.</p>
@@ -1191,52 +1526,40 @@
                 </div>
                 <!-- Shelva Hub - Standalone Section -->
                 <div class="w-layout-grid grid_1-col gap-medium margin-bottom_large">
-                    <div class="card">
-                        <div class="card_body">
-                            <div class="flex_horizontal is-y-center gap-medium margin-bottom_medium">
-                                <div style="width: 120px; height: 120px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-                                    <img style="max-width: 100%; max-height: 100%; object-fit: contain;" src="/images/shelva-hub.png" alt="Shelva Hub" loading="lazy"/>
-                                </div>
-                                <div class="flex_child_expand">
-                                    <h4 class="heading_h4" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem;">Shelva Hub</h4>
-                                    <p class="paragraph_small" style="font-size: 1rem; line-height: 1.4; color: #666;">Base station for managing all your labels - required for all setups</p>
-                                </div>
+                    <div class="card hub-card-style-4">
+                        <div class="card_body hub-card-body-style-4" style="display: flex; flex-direction: row; align-items: stretch; padding: 0; height: 100%;">
+                            <div class="hub-image-container" style="width: 200px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; padding: 2rem; background: rgba(255, 255, 255, 0.2); border-radius: 12px 0 0 12px;">
+                                <img style="max-width: 100%; max-height: 100%; object-fit: contain;" src="/images/shelva-hub.png" alt="Shelva Hub" loading="lazy"/>
                             </div>
-                            <div class="flex_horizontal is-y-baseline">
-                                <p class="heading_h3 margin-bottom_none" style="font-size: 2rem; font-weight: 700; color: #333;">$250</p>
-                                <p class="paragraph_small margin-bottom_none" style="font-size: 1rem; color: #666; margin-left: 0.25rem;">one-time</p>
-                            </div>
-                            <div class="margin-top_small">
-                                <p class="paragraph_small text-color_secondary" style="font-size: 0.9rem; color: #888; font-style: italic;">$125 refundable deposit - return within 12 months for 50% refund</p>
+                            <div class="hub-content-container" style="flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 2rem;">
+                                <h4 class="heading_h4" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem;">Shelva Hub</h4>
+                                <p class="paragraph_small" style="font-size: 1rem; line-height: 1.4; color: rgba(255, 255, 255, 0.95); margin-bottom: 1.5rem;">Base station for managing all your labels - required for all setups</p>
+                                <div class="hub-price-badge" style="display: inline-block; width: fit-content; padding: 0.625rem 1.25rem; background: var(--shelva-coral); border-radius: 40px; margin-bottom: 0.5rem; align-self: flex-start; box-shadow: 0 2px 8px rgba(255, 127, 106, 0.3);">
+                                    <div class="flex_horizontal is-y-baseline">
+                                        <p class="heading_h3 margin-bottom_none" style="font-size: 1.6rem; font-weight: 700; color: white;">$250</p>
+                                    </div>
+                                </div>
+                                <p class="paragraph_small" style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.9); margin-top: 0.5rem;">
+                                    $125 refundable
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Digital Shelf Labels -->
-                <div class="header is-align-center margin-bottom_medium">
+                <div class="header is-align-center margin-bottom_medium" style="margin-top: 8rem;">
                     <h3 class="heading_h3">Digital Shelf Labels</h3>
                     <p class="paragraph_large">Choose the size that fits your store's needs</p>
-                    <!-- Color Display Option Selector (for testing) -->
-                    <div style="margin-top: 1rem; padding: 1rem; background: #f5f5f5; border-radius: 8px; display: inline-block;">
-                        <label style="font-weight: 600; margin-right: 0.5rem; font-size: 0.9rem;">Color Display:</label>
-                        <select id="colorDisplayOption" style="padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px; font-size: 0.9rem; cursor: pointer;">
-                            <option value="option-a">Option A - Split View</option>
-                            <option value="option-b">Option B - Hover Toggle</option>
-                            <option value="option-c">Option C - Overlay Effect</option>
-                            <option value="option-d">Option D - Color Swatches</option>
-                            <option value="option-e">Option E - Rotating Display</option>
-                        </select>
-                    </div>
                 </div>
-                <div class="w-layout-grid grid_3-col gap-medium label-cards-container" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem;">
+                <div class="w-layout-grid grid_3-col gap-medium label-cards-container card-style-4" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem;" data-current-style="4">
                     <div class="custom-label-card custom-label-card-pocket" data-size="2.1" data-color-accent="#5ddad5">
                         <div class="custom-label-card-body" style="display: flex; flex-direction: column; height: 100%; padding: 2rem; position: relative;">
                             <!-- Size Badge -->
-                            <div class="label-size-badge" style="position: absolute; top: 1rem; right: 1rem; width: 48px; height: 48px; background: var(--shelva-coral); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.9rem; z-index: 2;">2.1"</div>
+                            <div class="label-size-badge" style="position: absolute; top: 1rem; right: 1rem; width: 48px; height: 48px; background: var(--shelva-coral); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.9rem; z-index: 2; box-shadow: 0 2px 8px rgba(255, 127, 106, 0.3);">2.1"</div>
                             
                             <!-- Image Container - All Options -->
-                            <div class="label-image-container" style="width: 100%; height: 180px; margin-bottom: 2rem; padding-top: 2.5rem; position: relative; display: flex; align-items: center; justify-content: center;">
+                            <div class="label-image-container" style="width: 100%; height: 360px; margin-bottom: 0; padding: 0.5rem; position: relative; display: flex; align-items: center; justify-content: center;">
                                 <!-- Option A: Split View -->
                                 <div class="color-display-option-a" style="width: 100%; height: 100%; position: relative;">
                                     <div style="display: flex; width: 100%; height: 100%; gap: 8px; align-items: center; justify-content: center;">
@@ -1263,10 +1586,10 @@
                                 
                                 <!-- Option D: Color Swatches -->
                                 <div class="color-display-option-d" style="width: 100%; height: 100%; position: relative; flex-direction: column; align-items: center; justify-content: center;">
-                                    <img class="label-img-swatch" style="max-width: 70%; max-height: 70%; object-fit: contain; margin-bottom: 1rem; transition: opacity 0.3s ease;" src="/images/release-2.1.png" alt="Pocket 2.1\" Labels" loading="lazy"/>
+                                    <img class="label-img-swatch" style="max-width: 110%; max-height: 110%; object-fit: contain; margin: 0.25rem; margin-top: -5rem; margin-bottom: -5rem; transition: opacity 0.3s ease;" src="/images/Labels for site (shadow)/4.png" alt="Pocket 2.1\" Labels" loading="lazy"/>
                                     <div style="display: flex; gap: 0.75rem; align-items: center;">
-                                        <div class="color-swatch" data-color="black" data-image-black="/images/release-2.1.png" data-image-white="/images/release-2.1.png" style="width: 24px; height: 24px; border-radius: 50%; background: #000; border: 2px solid #333; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.2); transition: transform 0.2s ease, box-shadow 0.2s ease;" title="Black"></div>
-                                        <div class="color-swatch" data-color="white" data-image-black="/images/release-2.1.png" data-image-white="/images/release-2.1.png" style="width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 2px solid #ddd; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: transform 0.2s ease, box-shadow 0.2s ease;" title="White"></div>
+                                        <div class="color-swatch" data-color="black" data-image-black="/images/Labels for site (shadow)/4.png" data-image-white="/images/Labels for site (shadow)/3.png" style="width: 24px; height: 24px; border-radius: 50%; background: #000; border: 2px solid #333; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.2); transition: transform 0.2s ease, box-shadow 0.2s ease;" title="Black"></div>
+                                        <div class="color-swatch" data-color="white" data-image-black="/images/Labels for site (shadow)/4.png" data-image-white="/images/Labels for site (shadow)/3.png" style="width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 2px solid #ddd; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: transform 0.2s ease, box-shadow 0.2s ease;" title="White"></div>
                                     </div>
                                 </div>
                                 
@@ -1277,32 +1600,33 @@
                             </div>
                             
                             <!-- Content -->
-                            <div style="flex: 1; display: flex; flex-direction: column;">
+                            <div style="flex: 1; display: flex; flex-direction: column; margin-top: -1rem;">
                                 <h4 class="heading_h4" style="margin-bottom: 0.75rem; font-size: 1.25rem; font-weight: 600;">Pocket - 2.1" Labels</h4>
-                                <p class="paragraph_small" style="margin-bottom: 1rem; color: #666;">Compact size for tighter displays</p>
+                                <p class="paragraph_small" style="margin-bottom: 0; color: #666;">Compact size for tighter displays</p>
                                 
                                 <!-- Pricing -->
-                                <div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid #e0e0e0;">
-                                    <div class="w-layout-hflex flex_horizontal is-y-baseline" style="margin-bottom: 0.5rem;">
-                                        <p class="heading_h3 margin-bottom_none" style="font-size: 2rem; font-weight: 700; color: #333;">$7.25</p>
-                                        <p class="paragraph_small margin-bottom_none" style="margin-left: 0.5rem; color: #666;">each</p>
-                                    </div>
-                                    <div style="display: inline-block; padding: 0.25rem 0.75rem; background: #f0f0f0; border-radius: 12px; font-size: 0.85rem; color: #666;">
-                                        $3.63 refundable each
+                                <div style="margin-top: auto; padding-top: 0.25rem;">
+                                    <div class="label-price-badge" style="display: inline-block; width: fit-content; padding: 0.625rem 1.25rem; background: var(--shelva-coral); border-radius: 40px; margin-bottom: 0; box-shadow: 0 2px 8px rgba(255, 127, 106, 0.3);">
+                                        <div class="flex_horizontal is-y-baseline" style="margin-bottom: 0;">
+                                            <p class="heading_h3 margin-bottom_none" style="font-size: 1.6rem; font-weight: 700; color: white; margin-bottom: 0;">$7.25</p>
+                                        </div>
                                     </div>
                                 </div>
+                                <p class="paragraph_small" style="position: absolute; bottom: 1rem; right: 2rem; font-size: 0.85rem; color: #666; margin: 0;">
+                                    $3.63 refundable
+                                </p>
                             </div>
                         </div>
                     </div>
                     <div class="custom-label-card custom-label-card-slim" data-size="2.9" data-color-accent="#FF7F6A">
                         <div class="custom-label-card-body" style="display: flex; flex-direction: column; height: 100%; padding: 2rem; position: relative;">
                             <!-- Most Popular Badge -->
-                            <div style="position: absolute; top: 1rem; left: 1rem; padding: 0.35rem 0.75rem; background: #FF7F6A; color: white; border-radius: 20px; font-size: 0.75rem; font-weight: 600; z-index: 2;">Most Popular</div>
+                            <div class="most-popular-badge" style="position: absolute; top: 1rem; left: 1rem; padding: 0.5rem 1rem; background: #FF7F6A; color: white; border-radius: 20px; font-size: 0.85rem; font-weight: 600; z-index: 2;">Most Popular</div>
                             <!-- Size Badge -->
-                            <div class="label-size-badge" style="position: absolute; top: 1rem; right: 1rem; width: 48px; height: 48px; background: var(--shelva-coral); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.9rem; z-index: 2;">2.9"</div>
+                            <div class="label-size-badge" style="position: absolute; top: 1rem; right: 1rem; width: 48px; height: 48px; background: var(--shelva-coral); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.9rem; z-index: 2; box-shadow: 0 2px 8px rgba(255, 127, 106, 0.3);">2.9"</div>
                             
                             <!-- Image Container - All Options -->
-                            <div class="label-image-container" style="width: 100%; height: 180px; margin-bottom: 2rem; padding-top: 2.5rem; position: relative; display: flex; align-items: center; justify-content: center;">
+                            <div class="label-image-container" style="width: 100%; height: 360px; margin-bottom: 0; padding: 0.5rem; position: relative; display: flex; align-items: center; justify-content: center;">
                                 <!-- Option A: Split View -->
                                 <div class="color-display-option-a" style="width: 100%; height: 100%; position: relative;">
                                     <div style="display: flex; width: 100%; height: 100%; gap: 8px; align-items: center; justify-content: center;">
@@ -1328,11 +1652,11 @@
                                 </div>
                                 
                                 <!-- Option D: Color Swatches -->
-                                <div class="color-display-option-d" style="width: 100%; height: 100%; position: relative; flex-direction: column; align-items: center; justify-content: center;">
-                                    <img class="label-img-swatch" style="max-width: 70%; max-height: 70%; object-fit: contain; margin-bottom: 1rem; transition: opacity 0.3s ease;" src="/images/2.9-black.png" alt="Slim 2.9\" Labels" loading="lazy"/>
+                                <div class="color-display-option-d" style="width: 100%; height: 100%; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                    <img class="label-img-swatch" style="max-width: 140%; max-height: 140%; object-fit: contain; margin: 0.25rem; margin-top: -8rem; margin-bottom: -8rem; transition: opacity 0.3s ease;" src="/images/Labels for site (shadow)/2.png" alt="Slim 2.9\" Labels" loading="lazy"/>
                                     <div style="display: flex; gap: 0.75rem; align-items: center;">
-                                        <div class="color-swatch" data-color="black" data-image-black="/images/2.9-black.png" data-image-white="/images/2.9-white.png" style="width: 24px; height: 24px; border-radius: 50%; background: #000; border: 2px solid #333; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.2); transition: transform 0.2s ease, box-shadow 0.2s ease;" title="Black"></div>
-                                        <div class="color-swatch" data-color="white" data-image-black="/images/2.9-black.png" data-image-white="/images/2.9-white.png" style="width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 2px solid #ddd; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: transform 0.2s ease, box-shadow 0.2s ease;" title="White"></div>
+                                        <div class="color-swatch" data-color="black" data-image-black="/images/Labels for site (shadow)/1.png" data-image-white="/images/Labels for site (shadow)/2.png" style="width: 24px; height: 24px; border-radius: 50%; background: #000; border: 2px solid #333; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.2); transition: transform 0.2s ease, box-shadow 0.2s ease;" title="Black"></div>
+                                        <div class="color-swatch" data-color="white" data-image-black="/images/Labels for site (shadow)/1.png" data-image-white="/images/Labels for site (shadow)/2.png" style="width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 2px solid #ddd; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: transform 0.2s ease, box-shadow 0.2s ease;" title="White"></div>
                                     </div>
                                 </div>
                                 
@@ -1343,30 +1667,31 @@
                             </div>
                             
                             <!-- Content -->
-                            <div style="flex: 1; display: flex; flex-direction: column;">
+                            <div style="flex: 1; display: flex; flex-direction: column; margin-top: -1rem;">
                                 <h4 class="heading_h4" style="margin-bottom: 0.75rem; font-size: 1.25rem; font-weight: 600;">Slim - 2.9" Labels</h4>
-                                <p class="paragraph_small" style="margin-bottom: 1rem; color: #666;">Perfect for most retail applications</p>
+                                <p class="paragraph_small" style="margin-bottom: 0; color: #666;">Perfect for most retail applications</p>
                                 
                                 <!-- Pricing -->
-                                <div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid #e0e0e0;">
-                                    <div class="w-layout-hflex flex_horizontal is-y-baseline" style="margin-bottom: 0.5rem;">
-                                        <p class="heading_h3 margin-bottom_none" style="font-size: 2rem; font-weight: 700; color: #333;">$9.25</p>
-                                        <p class="paragraph_small margin-bottom_none" style="margin-left: 0.5rem; color: #666;">each</p>
-                                    </div>
-                                    <div style="display: inline-block; padding: 0.25rem 0.75rem; background: #f0f0f0; border-radius: 12px; font-size: 0.85rem; color: #666;">
-                                        $4.63 refundable each
+                                <div style="margin-top: auto; padding-top: 0.25rem;">
+                                    <div class="label-price-badge" style="display: inline-block; width: fit-content; padding: 0.625rem 1.25rem; background: var(--shelva-coral); border-radius: 40px; margin-bottom: 0; box-shadow: 0 2px 8px rgba(255, 127, 106, 0.3);">
+                                        <div class="flex_horizontal is-y-baseline" style="margin-bottom: 0;">
+                                            <p class="heading_h3 margin-bottom_none" style="font-size: 1.6rem; font-weight: 700; color: white; margin-bottom: 0;">$9.25</p>
+                                        </div>
                                     </div>
                                 </div>
+                                <p class="paragraph_small" style="position: absolute; bottom: 1rem; right: 2rem; font-size: 0.85rem; color: #666; margin: 0;">
+                                    $4.63 refundable
+                                </p>
                             </div>
                         </div>
                     </div>
                     <div class="custom-label-card custom-label-card-spotlight" data-size="3.7" data-color-accent="#064273">
                         <div class="custom-label-card-body" style="display: flex; flex-direction: column; height: 100%; padding: 2rem; position: relative;">
                             <!-- Size Badge -->
-                            <div class="label-size-badge" style="position: absolute; top: 1rem; right: 1rem; width: 48px; height: 48px; background: var(--shelva-coral); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.9rem; z-index: 2;">3.7"</div>
+                            <div class="label-size-badge" style="position: absolute; top: 1rem; right: 1rem; width: 48px; height: 48px; background: var(--shelva-coral); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.9rem; z-index: 2; box-shadow: 0 2px 8px rgba(255, 127, 106, 0.3);">3.7"</div>
                             
                             <!-- Image Container - All Options -->
-                            <div class="label-image-container" style="width: 100%; height: 180px; margin-bottom: 2rem; padding-top: 2.5rem; position: relative; display: flex; align-items: center; justify-content: center;">
+                            <div class="label-image-container" style="width: 100%; height: 360px; margin-bottom: 0; padding: 0.5rem; position: relative; display: flex; align-items: center; justify-content: center;">
                                 <!-- Option A: Split View -->
                                 <div class="color-display-option-a" style="width: 100%; height: 100%; position: relative;">
                                     <div style="display: flex; width: 100%; height: 100%; gap: 8px; align-items: center; justify-content: center;">
@@ -1392,11 +1717,11 @@
                                 </div>
                                 
                                 <!-- Option D: Color Swatches -->
-                                <div class="color-display-option-d" style="width: 100%; height: 100%; position: relative; flex-direction: column; align-items: center; justify-content: center;">
-                                    <img class="label-img-swatch" style="max-width: 70%; max-height: 70%; object-fit: contain; margin-bottom: 1rem; transition: opacity 0.3s ease;" src="/images/3.7-black.png" alt="Spotlight 3.7\" Labels" loading="lazy"/>
+                                <div class="color-display-option-d" style="width: 100%; height: 100%; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                    <img class="label-img-swatch" style="max-width: 140%; max-height: 140%; object-fit: contain; margin: 0.25rem; margin-top: -7rem; margin-bottom: -7rem; transition: opacity 0.3s ease;" src="/images/Labels for site (shadow)/6.png" alt="Spotlight 3.7\" Labels" loading="lazy"/>
                                     <div style="display: flex; gap: 0.75rem; align-items: center;">
-                                        <div class="color-swatch" data-color="black" data-image-black="/images/3.7-black.png" data-image-white="/images/3.7-white.png" style="width: 24px; height: 24px; border-radius: 50%; background: #000; border: 2px solid #333; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.2); transition: transform 0.2s ease, box-shadow 0.2s ease;" title="Black"></div>
-                                        <div class="color-swatch" data-color="white" data-image-black="/images/3.7-black.png" data-image-white="/images/3.7-white.png" style="width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 2px solid #ddd; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: transform 0.2s ease, box-shadow 0.2s ease;" title="White"></div>
+                                        <div class="color-swatch" data-color="black" data-image-black="/images/Labels for site (shadow)/6.png" data-image-white="/images/Labels for site (shadow)/5.png" style="width: 24px; height: 24px; border-radius: 50%; background: #000; border: 2px solid #333; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.2); transition: transform 0.2s ease, box-shadow 0.2s ease;" title="Black"></div>
+                                        <div class="color-swatch" data-color="white" data-image-black="/images/Labels for site (shadow)/6.png" data-image-white="/images/Labels for site (shadow)/5.png" style="width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 2px solid #ddd; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: transform 0.2s ease, box-shadow 0.2s ease;" title="White"></div>
                                     </div>
                                 </div>
                                 
@@ -1407,20 +1732,21 @@
                             </div>
                             
                             <!-- Content -->
-                            <div style="flex: 1; display: flex; flex-direction: column;">
+                            <div style="flex: 1; display: flex; flex-direction: column; margin-top: -1rem;">
                                 <h4 class="heading_h4" style="margin-bottom: 0.75rem; font-size: 1.25rem; font-weight: 600;">Spotlight - 3.7" Labels</h4>
-                                <p class="paragraph_small" style="margin-bottom: 1rem; color: #666;">Larger format for detailed product info</p>
+                                <p class="paragraph_small" style="margin-bottom: 0; color: #666;">Larger format for detailed product info</p>
                                 
                                 <!-- Pricing -->
-                                <div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid #e0e0e0;">
-                                    <div class="w-layout-hflex flex_horizontal is-y-baseline" style="margin-bottom: 0.5rem;">
-                                        <p class="heading_h3 margin-bottom_none" style="font-size: 2rem; font-weight: 700; color: #333;">$14.50</p>
-                                        <p class="paragraph_small margin-bottom_none" style="margin-left: 0.5rem; color: #666;">each</p>
-                                    </div>
-                                    <div style="display: inline-block; padding: 0.25rem 0.75rem; background: #f0f0f0; border-radius: 12px; font-size: 0.85rem; color: #666;">
-                                        $7.25 refundable each
+                                <div style="margin-top: auto; padding-top: 0.25rem;">
+                                    <div class="label-price-badge" style="display: inline-block; width: fit-content; padding: 0.625rem 1.25rem; background: var(--shelva-coral); border-radius: 40px; margin-bottom: 0; box-shadow: 0 2px 8px rgba(255, 127, 106, 0.3);">
+                                        <div class="flex_horizontal is-y-baseline" style="margin-bottom: 0;">
+                                            <p class="heading_h3 margin-bottom_none" style="font-size: 1.6rem; font-weight: 700; color: white; margin-bottom: 0;">$14.50</p>
+                                        </div>
                                     </div>
                                 </div>
+                                <p class="paragraph_small" style="position: absolute; bottom: 1rem; right: 2rem; font-size: 0.85rem; color: #666; margin: 0;">
+                                    $7.25 refundable
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -1989,72 +2315,7 @@
             setTimeout(forceRemoveShadows, 500);
             setTimeout(forceRemoveShadows, 1000);
             
-            const selector = document.getElementById('colorDisplayOption');
-            const container = document.querySelector('.label-cards-container');
-            
-            if (selector && container) {
-                // Set initial option (Option D - Color Swatches)
-                container.className = container.className.replace(/option-[a-e]/g, '') + ' option-d';
-                selector.value = 'option-d';
-                
-                selector.addEventListener('change', function() {
-                    const option = this.value;
-                    // Remove all option classes
-                    container.className = container.className.replace(/option-[a-e]/g, '');
-                    // Add selected option class
-                    container.classList.add(option);
-                    
-                    // For Option E (Rotating), set up image rotation
-                    if (option === 'option-e') {
-                        // Clear any existing intervals
-                        if (window.labelRotateIntervals) {
-                            window.labelRotateIntervals.forEach(clearInterval);
-                        }
-                        window.labelRotateIntervals = [];
-                        
-                        const rotateContainers = document.querySelectorAll('.color-display-option-e');
-                        rotateContainers.forEach(function(container) {
-                            const img = container.querySelector('.label-img-rotate');
-                            if (img) {
-                                const card = img.closest('.custom-label-card');
-                                let blackSrc, whiteSrc;
-                                
-                                if (card.classList.contains('custom-label-card-pocket')) {
-                                    // Use same image for both since we only have one 2.1" image
-                                    blackSrc = '/images/release-2.1.png';
-                                    whiteSrc = '/images/release-2.1.png';
-                                } else if (card.classList.contains('custom-label-card-slim')) {
-                                    blackSrc = '/images/2.9-black.png';
-                                    whiteSrc = '/images/2.9-white.png';
-                                } else if (card.classList.contains('custom-label-card-spotlight')) {
-                                    blackSrc = '/images/3.7-black.png';
-                                    whiteSrc = '/images/3.7-white.png';
-                                }
-                                
-                                let isBlack = true;
-                                img.src = blackSrc;
-                                
-                                const rotateInterval = setInterval(function() {
-                                    const isVisible = container.offsetParent !== null && container.style.display !== 'none';
-                                    if (isVisible) {
-                                        isBlack = !isBlack;
-                                        img.src = isBlack ? blackSrc : whiteSrc;
-                                    }
-                                }, 2000);
-                                
-                                window.labelRotateIntervals.push(rotateInterval);
-                            }
-                        });
-                    } else {
-                        // Clear intervals when switching away from option E
-                        if (window.labelRotateIntervals) {
-                            window.labelRotateIntervals.forEach(clearInterval);
-                            window.labelRotateIntervals = [];
-                        }
-                    }
-                });
-
-                // Color Swatch Click Handler (Option D)
+            // Color Swatch Click Handler (Option D - Color Swatches is always active)
                 function setupColorSwatches() {
                     const swatches = document.querySelectorAll('.color-swatch');
                     swatches.forEach(function(swatch) {
@@ -2088,6 +2349,12 @@
                                 s.style.transform = 'scale(1)';
                                 s.style.boxShadow = s.getAttribute('data-color') === 'black' ? 
                                     '0 2px 4px rgba(0,0,0,0.2)' : '0 2px 4px rgba(0,0,0,0.1)';
+                                // Reset border colors
+                                if (s.getAttribute('data-color') === 'black') {
+                                    s.style.borderColor = '#333';
+                                } else {
+                                    s.style.borderColor = '#ddd';
+                                }
                             });
                             
                             // Set active state on clicked swatch
@@ -2095,32 +2362,46 @@
                             this.style.transform = 'scale(1.15)';
                             this.style.boxShadow = color === 'black' ? 
                                 '0 4px 8px rgba(0,0,0,0.3)' : '0 4px 8px rgba(0,0,0,0.2)';
+                            // Set border color based on swatch color
+                            if (color === 'black') {
+                                this.style.borderColor = '#000';
+                                this.style.borderWidth = '2px';
+                            } else {
+                                this.style.borderColor = '#ddd';
+                            }
                         });
                     });
                     
-                    // Set initial active state (black swatch)
+                    // Set initial active state
                     const allCards = document.querySelectorAll('.custom-label-card');
                     allCards.forEach(function(card) {
-                        const blackSwatch = card.querySelector('.color-swatch[data-color="black"]');
-                        if (blackSwatch) {
-                            blackSwatch.classList.add('active');
-                            blackSwatch.style.transform = 'scale(1.15)';
-                            blackSwatch.style.boxShadow = '0 4px 8px rgba(0,0,0,0.3)';
+                        const cardSize = card.getAttribute('data-size');
+                        // 2.9" card defaults to white, others default to black
+                        if (cardSize === '2.9') {
+                            const whiteSwatch = card.querySelector('.color-swatch[data-color="white"]');
+                            if (whiteSwatch) {
+                                whiteSwatch.classList.add('active');
+                                whiteSwatch.style.transform = 'scale(1.15)';
+                                whiteSwatch.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+                                whiteSwatch.style.borderColor = '#ddd';
+                            }
+                        } else {
+                            const blackSwatch = card.querySelector('.color-swatch[data-color="black"]');
+                            if (blackSwatch) {
+                                blackSwatch.classList.add('active');
+                                blackSwatch.style.transform = 'scale(1.15)';
+                                blackSwatch.style.boxShadow = '0 4px 8px rgba(0,0,0,0.3)';
+                                blackSwatch.style.borderColor = '#000';
+                                blackSwatch.style.borderWidth = '2px';
+                            }
                         }
                     });
                 }
                 
                 // Setup swatches on page load
                 setupColorSwatches();
-                
-                // Re-setup swatches when option changes to D
-                selector.addEventListener('change', function() {
-                    if (this.value === 'option-d') {
-                        setTimeout(setupColorSwatches, 100);
-                    }
-                });
-            }
         });
+        
     </script>
 </body>
 </html>
