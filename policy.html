@@ -84,6 +84,29 @@
                 position: relative !important;
                 z-index: 10002 !important;
             }
+            
+            /* Make icon and all its children white on accent-primary background */
+            .nav_mobile-menu-button .icon.on-accent-primary,
+            .nav_mobile-menu-button .icon.on-accent-primary *,
+            .nav_mobile-menu-button .icon.on-accent-primary i[data-lucide],
+            .nav_mobile-menu-button .icon.on-accent-primary i[data-lucide] svg,
+            .nav_mobile-menu-button .icon.on-accent-primary svg,
+            .nav_mobile-menu-button .icon.on-accent-primary svg path,
+            .nav_mobile-menu-button .icon.on-accent-primary svg line,
+            .nav_mobile-menu-button .icon.on-accent-primary svg polyline {
+                color: white !important;
+                stroke: white !important;
+                fill: none !important;
+            }
+            
+            /* Ensure icon container is visible */
+            .nav_mobile-menu-button .icon {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                width: 24px !important;
+                height: 24px !important;
+            }
         }
         
         /* Fix image vertical centering in containers */
@@ -243,14 +266,6 @@
         .nav_mobile-menu-button .icon {
           width: 24px;
           height: 24px;
-        }
-        
-        /* Make icon white on accent-primary background */
-        .nav_mobile-menu-button .icon.on-accent-primary,
-        .nav_mobile-menu-button .icon.on-accent-primary i[data-lucide],
-        .nav_mobile-menu-button .icon.on-accent-primary svg {
-            color: white !important;
-            stroke: white !important;
         }
         
         /* Ensure mobile menu is visible on small screens */
