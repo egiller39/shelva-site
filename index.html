@@ -2047,9 +2047,182 @@
         });
     </script>
     <script>
+        // #region agent log - Debug mobile menu button
+        (function() {
+            const logData = {
+                sessionId: 'debug-session',
+                runId: 'initial',
+                timestamp: Date.now(),
+                location: 'index.html:2050'
+            };
+            
+            // Check viewport width
+            const viewportWidth = window.innerWidth;
+            const isMobile = viewportWidth <= 768;
+            
+            // Find mobile menu button
+            const mobileBtn = document.querySelector('.nav_mobile-menu-button');
+            
+            if (mobileBtn) {
+                const computedStyle = window.getComputedStyle(mobileBtn);
+                const icon = mobileBtn.querySelector('.icon');
+                const iconComputed = icon ? window.getComputedStyle(icon) : null;
+                const lucideIcon = mobileBtn.querySelector('i[data-lucide="menu"]');
+                const svg = mobileBtn.querySelector('svg');
+                
+                fetch('http://127.0.0.1:7243/ingest/e2cc27f9-beb0-44e9-af9f-74cd1f8f6001', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        ...logData,
+                        hypothesisId: 'A',
+                        message: 'Mobile button element check',
+                        data: {
+                            exists: true,
+                            viewportWidth,
+                            isMobile,
+                            display: computedStyle.display,
+                            visibility: computedStyle.visibility,
+                            opacity: computedStyle.opacity,
+                            zIndex: computedStyle.zIndex,
+                            position: computedStyle.position,
+                            hasIcon: !!icon,
+                            iconDisplay: iconComputed?.display,
+                            hasLucideIcon: !!lucideIcon,
+                            hasSvg: !!svg,
+                            svgColor: svg ? window.getComputedStyle(svg).color : null,
+                            svgStroke: svg ? window.getComputedStyle(svg).stroke : null,
+                            inlineStyle: mobileBtn.getAttribute('style'),
+                            classes: mobileBtn.className,
+                            parentDisplay: mobileBtn.parentElement ? window.getComputedStyle(mobileBtn.parentElement).display : null
+                        }
+                    })
+                }).catch(() => {});
+                
+                // Check for Webflow interference
+                fetch('http://127.0.0.1:7243/ingest/e2cc27f9-beb0-44e9-af9f-74cd1f8f6001', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        ...logData,
+                        hypothesisId: 'E',
+                        message: 'Webflow interference check',
+                        data: {
+                            hasWNavButton: mobileBtn.classList.contains('w-nav-button'),
+                            ariaExpanded: mobileBtn.getAttribute('aria-expanded'),
+                            ariaLabel: mobileBtn.getAttribute('aria-label')
+                        }
+                    })
+                }).catch(() => {});
+            } else {
+                fetch('http://127.0.0.1:7243/ingest/e2cc27f9-beb0-44e9-af9f-74cd1f8f6001', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        ...logData,
+                        hypothesisId: 'A',
+                        message: 'Mobile button NOT FOUND',
+                        data: {exists: false, viewportWidth, isMobile}
+                    })
+                }).catch(() => {});
+            }
+            
+            // Check if media query matches
+            const mediaQuery = window.matchMedia('(max-width: 768px)');
+            fetch('http://127.0.0.1:7243/ingest/e2cc27f9-beb0-44e9-af9f-74cd1f8f6001', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    ...logData,
+                    hypothesisId: 'A',
+                    message: 'Media query check',
+                    data: {
+                        viewportWidth,
+                        mediaQueryMatches: mediaQuery.matches,
+                        isMobile
+                    }
+                })
+            }).catch(() => {});
+            
+            // Listen for resize to check media query changes
+            window.addEventListener('resize', () => {
+                const newWidth = window.innerWidth;
+                const newMatches = window.matchMedia('(max-width: 768px)').matches;
+                const mobileBtn = document.querySelector('.nav_mobile-menu-button');
+                const computedStyle = mobileBtn ? window.getComputedStyle(mobileBtn) : null;
+                
+                fetch('http://127.0.0.1:7243/ingest/e2cc27f9-beb0-44e9-af9f-74cd1f8f6001', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        sessionId: 'debug-session',
+                        runId: 'resize',
+                        hypothesisId: 'A',
+                        timestamp: Date.now(),
+                        location: 'index.html:resize',
+                        message: 'Resize event',
+                        data: {
+                            newWidth,
+                            mediaQueryMatches: newMatches,
+                            buttonDisplay: computedStyle?.display,
+                            buttonVisibility: computedStyle?.visibility
+                        }
+                    })
+                }).catch(() => {});
+            });
+            
+            // Check parent container
+            const navContainer = document.querySelector('.nav_container');
+            if (navContainer) {
+                const navComputed = window.getComputedStyle(navContainer);
+                fetch('http://127.0.0.1:7243/ingest/e2cc27f9-beb0-44e9-af9f-74cd1f8f6001', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        ...logData,
+                        hypothesisId: 'D',
+                        message: 'Parent container styles',
+                        data: {
+                            display: navComputed.display,
+                            visibility: navComputed.visibility,
+                            overflow: navComputed.overflow
+                        }
+                    })
+                }).catch(() => {});
+            }
+        })();
+        // #endregion
+        
         // Initialize Lucide icons
         if (typeof lucide !== 'undefined') {
             lucide.createIcons();
+            
+            // #region agent log - Check Lucide initialization
+            setTimeout(() => {
+                const mobileBtn = document.querySelector('.nav_mobile-menu-button');
+                const lucideIcon = mobileBtn?.querySelector('i[data-lucide="menu"]');
+                const svg = mobileBtn?.querySelector('svg');
+                
+                fetch('http://127.0.0.1:7243/ingest/e2cc27f9-beb0-44e9-af9f-74cd1f8f6001', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        sessionId: 'debug-session',
+                        runId: 'initial',
+                        hypothesisId: 'C',
+                        timestamp: Date.now(),
+                        location: 'index.html:2052',
+                        message: 'Lucide initialization check',
+                        data: {
+                            lucideAvailable: typeof lucide !== 'undefined',
+                            hasLucideIcon: !!lucideIcon,
+                            hasSvg: !!svg,
+                            svgInnerHTML: svg?.innerHTML?.substring(0, 100) || null
+                        }
+                    })
+                }).catch(() => {});
+            }, 500);
+            // #endregion
             
             // Handle refresh-cw icons - card icons rotate on hover, others rotate continuously
             function setupRefreshIcons() {
