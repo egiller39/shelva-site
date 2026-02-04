@@ -72,8 +72,8 @@
             display: none !important;
         }
         
-        /* Show mobile navigation only on mobile */
-        @media (max-width: 768px) {
+        /* Show mobile navigation on mobile and tablet */
+        @media (max-width: 1200px) {
             .nav_mobile-menu-button,
             .nav_mobile-menu-button.w-nav-button {
                 display: block !important;
@@ -81,6 +81,22 @@
                 opacity: 1 !important;
                 position: relative !important;
                 z-index: 10002 !important;
+                cursor: pointer !important;
+                pointer-events: auto !important;
+                margin-left: 0.5rem !important; /* Add spacing between Book a Demo button and menu button */
+            }
+            
+            /* Ensure nav_container uses flexbox with gap for spacing */
+            .nav_container {
+                display: flex !important;
+                align-items: center !important; /* Vertically center all items */
+                gap: 0.5rem !important; /* Space between nav_right and mobile menu button */
+            }
+            
+            /* Ensure mobile menu button is vertically centered */
+            .nav_mobile-menu-button,
+            .nav_mobile-menu-button.w-nav-button {
+                align-self: center !important; /* Override any alignment issues */
             }
             
             /* Make icon and all its children white on accent-primary background */
