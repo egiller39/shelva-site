@@ -50,6 +50,14 @@
         .nav_mobile-menu-button, .w-nav-button { position: relative; z-index: 10001; pointer-events: auto; }
         .w-nav-menu { z-index: 10000; }
         .nav_mobile-menu-button svg, .w-nav-button svg { pointer-events: none; }
+        
+        /* Make icon white on accent-primary background */
+        .nav_mobile-menu-button .icon.on-accent-primary,
+        .nav_mobile-menu-button .icon.on-accent-primary i[data-lucide],
+        .nav_mobile-menu-button .icon.on-accent-primary svg {
+            color: white !important;
+            stroke: white !important;
+        }
     /* Universal Coral Card Styling */
     .card {
         background: linear-gradient(135deg, var(--shelva-coral), #ff9a8b) !important;

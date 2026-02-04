@@ -95,6 +95,14 @@
             }
         }
         
+        /* Make icon white on accent-primary background */
+        .nav_mobile-menu-button .icon.on-accent-primary,
+        .nav_mobile-menu-button .icon.on-accent-primary i[data-lucide],
+        .nav_mobile-menu-button .icon.on-accent-primary svg {
+            color: white !important;
+            stroke: white !important;
+        }
+        
         /* Fix image vertical centering in containers */
         .image-ratio_16x9,
         .image-ratio_3x2,
@@ -267,6 +275,22 @@
                 padding-left: 1rem !important;
                 padding-right: 1rem !important;
             }
+            
+            /* Reorder starter kit hero section on mobile - image first */
+            .starter-kit-hero-grid {
+                display: flex !important;
+                flex-direction: column !important;
+            }
+            
+            .starter-kit-image-section {
+                order: -1 !important;
+                margin-bottom: 2rem !important;
+            }
+            
+            .starter-kit-title-section {
+                order: 1 !important;
+            }
+            
             /* Hero section mobile optimization */
             .heading_h1 {
                 font-size: 2.5rem;
@@ -769,8 +793,8 @@
     
         <section class="section is-accent-primary">
             <div class="container">
-                <div class="grid_2-col tablet-1-col">
-                    <div>
+                <div class="grid_2-col tablet-1-col starter-kit-hero-grid">
+                    <div class="starter-kit-title-section">
                         <h1 class="heading_h1">Order the Shelva Starter Kit</h1>
                         <p class="subheading">Test Shelva in your store with our complete starter kit.</p>
                         <div class="flex_horizontal gap-medium margin-top_large">
@@ -778,7 +802,7 @@
                             <a href="https://calendly.com/egiller-shelva/30min" class="button is-primary w-button" target="_blank">Book a meeting</a>
                         </div>
                     </div>
-                    <div style="background: white; border-radius: 50%; padding: 2rem; display: flex; align-items: center; justify-content: center; width: fit-content; margin: 0 auto; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);">
+                    <div class="starter-kit-image-section" style="background: white; border-radius: 50%; padding: 2rem; display: flex; align-items: center; justify-content: center; width: fit-content; margin: 0 auto; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);">
                         <img src="/images/starter-kit-box.png" alt="Shelva Starter Kit" class="image_cover" style="width: 50% !important; height: auto !important;"/>
                     </div>
                 </div>
