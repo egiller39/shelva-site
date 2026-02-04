@@ -2516,6 +2516,82 @@
         });
     </script>
     <script>
+        // #region agent log - Debug mobile menu button
+        (function() {
+            const logData = {
+                sessionId: 'debug-session',
+                runId: 'initial',
+                timestamp: Date.now(),
+                location: 'pricing.html'
+            };
+            
+            function debugLog(hypothesisId, message, data) {
+                const logEntry = {
+                    ...logData,
+                    hypothesisId,
+                    message,
+                    data,
+                    timestamp: Date.now()
+                };
+                console.log(`[DEBUG ${hypothesisId}] ${message}`, data);
+                fetch('http://127.0.0.1:7243/ingest/e2cc27f9-beb0-44e9-af9f-74cd1f8f6001', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(logEntry)
+                }).catch(() => {});
+            }
+            
+            const viewportWidth = window.innerWidth;
+            const isMobile = viewportWidth <= 768;
+            debugLog('A', 'Viewport check', { viewportWidth, isMobile });
+            
+            const mobileBtn = document.querySelector('.nav_mobile-menu-button');
+            if (mobileBtn) {
+                const computedStyle = window.getComputedStyle(mobileBtn);
+                const icon = mobileBtn.querySelector('.icon');
+                const iconComputed = icon ? window.getComputedStyle(icon) : null;
+                const svg = mobileBtn.querySelector('svg');
+                const svgComputed = svg ? window.getComputedStyle(svg) : null;
+                const svgPath = svg ? svg.querySelector('path') : null;
+                const svgPathComputed = svgPath ? window.getComputedStyle(svgPath) : null;
+                
+                debugLog('A', 'Mobile button element check', {
+                    exists: true,
+                    viewportWidth,
+                    isMobile,
+                    display: computedStyle.display,
+                    visibility: computedStyle.visibility,
+                    opacity: computedStyle.opacity,
+                    zIndex: computedStyle.zIndex,
+                    hasIcon: !!icon,
+                    iconDisplay: iconComputed?.display,
+                    iconOpacity: iconComputed?.opacity,
+                    hasSvg: !!svg,
+                    svgDisplay: svgComputed?.display,
+                    svgOpacity: svgComputed?.opacity,
+                    svgColor: svgComputed?.color,
+                    svgStroke: svgComputed?.stroke,
+                    svgPathStroke: svgPathComputed?.stroke,
+                    svgPathOpacity: svgPathComputed?.opacity,
+                    classes: mobileBtn.className
+                });
+                
+                debugLog('E', 'Webflow interference check', {
+                    hasWNavButton: mobileBtn.classList.contains('w-nav-button')
+                });
+            } else {
+                debugLog('A', 'Mobile button NOT FOUND', {exists: false, viewportWidth, isMobile});
+            }
+            
+            const mediaQuery = window.matchMedia('(max-width: 768px)');
+            debugLog('A', 'Media query check', {
+                viewportWidth,
+                mediaQueryMatches: mediaQuery.matches,
+                isMobile
+            });
+        })();
+        // #endregion
+        
         // Initialize Lucide icons
         if (typeof lucide !== 'undefined') {
             lucide.createIcons();
