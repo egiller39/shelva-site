@@ -167,6 +167,27 @@
             }
         }
         
+        /* Ensure Shelva logo maintains aspect ratio */
+        .image-2,
+        .image-3 {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+            aspect-ratio: auto;
+        }
+        
+        /* Navigation logo specific sizing */
+        .nav_container .image-2 {
+            max-width: 150px;
+            height: auto;
+        }
+        
+        /* Footer logo specific sizing */
+        .image-3 {
+            max-width: 120px;
+            height: auto;
+        }
+        
         /* Desktop Layout - Ensure 4 columns for pricing plans in one row */
         .w-layout-grid.grid_3-col.gap-large {
             display: grid !important;
@@ -1578,7 +1599,7 @@
     <!-- Navigation -->
     <div class="nav is-accent-primary">
         <div data-duration="400" data-animation="default" data-easing2="ease" data-easing="ease" data-collapse="medium" role="banner" data-no-scroll="1" class="nav_container w-nav">
-            <img src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a935e1326d9198359766a5_Shelva%20logo%20-%20ethans%20pick-01-01.png" loading="lazy" width="Auto" height="Auto" alt="" class="image-2"/>
+            <img src="https://cdn.prod.website-files.com/68a8e7ca6773a5df8483416a/68a935e1326d9198359766a5_Shelva%20logo%20-%20ethans%20pick-01-01.png" loading="lazy" alt="Shelva" class="image-2"/>
             <div class="nav_right">
                 <nav role="navigation" class="nav_menu w-nav-menu">
                     <ul role="list" class="nav_menu-list w-list-unstyled">
@@ -2534,170 +2555,30 @@
         });
     </script>
     <script>
-        // #region agent log - Debug mobile menu button
-        (function() {
-            const logData = {
-                sessionId: 'debug-session',
-                runId: 'initial',
-                timestamp: Date.now(),
-                location: 'pricing.html'
-            };
-            
-            function debugLog(hypothesisId, message, data) {
-                const logEntry = {
-                    ...logData,
-                    hypothesisId,
-                    message,
-                    data,
-                    timestamp: Date.now()
-                };
-                console.log(`[DEBUG ${hypothesisId}] ${message}`, data);
-                fetch('http://127.0.0.1:7243/ingest/e2cc27f9-beb0-44e9-af9f-74cd1f8f6001', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify(logEntry)
-                }).catch(() => {});
-            }
-            
-            const viewportWidth = window.innerWidth;
-            const isMobile = viewportWidth <= 768;
-            debugLog('A', 'Viewport check', { viewportWidth, isMobile });
-            
-            const mobileBtn = document.querySelector('.nav_mobile-menu-button');
-            if (mobileBtn) {
-                const computedStyle = window.getComputedStyle(mobileBtn);
-                const icon = mobileBtn.querySelector('.icon');
-                const iconComputed = icon ? window.getComputedStyle(icon) : null;
-                const svg = mobileBtn.querySelector('svg');
-                const svgComputed = svg ? window.getComputedStyle(svg) : null;
-                const svgPath = svg ? svg.querySelector('path') : null;
-                const svgPathComputed = svgPath ? window.getComputedStyle(svgPath) : null;
-                
-                // Log detailed SVG information separately for better visibility
-                console.log('[DEBUG A] Mobile button FULL details:', {
-                    exists: true,
-                    viewportWidth,
-                    isMobile,
-                    buttonDisplay: computedStyle.display,
-                    buttonVisibility: computedStyle.visibility,
-                    buttonOpacity: computedStyle.opacity,
-                    buttonZIndex: computedStyle.zIndex,
-                    buttonWidth: computedStyle.width,
-                    buttonHeight: computedStyle.height,
-                    hasIcon: !!icon,
-                    iconDisplay: iconComputed?.display,
-                    iconVisibility: iconComputed?.visibility,
-                    iconOpacity: iconComputed?.opacity,
-                    iconColor: iconComputed?.color,
-                    iconWidth: iconComputed?.width,
-                    iconHeight: iconComputed?.height,
-                    hasSvg: !!svg,
-                    svgDisplay: svgComputed?.display,
-                    svgVisibility: svgComputed?.visibility,
-                    svgOpacity: svgComputed?.opacity,
-                    svgColor: svgComputed?.color,
-                    svgStroke: svgComputed?.stroke,
-                    svgFill: svgComputed?.fill,
-                    svgWidth: svgComputed?.width,
-                    svgHeight: svgComputed?.height,
-                    svgPathExists: !!svgPath,
-                    svgPathStroke: svgPathComputed?.stroke,
-                    svgPathFill: svgPathComputed?.fill,
-                    svgPathOpacity: svgPathComputed?.opacity,
-                    svgPathStrokeWidth: svgPathComputed?.strokeWidth,
-                    svgInnerHTML: svg?.innerHTML?.substring(0, 150),
-                    buttonClasses: mobileBtn.className,
-                    iconClasses: icon?.className,
-                    lucideAvailable: typeof lucide !== 'undefined'
-                });
-                
-                debugLog('A', 'Mobile button element check', {
-                    exists: true,
-                    viewportWidth,
-                    isMobile,
-                    display: computedStyle.display,
-                    visibility: computedStyle.visibility,
-                    opacity: computedStyle.opacity,
-                    zIndex: computedStyle.zIndex,
-                    hasIcon: !!icon,
-                    iconDisplay: iconComputed?.display,
-                    iconOpacity: iconComputed?.opacity,
-                    hasSvg: !!svg,
-                    svgDisplay: svgComputed?.display,
-                    svgOpacity: svgComputed?.opacity,
-                    svgColor: svgComputed?.color,
-                    svgStroke: svgComputed?.stroke,
-                    svgPathStroke: svgPathComputed?.stroke,
-                    svgPathOpacity: svgPathComputed?.opacity,
-                    classes: mobileBtn.className
-                });
-                
-                debugLog('E', 'Webflow interference check', {
-                    hasWNavButton: mobileBtn.classList.contains('w-nav-button')
-                });
-            } else {
-                debugLog('A', 'Mobile button NOT FOUND', {exists: false, viewportWidth, isMobile});
-            }
-            
-            const mediaQuery = window.matchMedia('(max-width: 768px)');
-            debugLog('A', 'Media query check', {
-                viewportWidth,
-                mediaQueryMatches: mediaQuery.matches,
-                isMobile
-            });
-        })();
-        // #endregion
         
         // Initialize Lucide icons or create fallback SVG
         function ensureMobileMenuIcon() {
-            console.log('[DEBUG C] ensureMobileMenuIcon called');
-            
             const mobileBtn = document.querySelector('.nav_mobile-menu-button');
-            console.log('[DEBUG C] Mobile button found:', !!mobileBtn);
-            if (!mobileBtn) {
-                console.log('[DEBUG C] No mobile button found, returning');
-                return;
-            }
+            if (!mobileBtn) return;
             
             const icon = mobileBtn.querySelector('.icon');
-            console.log('[DEBUG C] Icon found:', !!icon);
-            if (!icon) {
-                console.log('[DEBUG C] No icon found, returning');
-                return;
-            }
+            if (!icon) return;
             
             let svg = icon.querySelector('svg');
             const lucideIcon = icon.querySelector('i[data-lucide="menu"]');
-            console.log('[DEBUG C] Initial state:', {
-                hasSvg: !!svg,
-                hasLucideIcon: !!lucideIcon,
-                lucideAvailable: typeof lucide !== 'undefined',
-                iconHTML: icon.innerHTML.substring(0, 200)
-            });
             
             // If Lucide is available, use it
             if (typeof lucide !== 'undefined') {
-                console.log('[DEBUG C] Lucide available, calling createIcons');
                 lucide.createIcons();
-            } else {
-                console.log('[DEBUG C] Lucide NOT available (blocked by CSP)');
             }
             
             // Check/create SVG immediately, then also check after a short delay
             function checkAndCreateSVG() {
-                console.log('[DEBUG C] Checking for SVG');
                 svg = icon.querySelector('svg');
                 const lucideIconAfter = icon.querySelector('i[data-lucide="menu"]');
                 
-                console.log('[DEBUG C] Current state:', {
-                    hasSvg: !!svg,
-                    hasLucideIcon: !!lucideIconAfter,
-                    iconHTML: icon.innerHTML.substring(0, 200)
-                });
-                
                 // If no SVG exists, create it manually (fallback for CSP-blocked Lucide)
                 if (!svg && lucideIconAfter) {
-                    console.log('[DEBUG C] Creating fallback SVG - Lucide blocked');
                     svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
                     svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
                     svg.setAttribute('width', '24');
@@ -2715,75 +2596,30 @@
                     svg.style.opacity = '1';
                     
                     // Create hamburger menu paths
-                    const path1 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-                    path1.setAttribute('d', 'M4 5h16');
-                    path1.setAttribute('stroke', 'white');
-                    path1.setAttribute('fill', 'none');
-                    path1.setAttribute('stroke-width', '1.5');
-                    path1.style.stroke = 'white';
-                    path1.style.fill = 'none';
-                    path1.style.opacity = '1';
-                    
-                    const path2 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-                    path2.setAttribute('d', 'M4 12h16');
-                    path2.setAttribute('stroke', 'white');
-                    path2.setAttribute('fill', 'none');
-                    path2.setAttribute('stroke-width', '1.5');
-                    path2.style.stroke = 'white';
-                    path2.style.fill = 'none';
-                    path2.style.opacity = '1';
-                    
-                    const path3 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-                    path3.setAttribute('d', 'M4 19h16');
-                    path3.setAttribute('stroke', 'white');
-                    path3.setAttribute('fill', 'none');
-                    path3.setAttribute('stroke-width', '1.5');
-                    path3.style.stroke = 'white';
-                    path3.style.fill = 'none';
-                    path3.style.opacity = '1';
-                    
-                    svg.appendChild(path1);
-                    svg.appendChild(path2);
-                    svg.appendChild(path3);
-                    
-                    console.log('[DEBUG C] SVG created, replacing lucideIcon');
-                    console.log('[DEBUG C] lucideIcon parentNode:', !!lucideIconAfter.parentNode);
-                    console.log('[DEBUG C] lucideIcon parentNode type:', lucideIconAfter.parentNode?.tagName);
+                    ['M4 5h16', 'M4 12h16', 'M4 19h16'].forEach(d => {
+                        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                        path.setAttribute('d', d);
+                        path.setAttribute('stroke', 'white');
+                        path.setAttribute('fill', 'none');
+                        path.setAttribute('stroke-width', '1.5');
+                        path.style.stroke = 'white';
+                        path.style.fill = 'none';
+                        path.style.opacity = '1';
+                        svg.appendChild(path);
+                    });
                     
                     // Replace the i element with SVG
-                    try {
-                        if (lucideIconAfter.parentNode) {
-                            lucideIconAfter.parentNode.replaceChild(svg, lucideIconAfter);
-                            console.log('[DEBUG C] Replaced lucideIcon with SVG');
-                        } else {
-                            icon.appendChild(svg);
-                            console.log('[DEBUG C] Appended SVG to icon');
-                        }
-                    } catch (e) {
-                        console.error('[DEBUG C] Error replacing/appending SVG:', e);
+                    if (lucideIconAfter.parentNode) {
+                        lucideIconAfter.parentNode.replaceChild(svg, lucideIconAfter);
+                    } else {
+                        icon.appendChild(svg);
                     }
-                    
-                    console.log('[DEBUG C] Fallback SVG created, icon HTML now:', icon.innerHTML.substring(0, 200));
-                } else {
-                    console.log('[DEBUG C] Not creating fallback:', {
-                        hasSvg: !!svg,
-                        hasLucideIcon: !!lucideIconAfter,
-                        reason: svg ? 'SVG already exists' : (lucideIconAfter ? 'No lucideIcon' : 'Unknown')
-                    });
                 }
                 
                 // Force SVG visibility
                 svg = icon.querySelector('svg');
                 if (svg && icon) {
                     const paths = svg.querySelectorAll('path, line, polyline');
-                    console.log('[DEBUG C] Forcing SVG visibility', {
-                        pathsCount: paths.length,
-                        beforeSvgColor: window.getComputedStyle(svg).color,
-                        beforeSvgStroke: window.getComputedStyle(svg).stroke,
-                        svgDisplay: window.getComputedStyle(svg).display,
-                        svgVisibility: window.getComputedStyle(svg).visibility
-                    });
-                    
                     paths.forEach(path => {
                         path.setAttribute('stroke', 'white');
                         path.setAttribute('fill', 'none');
@@ -2805,24 +2641,6 @@
                     icon.style.opacity = '1';
                     icon.style.visibility = 'visible';
                     icon.style.display = 'flex';
-                    
-                    console.log('[DEBUG C] After forcing SVG', {
-                        svgColor: window.getComputedStyle(svg).color,
-                        svgStroke: window.getComputedStyle(svg).stroke,
-                        svgDisplay: window.getComputedStyle(svg).display,
-                        svgVisibility: window.getComputedStyle(svg).visibility,
-                        iconOpacity: window.getComputedStyle(icon).opacity,
-                        iconDisplay: window.getComputedStyle(icon).display,
-                        iconVisibility: window.getComputedStyle(icon).visibility,
-                        firstPathStroke: paths[0] ? window.getComputedStyle(paths[0]).stroke : null
-                    });
-                } else {
-                    console.log('[DEBUG C] SVG or icon missing after timeout', {
-                        hasSvg: !!svg,
-                        hasIcon: !!icon,
-                        lucideAvailable: typeof lucide !== 'undefined',
-                        iconHTML: icon ? icon.innerHTML.substring(0, 200) : 'no icon'
-                    });
                 }
             }
             
