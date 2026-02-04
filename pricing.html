@@ -2555,6 +2555,44 @@
                 const svgPath = svg ? svg.querySelector('path') : null;
                 const svgPathComputed = svgPath ? window.getComputedStyle(svgPath) : null;
                 
+                // Log detailed SVG information separately for better visibility
+                console.log('[DEBUG A] Mobile button FULL details:', {
+                    exists: true,
+                    viewportWidth,
+                    isMobile,
+                    buttonDisplay: computedStyle.display,
+                    buttonVisibility: computedStyle.visibility,
+                    buttonOpacity: computedStyle.opacity,
+                    buttonZIndex: computedStyle.zIndex,
+                    buttonWidth: computedStyle.width,
+                    buttonHeight: computedStyle.height,
+                    hasIcon: !!icon,
+                    iconDisplay: iconComputed?.display,
+                    iconVisibility: iconComputed?.visibility,
+                    iconOpacity: iconComputed?.opacity,
+                    iconColor: iconComputed?.color,
+                    iconWidth: iconComputed?.width,
+                    iconHeight: iconComputed?.height,
+                    hasSvg: !!svg,
+                    svgDisplay: svgComputed?.display,
+                    svgVisibility: svgComputed?.visibility,
+                    svgOpacity: svgComputed?.opacity,
+                    svgColor: svgComputed?.color,
+                    svgStroke: svgComputed?.stroke,
+                    svgFill: svgComputed?.fill,
+                    svgWidth: svgComputed?.width,
+                    svgHeight: svgComputed?.height,
+                    svgPathExists: !!svgPath,
+                    svgPathStroke: svgPathComputed?.stroke,
+                    svgPathFill: svgPathComputed?.fill,
+                    svgPathOpacity: svgPathComputed?.opacity,
+                    svgPathStrokeWidth: svgPathComputed?.strokeWidth,
+                    svgInnerHTML: svg?.innerHTML?.substring(0, 150),
+                    buttonClasses: mobileBtn.className,
+                    iconClasses: icon?.className,
+                    lucideAvailable: typeof lucide !== 'undefined'
+                });
+                
                 debugLog('A', 'Mobile button element check', {
                     exists: true,
                     viewportWidth,
@@ -2592,18 +2630,82 @@
         })();
         // #endregion
         
-        // Initialize Lucide icons
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
+        // Initialize Lucide icons or create fallback SVG
+        function ensureMobileMenuIcon() {
+            const mobileBtn = document.querySelector('.nav_mobile-menu-button');
+            if (!mobileBtn) return;
             
-            // Force SVG visibility for mobile menu button
+            const icon = mobileBtn.querySelector('.icon');
+            if (!icon) return;
+            
+            let svg = icon.querySelector('svg');
+            const lucideIcon = icon.querySelector('i[data-lucide="menu"]');
+            
+            // If Lucide is available, use it
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+            
+            // Wait a bit then check/create SVG
             setTimeout(() => {
-                const mobileBtn = document.querySelector('.nav_mobile-menu-button');
-                const svg = mobileBtn?.querySelector('svg');
-                const icon = mobileBtn?.querySelector('.icon');
+                svg = icon.querySelector('svg');
                 
+                // If no SVG exists, create it manually (fallback for CSP-blocked Lucide)
+                if (!svg && lucideIcon) {
+                    console.log('[DEBUG C] Creating fallback SVG - Lucide blocked');
+                    svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                    svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+                    svg.setAttribute('width', '24');
+                    svg.setAttribute('height', '24');
+                    svg.setAttribute('viewBox', '0 0 24 24');
+                    svg.setAttribute('fill', 'none');
+                    svg.setAttribute('stroke', 'white');
+                    svg.setAttribute('stroke-width', '1.5');
+                    svg.setAttribute('stroke-linecap', 'round');
+                    svg.setAttribute('stroke-linejoin', 'round');
+                    svg.style.color = 'white';
+                    svg.style.stroke = 'white';
+                    
+                    // Create hamburger menu paths
+                    const path1 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                    path1.setAttribute('d', 'M4 5h16');
+                    path1.setAttribute('stroke', 'white');
+                    path1.setAttribute('stroke-width', '1.5');
+                    
+                    const path2 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                    path2.setAttribute('d', 'M4 12h16');
+                    path2.setAttribute('stroke', 'white');
+                    path2.setAttribute('stroke-width', '1.5');
+                    
+                    const path3 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                    path3.setAttribute('d', 'M4 19h16');
+                    path3.setAttribute('stroke', 'white');
+                    path3.setAttribute('stroke-width', '1.5');
+                    
+                    svg.appendChild(path1);
+                    svg.appendChild(path2);
+                    svg.appendChild(path3);
+                    
+                    // Replace the i element with SVG
+                    if (lucideIcon.parentNode) {
+                        lucideIcon.parentNode.replaceChild(svg, lucideIcon);
+                    } else {
+                        icon.appendChild(svg);
+                    }
+                    
+                    console.log('[DEBUG C] Fallback SVG created');
+                }
+                
+                // Force SVG visibility
+                svg = icon.querySelector('svg');
                 if (svg && icon) {
                     const paths = svg.querySelectorAll('path, line, polyline');
+                    console.log('[DEBUG C] Forcing SVG visibility', {
+                        pathsCount: paths.length,
+                        beforeSvgColor: window.getComputedStyle(svg).color,
+                        beforeSvgStroke: window.getComputedStyle(svg).stroke
+                    });
+                    
                     paths.forEach(path => {
                         path.setAttribute('stroke', 'white');
                         path.setAttribute('fill', 'none');
@@ -2614,13 +2716,31 @@
                         path.style.opacity = '1';
                     });
                     
+                    svg.setAttribute('stroke', 'white');
+                    svg.setAttribute('fill', 'none');
                     svg.style.color = 'white';
                     svg.style.stroke = 'white';
+                    svg.style.fill = 'none';
                     icon.style.opacity = '1';
                     icon.style.visibility = 'visible';
+                    
+                    console.log('[DEBUG C] After forcing SVG', {
+                        svgColor: window.getComputedStyle(svg).color,
+                        svgStroke: window.getComputedStyle(svg).stroke,
+                        iconOpacity: window.getComputedStyle(icon).opacity,
+                        firstPathStroke: paths[0] ? window.getComputedStyle(paths[0]).stroke : null
+                    });
+                } else {
+                    console.log('[DEBUG C] SVG or icon missing', {
+                        hasSvg: !!svg,
+                        hasIcon: !!icon,
+                        lucideAvailable: typeof lucide !== 'undefined'
+                    });
                 }
-            }, 500);
+            }, 1000);
         }
+        
+        ensureMobileMenuIcon();
 
         // Enhanced DEBUGGING: Check all possible shadow sources
         function debugShadowsEnhanced() {

@@ -730,30 +730,75 @@
         if (typeof lucide !== 'undefined') {
             lucide.createIcons();
             
-            // Force SVG visibility for mobile menu button
-            setTimeout(() => {
+            // Initialize Lucide icons or create fallback SVG
+            function ensureMobileMenuIcon() {
                 const mobileBtn = document.querySelector('.nav_mobile-menu-button');
-                const svg = mobileBtn?.querySelector('svg');
-                const icon = mobileBtn?.querySelector('.icon');
+                if (!mobileBtn) return;
                 
-                if (svg && icon) {
-                    const paths = svg.querySelectorAll('path, line, polyline');
-                    paths.forEach(path => {
-                        path.setAttribute('stroke', 'white');
-                        path.setAttribute('fill', 'none');
-                        path.setAttribute('stroke-width', '1.5');
-                        path.style.stroke = 'white';
-                        path.style.fill = 'none';
-                        path.style.strokeWidth = '1.5';
-                        path.style.opacity = '1';
-                    });
-                    
-                    svg.style.color = 'white';
-                    svg.style.stroke = 'white';
-                    icon.style.opacity = '1';
-                    icon.style.visibility = 'visible';
+                const icon = mobileBtn.querySelector('.icon');
+                if (!icon) return;
+                
+                let svg = icon.querySelector('svg');
+                const lucideIcon = icon.querySelector('i[data-lucide="menu"]');
+                
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
                 }
-            }, 500);
+                
+                setTimeout(() => {
+                    svg = icon.querySelector('svg');
+                    
+                    if (!svg && lucideIcon) {
+                        svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                        svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+                        svg.setAttribute('width', '24');
+                        svg.setAttribute('height', '24');
+                        svg.setAttribute('viewBox', '0 0 24 24');
+                        svg.setAttribute('fill', 'none');
+                        svg.setAttribute('stroke', 'white');
+                        svg.setAttribute('stroke-width', '1.5');
+                        svg.style.color = 'white';
+                        svg.style.stroke = 'white';
+                        
+                        ['M4 5h16', 'M4 12h16', 'M4 19h16'].forEach(d => {
+                            const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                            path.setAttribute('d', d);
+                            path.setAttribute('stroke', 'white');
+                            path.setAttribute('stroke-width', '1.5');
+                            svg.appendChild(path);
+                        });
+                        
+                        if (lucideIcon.parentNode) {
+                            lucideIcon.parentNode.replaceChild(svg, lucideIcon);
+                        } else {
+                            icon.appendChild(svg);
+                        }
+                    }
+                    
+                    svg = icon.querySelector('svg');
+                    if (svg && icon) {
+                        const paths = svg.querySelectorAll('path, line, polyline');
+                        paths.forEach(path => {
+                            path.setAttribute('stroke', 'white');
+                            path.setAttribute('fill', 'none');
+                            path.setAttribute('stroke-width', '1.5');
+                            path.style.stroke = 'white';
+                            path.style.fill = 'none';
+                            path.style.strokeWidth = '1.5';
+                            path.style.opacity = '1';
+                        });
+                        
+                        svg.setAttribute('stroke', 'white');
+                        svg.setAttribute('fill', 'none');
+                        svg.style.color = 'white';
+                        svg.style.stroke = 'white';
+                        icon.style.opacity = '1';
+                        icon.style.visibility = 'visible';
+                    }
+                }, 1000);
+            }
+            
+            ensureMobileMenuIcon();
         }
     </script>
 </body>
