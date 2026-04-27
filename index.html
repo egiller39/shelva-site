@@ -743,6 +743,187 @@
       
     }
     
+    /* Merchant Reviews Carousel */
+    .merchant-reviews-section {
+        background: var(--shelva-coral) !important;
+        overflow: hidden;
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    .merchant-reviews-section,
+    .merchant-reviews-section .eyebrow,
+    .merchant-reviews-section .heading_h2,
+    .merchant-reviews-section .review-logo-fallback,
+    .merchant-reviews-section .review-quote {
+        color: white !important;
+    }
+
+    .merchant-reviews-section .header {
+        margin-bottom: 0 !important;
+    }
+
+    .merchant-reviews-section .heading_h2 {
+        margin-bottom: 0.25rem !important;
+    }
+
+    .review-stars {
+        color: white;
+        font-family: 'Figtree', sans-serif;
+        font-size: 1.25rem;
+        line-height: 1;
+        letter-spacing: 0.08em;
+        margin: -0.25rem 0 -0.15rem;
+    }
+
+    .reviews-carousel {
+        margin-top: 1.25rem;
+    }
+
+    .reviews-carousel_viewport {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .reviews-carousel_viewport::-webkit-scrollbar {
+        display: none;
+    }
+
+    .reviews-carousel_track {
+        display: flex;
+        gap: 1rem;
+        align-items: stretch;
+        justify-content: center;
+        padding: 0.25rem 0 0.75rem;
+    }
+
+    .review-card {
+        width: 24rem;
+        min-width: 24rem;
+        max-width: 24rem;
+        height: 9.5rem;
+        flex: 0 0 24rem;
+        display: flex;
+        scroll-snap-align: start;
+    }
+
+    .review-card .card_body {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        padding-top: 0.75rem;
+        padding-bottom: 1.4rem;
+    }
+
+    .review-logo-frame {
+        min-height: 2.9rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-left: -0.5rem;
+    }
+
+    .review-logo {
+        max-width: 13.5rem;
+        max-height: 2.5rem;
+        object-fit: contain;
+    }
+
+    .review-logo-fallback {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 2.5rem;
+        color: white;
+        font-family: 'Figtree', sans-serif;
+        font-size: 0.8rem;
+        font-weight: 700;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    .review-quote {
+        color: white;
+        font-family: 'Figtree', sans-serif;
+        font-size: 0.95rem;
+        line-height: 1.25;
+        min-height: 2.4rem;
+        margin-bottom: 0;
+    }
+
+    .reviews-carousel_controls {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        margin-top: 0.75rem;
+    }
+
+    .reviews-carousel_button {
+        width: 2.5rem;
+        height: 2.5rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(6, 66, 115, 0.18);
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.95);
+        color: var(--shelva-coral);
+        cursor: pointer;
+        transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .reviews-carousel_button:hover,
+    .reviews-carousel_button:focus {
+        border-color: white;
+        color: var(--shelva-navy);
+        transform: translateY(-1px);
+    }
+
+    .reviews-carousel_dots {
+        display: none;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .reviews-carousel_dot {
+        width: 0.6rem;
+        height: 0.6rem;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.45);
+        cursor: pointer;
+        padding: 0;
+    }
+
+    .reviews-carousel_dot.is-active {
+        background: white;
+    }
+
+    @media (max-width: 767px) {
+        .review-card {
+            width: 100%;
+            min-width: 100%;
+            max-width: 100%;
+            height: 10rem;
+            flex-basis: 100%;
+        }
+
+        .reviews-carousel_track {
+            justify-content: flex-start;
+        }
+
+        .review-card .card_body {
+            height: 100%;
+        }
+    }
+
     /* FAQ Accordion Styles */
     .faq-item {
         border-bottom: 1px solid #e0e0e0;
@@ -1624,6 +1805,9 @@
                                     <li style="font-size: 0.95rem; line-height: 1.4; color: #555; margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative; font-family: 'Figtree', sans-serif;">
                                         <span style="position: absolute; left: 0; color: #4CAF50; font-weight: bold; font-family: 'Figtree', sans-serif;">✓</span><span style="font-family: 'Figtree', sans-serif;">Live customer support</span>
                                     </li>
+                                    <li style="font-size: 0.95rem; line-height: 1.4; color: #555; margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative; font-family: 'Figtree', sans-serif;">
+                                        <span style="position: absolute; left: 0; color: white; font-weight: bold; font-family: 'Figtree', sans-serif;">&bull;</span><a href="/pricing#shelva-care" style="color: white; text-decoration: none; font-weight: 400; font-family: 'Figtree', sans-serif;">Optional Shelva Care&nbsp;<i data-lucide="link" style="width: 0.85rem; height: 0.85rem; display: inline-block; vertical-align: -0.12em;"></i></a>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="margin-top_large" style="margin-top: 2rem;">
@@ -1655,6 +1839,9 @@
                                     </li>
                                     <li style="font-size: 0.95rem; line-height: 1.4; color: #555; margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative; font-family: 'Figtree', sans-serif;">
                                         <span style="position: absolute; left: 0; color: #4CAF50; font-weight: bold; font-family: 'Figtree', sans-serif;">✓</span><span style="font-family: 'Figtree', sans-serif;">Live customer support</span>
+                                    </li>
+                                    <li style="font-size: 0.95rem; line-height: 1.4; color: #555; margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative; font-family: 'Figtree', sans-serif;">
+                                        <span style="position: absolute; left: 0; color: white; font-weight: bold; font-family: 'Figtree', sans-serif;">&bull;</span><a href="/pricing#shelva-care" style="color: white; text-decoration: none; font-weight: 400; font-family: 'Figtree', sans-serif;">Optional Shelva Care&nbsp;<i data-lucide="link" style="width: 0.85rem; height: 0.85rem; display: inline-block; vertical-align: -0.12em;"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -1690,6 +1877,9 @@
                                     </li>
                                     <li style="font-size: 0.95rem; line-height: 1.4; color: #555; margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative; font-family: 'Figtree', sans-serif;">
                                         <span style="position: absolute; left: 0; color: #4CAF50; font-weight: bold; font-family: 'Figtree', sans-serif;">✓</span><span style="font-family: 'Figtree', sans-serif;">Live customer support</span>
+                                    </li>
+                                    <li style="font-size: 0.95rem; line-height: 1.4; color: #555; margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative; font-family: 'Figtree', sans-serif;">
+                                        <span style="position: absolute; left: 0; color: white; font-weight: bold; font-family: 'Figtree', sans-serif;">&bull;</span><a href="/pricing#shelva-care" style="color: white; text-decoration: none; font-weight: 400; font-family: 'Figtree', sans-serif;">Optional Shelva Care&nbsp;<i data-lucide="link" style="width: 0.85rem; height: 0.85rem; display: inline-block; vertical-align: -0.12em;"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -1728,6 +1918,9 @@
                                     </li>
                                     <li style="font-size: 0.95rem; line-height: 1.4; color: #555; margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative; font-family: 'Figtree', sans-serif;">
                                         <span style="position: absolute; left: 0; color: #4CAF50; font-weight: bold; font-family: 'Figtree', sans-serif;">✓</span><span style="font-family: 'Figtree', sans-serif;">White-label branding</span>
+                                    </li>
+                                    <li style="font-size: 0.95rem; line-height: 1.4; color: #555; margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative; font-family: 'Figtree', sans-serif;">
+                                        <span style="position: absolute; left: 0; color: white; font-weight: bold; font-family: 'Figtree', sans-serif;">&bull;</span><a href="/pricing#shelva-care" style="color: white; text-decoration: none; font-weight: 400; font-family: 'Figtree', sans-serif;">Optional Shelva Care Plus&nbsp;<i data-lucide="link" style="width: 0.85rem; height: 0.85rem; display: inline-block; vertical-align: -0.12em;"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -1768,6 +1961,62 @@
                             <p class="margin-bottom_none" style="font-family: 'Figtree', sans-serif;">Live support</p>
                         </li>
                     </ul>
+                </div>
+            </div>
+        </section>
+        <section class="section is-secondary merchant-reviews-section">
+            <div class="container">
+                <div class="header is-align-center">
+                    <h2 class="heading_h2">What merchants are saying</h2>
+                </div>
+                <div class="reviews-carousel" data-reviews-carousel>
+                    <div class="reviews-carousel_viewport" tabindex="0" aria-label="Merchant reviews carousel">
+                        <div class="reviews-carousel_track">
+                            <article class="card review-card">
+                                <div class="card_body">
+                                    <div class="review-logo-frame">
+                                        <img class="review-logo" src="/images/customer-logos/xpart-supply.png" alt="XPart Supply Ltd. logo" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
+                                        <span class="review-logo-fallback" hidden>XPart Supply Ltd.</span>
+                                    </div>
+                                    <div class="review-stars" aria-label="5 out of 5 rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                    <p class="review-quote">"Very good product and service."</p>
+                                </div>
+                            </article>
+                            <article class="card review-card">
+                                <div class="card_body">
+                                    <div class="review-logo-frame">
+                                        <img class="review-logo" src="/images/customer-logos/fitness-new-zealand.png" alt="Fitness New Zealand logo" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
+                                        <span class="review-logo-fallback" hidden>Fitness New Zealand</span>
+                                    </div>
+                                    <div class="review-stars" aria-label="5 out of 5 rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                    <p class="review-quote">"No more mucking round with different pricing in-store and online."</p>
+                                </div>
+                            </article>
+                            <article class="card review-card">
+                                <div class="card_body">
+                                    <div class="review-logo-frame">
+                                        <img class="review-logo" src="/images/customer-logos/black-rose-hobbies.png" alt="Black Rose Hobbies logo" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
+                                        <span class="review-logo-fallback" hidden>Black Rose Hobbies</span>
+                                    </div>
+                                    <div class="review-stars" aria-label="5 out of 5 rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                    <p class="review-quote">"Solved a massive gap in the market with digital price tags."</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="reviews-carousel_controls" aria-label="Merchant review controls">
+                        <button class="reviews-carousel_button" type="button" data-review-prev aria-label="Previous review">
+                            <i data-lucide="chevron-left" style="width: 1.25rem; height: 1.25rem;"></i>
+                        </button>
+                        <div class="reviews-carousel_dots" role="tablist" aria-label="Select merchant review">
+                            <button class="reviews-carousel_dot is-active" type="button" data-review-dot="0" aria-label="Show XPart Supply Ltd. review" aria-selected="true"></button>
+                            <button class="reviews-carousel_dot" type="button" data-review-dot="1" aria-label="Show Fitness New Zealand review" aria-selected="false"></button>
+                            <button class="reviews-carousel_dot" type="button" data-review-dot="2" aria-label="Show Black Rose Hobbies review" aria-selected="false"></button>
+                        </div>
+                        <button class="reviews-carousel_button" type="button" data-review-next aria-label="Next review">
+                            <i data-lucide="chevron-right" style="width: 1.25rem; height: 1.25rem;"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2113,6 +2362,105 @@
                     }
                 });
             });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.querySelector('[data-reviews-carousel]');
+            if (!carousel) return;
+
+            const viewport = carousel.querySelector('.reviews-carousel_viewport');
+            const cards = Array.from(carousel.querySelectorAll('.review-card'));
+            const dots = Array.from(carousel.querySelectorAll('[data-review-dot]'));
+            const prevButton = carousel.querySelector('[data-review-prev]');
+            const nextButton = carousel.querySelector('[data-review-next]');
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            let activeIndex = 0;
+            let rotationTimer;
+
+            function setActiveDot(index) {
+                dots.forEach((dot, dotIndex) => {
+                    const isActive = dotIndex === index;
+                    dot.classList.toggle('is-active', isActive);
+                    dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+                });
+            }
+
+            function goToReview(index) {
+                if (!viewport || !cards.length) return;
+                activeIndex = (index + cards.length) % cards.length;
+                viewport.scrollTo({
+                    left: cards[activeIndex].offsetLeft - cards[0].offsetLeft,
+                    behavior: reduceMotion ? 'auto' : 'smooth'
+                });
+                setActiveDot(activeIndex);
+            }
+
+            function updateActiveFromScroll() {
+                if (!viewport || !cards.length) return;
+                const scrollLeft = viewport.scrollLeft;
+                let closestIndex = 0;
+                let closestDistance = Number.POSITIVE_INFINITY;
+
+                cards.forEach((card, index) => {
+                    const distance = Math.abs((card.offsetLeft - cards[0].offsetLeft) - scrollLeft);
+                    if (distance < closestDistance) {
+                        closestDistance = distance;
+                        closestIndex = index;
+                    }
+                });
+
+                activeIndex = closestIndex;
+                setActiveDot(activeIndex);
+            }
+
+            function startRotation() {
+                if (reduceMotion || cards.length < 2) return;
+                stopRotation();
+                rotationTimer = window.setInterval(() => {
+                    goToReview(activeIndex + 1);
+                }, 6000);
+            }
+
+            function stopRotation() {
+                if (rotationTimer) {
+                    window.clearInterval(rotationTimer);
+                    rotationTimer = undefined;
+                }
+            }
+
+            prevButton?.addEventListener('click', function() {
+                goToReview(activeIndex - 1);
+                startRotation();
+            });
+
+            nextButton?.addEventListener('click', function() {
+                goToReview(activeIndex + 1);
+                startRotation();
+            });
+
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    goToReview(Number(this.dataset.reviewDot));
+                    startRotation();
+                });
+            });
+
+            viewport?.addEventListener('scroll', function() {
+                window.requestAnimationFrame(updateActiveFromScroll);
+            });
+
+            carousel.addEventListener('mouseenter', stopRotation);
+            carousel.addEventListener('mouseleave', startRotation);
+            carousel.addEventListener('focusin', stopRotation);
+            carousel.addEventListener('focusout', startRotation);
+
+            goToReview(0);
+            startRotation();
+
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
         });
     </script>
     <script>
