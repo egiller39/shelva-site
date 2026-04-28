@@ -411,7 +411,7 @@ PAGES = {
             <div class="container">
                 <div class="header is-align-center">
                     <h2 class="heading_h2">Hardware Pricing</h2>
-                    <p class="paragraph_large">Refundable hardware deposits with 50% return value when you upgrade or cancel (within 12 months).</p>
+                    <p class="paragraph_large">Refundable hardware deposits with 50% return value when you upgrade or cancel (within 6 months).</p>
                 </div>
                 <div class="w-layout-grid grid_3-col gap-medium">
                     <div class="card on-secondary">
@@ -466,7 +466,7 @@ PAGES = {
                     <div class="divider">
                         <div class="heading_h4">What happens to my hardware if I cancel?</div>
                         <div class="rich-text paragraph_large w-richtext">
-                            <p>You can return your hardware within 12 months for a 50% refund of the original purchase price, or keep it for future use if you decide to reactivate your account.</p>
+                            <p>You can return your hardware within 6 months for a 50% refund of the original purchase price, or keep it for future use if you decide to reactivate your account.</p>
                         </div>
                     </div>
                     <div class="divider">
