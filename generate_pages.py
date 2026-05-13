@@ -308,7 +308,7 @@ PAGES = {
             <div class="container is-small">
                 <div class="header is-align-center">
                     <h1 class="heading_h1">Simple, Transparent Pricing</h1>
-                    <p class="subheading">Choose the plan that fits your store. No hidden fees, no long-term commitments.</p>
+                    <p class="subheading">Choose the plan that fits your store. No hidden fees, no long-term commitments. Duties, tariffs, customs fees, taxes, and other import charges are not covered by Shelva or included in shipping costs unless otherwise specified.</p>
                 </div>
             </div>
         </header>
@@ -473,6 +473,12 @@ PAGES = {
                         <div class="heading_h4">Is there a setup fee?</div>
                         <div class="rich-text paragraph_large w-richtext">
                             <p>No setup fees. We provide free setup assistance and migration support to help you get started quickly.</p>
+                        </div>
+                    </div>
+                    <div class="divider">
+                        <div class="heading_h4">Are duties and tariff fees included in shipping?</div>
+                        <div class="rich-text paragraph_large w-richtext">
+                            <p>No. Duties, tariffs, customs fees, taxes, and other import charges are not covered by Shelva or included in shipping costs unless otherwise specified.</p>
                         </div>
                     </div>
                     <div class="divider">
