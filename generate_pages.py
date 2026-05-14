@@ -308,7 +308,7 @@ PAGES = {
             <div class="container is-small">
                 <div class="header is-align-center">
                     <h1 class="heading_h1">Simple, Transparent Pricing</h1>
-                    <p class="subheading">Choose the plan that fits your store. No hidden fees, no long-term commitments. Duties, tariffs, customs fees, taxes, and other import charges are not covered by Shelva or included in shipping costs unless otherwise specified.</p>
+                    <p class="subheading">Choose the plan that fits your store. No hidden fees, no long-term commitments.</p>
                 </div>
             </div>
         </header>
