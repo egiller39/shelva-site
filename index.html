@@ -250,7 +250,7 @@
 
     @media (prefers-reduced-motion: reduce) {
       .ix_marquee-vertical-down, .ix_marquee-vertical-up { animation: none; }
-      .mobile-hero-image img { animation: fadeInUp 0.8s ease-out; }
+      .mobile-hero-random-image { animation: fadeInUp 0.8s ease-out; }
       .icon, .icon svg, .icon img, .icon i { animation: none !important; }
     }
 
@@ -463,6 +463,10 @@
     .mobile-hero-image {
       display: none;
     }
+
+    .mobile-hero-random-image {
+      display: none;
+    }
     
     /* Hide mobile navigation on desktop */
     .nav_mobile-menu-button,
@@ -561,15 +565,15 @@
         text-align: center !important;
       }
       
-      .mobile-hero-image img {
-        width: 80% !important;
-        height: auto !important;
-        max-width: 80% !important;
-        margin: 0 auto !important;
+      .mobile-hero-random-image {
         display: block !important;
+        width: min(100%, 23rem) !important;
+        height: auto !important;
+        margin: 0 auto !important;
         visibility: visible !important;
         border-radius: 12px;
-        object-fit: contain;
+        object-fit: cover;
+        box-shadow: 0 16px 40px rgba(14, 18, 22, 0.22);
         animation: fadeInUp 0.8s ease-out, gentleFloat 3s ease-in-out 0.8s infinite;
         will-change: transform;
       }
@@ -1695,7 +1699,7 @@
             <div class="container is-max">
                                 <!-- Mobile-only hero image - shown above "Sync shelves" text -->
                                 <div class="mobile-hero-image">
-                                    <img src="/images/bright-shelva-app.png" alt="Shelva app interface" loading="eager"/>
+                                    <img class="mobile-hero-random-image" src="/images/live-media/black-rose/1.png" alt="Black Rose Hobbies shelf label example" loading="eager"/>
                                 </div>
                 <div class="w-layout-grid grid_2-col tablet-1-col gap-large">
                     <div id="w-node-_2e836beb-de99-de1f-b8ab-218c497db8f4-497db8f1" class="header max-width_small w-node-b68cdffb-0f4a-2758-13e0-ecfc7feb1c52-84834228">
@@ -2719,6 +2723,23 @@
             setTimeout(setupPaintbrushIcons, 500);
             setTimeout(setupPaintbrushIcons, 1000);
         }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var mobileHeroImage = document.querySelector('.mobile-hero-random-image');
+            if (!mobileHeroImage) return;
+
+            var blackRoseImages = [
+                '/images/live-media/black-rose/1.png',
+                '/images/live-media/black-rose/2.png',
+                '/images/live-media/black-rose/3.png',
+                '/images/live-media/black-rose/Poke-horizontal-pan.gif',
+                '/images/live-media/black-rose/Poke-innout.gif',
+                '/images/live-media/black-rose/YuGiOh-innout.gif'
+            ];
+            var randomIndex = Math.floor(Math.random() * blackRoseImages.length);
+            mobileHeroImage.src = blackRoseImages[randomIndex];
+        });
     </script>
 </body>
 </html>
