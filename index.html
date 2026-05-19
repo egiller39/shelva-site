@@ -789,14 +789,17 @@
 
     .reviews-carousel {
         margin-top: 1.25rem;
+        --review-card-width: 24rem;
     }
 
     .reviews-carousel_viewport {
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
+        overflow-x: hidden;
+        scroll-snap-type: none;
+        scroll-behavior: auto;
         scrollbar-width: none;
         -ms-overflow-style: none;
+        -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+        mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
     }
 
     .reviews-carousel_viewport::-webkit-scrollbar {
@@ -805,20 +808,37 @@
 
     .reviews-carousel_track {
         display: flex;
+        align-items: stretch;
+        width: max-content;
+        padding: 0.25rem 0 0.75rem;
+        animation: reviews-marquee 56s linear infinite;
+        will-change: transform;
+    }
+
+    .reviews-carousel_group {
+        display: flex;
         gap: 1rem;
         align-items: stretch;
-        justify-content: center;
-        padding: 0.25rem 0 0.75rem;
+        padding-right: 1rem;
     }
 
     .review-card {
-        width: 24rem;
-        min-width: 24rem;
-        max-width: 24rem;
+        width: var(--review-card-width);
+        min-width: var(--review-card-width);
+        max-width: var(--review-card-width);
         height: 9.5rem;
-        flex: 0 0 24rem;
+        flex: 0 0 var(--review-card-width);
         display: flex;
         scroll-snap-align: start;
+    }
+
+    @keyframes reviews-marquee {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-50%);
+        }
     }
 
     .review-card .card_body {
@@ -918,20 +938,29 @@
     }
 
     @media (max-width: 767px) {
-        .review-card {
-            width: 100%;
-            min-width: 100%;
-            max-width: 100%;
-            height: 10rem;
-            flex-basis: 100%;
+        .reviews-carousel {
+            --review-card-width: min(24rem, calc(100vw - 2rem));
         }
 
-        .reviews-carousel_track {
-            justify-content: flex-start;
+        .review-card {
+            height: 10rem;
         }
 
         .review-card .card_body {
             height: 100%;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .reviews-carousel_viewport {
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+        }
+
+        .reviews-carousel_track {
+            animation: none;
+            transform: none;
         }
     }
 
@@ -1989,36 +2018,90 @@
                 <div class="reviews-carousel" data-reviews-carousel>
                     <div class="reviews-carousel_viewport" tabindex="0" aria-label="Merchant reviews carousel">
                         <div class="reviews-carousel_track">
-                            <article class="card review-card">
-                                <div class="card_body">
-                                    <div class="review-logo-frame">
-                                        <img class="review-logo" src="/images/customer-logos/xpart-supply.png" alt="XPart Supply Ltd. logo" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
-                                        <span class="review-logo-fallback" hidden>XPart Supply Ltd.</span>
+                            <div class="reviews-carousel_group">
+                                <article class="card review-card">
+                                    <div class="card_body">
+                                        <div class="review-logo-frame">
+                                            <img class="review-logo" src="/images/customer-logos/xpart-supply.png" alt="XPart Supply Ltd. logo" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
+                                            <span class="review-logo-fallback" hidden>XPart Supply Ltd.</span>
+                                        </div>
+                                        <div class="review-stars" aria-label="5 out of 5 rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                        <p class="review-quote">"Very good product and service."</p>
                                     </div>
-                                    <div class="review-stars" aria-label="5 out of 5 rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                                    <p class="review-quote">"Very good product and service."</p>
-                                </div>
-                            </article>
-                            <article class="card review-card">
-                                <div class="card_body">
-                                    <div class="review-logo-frame">
-                                        <img class="review-logo" src="/images/customer-logos/fitness-new-zealand.png" alt="Fitness New Zealand logo" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
-                                        <span class="review-logo-fallback" hidden>Fitness New Zealand</span>
+                                </article>
+                                <article class="card review-card">
+                                    <div class="card_body">
+                                        <div class="review-logo-frame">
+                                            <img class="review-logo" src="/images/customer-logos/fitness-new-zealand.png" alt="Fitness New Zealand logo" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
+                                            <span class="review-logo-fallback" hidden>Fitness New Zealand</span>
+                                        </div>
+                                        <div class="review-stars" aria-label="5 out of 5 rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                        <p class="review-quote">"No more mucking round with different pricing in-store and online."</p>
                                     </div>
-                                    <div class="review-stars" aria-label="5 out of 5 rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                                    <p class="review-quote">"No more mucking round with different pricing in-store and online."</p>
-                                </div>
-                            </article>
-                            <article class="card review-card">
-                                <div class="card_body">
-                                    <div class="review-logo-frame">
-                                        <img class="review-logo" src="/images/customer-logos/black-rose-hobbies.png" alt="Black Rose Hobbies logo" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
-                                        <span class="review-logo-fallback" hidden>Black Rose Hobbies</span>
+                                </article>
+                                <article class="card review-card">
+                                    <div class="card_body">
+                                        <div class="review-logo-frame">
+                                            <img class="review-logo" src="/images/customer-logos/black-rose-hobbies.png" alt="Black Rose Hobbies logo" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
+                                            <span class="review-logo-fallback" hidden>Black Rose Hobbies</span>
+                                        </div>
+                                        <div class="review-stars" aria-label="5 out of 5 rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                        <p class="review-quote">"Solved a massive gap in the market with digital price tags."</p>
                                     </div>
-                                    <div class="review-stars" aria-label="5 out of 5 rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                                    <p class="review-quote">"Solved a massive gap in the market with digital price tags."</p>
-                                </div>
-                            </article>
+                                </article>
+                                <article class="card review-card">
+                                    <div class="card_body">
+                                        <div class="review-logo-frame">
+                                            <img class="review-logo" src="/images/customer-logos/awesome-card-shop.png" alt="Awesome Card Shop logo" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
+                                            <span class="review-logo-fallback" hidden>Awesome Card Shop</span>
+                                        </div>
+                                        <div class="review-stars" aria-label="5 out of 5 rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                        <p class="review-quote">"Hands down this is the best digital label app for Shopify."</p>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="reviews-carousel_group" aria-hidden="true">
+                                <article class="card review-card">
+                                    <div class="card_body">
+                                        <div class="review-logo-frame">
+                                            <img class="review-logo" src="/images/customer-logos/xpart-supply.png" alt="" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
+                                            <span class="review-logo-fallback" hidden>XPart Supply Ltd.</span>
+                                        </div>
+                                        <div class="review-stars" aria-label="5 out of 5 rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                        <p class="review-quote">"Very good product and service."</p>
+                                    </div>
+                                </article>
+                                <article class="card review-card">
+                                    <div class="card_body">
+                                        <div class="review-logo-frame">
+                                            <img class="review-logo" src="/images/customer-logos/fitness-new-zealand.png" alt="" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
+                                            <span class="review-logo-fallback" hidden>Fitness New Zealand</span>
+                                        </div>
+                                        <div class="review-stars" aria-label="5 out of 5 rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                        <p class="review-quote">"No more mucking round with different pricing in-store and online."</p>
+                                    </div>
+                                </article>
+                                <article class="card review-card">
+                                    <div class="card_body">
+                                        <div class="review-logo-frame">
+                                            <img class="review-logo" src="/images/customer-logos/black-rose-hobbies.png" alt="" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
+                                            <span class="review-logo-fallback" hidden>Black Rose Hobbies</span>
+                                        </div>
+                                        <div class="review-stars" aria-label="5 out of 5 rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                        <p class="review-quote">"Solved a massive gap in the market with digital price tags."</p>
+                                    </div>
+                                </article>
+                                <article class="card review-card">
+                                    <div class="card_body">
+                                        <div class="review-logo-frame">
+                                            <img class="review-logo" src="/images/customer-logos/awesome-card-shop.png" alt="" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
+                                            <span class="review-logo-fallback" hidden>Awesome Card Shop</span>
+                                        </div>
+                                        <div class="review-stars" aria-label="5 out of 5 rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                        <p class="review-quote">"Hands down this is the best digital label app for Shopify."</p>
+                                    </div>
+                                </article>
+                            </div>
                         </div>
                     </div>
                     <div class="reviews-carousel_controls" aria-label="Merchant review controls">
@@ -2029,6 +2112,7 @@
                             <button class="reviews-carousel_dot is-active" type="button" data-review-dot="0" aria-label="Show XPart Supply Ltd. review" aria-selected="true"></button>
                             <button class="reviews-carousel_dot" type="button" data-review-dot="1" aria-label="Show Fitness New Zealand review" aria-selected="false"></button>
                             <button class="reviews-carousel_dot" type="button" data-review-dot="2" aria-label="Show Black Rose Hobbies review" aria-selected="false"></button>
+                            <button class="reviews-carousel_dot" type="button" data-review-dot="3" aria-label="Show Awesome Card Shop review" aria-selected="false"></button>
                         </div>
                         <button class="reviews-carousel_button" type="button" data-review-next aria-label="Next review">
                             <i data-lucide="chevron-right" style="width: 1.25rem; height: 1.25rem;"></i>
@@ -2388,98 +2472,6 @@
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const carousel = document.querySelector('[data-reviews-carousel]');
-            if (!carousel) return;
-
-            const viewport = carousel.querySelector('.reviews-carousel_viewport');
-            const cards = Array.from(carousel.querySelectorAll('.review-card'));
-            const dots = Array.from(carousel.querySelectorAll('[data-review-dot]'));
-            const prevButton = carousel.querySelector('[data-review-prev]');
-            const nextButton = carousel.querySelector('[data-review-next]');
-            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            let activeIndex = 0;
-            let rotationTimer;
-
-            function setActiveDot(index) {
-                dots.forEach((dot, dotIndex) => {
-                    const isActive = dotIndex === index;
-                    dot.classList.toggle('is-active', isActive);
-                    dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
-                });
-            }
-
-            function goToReview(index) {
-                if (!viewport || !cards.length) return;
-                activeIndex = (index + cards.length) % cards.length;
-                viewport.scrollTo({
-                    left: cards[activeIndex].offsetLeft - cards[0].offsetLeft,
-                    behavior: reduceMotion ? 'auto' : 'smooth'
-                });
-                setActiveDot(activeIndex);
-            }
-
-            function updateActiveFromScroll() {
-                if (!viewport || !cards.length) return;
-                const scrollLeft = viewport.scrollLeft;
-                let closestIndex = 0;
-                let closestDistance = Number.POSITIVE_INFINITY;
-
-                cards.forEach((card, index) => {
-                    const distance = Math.abs((card.offsetLeft - cards[0].offsetLeft) - scrollLeft);
-                    if (distance < closestDistance) {
-                        closestDistance = distance;
-                        closestIndex = index;
-                    }
-                });
-
-                activeIndex = closestIndex;
-                setActiveDot(activeIndex);
-            }
-
-            function startRotation() {
-                if (reduceMotion || cards.length < 2) return;
-                stopRotation();
-                rotationTimer = window.setInterval(() => {
-                    goToReview(activeIndex + 1);
-                }, 6000);
-            }
-
-            function stopRotation() {
-                if (rotationTimer) {
-                    window.clearInterval(rotationTimer);
-                    rotationTimer = undefined;
-                }
-            }
-
-            prevButton?.addEventListener('click', function() {
-                goToReview(activeIndex - 1);
-                startRotation();
-            });
-
-            nextButton?.addEventListener('click', function() {
-                goToReview(activeIndex + 1);
-                startRotation();
-            });
-
-            dots.forEach(dot => {
-                dot.addEventListener('click', function() {
-                    goToReview(Number(this.dataset.reviewDot));
-                    startRotation();
-                });
-            });
-
-            viewport?.addEventListener('scroll', function() {
-                window.requestAnimationFrame(updateActiveFromScroll);
-            });
-
-            carousel.addEventListener('mouseenter', stopRotation);
-            carousel.addEventListener('mouseleave', startRotation);
-            carousel.addEventListener('focusin', stopRotation);
-            carousel.addEventListener('focusout', startRotation);
-
-            goToReview(0);
-            startRotation();
-
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
             }
