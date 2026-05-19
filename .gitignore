@@ -47,3 +47,6 @@ pids
 # Temporary files
 *.tmp
 *.temp
+
+# Build output
+dist/
