@@ -6,19 +6,17 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux]
     
     steps:
-    - name: Deploy to server
-      uses: appleboy/ssh-action@v0.1.5
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        script: |
-          cd ~/shelva-site
-          git pull origin main
-          cp -r *.html /var/www/shelva-site/
-          cp -r images/ /var/www/shelva-site/ 2>/dev/null || true
-          cp favicon.ico favicon.png icon.png /var/www/shelva-site/ 2>/dev/null || true
-          sudo systemctl reload nginx
+    - name: Checkout site
+      uses: actions/checkout@v4
+
+    - name: Deploy site files
+      run: |
+        set -euo pipefail
+        sudo mkdir -p /var/www/shelva-site
+        sudo cp -r ./*.html /var/www/shelva-site/
+        sudo cp -r ./images /var/www/shelva-site/
+        sudo cp -f favicon.ico favicon.png icon.png /var/www/shelva-site/
+        sudo systemctl reload nginx
