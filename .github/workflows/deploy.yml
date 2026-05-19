@@ -1,8 +1,7 @@
-name: Deploy to DigitalOcean
+name: Legacy Deploy to DigitalOcean
 
 on:
-  push:
-    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   deploy:
