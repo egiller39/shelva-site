@@ -318,6 +318,14 @@
             object-fit: cover;
             background: var(--shelva-sand-light);
         }
+
+        .release-image-placeholder {
+            width: 180px;
+            aspect-ratio: 16 / 9;
+            flex-shrink: 0;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--shelva-sand-light), var(--shelva-coral-light));
+        }
         
         .release-header-content {
             flex: 1;
@@ -637,6 +645,73 @@
     <section class="section">
         <div class="container">
             <div class="release-notes-container">
+                <!-- Release 2.7 -->
+                <div class="release-item" data-release="2.7">
+                    <div class="release-header">
+                        <div class="release-image-placeholder" role="img" aria-label="Version 2.7 release image placeholder"></div>
+                        <div class="release-header-content">
+                            <div class="release-version">Version 2.7</div>
+                            <div class="release-date">May 29, 2026</div>
+                            <div class="release-preview">Broken label management, POS Quick Actions, improved product search, and safer label workflows for faster in-store label control.</div>
+                        </div>
+                        <svg class="release-chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                    <div class="release-content">
+                        <div class="release-content-inner">
+                            <div class="release-section">
+                                <div class="release-section-title">
+                                    <span>&#10024; What's New in This Update</span>
+                                </div>
+                                <div class="release-section-content">
+                                    <p><strong>Broken Label Management</strong></p>
+                                    <p>Shelva now gives you a safer way to manage damaged or unusable labels.</p>
+                                    <p>Labels can now be marked as Broken from hardware management and POS workflows. When a label is marked broken, Shelva automatically prevents it from being paired, published, flashed, or reused by accident.</p>
+                                    <p>If the label is currently paired to a product, Shelva asks for confirmation before disconnecting it.</p>
+                                    <p>You can also mark a label as working again if it becomes usable later.</p>
+
+                                    <p><strong>Shelva Quick Actions in Shopify POS</strong></p>
+                                    <p>Shelva now includes a new Quick Actions tile in Shopify POS, giving store staff access to key label tools without needing to open a product first.</p>
+                                    <p>From the POS Label Command Center, staff can:</p>
+                                    <ul>
+                                        <li>Look up a label by scanning or entering its barcode</li>
+                                        <li>View label status, battery, published state, and location context</li>
+                                        <li>Flash, unpair, pair, publish, or mark a label as broken</li>
+                                        <li>See labels that may need attention, such as low battery or low signal labels</li>
+                                    </ul>
+                                    <p>This makes it much easier to manage labels directly from the sales floor.</p>
+
+                                    <p><strong>Better Product and Label Search</strong></p>
+                                    <p>Search is now more flexible across Shelva.</p>
+                                    <p>You can now search the products page by paired label barcode, making it easier to find which product a specific label is connected to.</p>
+                                    <p>POS product search has also been improved to match SKU and barcode in addition to product title and vendor.</p>
+
+                                    <p><strong>Unpaired Products Tab</strong></p>
+                                    <p>The products page now includes a dedicated Unpaired tab, making it easier to find products that still need labels.</p>
+                                </div>
+                            </div>
+
+                            <div class="release-section">
+                                <div class="release-section-title">
+                                    <span>&#127912; App Experience Improvements</span>
+                                </div>
+                                <div class="release-section-content">
+                                    <p><strong>Cleaner POS Label Workflows</strong></p>
+                                    <p>POS actions now provide clearer status updates when pairing, publishing, republishing, flashing, or reassigning labels.</p>
+                                    <p>Hub signal badges are also shown in more places, giving staff better context before taking action.</p>
+
+                                    <p><strong>Improved Hardware Visibility</strong></p>
+                                    <p>The hardware page now makes broken labels easier to identify and manage with a clear badge, a dedicated Broken filter, and the ability to return labels to working status when needed.</p>
+
+                                    <p><strong>More Reliable Label Design Navigation</strong></p>
+                                    <p>Label design links now open the intended size and template more reliably, making it easier to jump directly into the right design when editing templates.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Release 2.6 -->
                 <div class="release-item" data-release="2.6">
                     <div class="release-header">
