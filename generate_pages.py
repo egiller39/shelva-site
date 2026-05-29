@@ -93,7 +93,7 @@ PAGES = {
                     <li class="card on-secondary">
                         <div class="card_body">
                             <div class="margin_bottom-auto">
-                                <h4 class="heading_h3">Growth</h4>
+                                <h4 class="heading_h3">Grow</h4>
                                 <p class="paragraph-3">Up to 500 shelf labels for expanding stores. Access advanced design, and priority support. 1 location.</p>
                             </div>
                             <div class="margin-top_large">
@@ -184,11 +184,14 @@ PAGES = {
         "description": "Learn how to set up Shelva digital shelf labels with your Shopify store. Step-by-step guide to installation, configuration, and management.",
         "active_nav": "HOW_IT_WORKS_ACTIVE",
         "content": """
-        <header class="section is-accent-primary">
+        <header class="section is-accent-primary" style="padding-bottom: 2rem;">
             <div class="container is-small">
                 <div class="header is-align-center">
                     <h1 class="heading_h1">How Shelva Works</h1>
                     <p class="subheading">Get your digital shelf labels up and running in minutes with our simple setup process.</p>
+                    <div style="margin: 1rem auto 0; max-width: 1200px; width: 100%; aspect-ratio: 16/9; position: relative;">
+                        <img style="position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; transform: translate(-50%, -50%); object-fit: contain;" src="/images/Shelva-Flow.gif" alt="How Shelva Works" loading="lazy"/>
+                    </div>
                 </div>
             </div>
         </header>
@@ -259,8 +262,8 @@ PAGES = {
                     <h2 class="heading_h2">Why Choose Shelva?</h2>
                     <p class="paragraph_large">Built specifically for Shopify merchants with seamless integration and powerful features.</p>
                 </div>
-                <div class="w-layout-grid grid_3-col gap-medium">
-                    <div class="card on-secondary">
+                <div class="w-layout-grid grid_3-col gap-medium" style="row-gap: 0.75rem;">
+                    <div class="card on-secondary" style="margin-bottom: 0;">
                         <div class="card_body">
                             <div class="icon margin-bottom_xsmall">
                                 <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none">
@@ -271,7 +274,7 @@ PAGES = {
                             <p class="margin-bottom_none">No CSV exports or separate portals. Everything works directly within your Shopify admin.</p>
                         </div>
                     </div>
-                    <div class="card on-secondary">
+                    <div class="card on-secondary" style="margin-bottom: 0;">
                         <div class="card_body">
                             <div class="icon margin-bottom_xsmall">
                                 <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none">
@@ -282,7 +285,7 @@ PAGES = {
                             <p class="margin-bottom_none">Product changes, price updates, and inventory adjustments sync instantly to all your shelf labels.</p>
                         </div>
                     </div>
-                    <div class="card on-secondary">
+                    <div class="card on-secondary" style="margin-bottom: 0;">
                         <div class="card_body">
                             <div class="icon margin-bottom_xsmall">
                                 <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none">
@@ -348,7 +351,7 @@ PAGES = {
                     <div class="card">
                         <div class="card_body">
                             <div class="margin_bottom-auto">
-                                <h4 class="heading_h3">Growth</h4>
+                                <h4 class="heading_h3">Grow</h4>
                                 <p class="paragraph">Ideal for expanding stores that need more labels and advanced features.</p>
                                 <ul class="w-list-unstyled">
                                     <li>Up to 500 digital shelf labels</li>
